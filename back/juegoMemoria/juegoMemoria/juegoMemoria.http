@@ -1,0 +1,6 @@
+@juegoMemoria_HostAddress = http://localhost:5097
+
+GET {{juegoMemoria_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

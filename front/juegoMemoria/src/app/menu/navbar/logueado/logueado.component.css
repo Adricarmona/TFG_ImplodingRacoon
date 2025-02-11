@@ -1,0 +1,77 @@
+/**
+*       ESTA SECICON ES PARA EL GRID
+*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    grid-template-rows: 1fr 1fr;  /* Dos filas para la primera columna */
+    gap: 20px;
+
+    padding: 2vh;
+}
+
+.botonAmigos {
+    grid-column: 1;  /* Primera columna */
+    grid-row: 1;     /* Primera fila */
+}
+
+.usuariosConectados {
+    grid-column: 1;  /* Primera columna */
+    grid-row: 2;     /* Segunda fila */
+}
+
+.perfilUsuario {
+    grid-column: 2;  /* Segunda columna ocupando ambas filas */
+    grid-row: 1 / span 2;
+
+    display: flex; 
+    align-items: start;
+}
+
+/**
+*       AQUI VA EL BOTON DE AMIGOS
+*/
+.botones {
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white; 
+    border: 2px solid #000000;
+}
+
+.botones:hover {
+    background-color: rgba(255, 255, 255, 0.727);
+    transform: scale(0.9);
+}
+
+.botones:active {
+    transform: scale(0.8);
+}
+
+#amigosBoton {
+    padding: 1vh 4vh;
+}
+
+/**
+*       EL PERFIL DE USUARIO
+*/
+.perfilUsuario {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.perfilUsuario:hover {
+    transform: scale(0.9);
+}
+
+.perfilUsuario:active {
+    transform: scale(0.8);
+}
+
+#imagenPerfil {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}

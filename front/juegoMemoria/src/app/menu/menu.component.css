@@ -12,8 +12,9 @@
 
 #cuadradoCentrar {
     border-radius: 30px;
-    border: 2px solid black;
+    border: 4px solid black;
     background-color: rgba(79, 79, 79, 0.604);
+    padding: 5px 15px;
 }
 
 /***
@@ -21,7 +22,7 @@
 */
 hr {
     border: none;
-    border-top: 3px solid #000;
-    width: 80%;
+    border-top: 4px solid #000;
+    width: 90%;
     margin: 0 auto;
 }

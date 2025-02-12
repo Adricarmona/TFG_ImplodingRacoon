@@ -1,0 +1,33 @@
+.parentGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 1vh;
+}
+
+.iconoGithub {
+    width: 40px;
+}
+
+.enlaces {
+    text-decoration: none;
+    color: inherit;
+
+    display: flex;
+    align-items: center;
+}
+
+.enlaces:hover {
+    transform: scale(0.9);
+}
+
+.enlaces:active {
+    transform: scale(0.8);
+}
+
+#githubAdrian { grid-area: 1 / 1 / 2 / 2; }
+#githubHector { grid-area: 1 / 2 / 2 / 3; }
+#linkedinAdrian { grid-area: 2 / 1 / 3 / 2; }
+#linkedinHector { grid-area: 2 / 2 / 3 / 3; }

@@ -14,7 +14,15 @@
 
             <hr>
 
-            <app-opciones-menu></app-opciones-menu>
+            @if (false) {
+                <app-opciones-menu></app-opciones-menu>
+            }
+            @else if(true) {
+                <app-registro></app-registro>
+            }
+            @else {
+                <app-login></app-login>
+            }
 
             <hr>
 

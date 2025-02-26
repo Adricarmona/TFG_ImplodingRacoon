@@ -1,3 +1,5 @@
+using Microsoft.Extensions.FileProviders;
+
 namespace implodingRacoon
 {
     public class Program
@@ -13,6 +15,13 @@ namespace implodingRacoon
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+
+
+
+            ///
+            ///     APP
+            ///
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -21,6 +30,14 @@ namespace implodingRacoon
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            // Para las fotos
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"))
+            });
+
+            app.UseWebSockets();
 
             app.UseHttpsRedirection();
 

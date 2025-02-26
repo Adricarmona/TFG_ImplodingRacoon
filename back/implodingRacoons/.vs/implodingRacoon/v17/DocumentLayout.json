@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\implodingracoonscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\implodingracoonscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\entities\\usuariohistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\entities\\usuariohistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,8 +70,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 822,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Settings.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Settings.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Settings.cs",
+              "RelativeToolTip": "implodingRacoon\\Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T00:54:35.765Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
@@ -66,7 +96,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ImplodingRacoonsContext.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\ImplodingRacoonsContext.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\ImplodingRacoonsContext.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\ImplodingRacoonsContext.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\ImplodingRacoonsContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T00:50:58.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\UnitOfWork.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\UnitOfWork.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T00:47:39.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\IUnitOfWork.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\IUnitOfWork.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T00:39:39.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\appsettings.json",
               "RelativeDocumentMoniker": "implodingRacoon\\appsettings.json",
@@ -79,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "UsuarioHistorial.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\UsuarioHistorial.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\UsuarioHistorial.cs",
@@ -92,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "HistorialPartidas.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\HistorialPartidas.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\HistorialPartidas.cs",
@@ -105,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Carta.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Carta.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Carta.cs",
@@ -118,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Comentario.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Comentario.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Comentario.cs",
@@ -131,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Publicacion.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Publicacion.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Publicacion.cs",
@@ -144,7 +213,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Program.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Program.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Program.cs",
+              "RelativeToolTip": "implodingRacoon\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T12:26:05.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "SolicitudAmistad.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\SolicitudAmistad.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\SolicitudAmistad.cs",
@@ -157,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Usuario.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
@@ -170,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Disenio.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Disenio.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Disenio.cs",
@@ -183,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\WeatherForecastController.cs",
@@ -192,19 +274,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T12:36:26.389Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Program.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Program.cs",
-              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Program.cs",
-              "RelativeToolTip": "implodingRacoon\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T12:26:05.987Z",
               "EditorCaption": ""
             }
           ]

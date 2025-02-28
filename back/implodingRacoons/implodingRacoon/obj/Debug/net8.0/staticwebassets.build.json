@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "ER9/gaNTIEqpxRgsPTrmvJylDESNhlCXCH7vTNPmaw8=",
+  "Hash": "AqK2Vi4CXzEEtZmh3zl+awrIBqVn/sGZiCgN9vRF0YQ=",
   "Source": "implodingRacoon",
   "BasePath": "_content/implodingRacoon",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "implodingRacoon\\wwwroot",
+      "Source": "implodingRacoon",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }

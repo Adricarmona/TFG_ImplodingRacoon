@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace implodingRacoon.Models.Database.Entities
 {
@@ -7,12 +7,14 @@ namespace implodingRacoon.Models.Database.Entities
     {
         [Key]
         public int Id { get; set; }
-        public int UsuarioId { get; set; }
-        public int UsuarioSolicitadoId { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public Usuario Usuario { get; set; }
-        [ForeignKey("UsuarioSolicitadoId")]
-        public Usuario UsuarioSolicitado { get; set; }
+        public int UsuarioEnviaId { get; set; }  // Usuario que envía la solicitud
+        public int UsuarioRecibeId { get; set; }  // Usuario que recibe la solicitud
+
+        [ForeignKey("UsuarioEnviaId")]
+        public Usuario UsuarioEnvia { get; set; }
+
+        [ForeignKey("UsuarioRecibeId")]
+        public Usuario UsuarioRecibe { get; set; }
     }
 }

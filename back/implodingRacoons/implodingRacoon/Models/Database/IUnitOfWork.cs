@@ -1,4 +1,4 @@
-﻿namespace implodingRacoon.Models
+﻿namespace implodingRacoon.Models.Database
 {
     public interface IUnitOfWork : IDisposable
     {

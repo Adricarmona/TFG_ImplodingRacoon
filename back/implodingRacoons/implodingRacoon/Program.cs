@@ -1,3 +1,4 @@
+using implodingRacoon.Models.Database;
 using Microsoft.Extensions.FileProviders;
 
 namespace implodingRacoon
@@ -8,7 +9,7 @@ namespace implodingRacoon
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddScoped<ImplodingRacoonsContext>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,6 +24,14 @@ namespace implodingRacoon
             ///     APP
             ///
             var app = builder.Build();
+
+            // para la base de datos
+            using (IServiceScope scope = app.Services.CreateScope())
+            {
+                ImplodingRacoonsContext implodingRacoonsContext = scope.ServiceProvider.GetService<ImplodingRacoonsContext>();
+                implodingRacoonsContext.Database.EnsureCreated();
+            }
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

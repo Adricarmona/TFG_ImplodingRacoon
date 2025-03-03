@@ -1,0 +1,54 @@
+form { /*       Form centrado   */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2vh;
+}
+
+#tituloRegistro  {
+    font-size: 3em;
+}
+
+
+/*      rectangulos         */
+.rectangulos {
+    background-color: white;
+    border-radius: 10px;
+    background-color: white; 
+    border: 1px solid #000000;
+}
+
+/*     Texto al ingresar       */
+#texto { 
+    padding: 0.5vh;
+    margin-bottom: 2vh;
+}
+
+.negrita {
+    font-weight: bolder;
+}
+
+/*
+ *      BOTON
+ */
+#botones {
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white; 
+    border: 1px solid #000000;
+
+    padding: 1vh 2.5vh;
+    margin-bottom: 2vh;
+}
+
+#botones:hover {
+    background-color: rgba(255, 255, 255, 0.727);
+    transform: scale(0.9);
+}
+
+#botones:active {
+    transform: scale(0.8);
+}

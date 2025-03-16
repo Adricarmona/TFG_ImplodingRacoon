@@ -23,9 +23,9 @@ To deploy this project run
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
-Diagrama Entidad Relacion
-![Diagrama_ER](recursosReadme/image.png)
+[Documentation](https://linktodocumentation) 
+Diagrama Entidad Relacion 
+![Diagrama_ER](recursosReadme/image.png) 
 
 ## Recursos
 

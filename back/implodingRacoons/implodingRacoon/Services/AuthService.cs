@@ -2,8 +2,11 @@
 using System.Security.Claims;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
+using implodingRacoon.Models.Database.Entities;
 using implodingRacoon.Models.Database.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -36,23 +39,36 @@ namespace implodingRacoon.Services
             }).ToList();
         }
 
-        public async Task<UserSimple> getUser(LoginRequest loginRequest)
+        public async Task<UserSimple> GetUser(LoginRequest loginRequest)
         {
             return await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser); ;
         }
 
-        public async Task<string> login(LoginRequest loginRequest)
+        public async Task<string> Login(LoginRequest loginRequest)
         {
             UserSimple usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser);
 
             if (usuario == null) return null;
 
-            String token = obtenerJWT(usuario);
+            String token = ObtenerJWT(usuario);
 
             return token;
         }
 
-        public string obtenerJWT(UserSimple usuario)
+        public async Task<string> Register(UserRegister userRegister)
+        {
+            UserSimple usuarioSimple = await _unitOfWork.UsuarioRepository.AddUser(userRegister);
+
+            if (usuarioSimple == null) return null;
+
+            String token = ObtenerJWT(usuarioSimple);
+
+            await _unitOfWork.SaveAsync();
+
+            return token;
+        }
+
+        public string ObtenerJWT(UserSimple usuario)
         {
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -61,7 +77,7 @@ namespace implodingRacoon.Services
                 {
                     { "id", usuario.Id },
                     { "name", usuario.NombreUsuario },
-                    { ClaimTypes.Role, usuario.admin },
+                    { ClaimTypes.Role, usuario.Admin },
                     { "image", usuario.Foto }
                 },
                 Expires = DateTime.UtcNow.AddYears(3),

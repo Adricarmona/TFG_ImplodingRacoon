@@ -34,7 +34,7 @@ namespace implodingRacoon.Controllers
             if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
 
 
-            UserSimple usuario = await _authSevice.getUser(user);
+            UserSimple usuario = await _authSevice.GetUser(user);
 
             if (usuario == null) return NotFound("Usuario no encontrado");
 
@@ -52,11 +52,29 @@ namespace implodingRacoon.Controllers
             if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
 
 
-            String token = await _authSevice.login(user);
+            String token = await _authSevice.Login(user);
 
             if (token == null) return NotFound("Usuario no encontrado");
 
             return Ok(token);
+        }
+
+        [HttpPost("Register")]
+        public async Task<ActionResult<string>> RegisterAsync([FromBody] UserRegister user)
+        {
+            if (user == null) return NotFound("No ingresado");
+
+            if (string.IsNullOrEmpty(user.NombreUsuario)) return NotFound("Usuario vacio");
+
+            if (string.IsNullOrEmpty(user.Correo)) return NotFound("Correo vacio");
+
+            if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
+
+            String resultado = await _authSevice.Register(user);
+
+            if (string.IsNullOrEmpty(resultado)) return NotFound(resultado);
+
+            return Ok(resultado);
         }
     }
 }

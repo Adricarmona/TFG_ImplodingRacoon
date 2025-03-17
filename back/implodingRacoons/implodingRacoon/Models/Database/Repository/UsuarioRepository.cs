@@ -1,6 +1,8 @@
 ﻿using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
 using implodingRacoon.Models.Database.Repository.Repository;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace implodingRacoon.Models.Database.Repository
@@ -24,6 +26,31 @@ namespace implodingRacoon.Models.Database.Repository
                 Conectado = usuario.Conectado
             };
 
+        }
+
+        public async Task<UserSimple> AddUser(UserRegister user)
+        {
+            Usuario usuario = new Usuario
+            {
+                NombreUsuario = user.NombreUsuario,
+                Correo = user.Correo,
+                Contrasena = user.Password,
+                Foto = null, 
+                Conectado = true,
+                Admin = false
+            };
+
+            Usuario usuarioIngresado = await InsertAsync(usuario);
+
+            return new UserSimple
+            {
+                Id = usuarioIngresado.Id,
+                NombreUsuario = usuarioIngresado.NombreUsuario,
+                Correo = usuarioIngresado.Correo,
+                Foto = usuarioIngresado.Foto,
+                Conectado = usuarioIngresado.Conectado,
+                Admin = usuarioIngresado.Admin,
+            };
         }
     }
 }

@@ -27,6 +27,32 @@
   },
   {
     "ContainingType": "implodingRacoon.Controllers.AuthController",
+    "Method": "RegisterAsync",
+    "RelativePath": "Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "implodingRacoon.Models.Database.Dto.UserRegister",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "implodingRacoon.Controllers.AuthController",
     "Method": "getAllUsersAsync",
     "RelativePath": "Auth/Todos los usuarios",
     "HttpMethod": "GET",

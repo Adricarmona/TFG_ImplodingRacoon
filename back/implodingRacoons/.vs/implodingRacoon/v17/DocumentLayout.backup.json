@@ -11,12 +11,24 @@
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\dto\\usersimple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\dto\\usersimple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\repository\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\repository\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\repository\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\repository\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 889,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +50,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T17:25:52.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
               "RelativeToolTip": "implodingRacoon\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwB8AAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwDsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T23:33:05.672Z",
               "EditorCaption": ""
@@ -53,7 +78,7 @@
         },
         {
           "DockedWidth": 1022,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,28 +98,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserSimple.cs",
-              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
-              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
-              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\Repository\\IRepository.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Repository\\Repository\\IRepository.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\Repository\\IRepository.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Repository\\Repository\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T13:31:44.399Z",
+              "WhenOpened": "2025-03-17T17:37:56.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Repository\\Repository\\Repository.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\Repository\\Repository.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Repository\\Repository\\Repository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T17:26:04.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Usuario.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
               "RelativeToolTip": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T13:18:55.472Z",
+              "WhenOpened": "2025-03-17T17:31:32.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserSimple.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
+              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Dto\\UserSimple.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T18:08:09.121Z",
               "EditorCaption": ""
             },
             {
@@ -105,7 +156,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Services\\AuthService.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\AuthService.cs",
               "RelativeToolTip": "implodingRacoon\\Services\\AuthService.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T23:51:14.714Z",
               "EditorCaption": ""

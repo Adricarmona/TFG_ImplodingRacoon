@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace juegoMemoria.Controllers
+namespace implodingRacoon.Controllers
 {
     [ApiController]
     [Route("[controller]")]

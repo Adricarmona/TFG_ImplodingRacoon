@@ -1,6 +1,32 @@
 [
   {
-    "ContainingType": "juegoMemoria.Controllers.WeatherForecastController",
+    "ContainingType": "implodingRacoon.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "implodingRacoon.Models.Database.Dto.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "implodingRacoon.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
     "HttpMethod": "GET",

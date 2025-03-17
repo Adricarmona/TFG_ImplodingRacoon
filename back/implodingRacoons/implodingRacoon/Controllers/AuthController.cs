@@ -1,4 +1,7 @@
-﻿using implodingRacoon.Models.Database.Dto;
+﻿using System.Collections;
+using implodingRacoon.Models.Database.Dto;
+using implodingRacoon.Models.Database.Entities;
+using implodingRacoon.Services;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -9,30 +12,51 @@ namespace implodingRacoon.Controllers
     [Route("[controller]")]
     public class AuthController : Controller
     {
-        public AuthController()
+        private AuthService _authSevice;
+        public AuthController(AuthService authSevice)
         {
+            _authSevice = authSevice;
         }
 
-        [HttpPost("Login")]
-        public ActionResult<string> Login([FromBody] LoginRequest user)
+        [HttpGet("Todos los usuarios")]
+        public async Task<ICollection<UserSimple>> getAllUsersAsync()
         {
-            if (user != null)
-            {
-                return NotFound("No ingresado");
-            }
+            return await _authSevice.GetAllUsersAsync();
+        }
 
-            if (string.IsNullOrEmpty(user.EmailOrUser))
-            {
-                return NotFound("Usuario vacio");
-            }
+        [HttpPost("usuarioConcreto")]
+        public async Task<ActionResult<UserSimple>> LoginUsuarioIndicadoAsync([FromBody] LoginRequest user)
+        {
+            if (user == null) return NotFound("No ingresado");
 
-            if (string.IsNullOrEmpty(user.Password))
-            {
-                return NotFound("Contraseña vacia");
-            }
+            if (string.IsNullOrEmpty(user.EmailOrUser)) return NotFound("Usuario vacio");
+
+            if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
 
 
-            return Ok("Yes");
+            UserSimple usuario = await _authSevice.getUser(user);
+
+            if (usuario == null) return NotFound("Usuario no encontrado");
+
+            return Ok(usuario);
+        }
+
+
+        [HttpPost("Login")]
+        public async Task<ActionResult<string>> LoginAsync([FromBody] LoginRequest user)
+        {
+            if (user == null) return NotFound("No ingresado");
+
+            if (string.IsNullOrEmpty(user.EmailOrUser)) return NotFound("Usuario vacio");
+
+            if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
+
+
+            String token = await _authSevice.login(user);
+
+            if (token == null) return NotFound("Usuario no encontrado");
+
+            return Ok(token);
         }
     }
 }

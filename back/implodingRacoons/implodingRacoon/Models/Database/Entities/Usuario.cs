@@ -12,6 +12,7 @@ namespace implodingRacoon.Models.Database.Entities
         public string Contrasena { get; set; }
         public string Foto { get; set; }
         public bool Conectado { get; set; }
+        public bool admin { get; set; }
 
         // Relaciones de amistad
         public ICollection<SolicitudAmistad> SolicitudesEnviadas { get; set; }

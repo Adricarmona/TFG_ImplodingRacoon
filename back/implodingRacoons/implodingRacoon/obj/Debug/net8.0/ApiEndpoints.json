@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "implodingRacoon.Controllers.AuthController",
-    "Method": "Login",
+    "Method": "LoginAsync",
     "RelativePath": "Auth/Login",
     "HttpMethod": "POST",
     "IsController": true,
@@ -16,6 +16,52 @@
     "ReturnTypes": [
       {
         "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "implodingRacoon.Controllers.AuthController",
+    "Method": "getAllUsersAsync",
+    "RelativePath": "Auth/Todos los usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[implodingRacoon.Models.Database.Dto.UserSimple, implodingRacoon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "implodingRacoon.Controllers.AuthController",
+    "Method": "LoginUsuarioIndicadoAsync",
+    "RelativePath": "Auth/usuarioConcreto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "implodingRacoon.Models.Database.Dto.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "implodingRacoon.Models.Database.Dto.UserSimple",
         "MediaTypes": [
           "text/plain",
           "application/json",

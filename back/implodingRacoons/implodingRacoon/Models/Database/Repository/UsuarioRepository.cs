@@ -35,7 +35,7 @@ namespace implodingRacoon.Models.Database.Repository
                 NombreUsuario = user.NombreUsuario,
                 Correo = user.Correo,
                 Contrasena = user.Password,
-                Foto = null, 
+                Foto = "fotoGenerica.png", 
                 Conectado = true,
                 Admin = false
             };

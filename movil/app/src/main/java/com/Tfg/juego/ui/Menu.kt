@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -49,9 +50,16 @@ fun menu() {
             usuarioSinIniciar()
         }
 
+        if (true) {
+            menuInicial()
+        }
+
     }
 }
 
+/**
+ * Botones de cuando estes sin iniciar
+ */
 @Composable
 fun usuarioSinIniciar() {
 
@@ -62,23 +70,75 @@ fun usuarioSinIniciar() {
 
         BotonCustom(
             text = "Registrar",
-            backgroundColor = Color.White,
-            textColor = Color.Black,
+            width = 170.dp,
             onClick = { /* Acción */ }
         )
 
-        Spacer(modifier = Modifier.width(30.dp))
+        Spacer(modifier = Modifier.width(10.dp))
 
         BotonCustom(
             text = "Iniciar session",
-            backgroundColor = Color.White,
-            textColor = Color.Black,
+            width = 170.dp,
             onClick = { /* Acción */ }
         )
 
     }
 
 }
+
+/**
+ * EL menu inicial con todos los botones
+ */
+@Composable
+fun menuInicial() {
+    val image: Painter = painterResource(id = R.drawable.img_iconochatgpt)
+
+    Spacer(modifier = Modifier.height(45.dp))
+
+    Image(
+        painter = image,
+        contentDescription = "",
+        modifier = Modifier
+            .size(200.dp)
+    )
+
+    Spacer(modifier = Modifier.height(45.dp))
+
+    BotonCustom(
+        text = "Unirse a una mesa",
+        height = 200.dp,
+        width = 300.dp)
+    { /* Acción */ }
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    BotonCustom(
+        text = "Wiki",
+        height = 60.dp,
+        width = 300.dp)
+    { /* Acción */ }
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    Row(
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+        BotonCustom(
+            text = "Ajustes",
+            height = 60.dp,
+            width = 142.dp)
+        { /* Acción */ }
+
+        Spacer(modifier = Modifier.width(15.dp))
+
+        BotonCustom(
+            text = "Sobre nosotros",
+            height = 60.dp,
+            width = 142.dp)
+        { /* Acción */ }
+    }
+}
+
 
 /**
  * Este composable es de cuando en el navbar estas con la cuenta iniciada
@@ -93,8 +153,6 @@ fun usuarioIniciado() {
     ){
         BotonCustom(
             text = "Amigos",
-            backgroundColor = Color.White,
-            textColor = Color.Black,
             onClick = { /* Acción */ }
         )
 

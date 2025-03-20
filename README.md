@@ -17,7 +17,7 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 To deploy this project run
 
 ```bash
-  npm run deploy
+  aqui ira para ejecutarlo y eso
 ```
 
 

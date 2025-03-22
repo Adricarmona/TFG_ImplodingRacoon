@@ -7,7 +7,7 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 
 
 ## Anteproyecto
-[Link Anteproyecto]([https://trello.com/b/0hjXPQi0/imploding-raccoons](https://docs.google.com/document/d/1dbNNTdb8QzlD5lRAiDT1_BaWJLE6FMgzKpKCUVFwbn4/edit?usp=sharing))
+[Link Anteproyecto](https://docs.google.com/document/d/1dbNNTdb8QzlD5lRAiDT1_BaWJLE6FMgzKpKCUVFwbn4/edit?usp=sharing)
 
 ## Screenshots
 

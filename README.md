@@ -25,7 +25,8 @@ To deploy this project run
 
 ## Documentation
 
+[Link Trello](https://trello.com/b/0hjXPQi0/imploding-raccoons)
+
 Diagrama Entidad Relacion:  
 ![Diagrama_ER](recursosReadme/image.png) 
  
-[Link Trello](https://trello.com/b/0hjXPQi0/imploding-raccoons)

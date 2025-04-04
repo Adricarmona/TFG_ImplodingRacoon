@@ -14,11 +14,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,6 +38,8 @@ import com.Tfg.juego.ui.usables.textoOscuroLoginRegistro
 
 @Composable
 fun menu() {
+    var menuInicial by remember { mutableIntStateOf(0) }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         //verticalArrangement = Arrangement.Center,
@@ -47,13 +51,15 @@ fun menu() {
         if (false) {
             usuarioIniciado()
         } else {
-            usuarioSinIniciar()
+            usuarioSinIniciar({ menuInicial = 1 }, { menuInicial = 2 })
         }
 
-        if (false) {
+        if (menuInicial == 1) {
+            registro( { menuInicial = 0 })
+        } else if(menuInicial == 2){
+            login( { menuInicial = 0 })
+        } else {
             menuInicial()
-        } else if(true){
-            login()
         }
 
     }
@@ -63,7 +69,9 @@ fun menu() {
  * Botones de cuando estes sin iniciar
  */
 @Composable
-fun usuarioSinIniciar() {
+fun usuarioSinIniciar(
+    botonRegistro: () -> Unit,
+    botonLogin: () -> Unit) {
 
     Row (
         horizontalArrangement = Arrangement.Center,
@@ -73,15 +81,15 @@ fun usuarioSinIniciar() {
         BotonCustom(
             text = "Registrar",
             width = 170.dp,
-            onClick = { /* Acción */ }
+            onClick = { botonRegistro() }
         )
 
         Spacer(modifier = Modifier.width(10.dp))
 
         BotonCustom(
-            text = "Iniciar session",
+            text = "Iniciar sesion",
             width = 170.dp,
-            onClick = { /* Acción */ }
+            onClick = { botonLogin() }
         )
 
     }
@@ -175,7 +183,9 @@ fun usuarioIniciado() {
 }
 
 @Composable
-fun login() {
+fun login(
+    botonMenu: () -> Unit
+) {
     // Estado para guardar lo que el usuario escribe
     val usuario_correo = remember { mutableStateOf("") }
     val contrasenia = remember { mutableStateOf("") }
@@ -209,6 +219,70 @@ fun login() {
 
     }
 
+    BotonCustom(
+        text = "Iniciar sesion",
+        width = 160.dp,
+        height = 50.dp,
+        onClick = { botonMenu() }
+    )
+
+}
+
+@Composable
+fun registro(
+    botonMenu: () -> Unit
+) {
+    // Estado para guardar lo que el usuario escribe
+    val usuario = remember { mutableStateOf("") }
+    val correo = remember { mutableStateOf("") }
+    val contrasenia = remember { mutableStateOf("") }
+    val contraseniaRepetida = remember { mutableStateOf("") }
+    val recuerdaCuenta = remember { mutableStateOf(true) }
+
+    Spacer(modifier = Modifier.height(110.dp))
+
+    textoLoginYRegistro("Registro")
+
+    Spacer(modifier = Modifier.height(50.dp))
+
+    textoOscuroLoginRegistro("Usuario")
+    outlinedTextFieldLoginRegistro(usuario, "usuario")
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    textoOscuroLoginRegistro("Correo")
+    outlinedTextFieldLoginRegistro(correo, "correo")
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    textoOscuroLoginRegistro("Contraseña")
+    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••")
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    textoOscuroLoginRegistro("Repetir contraseña")
+    outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••")
+
+    val checkedState = remember { mutableStateOf(true) }
+    Row (
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(55.dp, 0.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ){
+        CheckBoxLoginRegistro(
+            recuerdaCuenta,
+            "Recordar cuenta"
+        )
+
+    }
+
+    BotonCustom(
+        text = "Iniciar sesion",
+        width = 160.dp,
+        height = 50.dp,
+        onClick = { botonMenu() }
+    )
 
 }
 

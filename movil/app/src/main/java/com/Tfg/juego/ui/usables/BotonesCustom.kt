@@ -1,12 +1,14 @@
 package com.Tfg.juego.ui.usables
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -104,7 +106,12 @@ fun CheckBoxLoginRegistro(
     string: String) {
     Checkbox(
         checked = recuerdaCuenta.value,
-        onCheckedChange = { recuerdaCuenta.value = it }
+        onCheckedChange = { recuerdaCuenta.value = it },
+        colors = CheckboxDefaults.colors(
+            checkedColor = Color.Black,
+            checkmarkColor = Color.White,
+            disabledCheckedColor = Color.Black,
+        )
     )
     Text(string)
 }

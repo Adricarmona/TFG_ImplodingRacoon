@@ -56,4 +56,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // convertidor de json
+    implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
+
 }

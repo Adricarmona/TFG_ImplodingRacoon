@@ -29,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
+import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.ui.theme.JuegoTheme
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CheckBoxLoginRegistro
@@ -223,6 +224,15 @@ fun login(
         text = "Iniciar sesion",
         width = 160.dp,
         height = 50.dp,
+        onClick = { login(usuario_correo.value, contrasenia.value) }
+    )
+
+    Spacer(modifier = Modifier.height(90.dp))
+
+    BotonCustom(
+        text = "Volver al menu",
+        width = 160.dp,
+        height = 40.dp,
         onClick = { botonMenu() }
     )
 
@@ -239,7 +249,7 @@ fun registro(
     val contraseniaRepetida = remember { mutableStateOf("") }
     val recuerdaCuenta = remember { mutableStateOf(true) }
 
-    Spacer(modifier = Modifier.height(110.dp))
+    Spacer(modifier = Modifier.height(70.dp))
 
     textoLoginYRegistro("Registro")
 
@@ -281,6 +291,15 @@ fun registro(
         text = "Iniciar sesion",
         width = 160.dp,
         height = 50.dp,
+        onClick = { botonMenu() }
+    )
+
+    Spacer(modifier = Modifier.height(20.dp))
+
+    BotonCustom(
+        text = "Volver al menu",
+        width = 160.dp,
+        height = 40.dp,
         onClick = { botonMenu() }
     )
 

@@ -63,4 +63,11 @@ dependencies {
     // convertidor de json
     implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
 
+    // dataStore
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.6.0")
+
+    // shared preferences
+    implementation ("androidx.preference:preference-ktx:1.1.1")
 }

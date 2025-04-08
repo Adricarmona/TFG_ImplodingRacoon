@@ -1,14 +1,11 @@
 package com.Tfg.juego.ui.usables
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -19,6 +16,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -84,7 +83,8 @@ fun textoOscuroLoginRegistro(
 @Composable
 fun outlinedTextFieldLoginRegistro(
     text: MutableState<String>,
-    placeholderTexto: String
+    placeholderTexto: String,
+    passwordVisible: String
 ) {
     OutlinedTextField(
         value = text.value,
@@ -96,22 +96,8 @@ fun outlinedTextFieldLoginRegistro(
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Gray,
             unfocusedBorderColor = Color.Black,
-        )
+        ),
+        singleLine = true,
+        visualTransformation = if (passwordVisible != "password") VisualTransformation.None else PasswordVisualTransformation(),
     )
-}
-
-@Composable
-fun CheckBoxLoginRegistro(
-    recuerdaCuenta: MutableState<Boolean>,
-    string: String) {
-    Checkbox(
-        checked = recuerdaCuenta.value,
-        onCheckedChange = { recuerdaCuenta.value = it },
-        colors = CheckboxDefaults.colors(
-            checkedColor = Color.Black,
-            checkmarkColor = Color.White,
-            disabledCheckedColor = Color.Black,
-        )
-    )
-    Text(string)
 }

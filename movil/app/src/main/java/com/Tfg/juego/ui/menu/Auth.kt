@@ -1,30 +1,23 @@
 package com.Tfg.juego.ui.menu
 
-import android.content.Context
-import androidx.compose.foundation.layout.Row
+import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.preferencesDataStore
 import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.model.servicios.registrer
 import com.Tfg.juego.ui.usables.BotonCustom
-import com.Tfg.juego.ui.usables.CheckBoxLoginRegistro
+import com.Tfg.juego.ui.usables.dialogoCargando
 import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import com.Tfg.juego.ui.usables.textoOscuroLoginRegistro
 import kotlinx.coroutines.launch
-import java.util.prefs.Preferences
 
 
 @Composable
@@ -34,9 +27,13 @@ fun login(
     // Estado para guardar lo que el usuario escribe
     val usuario_correo = remember { mutableStateOf("") }
     val contrasenia = remember { mutableStateOf("") }
-    val recuerdaCuenta = remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+
+    // Dialogo de carga
+    var showDialog = remember { mutableStateOf(false) }
+    dialogoCargando(showDialog)
+
 
     Spacer(modifier = Modifier.height(150.dp))
 
@@ -45,12 +42,12 @@ fun login(
     Spacer(modifier = Modifier.height(100.dp))
 
     textoOscuroLoginRegistro("Usuario o Correo")
-    outlinedTextFieldLoginRegistro(usuario_correo, "usuario/correo")
+    outlinedTextFieldLoginRegistro(usuario_correo, "usuario/correo", "")
 
     Spacer(modifier = Modifier.height(20.dp))
 
     textoOscuroLoginRegistro("Contraseña")
-    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••")
+    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
     Spacer(modifier = Modifier.height(20.dp))
 
@@ -60,9 +57,13 @@ fun login(
         height = 50.dp,
         onClick = {
             coroutineScope.launch {
-
+                showDialog.value = true
                 if (login(usuario_correo.value, contrasenia.value, context) != null){
+                    showDialog.value = false
                     botonMenu()
+                } else {
+                    showDialog.value = false
+                    Toast.makeText(context, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 }
 
             }
@@ -89,9 +90,13 @@ fun registro(
     val correo = remember { mutableStateOf("") }
     val contrasenia = remember { mutableStateOf("") }
     val contraseniaRepetida = remember { mutableStateOf("") }
-    val recuerdaCuenta = remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+
+    // Dialogo de carga
+    var showDialog = remember { mutableStateOf(false) }
+    dialogoCargando(showDialog)
+
 
     Spacer(modifier = Modifier.height(70.dp))
 
@@ -100,22 +105,22 @@ fun registro(
     Spacer(modifier = Modifier.height(50.dp))
 
     textoOscuroLoginRegistro("Usuario")
-    outlinedTextFieldLoginRegistro(usuario, "usuario")
+    outlinedTextFieldLoginRegistro(usuario, "usuario", "")
 
     Spacer(modifier = Modifier.height(20.dp))
 
     textoOscuroLoginRegistro("Correo")
-    outlinedTextFieldLoginRegistro(correo, "correo")
+    outlinedTextFieldLoginRegistro(correo, "correo", "")
 
     Spacer(modifier = Modifier.height(20.dp))
 
     textoOscuroLoginRegistro("Contraseña")
-    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••")
+    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
     Spacer(modifier = Modifier.height(20.dp))
 
     textoOscuroLoginRegistro("Repetir contraseña")
-    outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••")
+    outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••", "password")
 
     Spacer(modifier = Modifier.height(20.dp))
 
@@ -127,9 +132,21 @@ fun registro(
 
             coroutineScope.launch {
 
-                println(contrasenia.value)
-                if (registrer(correo.value, contrasenia.value, usuario.value, context) != null){
-                    botonMenu()
+                showDialog.value = true
+
+                if (contrasenia.value != contraseniaRepetida.value){
+                    showDialog.value = false
+                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                } else{
+
+                    if (registrer(correo.value, contrasenia.value, usuario.value, context) != null){
+                        showDialog.value = false
+                        botonMenu()
+                    } else {
+                        showDialog.value = false
+                        Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
             }

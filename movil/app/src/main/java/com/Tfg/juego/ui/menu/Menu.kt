@@ -36,7 +36,7 @@ import com.Tfg.juego.ui.usables.BotonCustom
 @Composable
 fun menu() {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
-    var menuInicial by remember { mutableIntStateOf(1) }
+    var menuInicial by remember { mutableIntStateOf(0) }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -119,7 +119,11 @@ fun menuInicial() {
     }
 }
 
-
+/**
+ *
+ *      Barra de arriba
+ *
+ */
 
 
 /**

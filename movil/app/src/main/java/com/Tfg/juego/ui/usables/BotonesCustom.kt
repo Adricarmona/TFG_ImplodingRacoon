@@ -84,20 +84,23 @@ fun textoOscuroLoginRegistro(
 fun outlinedTextFieldLoginRegistro(
     text: MutableState<String>,
     placeholderTexto: String,
-    passwordVisible: String
+    tipo: String
 ) {
     OutlinedTextField(
         value = text.value,
         onValueChange = { newText -> text.value = newText },
         shape = RoundedCornerShape(25.dp),
-        placeholder = {
-            Text(text = placeholderTexto)
-                      },
+        placeholder = { Text(text = placeholderTexto) },
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Gray,
             unfocusedBorderColor = Color.Black,
         ),
         singleLine = true,
-        visualTransformation = if (passwordVisible != "password") VisualTransformation.None else PasswordVisualTransformation(),
+        visualTransformation = if (tipo != "password") VisualTransformation.None else PasswordVisualTransformation(),
     )
+}
+
+fun validarEmail(email: String): Boolean {
+    val emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+    return email.matches(emailPattern.toRegex())
 }

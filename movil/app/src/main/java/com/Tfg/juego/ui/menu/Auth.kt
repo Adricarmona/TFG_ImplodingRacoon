@@ -17,6 +17,7 @@ import com.Tfg.juego.ui.usables.dialogoCargando
 import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import com.Tfg.juego.ui.usables.textoOscuroLoginRegistro
+import com.Tfg.juego.ui.usables.validarEmail
 import kotlinx.coroutines.launch
 
 
@@ -134,25 +135,31 @@ fun registro(
 
                 showDialog.value = true
 
-                if (contrasenia.value != contraseniaRepetida.value){
+                if (usuario.value.isEmpty() || correo.value.isEmpty() || contrasenia.value.isEmpty() || contraseniaRepetida.value.isEmpty()) {
                     showDialog.value = false
-                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
-                } else{
+                    Toast.makeText(context, "Rellena todos los campos", Toast.LENGTH_SHORT).show()
 
-                    if (registrer(correo.value, contrasenia.value, usuario.value, context) != null){
-                        showDialog.value = false
-                        botonMenu()
-                    } else {
-                        showDialog.value = false
-                        Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT).show()
-                    }
+                } else if (validarEmail(correo.value) == false) {
+                    showDialog.value = false
+                    Toast.makeText(context, "El correo no es valido", Toast.LENGTH_SHORT).show()
 
+                } else if (contrasenia.value != contraseniaRepetida.value){
+                        showDialog.value = false
+                        Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+
+                } else {
+                        if (registrer(correo.value, contrasenia.value, usuario.value, context) != null) {
+                            showDialog.value = false
+                            botonMenu()
+
+                        } else {
+                            showDialog.value = false
+                            Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT).show()
+
+                        }
                 }
-
             }
-
-        }
-    )
+        })
 
     Spacer(modifier = Modifier.height(20.dp))
 

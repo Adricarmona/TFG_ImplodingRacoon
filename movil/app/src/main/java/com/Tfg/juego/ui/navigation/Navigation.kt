@@ -14,6 +14,7 @@ import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
 import com.Tfg.juego.ui.menu.perfil
 import com.Tfg.juego.ui.menu.registro
+import com.Tfg.juego.ui.menu.unirMesa
 import com.Tfg.juego.ui.theme.JuegoTheme
 
 @Composable
@@ -29,7 +30,8 @@ fun Navigation() {
                 onMenuClick = { navController.navigate("menu") },
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
-                onPerfilClick = { navController.navigate("perfil") }
+                onPerfilClick = { navController.navigate("perfil") },
+                onUnirseClick = { navController.navigate("unirseMesa") }
             )
         }
         composable("login") {
@@ -52,6 +54,9 @@ fun Navigation() {
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") }
             )
+        }
+        composable("unirseMesa") {
+            unirMesa()
         }
     }
 }

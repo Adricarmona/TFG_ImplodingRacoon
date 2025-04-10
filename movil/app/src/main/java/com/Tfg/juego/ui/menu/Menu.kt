@@ -28,7 +28,8 @@ fun menuInicial(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
     onPerfilClick: () -> Unit,
-    onMenuClick: () -> Unit
+    onMenuClick: () -> Unit,
+    onUnirseClick: () -> Unit
 ) {
     val image: Painter = painterResource(id = R.drawable.img_iconochatgpt)
 
@@ -60,7 +61,7 @@ fun menuInicial(
             height = 200.dp,
             width = 300.dp
         )
-        { /* Acción */ }
+        { onUnirseClick() }
 
         Spacer(modifier = Modifier.height(20.dp))
 

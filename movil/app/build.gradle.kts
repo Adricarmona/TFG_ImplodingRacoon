@@ -70,4 +70,10 @@ dependencies {
 
     // shared preferences
     implementation ("androidx.preference:preference-ktx:1.1.1")
+
+    // jwtDecode
+    implementation ("com.auth0.android:jwtdecode:2.0.2")
+
+    // Navigation Compose
+    implementation ("androidx.navigation:navigation-compose:2.7.7")
 }

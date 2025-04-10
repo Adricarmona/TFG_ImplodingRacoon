@@ -1,17 +1,21 @@
 package com.Tfg.juego.ui.menu
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.model.servicios.registrer
+import com.Tfg.juego.ui.menu.componentes.loguinRegistroArriba
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
 import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro
@@ -23,8 +27,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun login(
-    botonMenu: () -> Unit
-) {
+    onLoginClick: () -> Unit,
+    onMenuClick: () -> Unit,
+    onRegisterClick: () -> Unit) {
     // Estado para guardar lo que el usuario escribe
     val usuario_correo = remember { mutableStateOf("") }
     val contrasenia = remember { mutableStateOf("") }
@@ -35,57 +40,69 @@ fun login(
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
 
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onMenuClick)
 
-    Spacer(modifier = Modifier.height(150.dp))
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
 
-    textoLoginYRegistro("Login")
+        Spacer(modifier = Modifier.height(150.dp))
 
-    Spacer(modifier = Modifier.height(100.dp))
+        textoLoginYRegistro("Login")
 
-    textoOscuroLoginRegistro("Usuario o Correo")
-    outlinedTextFieldLoginRegistro(usuario_correo, "usuario/correo", "")
+        Spacer(modifier = Modifier.height(100.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Usuario o Correo")
+        outlinedTextFieldLoginRegistro(usuario_correo, "usuario/correo", "")
 
-    textoOscuroLoginRegistro("Contraseña")
-    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
+        Spacer(modifier = Modifier.height(20.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Contraseña")
+        outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
-    BotonCustom(
-        text = "Iniciar sesion",
-        width = 160.dp,
-        height = 50.dp,
-        onClick = {
-            coroutineScope.launch {
-                showDialog.value = true
-                if (login(usuario_correo.value, contrasenia.value, context) != null){
-                    showDialog.value = false
-                    botonMenu()
-                } else {
-                    showDialog.value = false
-                    Toast.makeText(context, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+        Spacer(modifier = Modifier.height(20.dp))
+
+        BotonCustom(
+            text = "Iniciar sesion",
+            width = 160.dp,
+            height = 50.dp,
+            onClick = {
+                coroutineScope.launch {
+                    showDialog.value = true
+                    if (login(usuario_correo.value, contrasenia.value, context) != null) {
+                        showDialog.value = false
+                        onMenuClick()
+                    } else {
+                        showDialog.value = false
+                        Toast.makeText(
+                            context,
+                            "Usuario o contraseña incorrectos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
                 }
-
             }
-        }
-    )
+        )
 
-    Spacer(modifier = Modifier.height(90.dp))
+        Spacer(modifier = Modifier.height(90.dp))
 
-    BotonCustom(
-        text = "Volver al menu",
-        width = 160.dp,
-        height = 40.dp,
-        onClick = { botonMenu() }
-    )
+        BotonCustom(
+            text = "Volver al menu",
+            width = 160.dp,
+            height = 40.dp,
+            onClick = { onMenuClick() }
+        )
+    }
 
 }
 
 @Composable
 fun registro(
-    botonMenu: () -> Unit
-) {
+    onMenuClick: () -> Unit,
+    onLoginClick: () -> Unit,
+    onRegisterClick: () -> Unit) {
     // Estado para guardar lo que el usuario escribe
     val usuario = remember { mutableStateOf("") }
     val correo = remember { mutableStateOf("") }
@@ -98,77 +115,92 @@ fun registro(
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
 
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onMenuClick)
 
-    Spacer(modifier = Modifier.height(70.dp))
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
 
-    textoLoginYRegistro("Registro")
+        Spacer(modifier = Modifier.height(150.dp))
 
-    Spacer(modifier = Modifier.height(50.dp))
+        textoLoginYRegistro("Registro")
 
-    textoOscuroLoginRegistro("Usuario")
-    outlinedTextFieldLoginRegistro(usuario, "usuario", "")
+        Spacer(modifier = Modifier.height(50.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Usuario")
+        outlinedTextFieldLoginRegistro(usuario, "usuario", "")
 
-    textoOscuroLoginRegistro("Correo")
-    outlinedTextFieldLoginRegistro(correo, "correo", "")
+        Spacer(modifier = Modifier.height(20.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Correo")
+        outlinedTextFieldLoginRegistro(correo, "correo", "")
 
-    textoOscuroLoginRegistro("Contraseña")
-    outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
+        Spacer(modifier = Modifier.height(20.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Contraseña")
+        outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
-    textoOscuroLoginRegistro("Repetir contraseña")
-    outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••", "password")
+        Spacer(modifier = Modifier.height(20.dp))
 
-    Spacer(modifier = Modifier.height(20.dp))
+        textoOscuroLoginRegistro("Repetir contraseña")
+        outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••", "password")
 
-    BotonCustom(
-        text = "Registrar sesion",
-        width = 170.dp,
-        height = 50.dp,
-        onClick = {
+        Spacer(modifier = Modifier.height(20.dp))
 
-            coroutineScope.launch {
+        BotonCustom(
+            text = "Registrar sesion",
+            width = 170.dp,
+            height = 50.dp,
+            onClick = {
 
-                showDialog.value = true
+                coroutineScope.launch {
 
-                if (usuario.value.isEmpty() || correo.value.isEmpty() || contrasenia.value.isEmpty() || contraseniaRepetida.value.isEmpty()) {
-                    showDialog.value = false
-                    Toast.makeText(context, "Rellena todos los campos", Toast.LENGTH_SHORT).show()
+                    showDialog.value = true
 
-                } else if (validarEmail(correo.value) == false) {
-                    showDialog.value = false
-                    Toast.makeText(context, "El correo no es valido", Toast.LENGTH_SHORT).show()
-
-                } else if (contrasenia.value != contraseniaRepetida.value){
+                    if (usuario.value.isEmpty() || correo.value.isEmpty() || contrasenia.value.isEmpty() || contraseniaRepetida.value.isEmpty()) {
                         showDialog.value = false
-                        Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Rellena todos los campos", Toast.LENGTH_SHORT)
+                            .show()
 
-                } else {
-                        if (registrer(correo.value, contrasenia.value, usuario.value, context) != null) {
+                    } else if (validarEmail(correo.value) == false) {
+                        showDialog.value = false
+                        Toast.makeText(context, "El correo no es valido", Toast.LENGTH_SHORT).show()
+
+                    } else if (contrasenia.value != contraseniaRepetida.value) {
+                        showDialog.value = false
+                        Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                            .show()
+
+                    } else {
+                        if (registrer(
+                                correo.value,
+                                contrasenia.value,
+                                usuario.value,
+                                context
+                            ) != null
+                        ) {
                             showDialog.value = false
-                            botonMenu()
+                            onMenuClick()
 
                         } else {
                             showDialog.value = false
-                            Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT)
+                                .show()
 
                         }
+                    }
                 }
-            }
-        })
+            })
 
-    Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
-    BotonCustom(
-        text = "Volver al menu",
-        width = 160.dp,
-        height = 40.dp,
-        onClick = { botonMenu() }
-    )
-
+        BotonCustom(
+            text = "Volver al menu",
+            width = 160.dp,
+            height = 40.dp,
+            onClick = { onMenuClick() }
+        )
+    }
 }
 

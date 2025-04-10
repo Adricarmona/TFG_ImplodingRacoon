@@ -7,7 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.preferencesDataStore
-import com.Tfg.juego.ui.menu.menu
+import com.Tfg.juego.ui.navigation.Navigation
+import com.Tfg.juego.ui.navigation.menu
 import com.Tfg.juego.ui.theme.JuegoTheme
 import java.util.prefs.Preferences
 

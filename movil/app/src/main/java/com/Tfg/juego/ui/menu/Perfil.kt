@@ -13,27 +13,40 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.Tfg.juego.ui.menu.componentes.loguinRegistroArriba
 
 @Composable
-fun perfil(irMenu: () -> Unit) {
+fun perfil(
+    onMenuClick: () -> Unit,
+    onLoginClick: () -> Unit,
+    onRegisterClick: () -> Unit) {
 
-    val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
+
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onMenuClick)
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        //verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(140.dp))
 
         Button(
             onClick = {
                 sharedPreferences.edit().putString("token", "").apply()
-                irMenu()
+                onMenuClick()
                       },
         ) {
-            Text("test")
+            Text("desloguearte")
+        }
+
+        Button(
+            onClick = {
+                onMenuClick()
+            },
+        ) {
+            Text("salir al menu")
         }
 
     }

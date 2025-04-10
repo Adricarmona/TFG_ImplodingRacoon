@@ -1,5 +1,6 @@
 package com.Tfg.juego.model.servicios
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
@@ -19,8 +20,9 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 import java.util.prefs.Preferences
 
+@SuppressLint("SuspiciousIndentation")
 suspend fun login(emailOrUser: String, password: String, context: Context): String? {
-    val sharedPreferences: SharedPreferences = context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    val sharedPreferences: SharedPreferences = context.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val loginDto = loginDto(emailOrUser, password)
     val apiService = RetrofitClient.getClient().create(ApiService::class.java)
     var token: String? = null
@@ -44,7 +46,7 @@ suspend fun login(emailOrUser: String, password: String, context: Context): Stri
 }
 
 suspend fun registrer(email: String, password: String, user: String, context: Context): String? {
-    val sharedPreferences: SharedPreferences = context.getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+    val sharedPreferences: SharedPreferences = context.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val registerDto = registerDto(user, email, password)
     val apiService = RetrofitClient.getClient().create(ApiService::class.java)
     var token: String? = null

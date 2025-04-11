@@ -56,7 +56,12 @@ fun Navigation() {
             )
         }
         composable("unirseMesa") {
-            unirMesa()
+            unirMesa(
+                onMenuClick = { navController.navigate("menu") },
+                onLoginClick = { navController.navigate("login") },
+                onRegisterClick = { navController.navigate("registro") },
+                onPerfilClick = { navController.navigate("perfil") },
+                )
         }
     }
 }

@@ -51,11 +51,14 @@ fun BotonCustom(
 @Composable
 fun textoLoginYRegistro(
     text: String,
+    fontSize: Int = 64,
+    textAlign: TextAlign = TextAlign.Start
 ){
     Text(
         text = text,
         style = TextStyle(
-            fontSize = 64.sp,
+            textAlign = textAlign,
+            fontSize = fontSize.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White,
             // Sombra para simular el contorno y profundidad

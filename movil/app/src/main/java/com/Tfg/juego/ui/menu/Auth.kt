@@ -1,5 +1,6 @@
 package com.Tfg.juego.ui.menu
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -70,16 +71,25 @@ fun login(
             onClick = {
                 coroutineScope.launch {
                     showDialog.value = true
-                    if (login(usuario_correo.value, contrasenia.value, context) != null) {
-                        showDialog.value = false
-                        onMenuClick()
-                    } else {
+                    val token = login(usuario_correo.value, contrasenia.value, context)
+                    Log.i("TAG", "login: "+token)
+                    if ( token == "Usuario no encontrado") {
                         showDialog.value = false
                         Toast.makeText(
                             context,
                             "Usuario o contraseña incorrectos",
                             Toast.LENGTH_SHORT
                         ).show()
+                    } else if (token == null) {
+                        showDialog.value = false
+                        Toast.makeText(
+                            context,
+                            "Error en el servidor",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        showDialog.value = false
+                        onMenuClick()
                     }
 
                 }

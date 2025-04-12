@@ -1,5 +1,7 @@
 package com.Tfg.juego.model.retrofit
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
@@ -8,16 +10,17 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
-
 object RetrofitClient {
     private const val BASE_URL = "https://10.0.2.2:7089/"
 
-    fun getClient(): Retrofit =
-        Retrofit.Builder()
+    fun getClient(): Retrofit {
+        val objectMapper = ObjectMapper().registerKotlinModule()
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(JacksonConverterFactory.create())
+            .addConverterFactory(JacksonConverterFactory.create(objectMapper))
             .client(getUnsafeOkHttpClient())
             .build()
+    }
 }
 
 fun getUnsafeOkHttpClient(): OkHttpClient {

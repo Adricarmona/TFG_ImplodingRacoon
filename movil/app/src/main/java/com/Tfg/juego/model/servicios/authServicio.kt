@@ -30,7 +30,16 @@ suspend fun login(emailOrUser: String, password: String, context: Context): Stri
         try {
 
             val respuesta = apiService.getLogin(loginDto)
-            token = respuesta.string()
+
+            if (respuesta.code == 404) {
+                if (respuesta.message.equals("Incorrect username or password")) {
+                    sharedPreferences.edit().putString("token", "").apply()
+                    return "Incorrect username or password"
+                }
+                return null
+            }
+
+            token = respuesta.message
             sharedPreferences.edit().putString("token", token).apply()
 
             return token
@@ -38,7 +47,7 @@ suspend fun login(emailOrUser: String, password: String, context: Context): Stri
         } catch (e : Exception){
 
             sharedPreferences.edit().putString("token", "").apply()
-            Log.e("Error login", "Error login servicio: "+e.message )
+            Log.e("Error_login", "Error login servicio: "+e.message )
             return null
 
         }
@@ -54,8 +63,18 @@ suspend fun registrer(email: String, password: String, user: String, context: Co
     try {
 
         val respuesta = apiService.getRegister(registerDto)
-        token = respuesta.string()
+
+        if (respuesta.code == 404) {
+            if (respuesta.message.equals("Error generating user")) {
+                sharedPreferences.edit().putString("token", "").apply()
+                return "Error generating user"
+            }
+            return null
+        }
+
+        token = respuesta.message
         sharedPreferences.edit().putString("token", token).apply()
+
         return token
 
     } catch (e : Exception){

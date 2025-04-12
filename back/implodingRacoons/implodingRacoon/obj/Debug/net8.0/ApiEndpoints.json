@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "implodingRacoon.Models.Database.Dto.ResponseToken",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -41,7 +41,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "implodingRacoon.Models.Database.Dto.ResponseToken",
         "MediaTypes": [
           "text/plain",
           "application/json",

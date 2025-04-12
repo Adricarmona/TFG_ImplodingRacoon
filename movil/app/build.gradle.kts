@@ -62,6 +62,7 @@ dependencies {
 
     // convertidor de json
     implementation("com.squareup.retrofit2:converter-jackson:2.9.0")
+    implementation ("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.0")
 
     // dataStore
     implementation ("androidx.datastore:datastore-preferences:1.0.0")

@@ -2,6 +2,7 @@ package com.Tfg.juego.ui.menu.componentes
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable

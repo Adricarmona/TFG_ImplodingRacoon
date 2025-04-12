@@ -43,38 +43,104 @@ namespace implodingRacoon.Controllers
 
 
         [HttpPost("Login")]
-        public async Task<ActionResult<string>> LoginAsync([FromBody] LoginRequest user)
+        public async Task<ActionResult<ResponseToken>> LoginAsync([FromBody] LoginRequest user)
         {
-            if (user == null) return NotFound("No ingresado");
+            ResponseToken responseToken = new();
 
-            if (string.IsNullOrEmpty(user.EmailOrUser)) return NotFound("Usuario vacio");
+            if (user == null)
+            {
+                responseToken.message = "not entered data";
+                responseToken.code = 404;
 
-            if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
+                return NotFound(responseToken);
+            }
+
+            if (string.IsNullOrEmpty(user.EmailOrUser))
+            {
+                responseToken.message = "empty user";
+                responseToken.code = 404;
+
+                return NotFound(responseToken);
+            }
+
+            if (string.IsNullOrEmpty(user.Password)) 
+            {
+                responseToken.message = "Empty password";
+                responseToken.code = 404;
+
+                return NotFound(responseToken); 
+            }
 
 
             String token = await _authSevice.Login(user);
 
-            if (token == null) return NotFound("Usuario no encontrado");
+            if (token == null)
+            {
+                responseToken.message = "Incorrect username or password";
+                responseToken.code = 404;
 
-            return Ok(token);
+                return Ok(responseToken);
+            }
+
+
+            responseToken.message = token;
+            responseToken.code = 200;
+
+            return Ok(responseToken);
         }
 
         [HttpPost("Register")]
-        public async Task<ActionResult<string>> RegisterAsync([FromBody] UserRegister user)
+        public async Task<ActionResult<ResponseToken>> RegisterAsync([FromBody] UserRegister user)
         {
-            if (user == null) return NotFound("No ingresado");
+            ResponseToken responseToken = new();
 
-            if (string.IsNullOrEmpty(user.NombreUsuario)) return NotFound("Usuario vacio");
+            if (user == null)
+            {
+                responseToken.message = "Not entered data";
+                responseToken.code = 404;
 
-            if (string.IsNullOrEmpty(user.Correo)) return NotFound("Correo vacio");
+                return NotFound(responseToken);
+            }
 
-            if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
+            if (string.IsNullOrEmpty(user.NombreUsuario))
+            {
+                responseToken.message = "empty user";
+                responseToken.code = 404;
+
+                return NotFound(responseToken);
+            }
+
+            if (string.IsNullOrEmpty(user.Correo))
+            {
+                responseToken.message = "Empty mail";
+                responseToken.code = 404;
+
+                return NotFound(responseToken);
+            }
+
+            if (string.IsNullOrEmpty(user.Password))
+            {
+                responseToken.message = "Empty password";
+                responseToken.code = 404;
+
+                return NotFound(responseToken);
+            }
+
 
             String resultado = await _authSevice.Register(user);
 
-            if (string.IsNullOrEmpty(resultado)) return NotFound(resultado);
+            if (string.IsNullOrEmpty(resultado))
+            {
+                responseToken.message = "Error generating user";
+                responseToken.code = 404;
 
-            return Ok(resultado);
+                return Ok(responseToken);
+            }
+
+            responseToken.message = resultado;
+            responseToken.code = 201;
+
+            return Ok(responseToken);
         }
     }
 }

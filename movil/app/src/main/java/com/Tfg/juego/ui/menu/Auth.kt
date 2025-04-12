@@ -70,26 +70,43 @@ fun login(
             height = 50.dp,
             onClick = {
                 coroutineScope.launch {
-                    showDialog.value = true
-                    val token = login(usuario_correo.value, contrasenia.value, context)
-                    Log.i("TAG", "login: "+token)
-                    if ( token == "Usuario no encontrado") {
-                        showDialog.value = false
+
+                    if (  usuario_correo.value.isEmpty() || contrasenia.value.isEmpty() ) {
+
                         Toast.makeText(
                             context,
-                            "Usuario o contraseña incorrectos",
+                            "Rellena todos los campos",
                             Toast.LENGTH_SHORT
                         ).show()
-                    } else if (token == null) {
-                        showDialog.value = false
-                        Toast.makeText(
-                            context,
-                            "Error en el servidor",
-                            Toast.LENGTH_SHORT
-                        ).show()
+
                     } else {
-                        showDialog.value = false
-                        onMenuClick()
+
+                        showDialog.value = true
+                        val token = login(usuario_correo.value, contrasenia.value, context)
+
+                        if ( token == "Incorrect username or password") {
+
+                            showDialog.value = false
+                            Toast.makeText(
+                                context,
+                                "Usuario o contraseña incorrectos",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else if (token == null) {
+
+                            showDialog.value = false
+                            Toast.makeText(
+                                context,
+                                "Error en el servidor",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+                            showDialog.value = false
+                            onMenuClick()
+                        }
+
                     }
 
                 }
@@ -183,15 +200,17 @@ fun registro(
                             .show()
 
                     } else {
-                        if (registrer(
-                                correo.value,
-                                contrasenia.value,
-                                usuario.value,
-                                context
-                            ) != null
-                        ) {
+
+                        val token = registrer(correo.value, contrasenia.value, usuario.value, context)
+
+                        if ( token != null && !token.equals("Error generating user")) {
                             showDialog.value = false
                             onMenuClick()
+
+                        } else if(token.equals("Error generating user")) {
+                            showDialog.value = false
+                            Toast.makeText(context, "Usuario ya existente", Toast.LENGTH_SHORT)
+                                .show()
 
                         } else {
                             showDialog.value = false

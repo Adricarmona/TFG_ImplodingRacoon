@@ -55,8 +55,18 @@ namespace implodingRacoon.Services
             return token;
         }
 
+        /**
+         *  Servicio que registra el usuario
+         */
         public async Task<string> Register(UserRegister userRegister)
         {
+            // Comprobamos que no haya cuentas con ningun usuario ni cuenta con los datos dados
+            // Si existe alguna de los dos devuelve null
+            UserSimple usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.NombreUsuario);
+            UserSimple correo = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.Correo);
+
+            if (usuario != null || correo != null) return null;
+
             UserSimple usuarioSimple = await _unitOfWork.UsuarioRepository.AddUser(userRegister);
 
             if (usuarioSimple == null) return null;

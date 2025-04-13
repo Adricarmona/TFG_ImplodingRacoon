@@ -1,6 +1,5 @@
 package com.Tfg.juego.ui.menu
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +15,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.model.servicios.registrer
-import com.Tfg.juego.ui.menu.componentes.loguinRegistroArriba
+import com.Tfg.juego.ui.usables.loguinRegistroArriba
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
 import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro

@@ -1,8 +1,7 @@
-package com.Tfg.juego.ui.menu.componentes
+package com.Tfg.juego.ui.usables
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,7 +24,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
-import com.Tfg.juego.ui.usables.BotonCustom
 import com.auth0.android.jwt.JWT
 
 /**

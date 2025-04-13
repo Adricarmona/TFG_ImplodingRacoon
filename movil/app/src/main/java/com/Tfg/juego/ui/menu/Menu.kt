@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
-import com.Tfg.juego.ui.menu.componentes.loguinRegistroArriba
+import com.Tfg.juego.ui.usables.loguinRegistroArriba
 import com.Tfg.juego.ui.usables.BotonCustom
 
 

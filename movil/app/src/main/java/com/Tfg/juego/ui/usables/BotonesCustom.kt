@@ -1,16 +1,22 @@
 package com.Tfg.juego.ui.usables
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
@@ -87,7 +93,8 @@ fun textoOscuroLoginRegistro(
 fun outlinedTextFieldLoginRegistro(
     text: MutableState<String>,
     placeholderTexto: String,
-    tipo: String
+    tipo: String = "",
+    enabled: Boolean = true
 ) {
     OutlinedTextField(
         value = text.value,
@@ -98,6 +105,7 @@ fun outlinedTextFieldLoginRegistro(
             focusedBorderColor = Color.Gray,
             unfocusedBorderColor = Color.Black,
         ),
+        enabled = enabled,
         singleLine = true,
         visualTransformation = if (tipo != "password") VisualTransformation.None else PasswordVisualTransformation(),
     )
@@ -106,4 +114,28 @@ fun outlinedTextFieldLoginRegistro(
 fun validarEmail(email: String): Boolean {
     val emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
     return email.matches(emailPattern.toRegex())
+}
+
+@Composable
+fun CheckBoxLoginRegistro(
+    recuerdaCuenta: MutableState<Boolean>,
+    string: String) {
+
+    Row(
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
+        ) {
+        Checkbox(
+            checked = recuerdaCuenta.value,
+            onCheckedChange = { recuerdaCuenta.value = it },
+            colors = CheckboxDefaults.colors(
+                checkedColor = Color.Black,
+                checkmarkColor = Color.White,
+                disabledCheckedColor = Color.Black,
+            )
+        )
+        Text(string)
+    }
+
+
 }

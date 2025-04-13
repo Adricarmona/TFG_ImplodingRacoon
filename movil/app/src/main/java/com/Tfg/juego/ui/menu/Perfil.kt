@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.Tfg.juego.ui.menu.componentes.loguinRegistroArriba
+import com.Tfg.juego.ui.usables.loguinRegistroArriba
 
 @Composable
 fun perfil(

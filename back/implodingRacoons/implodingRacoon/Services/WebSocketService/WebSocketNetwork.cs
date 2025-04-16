@@ -115,7 +115,17 @@ namespace implodingRacoon.Services.WebSocketService
              * 
              */
 
-            RecivedUserWebSocket receivedUser = JsonSerializer.Deserialize<RecivedUserWebSocket>(message);
+            RecivedUserWebSocket receivedUser;
+
+            try
+            {
+                receivedUser = JsonSerializer.Deserialize<RecivedUserWebSocket>(message);
+            }
+            catch (Exception ex)
+            {
+                receivedUser = new RecivedUserWebSocket();
+                receivedUser.TypeMessage = "error";
+            }
 
             switch (receivedUser.TypeMessage)
             {

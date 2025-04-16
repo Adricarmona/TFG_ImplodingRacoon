@@ -3,6 +3,7 @@ using System.Text;
 using implodingRacoon.Controllers;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Services;
+using implodingRacoon.Services.WebSocketService;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 
@@ -42,6 +43,9 @@ namespace implodingRacoon
 
             // servicios
             builder.Services.AddScoped<AuthService>();
+
+            // el singleton del websocket
+            builder.Services.AddSingleton<WebSocketNetwork>();
 
 
             ///

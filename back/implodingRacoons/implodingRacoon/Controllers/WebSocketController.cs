@@ -1,5 +1,6 @@
 ﻿using System.Net.WebSockets;
 using System.Security.Claims;
+using implodingRacoon.Services.WebSocketService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,8 +11,12 @@ namespace implodingRacoon.Controllers
     public class WebSocketController : Controller
     {
 
-        public WebSocketController()
-        { }
+        private readonly WebSocketNetwork _webSocketNetwork;
+
+        public WebSocketController(WebSocketNetwork webSocketNetwork)
+        {
+            _webSocketNetwork = webSocketNetwork;
+        }
 
         [HttpGet]
         public async Task ConnectAsync()
@@ -22,7 +27,7 @@ namespace implodingRacoon.Controllers
                 // Aceptamos la solicitud
                 WebSocket webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
 
-                Console.WriteLine("HE ENTRADO EN MI WEB SOCKET SUUUUUUUUU");
+                await _webSocketNetwork.HandleAsync(webSocket);
 
             }
             else

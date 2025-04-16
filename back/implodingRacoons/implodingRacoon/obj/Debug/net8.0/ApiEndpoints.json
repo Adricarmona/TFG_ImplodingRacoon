@@ -98,9 +98,9 @@
     ]
   },
   {
-    "ContainingType": "implodingRacoon.Controllers.WebSoketController",
+    "ContainingType": "implodingRacoon.Controllers.WebSocketController",
     "Method": "ConnectAsync",
-    "RelativePath": "WebSoket",
+    "RelativePath": "WebSocket",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

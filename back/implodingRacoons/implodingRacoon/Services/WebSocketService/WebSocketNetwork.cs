@@ -1,10 +1,13 @@
 ﻿using System.Net.WebSockets;
+using System.Text.Json;
+using implodingRacoon.Models.Database.Dto;
 
 namespace implodingRacoon.Services.WebSocketService
 {
     public class WebSocketNetwork
     {
         // Contador para asignar un id a cada WebSocketHandler
+        // para mirar cuantos usuarios tiene concectados
         private static int _idCounter = 0;
 
         // Lista de WebSocketHandler (clase que gestiona cada WebSocket)
@@ -18,7 +21,8 @@ namespace implodingRacoon.Services.WebSocketService
             WebSocketHandler handler = await AddWebsocketAsync(webSocket);
 
             // Notificamos a los usuarios que un nuevo usuario se ha conectado
-            await NotifyUserConnectedAsync(handler);
+            //await NotifyUserConnectedAsync(handler);
+
             // Esperamos a que el WebSocketHandler termine de manejar la conexión
             await handler.HandleAsync();
         }
@@ -86,13 +90,13 @@ namespace implodingRacoon.Services.WebSocketService
             // Guardamos una copia de los WebSocketHandler para evitar problemas de concurrencia
             WebSocketHandler[] handlers = _handlers.ToArray();
 
-            string message = $"Se ha desconectado el usuario con id {disconnectedHandler.Id}. Ahora hay {handlers.Length} usuarios conectados";
-
-            // Enviamos el mensaje al resto de usuarios
-            foreach (WebSocketHandler handler in handlers)
-            {
-                tasks.Add(handler.SendAsync(message));
-            }
+            /**
+             * 
+             * 
+             *          CUANDO QUERAMOS NOTIFICAR O ALGO A UN USUARIO QUE SE QUIERE DESCONECTAR VA AQUI
+             * 
+             * 
+             */
 
             // Esperamos a que todas las tareas de envío de mensajes se completen
             await Task.WhenAll(tasks);
@@ -105,14 +109,27 @@ namespace implodingRacoon.Services.WebSocketService
             // Guardamos una copia de los WebSocketHandler para evitar problemas de concurrencia
             WebSocketHandler[] handlers = _handlers.ToArray();
 
-            string messageToMe = $"Tú: {message}";
-            string messageToOthers = $"Usuario {userHandler.Id}: {message}";
+            /**
+             * 
+             *      Cuando queramos notificar un mensaje iria aqui
+             * 
+             */
 
-            // Enviamos un mensaje personalizado al nuevo usuario y otro al resto
-            foreach (WebSocketHandler handler in handlers)
+            RecivedUserWebSocket receivedUser = JsonSerializer.Deserialize<RecivedUserWebSocket>(message);
+
+            switch (receivedUser.TypeMessage)
             {
-                string messageToSend = handler.Id == userHandler.Id ? messageToMe : messageToOthers;
-                tasks.Add(handler.SendAsync(messageToSend));
+                case "join":
+                    userHandler.SendAsync("mensaje recivido, enviado de vuelta");
+                    break;
+
+                case "test?":
+                    userHandler.SendAsync("Funciona");
+                    break;
+
+                default:
+                    userHandler.SendAsync("error json");
+                    break;
             }
 
             // Devolvemos una tarea que se completará cuando todas las tareas de envío de mensajes se completen

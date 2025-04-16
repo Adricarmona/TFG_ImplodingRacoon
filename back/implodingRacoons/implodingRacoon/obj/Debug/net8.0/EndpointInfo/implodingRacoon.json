@@ -187,10 +187,10 @@
         }
       }
     },
-    "/WebSoket": {
+    "/WebSocket": {
       "get": {
         "tags": [
-          "WebSoket"
+          "WebSocket"
         ],
         "responses": {
           "200": {

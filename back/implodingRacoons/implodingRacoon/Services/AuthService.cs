@@ -46,6 +46,8 @@ namespace implodingRacoon.Services
 
         public async Task<string> Login(LoginRequest loginRequest)
         {
+            loginRequest.Password = PasswordHelper.Hash(loginRequest.Password);
+
             UserSimple usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser);
 
             if (usuario == null) return null;
@@ -66,6 +68,8 @@ namespace implodingRacoon.Services
             UserSimple correo = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.Correo);
 
             if (usuario != null || correo != null) return null;
+
+            userRegister.Password = PasswordHelper.Hash(userRegister.Password);
 
             UserSimple usuarioSimple = await _unitOfWork.UsuarioRepository.AddUser(userRegister);
 

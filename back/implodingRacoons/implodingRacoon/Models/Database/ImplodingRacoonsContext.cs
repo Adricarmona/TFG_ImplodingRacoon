@@ -42,14 +42,19 @@ namespace implodingRacoon.Models.Database
         }
 
         // Sin esto no funciona al crear la base de datos
+        // genera las relaciones de la tabla solicitud de amistad
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            // De cuando envias las las solicitudes
             modelBuilder.Entity<SolicitudAmistad>()
-                .HasOne(s => s.UsuarioEnvia)
+                .HasOne(s => s.UsuarioEnvia) 
                 .WithMany(u => u.SolicitudesEnviadas)
                 .HasForeignKey(s => s.UsuarioEnviaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+
+            // De cuando recibes las solicitudes
             modelBuilder.Entity<SolicitudAmistad>()
                 .HasOne(s => s.UsuarioRecibe)
                 .WithMany(u => u.SolicitudesRecibidas)

@@ -1,8 +1,14 @@
-﻿namespace implodingRacoon.Models.Database
+﻿using implodingRacoon.Models.Database.Repository;
+
+namespace implodingRacoon.Models.Database
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ImplodingRacoonsContext _context;
+
+        private UsuarioRepository _usuarioRepository;
+
+        public UsuarioRepository UsuarioRepository => _usuarioRepository ??= new UsuarioRepository(_context);
 
         public UnitOfWork(ImplodingRacoonsContext context)
         {

@@ -80,3 +80,11 @@ D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.
 D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\implodingRacoon.staticwebassets.runtime.json
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\TFG\TFG_ImplodingRacoon\back\implodingRacoons\implodingRacoon\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

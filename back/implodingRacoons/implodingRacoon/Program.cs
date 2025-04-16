@@ -1,4 +1,6 @@
+using System.Net.WebSockets;
 using System.Text;
+using implodingRacoon.Controllers;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Services;
 using Microsoft.Extensions.FileProviders;
@@ -42,7 +44,6 @@ namespace implodingRacoon
             builder.Services.AddScoped<AuthService>();
 
 
-
             ///
             ///     APP
             ///
@@ -69,9 +70,17 @@ namespace implodingRacoon
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"))
             });
 
+            // El Websoket
             app.UseWebSockets();
 
+            // Lo de https que si esta comentado se puede por http
             app.UseHttpsRedirection();
+
+            // Configuramos Cors para que acepte cualquier petición de cualquier origen (no es seguro)
+            app.UseCors(options =>
+                options.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin());
 
             // Habilitamos la autenticacion y la autorizacion
             app.UseAuthentication();
@@ -79,6 +88,7 @@ namespace implodingRacoon
 
 
             app.MapControllers();
+
 
             app.Run();
         }

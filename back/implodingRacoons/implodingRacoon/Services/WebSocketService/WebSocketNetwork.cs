@@ -1,6 +1,7 @@
 ﻿using System.Net.WebSockets;
 using System.Text.Json;
 using implodingRacoon.Models.Database.Dto;
+using implodingRacoon.Services.GamesService;
 
 namespace implodingRacoon.Services.WebSocketService
 {
@@ -129,8 +130,22 @@ namespace implodingRacoon.Services.WebSocketService
 
             switch (receivedUser.TypeMessage)
             {
+                case "create":
+                    Games.anadirMesa();
+                    userHandler.SendAsync("creada");
+                    break;
+
+                case "look":
+                    userHandler.SendAsync("A entrado aqui");
+                    foreach (Game game in Games.mesas())
+                    {
+                        userHandler.SendAsync(game.IdSala+"");
+                    }  
+
+                    break;
+
                 case "join":
-                    userHandler.SendAsync("mensaje recivido, enviado de vuelta");
+                    userHandler.SendAsync("mensaje recibido, enviado de vuelta");
                     break;
 
                 case "test?":

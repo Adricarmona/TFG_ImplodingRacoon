@@ -3,6 +3,7 @@ using System.Text;
 using implodingRacoon.Controllers;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Services;
+using implodingRacoon.Services.GamesService;
 using implodingRacoon.Services.WebSocketService;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -84,7 +85,7 @@ namespace implodingRacoon
             app.UseCors(options =>
                 options.AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowAnyOrigin());
+                    .AllowAnyOrigin()); 
 
             // Habilitamos la autenticacion y la autorizacion
             app.UseAuthentication();
@@ -93,6 +94,9 @@ namespace implodingRacoon
 
             app.MapControllers();
 
+
+            // iniciamos las mesas
+            Games.iniciarMesas();
 
             app.Run();
         }

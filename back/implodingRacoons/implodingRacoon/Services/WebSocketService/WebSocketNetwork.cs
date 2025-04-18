@@ -131,22 +131,33 @@ namespace implodingRacoon.Services.WebSocketService
             switch (receivedUser.TypeMessage)
             {
                 case "create":
+
                     Games.anadirMesa();
                     userHandler.SendAsync("creada");
+
                     break;
 
                 case "look":
-                    userHandler.SendAsync("A entrado aqui");
+
                     foreach (Game game in Games.mesas())
                     {
                         userHandler.SendAsync(game.IdSala+"");
+                        List<UserGame> lista = game.cogerUsuariosMesa();
+                        foreach (UserGame usuarios in lista)
+                        {
+                            userHandler.SendAsync(usuarios.Id+"");
+                        }
                     }  
 
                     break;
 
                 case "join":
-                    userHandler.SendAsync("mensaje recibido, enviado de vuelta");
+
+                    Games.unirMesa(Int32.Parse(receivedUser.Identifier), Int32.Parse(receivedUser.Identifier2));
+                    
                     break;
+
+
 
                 case "test?":
                     userHandler.SendAsync("Funciona");

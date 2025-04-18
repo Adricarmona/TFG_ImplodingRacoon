@@ -46,5 +46,19 @@
         {
             games = new List<Game>();
         }
+
+        /**
+         * Unir jugador mesa
+         */
+        public static void unirMesa(int idMesa, int idUsuario)
+        {
+            Game mesa = buscarMesa(idMesa);
+            if (mesa != null)
+            {
+                UserGame newUser = new UserGame(idUsuario);
+
+                mesa.anadirUsuarioMesa(newUser);
+            }
+        }
     }
 }

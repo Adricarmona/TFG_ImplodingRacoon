@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("implodingRacoon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c7da06b2a666b3dd4a75ec5511956e55a3c9bf2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebd1ea6539ffeef3d9e89ee42f6a9642d1d0730a")]
 [assembly: System.Reflection.AssemblyProductAttribute("implodingRacoon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("implodingRacoon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

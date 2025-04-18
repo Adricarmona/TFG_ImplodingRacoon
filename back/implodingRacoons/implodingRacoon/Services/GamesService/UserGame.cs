@@ -8,6 +8,23 @@ namespace implodingRacoon.Services.GamesService
         public bool vivo { get; set; }
         public List<Carta> baraja { get; set; }
 
+        public UserGame(int idUsuario) 
+        { 
+            Id = idUsuario;
+            vivo = true;
+
+            baraja = new List<Carta>();
+            for (int i = 0; i < 8; i++)
+            {
+                // aqui van una carta aleatoria de la base de datos y la defuser hasya la 8
+                Carta carta = new Carta();
+                carta.Id = i;
+                //
+
+                baraja.Add(carta);
+            }
+        }
+
         public string Implosionar()
         {
             foreach (var carta in baraja)

@@ -187,6 +187,44 @@
         }
       }
     },
+    "/Cards/GetAllCards": {
+      "get": {
+        "tags": [
+          "Cards"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carta"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carta"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WebSocket": {
       "get": {
         "tags": [
@@ -202,6 +240,53 @@
   },
   "components": {
     "schemas": {
+      "Carta": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "disenos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Diseno"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Diseno": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "imagen": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "type": "object",
         "properties": {

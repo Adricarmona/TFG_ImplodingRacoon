@@ -1,4 +1,5 @@
 ﻿using implodingRacoon.Models.Database;
+using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
 
 namespace implodingRacoon.Services
@@ -28,6 +29,45 @@ namespace implodingRacoon.Services
         {
             var cards = await _unitOfWork.CartaRepository.GetCartaWhithDisenio();
             return cards;
+        }
+
+        public async Task<Carta> GetCardByIdAndDisenioAsync(int id)
+        {
+            var cards = await _unitOfWork.CartaRepository.GetCartaWhithDisenioById(id);
+            return cards;
+        }
+
+        public async Task<CardWithDisenio> GetCardByIdAndDisenioTypeImageAsync(int id, TypeCards type)
+        {
+            var cards = await _unitOfWork.CartaRepository.GetCartaWhithDisenioById(id);
+
+            String urlimagen = "other";
+            if (type == TypeCards.Original)
+            {
+                foreach (Diseno diseno in cards.Disenos)
+                {
+                    if (diseno.Nombre.Contains("Original"))
+                    {
+                        urlimagen = diseno.Imagen;
+                        break;
+                    }
+                }
+            } 
+            else
+            {
+                urlimagen = "https://images.steamusercontent.com/ugc/1242379645142561979/40C6DB79932467F7B2E540CD75FC6033E5BF8B57/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"; // aqui no deveria entrar nunca por ahora
+            }
+
+            CardWithDisenio cardWithDisenio = new CardWithDisenio
+                {
+                    Id = cards.Id,
+                    Titulo = cards.Titulo,
+                    Descripcion = cards.Descripcion,
+                    Tipo = cards.Tipo,
+                    urlImage = urlimagen
+                };
+
+            return cardWithDisenio;
         }
     }
 }

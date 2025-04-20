@@ -118,6 +118,63 @@
     ]
   },
   {
+    "ContainingType": "implodingRacoon.Controllers.CardsController",
+    "Method": "GetCardByIdAsync",
+    "RelativePath": "Cards/GetCardById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "implodingRacoon.Models.Database.Entities.Carta",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "implodingRacoon.Controllers.CardsController",
+    "Method": "GetCardByIdImage",
+    "RelativePath": "Cards/GetCardByIdImage/id={id}type={type}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "implodingRacoon.Models.Database.Dto.CardWithDisenio",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "implodingRacoon.Controllers.WebSocketController",
     "Method": "ConnectAsync",
     "RelativePath": "WebSocket",

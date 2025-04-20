@@ -14,9 +14,9 @@ namespace implodingRacoon
         public async Task SeedAsync()
         {
             await SeedDisenioAsync();
+            await _implodingRacoonsContext.SaveChangesAsync();
 
             await SeedCardsAsync();
-
             await _implodingRacoonsContext.SaveChangesAsync();
         }
 

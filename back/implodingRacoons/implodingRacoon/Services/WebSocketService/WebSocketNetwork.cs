@@ -101,6 +101,36 @@ namespace implodingRacoon.Services.WebSocketService
              * 
              */
 
+            List<Game> mesas = Games.mesas();
+
+            foreach (WebSocketHandler wsHandler in handlers)
+            {
+
+                foreach (Game mesa in mesas)
+                {
+
+                    foreach (UserGame userGame in mesa.cogerUsuariosMesa())
+                    {
+                        if (userGame == wsHandler.Usuario)
+                        {
+                            if (mesa.quitarUsuarioMesa(userGame) == "funciono")
+                            {
+                                tasks.Add(wsHandler.SendAsync("Usuario desconectado: " + userGame.Id + " Con id del ws:" + disconnectedHandler.Id));
+                            }
+                            else
+                            {
+                                 wsHandler.SendAsync("Usuario no encontrado: " + userGame.Id + " Con id del ws:" + disconnectedHandler.Id);
+                            }
+
+
+                        }
+                    }
+
+                }
+
+
+            }
+
             // Esperamos a que todas las tareas de envío de mensajes se completen
             await Task.WhenAll(tasks);
         }
@@ -112,6 +142,7 @@ namespace implodingRacoon.Services.WebSocketService
             // Guardamos una copia de los WebSocketHandler para evitar problemas de concurrencia
             WebSocketHandler[] handlers = _handlers.ToArray();
 
+            WebSocketService webSocketService = new WebSocketService();
             /**
              * 
              *      Cuando queramos notificar un mensaje iria aqui
@@ -133,14 +164,13 @@ namespace implodingRacoon.Services.WebSocketService
             switch (receivedUser.TypeMessage)
             {
                 case "create":
-
-                    Game partida = Games.anadirMesa();
-
-                    userHandler.SendAsync("creada sala: "+partida.IdSala + "");
+                    
+                    webSocketService.crearSala(userHandler, receivedUser);
 
                     break;
 
                 case "look":
+
                     foreach (Game gameLook in Games.mesas())
                     {
                         List<UserGame> lista = gameLook.cogerUsuariosMesa();
@@ -160,84 +190,21 @@ namespace implodingRacoon.Services.WebSocketService
                     break;
 
                 case "join":
-                    /// primer identifier es la mesa
-                    /// segundo identifier es el id del jugador
-                    if (receivedUser.Identifier == null || receivedUser.Identifier2 == null)
-                    {
-                        userHandler.SendAsync("error json");
-                        break;
-                    }
 
-                    Game mesa = Games.buscarMesa(Int32.Parse(receivedUser.Identifier));
-
-                    if (mesa == null)
-                    {
-                        userHandler.SendAsync("mesa no existe");
-                        break;
-                    }
-
-                    if (mesa.salaEmpezada == true)
-                    {
-                        userHandler.SendAsync("mesa ya empezada");
-                        break;
-                    }
-
-                    if (mesa.cogerUsuariosMesa().Count >= 5)
-                    {
-                        userHandler.SendAsync("mesa llena");
-                        break;
-                    }
-
-                    userHandler.IdUsuario = Int32.Parse(receivedUser.Identifier2);
-                    Games.unirMesa(Int32.Parse(receivedUser.Identifier), Int32.Parse(receivedUser.Identifier2));
-
-                    foreach (UserGame usuarios in mesa.cogerUsuariosMesa())
-                    {
-                        foreach (WebSocketHandler handler in _handlers)
-                        {
-                            if (handler.IdUsuario == usuarios.Id)
-                            {
-                                tasks.Add(handler.SendAsync("Usuario unido: "+userHandler.IdUsuario));
-                            }
-                        }
-                    }
-
-                    userHandler.SendAsync("Unido a la mesa: " + receivedUser.Identifier);
+                    webSocketService.unirseMesa(receivedUser, userHandler, _handlers, tasks);
 
                     break;
 
                 case "start":
 
-                    if (receivedUser.Identifier == null)
-                    {
-                        userHandler.SendAsync("mesa no indicada");
-                        break;
-                    }
+                    webSocketService.empezarPartida(receivedUser, userHandler, handlers, tasks);
 
-                    // empieza la partida con el id de la mesa dado
-                    Game game = Games.buscarMesa(Int32.Parse(receivedUser.Identifier));
-
-                    if (game == null)
-                    {
-                        userHandler.SendAsync("mesa no encontrada");
-                        break;
-                    }
+                    break;
 
 
-                    game.empezarPartida(true);
+                case "leave":
 
-                    foreach (UserGame usuarios in game.cogerUsuariosMesa())
-                    {
-                        foreach (WebSocketHandler handler in _handlers)
-                        {
-                            if (handler.IdUsuario == usuarios.Id)
-                            {
-                                tasks.Add(handler.SendAsync("La partida ha comenzado"));
-                            }
-                        }
-
-
-                    }
+                    webSocketService.salirPartida(receivedUser, userHandler);
 
                     break;
 

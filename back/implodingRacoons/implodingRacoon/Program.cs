@@ -46,6 +46,7 @@ namespace implodingRacoon
             // servicios
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<CardsService>();
+            builder.Services.AddScoped<WSHelper>();
 
             // el singleton del websocket
             builder.Services.AddSingleton<WebSocketNetwork>();

@@ -3,11 +3,19 @@ using System.Text.Json;
 using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
 using implodingRacoon.Services.GamesService;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace implodingRacoon.Services.WebSocketService
 {
     public class WebSocketNetwork
     {
+        private readonly IServiceProvider _serviceProvider;
+
+        public WebSocketNetwork(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         // Contador para asignar un id a cada WebSocketHandler
         // para mirar cuantos usuarios tiene concectados
         private static int _idCounter = 0;
@@ -135,7 +143,7 @@ namespace implodingRacoon.Services.WebSocketService
             await Task.WhenAll(tasks);
         }
 
-        private Task OnMessageReceivedAsync(WebSocketHandler userHandler, string message)
+        private async Task<Task> OnMessageReceivedAsync(WebSocketHandler userHandler, string message)
         {
             // Lista donde guardar las tareas de envío de mensajes
             List<Task> tasks = new List<Task>();
@@ -149,7 +157,17 @@ namespace implodingRacoon.Services.WebSocketService
              * 
              */
 
+            ICollection<Carta> cartas;
+
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var _wsHelper = scope.ServiceProvider.GetRequiredService<WSHelper>();
+
+                cartas = await _wsHelper.getCartas();
+            }
+
             RecivedUserWebSocket receivedUser;
+
 
             try
             {
@@ -161,11 +179,12 @@ namespace implodingRacoon.Services.WebSocketService
                 receivedUser.TypeMessage = "error";
             }
 
+
             switch (receivedUser.TypeMessage)
             {
                 case "create":
-                    
-                    webSocketService.crearSala(userHandler, receivedUser);
+
+                    webSocketService.crearSala(userHandler);
 
                     break;
 
@@ -174,15 +193,17 @@ namespace implodingRacoon.Services.WebSocketService
                     foreach (Game gameLook in Games.mesas())
                     {
                         List<UserGame> lista = gameLook.cogerUsuariosMesa();
+                        UserGame host = gameLook.cogerHostMesa();
 
                         UsersInLobby usuersInLobby = new UsersInLobby
                         {
                             IdSala = gameLook.IdSala,
-                            IdUsuario1 = lista.Count > 0 && lista[0].Id != null ? lista[0].Id : 0,
-                            IdUsuario2 = lista.Count > 1 && lista[1].Id != null ? lista[1].Id : 0,
-                            IdUsuario3 = lista.Count > 2 && lista[2].Id != null ? lista[2].Id : 0,
-                            IdUsuario4 = lista.Count > 3 && lista[3].Id != null ? lista[3].Id : 0,
-                            IdUsuario5 = lista.Count > 4 && lista[4].Id != null ? lista[4].Id : 0
+                            IdHost = host != null ? gameLook.cogerHostMesa().Id : 0,
+                            IdUsuario1 = lista != null && lista.Count > 0 && lista[0] != null ? lista[0].Id : 0,
+                            IdUsuario2 = lista != null && lista.Count > 1 && lista[1] != null ? lista[1].Id : 0,
+                            IdUsuario3 = lista != null && lista.Count > 2 && lista[2] != null ? lista[2].Id : 0,
+                            IdUsuario4 = lista != null && lista.Count > 3 && lista[3] != null ? lista[3].Id : 0,
+                            IdUsuario5 = lista != null && lista.Count > 4 && lista[4] != null ? lista[4].Id : 0
                         };
 
                         userHandler.SendAsync(JsonSerializer.Serialize(usuersInLobby));
@@ -197,7 +218,7 @@ namespace implodingRacoon.Services.WebSocketService
 
                 case "start":
 
-                    webSocketService.empezarPartida(receivedUser, userHandler, handlers, tasks);
+                    webSocketService.empezarPartida(receivedUser, userHandler, handlers, tasks, cartas.ToList());
 
                     break;
 
@@ -209,7 +230,9 @@ namespace implodingRacoon.Services.WebSocketService
                     break;
 
                 case "test?":
+
                     userHandler.SendAsync("Funciona");
+
                     break;
 
                 default:
@@ -217,8 +240,9 @@ namespace implodingRacoon.Services.WebSocketService
                     break;
             }
 
-            // Devolvemos una tarea que se completará cuando todas las tareas de envío de mensajes se completen
-            return Task.WhenAll(tasks);
+
+        // Devolvemos una tarea que se completará cuando todas las tareas de envío de mensajes se completen
+        return Task.WhenAll(tasks);
         }
     }
 }

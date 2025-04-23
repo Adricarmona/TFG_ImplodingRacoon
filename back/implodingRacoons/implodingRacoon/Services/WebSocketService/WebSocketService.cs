@@ -4,12 +4,14 @@ using System.Threading;
 using implodingRacoon.Services.GamesService;
 using System.Threading.Tasks;
 using implodingRacoon.Models.Database.Dto;
+using implodingRacoon.Models.Database.Entities;
+using implodingRacoon.Models.Database;
 
 namespace implodingRacoon.Services.WebSocketService
 {
     public class WebSocketService
     {
-       
+
         /**
          *  Funcion para unirse a una mesa
          */
@@ -32,7 +34,7 @@ namespace implodingRacoon.Services.WebSocketService
                 else
                 {
 
-                    if (mesa.salaEmpezada == true)
+                    if (mesa.SalaEmpezada == true)
                     {
                         userHandler.SendAsync("mesa ya empezada");
                     }
@@ -75,15 +77,17 @@ namespace implodingRacoon.Services.WebSocketService
                                 {
                                     foreach (WebSocketHandler handler in handlers)
                                     {
-                                        if (userHandler == handler)
+                                        if (handler.Usuario != null)
                                         {
-                                            userHandler.SendAsync("Unido a la mesa: " + mesa.IdSala);
+                                            if (userHandler == handler)
+                                            {
+                                                userHandler.SendAsync("Unido a la mesa: " + mesa.IdSala);
+                                            }
+                                            else if (handler.Usuario == usuarios)
+                                            {
+                                                tasks.Add(handler.SendAsync("Usuario unido: " + usuarios.Id));
+                                            }
                                         }
-                                        else if (handler.Usuario == usuarios)
-                                        {
-                                            tasks.Add(handler.SendAsync("Usuario unido: " + usuarios.Id));
-                                        }
-
                                     }
                                 }
 
@@ -99,7 +103,7 @@ namespace implodingRacoon.Services.WebSocketService
         /**
          *  Funcion para empezar una partida en una mesa
          */
-        public void empezarPartida(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, WebSocketHandler[] handlers, List<Task> tasks)
+        public async Task empezarPartida(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, WebSocketHandler[] handlers, List<Task> tasks, List<Carta> cartas)
         {
             if (receivedUser.Identifier == null)
             {
@@ -118,6 +122,7 @@ namespace implodingRacoon.Services.WebSocketService
                 else
                 {
                     game.empezarPartida(true);
+                    game.anadirMesaBaraja( await RecogerCartas(cartasBomba: game.cogerUsuariosMesa().Count - 1, cartas: cartas));
 
                     foreach (UserGame usuarios in game.cogerUsuariosMesa())
                     {
@@ -154,19 +159,126 @@ namespace implodingRacoon.Services.WebSocketService
             }
         }
 
-        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser)
+        public void crearSala(WebSocketHandler userHandler)
         {
 
             Game partida = Games.anadirMesa();
+            partida.anadirUsuarioMesa(userHandler.Usuario);
             userHandler.SendAsync("creada sala: " + partida.IdSala + "");
 
-            /*
-            while (receivedUser.TypeMessage != "stop")
-            {
-                System.Threading.Thread.Sleep(300);
-                userHandler.SendAsync("si");
-            }
-            */
         }
+
+        public bool buscarUsuario(WebSocketHandler userHandler)
+        {
+
+            foreach (Game mesa in Games.mesas())
+            {
+                if (userHandler.Usuario == mesa.cogerHostMesa())
+                {
+                    return true;
+                }
+
+                foreach (UserGame usuario in mesa.cogerUsuariosMesa())
+                {
+                    if (userHandler.Usuario == usuario)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+
+        }
+
+        public bool buscarUsuarioMesaEmpezado(WebSocketHandler userHandler)
+        {
+
+            foreach (Game mesa in Games.mesas())
+            {
+                if (userHandler.Usuario == mesa.cogerHostMesa())
+                {
+                    if (mesa.SalaEmpezada)
+                    {
+                        return true;
+                    }
+                }
+
+                foreach (UserGame usuario in mesa.cogerUsuariosMesa())
+                {
+                    if (userHandler.Usuario == usuario)
+                    {
+                        if (mesa.SalaEmpezada)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+
+        }
+
+        public async Task<List<Carta>> RecogerCartas(List<Carta> cartas,int numeroCartas = 40, int cartasBomba = 0)
+        {
+            // numero random
+            Random random = new Random();
+
+            // cogiendo cartas bbdd
+            List<Carta> cartasList = cartas;
+
+            // cartas finales
+            List<Carta> cartasDadas = new();
+
+            // cantidad cartasBombas puestas
+            int cartasBombaPuestas = 0;
+
+            for (int i = 0; i < cartasBomba; i++)
+            {
+                cartasDadas.Add(cartasList[0]);
+            }
+
+
+            for (int i = 0; i < numeroCartas - cartasBomba; i++)
+            {
+                Carta carta = cartasList[random.Next(numeroCartas)];
+
+                Carta cartasComrpobar = new Carta();
+                do
+                {
+                    cartasComrpobar = cartasList[random.Next(cartasList.Count)];
+                }
+                while (cartasComrpobar.Tipo == "C4");
+
+                cartasDadas.Add(cartasComrpobar);
+            }
+
+            List<Carta> cartasBarajadas = barajar(cartasDadas);
+
+            return cartasBarajadas;
+        }
+
+        public List<Carta> barajar(List<Carta> listaCartasABarajar)
+        {
+            // numero random
+            Random random = new Random();
+
+            // las nuevas barajas
+            List<Carta> barajardas = new List<Carta>();
+
+            // el numero de las cartas
+            int numeroCartas = listaCartasABarajar.Count;
+
+            for (int i = 0; i < numeroCartas; i++)
+            {
+                Carta cartaSeleccionada = listaCartasABarajar[random.Next()];
+
+                barajardas.Add(cartaSeleccionada);
+            }
+
+            return barajardas;
+        }
+
     }
 }

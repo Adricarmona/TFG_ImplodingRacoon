@@ -5,55 +5,85 @@ namespace implodingRacoon.Services.GamesService
     public class Game
     {
         public int IdSala { get; set; }
-        private List<UserGame> usuariosMesa { get; set; } = new List<UserGame>();
-        public bool salaEmpezada { get; set; }
-        private List<Carta> cartasLanzadas { get; set; }
-        public string contrasenia { get; set; }
+        private List<UserGame> UsuariosMesa { get; set; } = new List<UserGame>();
+        private  UserGame HostMesa { get; set; }
+        public int OrdenJugadores { get; set; }
+        public bool SalaEmpezada { get; set; }
+        private List<Carta> BarajaMesa { get; set; }
+        private List<Carta> CartasLanzadas { get; set; }
+        public string Contrasenia { get; set; }
+
 
         public Game() {}
 
+        public string anadirHostMesa(UserGame hostMesa)
+        {
+            if (hostMesa != null)
+            {
+                HostMesa = hostMesa;
+                return "ingresado";
+            }
+
+            return "fallado";
+        }
+
+        public UserGame cogerHostMesa()
+        {
+            return HostMesa;
+        }
+
         public string anadirUsuarioMesa(UserGame userGame)
         {
-            if (usuariosMesa.Contains(userGame)) return "esta";
+            if (UsuariosMesa.Contains(userGame)) return "esta";
 
-            usuariosMesa.Add(userGame);
+            UsuariosMesa.Add(userGame);
 
             return "funciono";
         }
 
         public string quitarUsuarioMesa(UserGame userGame)
         {
-            if (!usuariosMesa.Contains(userGame)) return "no esta";
+            if (!UsuariosMesa.Contains(userGame)) return "no esta";
 
-            usuariosMesa.Remove(userGame);
+            UsuariosMesa.Remove(userGame);
 
             return "funciono";
         }
 
         public List<UserGame> cogerUsuariosMesa()
         {
-            return usuariosMesa;
+            return UsuariosMesa;
         }
 
         public void lanzarCarta(Carta carta)
         {
-            cartasLanzadas.Add(carta);
+            CartasLanzadas.Add(carta);
         }
 
+
+        // Cartas mesa
         public List<Carta> mirarTresCartasArriba()
         {
             List<Carta> tresCartas = new List<Carta>();
-            for (int i = cartasLanzadas.Count; i < cartasLanzadas.Count - 3 && i > 0 ; i--)
+            for (int i = CartasLanzadas.Count; i < CartasLanzadas.Count - 3 && i > 0 ; i--)
             {
-                tresCartas.Add(cartasLanzadas[i]);
+                tresCartas.Add(CartasLanzadas[i]);
             }
 
             return tresCartas;
         }
 
+        public void anadirMesaBaraja(List<Carta> baraja)
+        {
+            BarajaMesa.Clear();
+            BarajaMesa = baraja;
+        }
+
+
+        // Empezar partida
         public void empezarPartida(bool empezarPartida)
         {
-            salaEmpezada = empezarPartida;
+            SalaEmpezada = empezarPartida;
         }
     }
 }

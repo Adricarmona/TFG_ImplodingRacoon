@@ -1,0 +1,14 @@
+wwwroot\cards\ataca.png
+wwwroot\cards\baraja.png
+wwwroot\cards\c4.png
+wwwroot\cards\defuser.png
+wwwroot\cards\favor.png
+wwwroot\cards\gatoBarba.png
+wwwroot\cards\gatoMelon.png
+wwwroot\cards\gatoPeludo.png
+wwwroot\cards\nop.png
+wwwroot\cards\parteAtras.png
+wwwroot\cards\salta.png
+wwwroot\cards\tacoCat.png
+wwwroot\cards\verFuturo.png
+wwwroot\cards\vomitoArcoiris.png

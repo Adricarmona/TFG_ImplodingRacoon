@@ -32,7 +32,7 @@ namespace implodingRacoon.Controllers
             }
             else
             {
-                Console.WriteLine("Websoket fallado");
+                Console.WriteLine("Websocket fallado");
                 HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
             }
 

@@ -1,5 +1,6 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
+using implodingRacoon.Services.GamesService;
 
 namespace implodingRacoon.Services.WebSocketService
 {
@@ -11,6 +12,7 @@ namespace implodingRacoon.Services.WebSocketService
         private readonly byte[] _buffer;
 
         public int Id { get; init; }
+        public UserGame Usuario { get; set; } = null; // id del usuario al que pertenece el WebSocket, por defecto 0 (sin asignar)
         public bool IsOpen => _webSocket.State == WebSocketState.Open;
 
         // Eventos para notificar cuando se recibe un mensaje o se desconecta un usuario

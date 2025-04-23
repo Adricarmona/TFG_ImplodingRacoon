@@ -7,8 +7,10 @@ namespace implodingRacoon.Models.Database
         private readonly ImplodingRacoonsContext _context;
 
         private UsuarioRepository _usuarioRepository;
+        private CartaRepository _cartaRepository;
 
         public UsuarioRepository UsuarioRepository => _usuarioRepository ??= new UsuarioRepository(_context);
+        public CartaRepository CartaRepository => _cartaRepository ??= new CartaRepository(_context);
 
         public UnitOfWork(ImplodingRacoonsContext context)
         {

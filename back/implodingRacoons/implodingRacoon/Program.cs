@@ -1,8 +1,10 @@
 using System.Net.WebSockets;
 using System.Text;
+using System.Threading.Tasks;
 using implodingRacoon.Controllers;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Services;
+using implodingRacoon.Services.GamesService;
 using implodingRacoon.Services.WebSocketService;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -11,7 +13,7 @@ namespace implodingRacoon
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +45,8 @@ namespace implodingRacoon
 
             // servicios
             builder.Services.AddScoped<AuthService>();
+            builder.Services.AddScoped<CardsService>();
+            builder.Services.AddScoped<WSHelper>();
 
             // el singleton del websocket
             builder.Services.AddSingleton<WebSocketNetwork>();
@@ -52,14 +56,6 @@ namespace implodingRacoon
             ///     APP
             ///
             var app = builder.Build();
-
-            // para la base de datos
-            using (IServiceScope scope = app.Services.CreateScope())
-            {
-                ImplodingRacoonsContext implodingRacoonsContext = scope.ServiceProvider.GetService<ImplodingRacoonsContext>();
-                implodingRacoonsContext.Database.EnsureCreated();
-            }
-
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -84,7 +80,7 @@ namespace implodingRacoon
             app.UseCors(options =>
                 options.AllowAnyHeader()
                     .AllowAnyMethod()
-                    .AllowAnyOrigin());
+                    .AllowAnyOrigin()); 
 
             // Habilitamos la autenticacion y la autorizacion
             app.UseAuthentication();
@@ -93,8 +89,25 @@ namespace implodingRacoon
 
             app.MapControllers();
 
+            // La base de datos
+            await SeedDataBase(app.Services);
+
+            // iniciamos las mesas
+            Games.iniciarMesas();
 
             app.Run();
+        }
+
+        static async Task SeedDataBase(IServiceProvider serviceProvider)
+        {
+            using IServiceScope scope = serviceProvider.CreateScope();
+            using ImplodingRacoonsContext irContext = scope.ServiceProvider.GetRequiredService<ImplodingRacoonsContext>();
+
+            if (irContext.Database.EnsureCreated())
+            {
+                Seeder seeder = new Seeder(irContext);
+                await seeder.SeedAsync();
+            }
         }
     }
 }

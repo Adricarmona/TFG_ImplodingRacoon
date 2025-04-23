@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AqK2Vi4CXzEEtZmh3zl+awrIBqVn/sGZiCgN9vRF0YQ=",
+  "Hash": "BEG7KjhNdxlNBLpyXLPA3GizjTyEVwOifwn7+id3rMQ=",
   "Source": "implodingRacoon",
   "BasePath": "_content/implodingRacoon",
   "Mode": "Default",
@@ -15,6 +15,1450 @@
       "Pattern": "**"
     }
   ],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": [
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\ataca.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/ataca#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ohghhcdn9t",
+      "Integrity": "RKG3QFX4BSbZ4FjXj1r8OnU7dT1mW39UnVVoq4Jq3yk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\ataca.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\baraja.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/baraja#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jcwdj8ka9r",
+      "Integrity": "A7iWHUVFcgcAmrkRapnMwDFYS6OpmOVjkOaJ83yUiH0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\baraja.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\c4.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/c4#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8dnw6v6djn",
+      "Integrity": "TIANcXkwftxIyUbKJW/2JvzL4tVNVCvApIZj+VXLBac=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\c4.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\defuser.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/defuser#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dmcngwwhjb",
+      "Integrity": "W5BtV57n2E71CDAJJTVGWUePh+Cb13XRAp/sJ6Ivo80=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\defuser.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\favor.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/favor#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "e9jbahi7sr",
+      "Integrity": "QkRIH1+a730r5shOab37agc5xah8hKjMyOvQRkbFJWw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\favor.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoBarba.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/gatoBarba#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2doi0fic4n",
+      "Integrity": "1gdXvTUO1LxDQh6GKeB9lmg7ZA1LE6wzZLkIPFNFXmg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\gatoBarba.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoMelon.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/gatoMelon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5aw4mx6w7v",
+      "Integrity": "bdY7aPAoEp1Ld9hnu878EBUJSjPA83OokIcO/C5JsH4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\gatoMelon.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoPeludo.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/gatoPeludo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ozkxik7gar",
+      "Integrity": "fIVSI7yner34GhLK44bIQpALCECXz+vLAvkwjzRUzkQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\gatoPeludo.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\nop.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/nop#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ygab73ehan",
+      "Integrity": "wnyGprr1z7tn8mBsIGgjiICqUHCm+CqKVxKerITBHuY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\nop.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\parteAtras.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/parteAtras#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "intc7tn3oc",
+      "Integrity": "4rNROpS4yVW9JmVQxLlUWizxVYMkqi/nJbdD4kgQz3U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\parteAtras.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\salta.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/salta#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kbit1jwo9r",
+      "Integrity": "ADEadz/Og8WB4UOGsd3sOE+NT8nRsLTECfcSiQFukWU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\salta.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\tacoCat.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/tacoCat#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "io1vpf2ij4",
+      "Integrity": "Qg+ICE76cQZ+fU3G2M4xx2l962yATpGb8F0Xa+khx1A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\tacoCat.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\verFuturo.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/verFuturo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rp8eiu69mx",
+      "Integrity": "YbKU4ggJpOPt35u4FbvdmVLkGd7bewmJ7oDSNkxcg+k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\verFuturo.png"
+    },
+    {
+      "Identity": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\vomitoArcoiris.png",
+      "SourceId": "implodingRacoon",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\",
+      "BasePath": "_content/implodingRacoon",
+      "RelativePath": "cards/vomitoArcoiris#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vlbddlodqs",
+      "Integrity": "/SL9XKOP16CIq0Cfm4G7/BQCQ+RZ3ihKh6+JrZ+RWSo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cards\\vomitoArcoiris.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "cards/ataca.ohghhcdn9t.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\ataca.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "156578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RKG3QFX4BSbZ4FjXj1r8OnU7dT1mW39UnVVoq4Jq3yk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ohghhcdn9t"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/ataca.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RKG3QFX4BSbZ4FjXj1r8OnU7dT1mW39UnVVoq4Jq3yk="
+        }
+      ]
+    },
+    {
+      "Route": "cards/ataca.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\ataca.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "156578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RKG3QFX4BSbZ4FjXj1r8OnU7dT1mW39UnVVoq4Jq3yk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RKG3QFX4BSbZ4FjXj1r8OnU7dT1mW39UnVVoq4Jq3yk="
+        }
+      ]
+    },
+    {
+      "Route": "cards/baraja.jcwdj8ka9r.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\baraja.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "172945"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A7iWHUVFcgcAmrkRapnMwDFYS6OpmOVjkOaJ83yUiH0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:00:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jcwdj8ka9r"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/baraja.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-A7iWHUVFcgcAmrkRapnMwDFYS6OpmOVjkOaJ83yUiH0="
+        }
+      ]
+    },
+    {
+      "Route": "cards/baraja.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\baraja.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "172945"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A7iWHUVFcgcAmrkRapnMwDFYS6OpmOVjkOaJ83yUiH0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:00:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-A7iWHUVFcgcAmrkRapnMwDFYS6OpmOVjkOaJ83yUiH0="
+        }
+      ]
+    },
+    {
+      "Route": "cards/c4.8dnw6v6djn.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\c4.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "166799"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TIANcXkwftxIyUbKJW/2JvzL4tVNVCvApIZj+VXLBac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:52:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8dnw6v6djn"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/c4.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TIANcXkwftxIyUbKJW/2JvzL4tVNVCvApIZj+VXLBac="
+        }
+      ]
+    },
+    {
+      "Route": "cards/c4.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\c4.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "166799"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TIANcXkwftxIyUbKJW/2JvzL4tVNVCvApIZj+VXLBac=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:52:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TIANcXkwftxIyUbKJW/2JvzL4tVNVCvApIZj+VXLBac="
+        }
+      ]
+    },
+    {
+      "Route": "cards/defuser.dmcngwwhjb.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\defuser.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W5BtV57n2E71CDAJJTVGWUePh+Cb13XRAp/sJ6Ivo80=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:57:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dmcngwwhjb"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/defuser.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-W5BtV57n2E71CDAJJTVGWUePh+Cb13XRAp/sJ6Ivo80="
+        }
+      ]
+    },
+    {
+      "Route": "cards/defuser.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\defuser.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W5BtV57n2E71CDAJJTVGWUePh+Cb13XRAp/sJ6Ivo80=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:57:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-W5BtV57n2E71CDAJJTVGWUePh+Cb13XRAp/sJ6Ivo80="
+        }
+      ]
+    },
+    {
+      "Route": "cards/favor.e9jbahi7sr.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\favor.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QkRIH1+a730r5shOab37agc5xah8hKjMyOvQRkbFJWw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:00:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "e9jbahi7sr"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/favor.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkRIH1+a730r5shOab37agc5xah8hKjMyOvQRkbFJWw="
+        }
+      ]
+    },
+    {
+      "Route": "cards/favor.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\favor.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QkRIH1+a730r5shOab37agc5xah8hKjMyOvQRkbFJWw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:00:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QkRIH1+a730r5shOab37agc5xah8hKjMyOvQRkbFJWw="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoBarba.2doi0fic4n.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoBarba.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86851"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1gdXvTUO1LxDQh6GKeB9lmg7ZA1LE6wzZLkIPFNFXmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:02:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2doi0fic4n"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/gatoBarba.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1gdXvTUO1LxDQh6GKeB9lmg7ZA1LE6wzZLkIPFNFXmg="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoBarba.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoBarba.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86851"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1gdXvTUO1LxDQh6GKeB9lmg7ZA1LE6wzZLkIPFNFXmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:02:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1gdXvTUO1LxDQh6GKeB9lmg7ZA1LE6wzZLkIPFNFXmg="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoMelon.5aw4mx6w7v.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoMelon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "108229"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bdY7aPAoEp1Ld9hnu878EBUJSjPA83OokIcO/C5JsH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5aw4mx6w7v"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/gatoMelon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bdY7aPAoEp1Ld9hnu878EBUJSjPA83OokIcO/C5JsH4="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoMelon.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoMelon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "108229"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bdY7aPAoEp1Ld9hnu878EBUJSjPA83OokIcO/C5JsH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:02:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bdY7aPAoEp1Ld9hnu878EBUJSjPA83OokIcO/C5JsH4="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoPeludo.ozkxik7gar.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoPeludo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68141"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fIVSI7yner34GhLK44bIQpALCECXz+vLAvkwjzRUzkQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ozkxik7gar"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/gatoPeludo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fIVSI7yner34GhLK44bIQpALCECXz+vLAvkwjzRUzkQ="
+        }
+      ]
+    },
+    {
+      "Route": "cards/gatoPeludo.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\gatoPeludo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68141"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fIVSI7yner34GhLK44bIQpALCECXz+vLAvkwjzRUzkQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fIVSI7yner34GhLK44bIQpALCECXz+vLAvkwjzRUzkQ="
+        }
+      ]
+    },
+    {
+      "Route": "cards/nop.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\nop.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129416"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wnyGprr1z7tn8mBsIGgjiICqUHCm+CqKVxKerITBHuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:58:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wnyGprr1z7tn8mBsIGgjiICqUHCm+CqKVxKerITBHuY="
+        }
+      ]
+    },
+    {
+      "Route": "cards/nop.ygab73ehan.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\nop.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129416"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wnyGprr1z7tn8mBsIGgjiICqUHCm+CqKVxKerITBHuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:58:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ygab73ehan"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/nop.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wnyGprr1z7tn8mBsIGgjiICqUHCm+CqKVxKerITBHuY="
+        }
+      ]
+    },
+    {
+      "Route": "cards/parteAtras.intc7tn3oc.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\parteAtras.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "83291"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4rNROpS4yVW9JmVQxLlUWizxVYMkqi/nJbdD4kgQz3U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:58:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "intc7tn3oc"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/parteAtras.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4rNROpS4yVW9JmVQxLlUWizxVYMkqi/nJbdD4kgQz3U="
+        }
+      ]
+    },
+    {
+      "Route": "cards/parteAtras.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\parteAtras.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "83291"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4rNROpS4yVW9JmVQxLlUWizxVYMkqi/nJbdD4kgQz3U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:58:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4rNROpS4yVW9JmVQxLlUWizxVYMkqi/nJbdD4kgQz3U="
+        }
+      ]
+    },
+    {
+      "Route": "cards/salta.kbit1jwo9r.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\salta.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148047"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ADEadz/Og8WB4UOGsd3sOE+NT8nRsLTECfcSiQFukWU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kbit1jwo9r"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/salta.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ADEadz/Og8WB4UOGsd3sOE+NT8nRsLTECfcSiQFukWU="
+        }
+      ]
+    },
+    {
+      "Route": "cards/salta.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\salta.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148047"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ADEadz/Og8WB4UOGsd3sOE+NT8nRsLTECfcSiQFukWU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ADEadz/Og8WB4UOGsd3sOE+NT8nRsLTECfcSiQFukWU="
+        }
+      ]
+    },
+    {
+      "Route": "cards/tacoCat.io1vpf2ij4.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\tacoCat.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "111983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qg+ICE76cQZ+fU3G2M4xx2l962yATpGb8F0Xa+khx1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "io1vpf2ij4"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/tacoCat.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qg+ICE76cQZ+fU3G2M4xx2l962yATpGb8F0Xa+khx1A="
+        }
+      ]
+    },
+    {
+      "Route": "cards/tacoCat.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\tacoCat.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "111983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Qg+ICE76cQZ+fU3G2M4xx2l962yATpGb8F0Xa+khx1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Qg+ICE76cQZ+fU3G2M4xx2l962yATpGb8F0Xa+khx1A="
+        }
+      ]
+    },
+    {
+      "Route": "cards/verFuturo.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\verFuturo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YbKU4ggJpOPt35u4FbvdmVLkGd7bewmJ7oDSNkxcg+k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YbKU4ggJpOPt35u4FbvdmVLkGd7bewmJ7oDSNkxcg+k="
+        }
+      ]
+    },
+    {
+      "Route": "cards/verFuturo.rp8eiu69mx.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\verFuturo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YbKU4ggJpOPt35u4FbvdmVLkGd7bewmJ7oDSNkxcg+k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 12:59:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rp8eiu69mx"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/verFuturo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YbKU4ggJpOPt35u4FbvdmVLkGd7bewmJ7oDSNkxcg+k="
+        }
+      ]
+    },
+    {
+      "Route": "cards/vomitoArcoiris.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\vomitoArcoiris.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77696"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/SL9XKOP16CIq0Cfm4G7/BQCQ+RZ3ihKh6+JrZ+RWSo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/SL9XKOP16CIq0Cfm4G7/BQCQ+RZ3ihKh6+JrZ+RWSo="
+        }
+      ]
+    },
+    {
+      "Route": "cards/vomitoArcoiris.vlbddlodqs.png",
+      "AssetFile": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\wwwroot\\cards\\vomitoArcoiris.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77696"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/SL9XKOP16CIq0Cfm4G7/BQCQ+RZ3ihKh6+JrZ+RWSo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:01:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vlbddlodqs"
+        },
+        {
+          "Name": "label",
+          "Value": "cards/vomitoArcoiris.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/SL9XKOP16CIq0Cfm4G7/BQCQ+RZ3ihKh6+JrZ+RWSo="
+        }
+      ]
+    }
+  ]
 }

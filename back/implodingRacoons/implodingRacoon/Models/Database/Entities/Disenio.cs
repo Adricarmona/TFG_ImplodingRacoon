@@ -7,9 +7,6 @@ namespace implodingRacoon.Models.Database.Entities
     {
         [Key]
         public int Id { get; set; }
-        public int CartaId { get; set; }
-        [ForeignKey("CartaId")]
-        public Carta Carta { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
     }

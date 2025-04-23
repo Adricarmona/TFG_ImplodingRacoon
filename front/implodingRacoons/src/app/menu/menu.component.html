@@ -5,7 +5,7 @@
         </div>
         <div id="cuadradoCentrar">
             
-            @if (logueado) {
+            @if (true) {
                 <app-logueado></app-logueado>
             }
             @else {
@@ -14,11 +14,15 @@
 
             <hr>
 
-            <ng-container [ngSwitch]="estado">
-                <app-opciones-menu *ngSwitchCase="'menu'"></app-opciones-menu>
-                <app-registro *ngSwitchCase="'registro'"></app-registro>
-                <app-login *ngSwitchCase="'login'"></app-login>
-              </ng-container>
+            @if (false) {
+                <app-opciones-menu></app-opciones-menu>
+            }
+            @else if(true) {
+                <app-registro></app-registro>
+            }
+            @else {
+                <app-login></app-login>
+            }
 
             <hr>
 

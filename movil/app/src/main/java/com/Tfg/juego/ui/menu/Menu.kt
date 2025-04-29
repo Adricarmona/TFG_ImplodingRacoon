@@ -1,5 +1,7 @@
 package com.Tfg.juego.ui.menu
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
@@ -32,6 +35,7 @@ fun menuInicial(
     onUnirseClick: () -> Unit
 ) {
     val image: Painter = painterResource(id = R.drawable.img_iconochatgpt)
+    val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
 
     loguinRegistroArriba(
         onLoginClick = onLoginClick,
@@ -59,7 +63,8 @@ fun menuInicial(
         BotonCustom(
             text = "Unirse a una mesa",
             height = 200.dp,
-            width = 300.dp
+            width = 300.dp,
+            enabled = !sharedPreferences.getString("token", "").isNullOrEmpty()
         )
         { onUnirseClick() }
 

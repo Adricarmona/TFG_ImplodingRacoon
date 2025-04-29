@@ -12,7 +12,7 @@ namespace implodingRacoon.Services.WebSocketService
         private readonly byte[] _buffer;
 
         public int Id { get; init; }
-        public UserGame Usuario { get; set; } = null; // id del usuario al que pertenece el WebSocket, por defecto 0 (sin asignar)
+        public UserGame Usuario { get; set; } = null; // usuario al que pertenece el WebSocket
         public bool IsOpen => _webSocket.State == WebSocketState.Open;
 
         // Eventos para notificar cuando se recibe un mensaje o se desconecta un usuario

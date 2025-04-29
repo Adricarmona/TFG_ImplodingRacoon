@@ -6,7 +6,8 @@ namespace implodingRacoon.Services.GamesService
     {
         public int IdSala { get; set; }
         private List<UserGame> UsuariosMesa { get; set; } = new List<UserGame>();
-        private  UserGame HostMesa { get; set; }
+        // estp por que lo hice?
+        //private  UserGame HostMesa { get; set; }
         public int OrdenJugadores { get; set; }
         public bool SalaEmpezada { get; set; }
         private List<Carta> BarajaMesa { get; set; }
@@ -16,6 +17,10 @@ namespace implodingRacoon.Services.GamesService
 
         public Game() {}
 
+        /*
+         *  Si esto ya viene en el usuarios mesa xddd 
+         * 
+         * 
         public string anadirHostMesa(UserGame hostMesa)
         {
             if (hostMesa != null)
@@ -31,6 +36,7 @@ namespace implodingRacoon.Services.GamesService
         {
             return HostMesa;
         }
+        */
 
         public string anadirUsuarioMesa(UserGame userGame)
         {

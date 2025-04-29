@@ -28,7 +28,8 @@ namespace implodingRacoon
             builder.Services.AddAuthentication()
                 .AddJwtBearer(options =>
                 {
-                    String key = Environment.GetEnvironmentVariable("JWT_KEY");
+                    Settings settings = builder.Configuration.GetSection(Settings.SECTION_NAME).Get<Settings>();
+                    string key = settings.JwtKey;
 
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {

@@ -12,6 +12,7 @@ import javax.net.ssl.X509TrustManager
 
 object RetrofitClient {
     private const val BASE_URL = "https://10.0.2.2:7089/"
+    //private const val BASE_URL = "https://implodingracoons.tryasp.net/"
 
     fun getClient(): Retrofit {
         val objectMapper = ObjectMapper().registerKotlinModule()

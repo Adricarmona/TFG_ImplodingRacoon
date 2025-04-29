@@ -21,9 +21,9 @@ Diagrama Entidad Relacion:
 ![Diagrama_ER](recursosReadme/image.png) 
 
 ### Revision del proyecto
-[Link del video de la revision del proyecto](https://drive.google.com/file/d/1wlLvvplchkN1s8ChJj8qEuTx1m5q71qR/view?usp=sharing)
-[Link apk android](https://drive.google.com/file/d/15eNXxm5rMJ-DYa90k89Hx2IW83FckZyU/view?usp=sharing)
-[Link web desplegada](https://i.ebayimg.com/images/g/RXoAAOSwcKdiuREc/s-l1200.png)
+[Link del video de la revision del proyecto](https://drive.google.com/file/d/1wlLvvplchkN1s8ChJj8qEuTx1m5q71qR/view?usp=sharing) 
+[Link apk android](https://drive.google.com/file/d/15eNXxm5rMJ-DYa90k89Hx2IW83FckZyU/view?usp=sharing) 
+[Link web desplegada](https://i.ebayimg.com/images/g/RXoAAOSwcKdiuREc/s-l1200.png) 
  
 ## Deployment
 

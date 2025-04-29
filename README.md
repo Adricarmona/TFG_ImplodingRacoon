@@ -10,10 +10,16 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 [Link Anteproyecto](https://docs.google.com/document/d/1dbNNTdb8QzlD5lRAiDT1_BaWJLE6FMgzKpKCUVFwbn4/edit?usp=sharing)
 
 ## Screenshots
-
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
+## Documentation
+[Link Trello](https://trello.com/b/0hjXPQi0/imploding-raccoons)
 
+[Link Diario](https://docs.google.com/document/d/1ykSWTH5ng5t6gG1ch_GlARGJf0C_IkZsw6Mv_BXGNj8/edit?usp=sharing)
+
+Diagrama Entidad Relacion:  
+![Diagrama_ER](recursosReadme/image.png) 
+ 
 ## Deployment
 
 To deploy this project run
@@ -21,12 +27,3 @@ To deploy this project run
 ```bash
   aqui ira para ejecutarlo y eso
 ```
-
-
-## Documentation
-
-[Link Trello](https://trello.com/b/0hjXPQi0/imploding-raccoons)
-
-Diagrama Entidad Relacion:  
-![Diagrama_ER](recursosReadme/image.png) 
- 

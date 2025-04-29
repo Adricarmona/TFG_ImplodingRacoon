@@ -64,6 +64,9 @@ namespace implodingRacoon
                 app.UseSwaggerUI();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
             // Para las fotos
             app.UseStaticFiles(new StaticFileOptions
             {

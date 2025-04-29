@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using static System.Net.Mime.MediaTypeNames;
-using System.Collections.Generic;
 using implodingRacoon.Models.Database.Entities;
 
 namespace implodingRacoon.Models.Database
@@ -30,7 +28,7 @@ namespace implodingRacoon.Models.Database
         {
             /// los datos de la url
             /// son los de electrospeed
-            string serverConnection = "Server=db10826.databaseasp.net; Database=db10826; Uid=db10826; Pwd=L!e2rX6%?4yF";
+            string serverConnection = "Server=db18393.databaseasp.net; Database=db18393; Uid=db18393; Pwd=E-n7jZ5=_3aL;";
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 
 

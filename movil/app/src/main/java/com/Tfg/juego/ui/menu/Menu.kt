@@ -32,7 +32,8 @@ fun menuInicial(
     onRegisterClick: () -> Unit,
     onPerfilClick: () -> Unit,
     onMenuClick: () -> Unit,
-    onUnirseClick: () -> Unit
+    onUnirseClick: () -> Unit,
+    onAjustesClick: () -> Unit,
 ) {
     val image: Painter = painterResource(id = R.drawable.img_iconochatgpt)
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
@@ -87,7 +88,7 @@ fun menuInicial(
                 height = 60.dp,
                 width = 142.dp
             )
-            { /* Acción */ }
+            { onAjustesClick() }
 
             Spacer(modifier = Modifier.width(15.dp))
 

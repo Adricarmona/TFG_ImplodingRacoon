@@ -184,7 +184,7 @@ namespace implodingRacoon.Services.WebSocketService
             {
                 case "create":
 
-                    webSocketService.crearSala(userHandler);
+                    webSocketService.crearSala(userHandler, receivedUser);
 
                     break;
 
@@ -193,17 +193,16 @@ namespace implodingRacoon.Services.WebSocketService
                     foreach (Game gameLook in Games.mesas())
                     {
                         List<UserGame> lista = gameLook.cogerUsuariosMesa();
-                        UserGame host = gameLook.cogerHostMesa();
 
                         UsersInLobby usuersInLobby = new UsersInLobby
                         {
                             IdSala = gameLook.IdSala,
-                            IdHost = host != null ? gameLook.cogerHostMesa().Id : 0,
-                            IdUsuario1 = lista != null && lista.Count > 0 && lista[0] != null ? lista[0].Id : 0,
-                            IdUsuario2 = lista != null && lista.Count > 1 && lista[1] != null ? lista[1].Id : 0,
-                            IdUsuario3 = lista != null && lista.Count > 2 && lista[2] != null ? lista[2].Id : 0,
-                            IdUsuario4 = lista != null && lista.Count > 3 && lista[3] != null ? lista[3].Id : 0,
-                            IdUsuario5 = lista != null && lista.Count > 4 && lista[4] != null ? lista[4].Id : 0
+                            IdHost = lista != null && lista.Count > 0 && lista[0] != null ? lista[0].Id : 0,
+                            IdUsuario1 = lista != null && lista.Count > 1 && lista[1] != null ? lista[1].Id : 0,
+                            IdUsuario2 = lista != null && lista.Count > 2 && lista[2] != null ? lista[2].Id : 0,
+                            IdUsuario3 = lista != null && lista.Count > 3 && lista[3] != null ? lista[3].Id : 0,
+                            IdUsuario4 = lista != null && lista.Count > 4 && lista[4] != null ? lista[4].Id : 0,
+                            IdUsuario5 = lista != null && lista.Count > 5 && lista[5] != null ? lista[5].Id : 0
                         };
 
                         userHandler.SendAsync(JsonSerializer.Serialize(usuersInLobby));
@@ -212,7 +211,7 @@ namespace implodingRacoon.Services.WebSocketService
 
                 case "join":
 
-                    webSocketService.unirseMesa(receivedUser, userHandler, _handlers, tasks);
+                    webSocketService.unirseMesa(receivedUser, userHandler, _handlers);
 
                     break;
 

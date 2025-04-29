@@ -15,7 +15,7 @@ namespace implodingRacoon.Services.WebSocketService
         /**
          *  Funcion para unirse a una mesa
          */
-        public void unirseMesa(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, List<WebSocketHandler> handlers, List<Task> tasks)
+        public void unirseMesa(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, List<WebSocketHandler> handlers)
         {
             /// primer identifier es la mesa
             /// segundo identifier es el id del jugador
@@ -41,7 +41,7 @@ namespace implodingRacoon.Services.WebSocketService
                     else
                     {
 
-                        if (mesa.cogerUsuariosMesa().Count >= 5)
+                        if (mesa.cogerUsuariosMesa().Count >= 6)
                         {
                             userHandler.SendAsync("mesa llena");
                         }
@@ -70,27 +70,33 @@ namespace implodingRacoon.Services.WebSocketService
 
                                 // añadimos el usuario a la mesa
                                 UserGame newuser = new UserGame(Int32.Parse(receivedUser.Identifier2));
-                                Games.unirMesa(Int32.Parse(receivedUser.Identifier), newuser);
                                 userHandler.Usuario = newuser;
 
+                                Games.unirMesa(Int32.Parse(receivedUser.Identifier), newuser);
+                                
+                                userHandler.SendAsync("Unido a la mesa: " + mesa.IdSala);
+
+                                /*
+                                 *  Esto no va y creo ahora que no hace falta
+                                 * 
                                 foreach (UserGame usuarios in mesa.cogerUsuariosMesa())
                                 {
                                     foreach (WebSocketHandler handler in handlers)
                                     {
                                         if (handler.Usuario != null)
                                         {
-                                            if (userHandler == handler)
+
+
+                                            if (handler.Usuario.Id == usuarios.Id && handler.Usuario != userHandler.Usuario)
                                             {
-                                                userHandler.SendAsync("Unido a la mesa: " + mesa.IdSala);
-                                            }
-                                            else if (handler.Usuario == usuarios)
-                                            {
-                                                tasks.Add(handler.SendAsync("Usuario unido: " + usuarios.Id));
+                                                handler.SendAsync("Usuario unido: " + usuarios.Id + " handler usuario: " + handler.Usuario.Id + " usuarios: " + usuarios.Id);
                                             }
                                         }
-                                    }
-                                }
 
+                                    }
+
+                                }
+                                */
 
                             }
                         }
@@ -159,13 +165,22 @@ namespace implodingRacoon.Services.WebSocketService
             }
         }
 
-        public void crearSala(WebSocketHandler userHandler)
+        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser)
         {
+            if (receivedUser.Identifier == null || receivedUser.Identifier == "")
+            {
+                userHandler.SendAsync("dato ingresado incorrectamente");
+            }
+            else
+            {
+                Game partida = Games.anadirMesa();
 
-            Game partida = Games.anadirMesa();
-            partida.anadirUsuarioMesa(userHandler.Usuario);
-            userHandler.SendAsync("creada sala: " + partida.IdSala + "");
+                UserGame newuser = new UserGame(Int32.Parse(receivedUser.Identifier));
+                userHandler.Usuario = newuser;
 
+                partida.anadirUsuarioMesa(newuser);
+                userHandler.SendAsync("creada sala: " + partida.IdSala + " id host: " + newuser.Id);
+            }
         }
 
         public bool buscarUsuario(WebSocketHandler userHandler)
@@ -173,11 +188,12 @@ namespace implodingRacoon.Services.WebSocketService
 
             foreach (Game mesa in Games.mesas())
             {
+                /*
                 if (userHandler.Usuario == mesa.cogerHostMesa())
                 {
                     return true;
                 }
-
+                */
                 foreach (UserGame usuario in mesa.cogerUsuariosMesa())
                 {
                     if (userHandler.Usuario == usuario)
@@ -196,6 +212,7 @@ namespace implodingRacoon.Services.WebSocketService
 
             foreach (Game mesa in Games.mesas())
             {
+                /*
                 if (userHandler.Usuario == mesa.cogerHostMesa())
                 {
                     if (mesa.SalaEmpezada)
@@ -203,7 +220,7 @@ namespace implodingRacoon.Services.WebSocketService
                         return true;
                     }
                 }
-
+                */
                 foreach (UserGame usuario in mesa.cogerUsuariosMesa())
                 {
                     if (userHandler.Usuario == usuario)

@@ -17,6 +17,8 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 
 [Link Diario](https://docs.google.com/document/d/1ykSWTH5ng5t6gG1ch_GlARGJf0C_IkZsw6Mv_BXGNj8/edit?usp=sharing)
 
+[Link del video de la revision del proyecto](https://drive.google.com/file/d/1wlLvvplchkN1s8ChJj8qEuTx1m5q71qR/view?usp=sharing)
+
 Diagrama Entidad Relacion:  
 ![Diagrama_ER](recursosReadme/image.png) 
  

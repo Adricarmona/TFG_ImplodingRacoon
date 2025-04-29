@@ -6,15 +6,19 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.model.servicios.registrer
+import com.Tfg.juego.model.webSockets.MyWebSocketListener
+import com.Tfg.juego.model.webSockets.WebSocketManager
 import com.Tfg.juego.ui.usables.loguinRegistroArriba
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
@@ -35,6 +39,17 @@ fun login(
     val contrasenia = remember { mutableStateOf("") }
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+
+    // ws
+    val webSocketManager = remember { WebSocketManager() }
+    var message by remember { mutableStateOf("") }
+    var receivedMessages by remember { mutableStateOf(listOf<String>()) }
+    val listener = remember {
+        MyWebSocketListener { msg ->
+            receivedMessages = receivedMessages + msg
+        }
+    }
+
 
     // Dialogo de carga
     var showDialog = remember { mutableStateOf(false) }
@@ -103,6 +118,8 @@ fun login(
 
                         } else {
                             showDialog.value = false
+                            webSocketManager.connect("wss://10.0.2.2:7089/WebSocket", listener)
+                            webSocketManager.send("{\"TypeMessage\": \"join\",\"Identifier\": \"1\",\"Identifier2\": \"1\"}")
                             onMenuClick()
                         }
 

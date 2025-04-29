@@ -36,12 +36,14 @@ fun BotonCustom(
     text: String,
     width: Dp = 150.dp,
     height: Dp = 50.dp,
+    enabled: Boolean = true,
     onClick: () -> Unit) {
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(16.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color.White),
         border = BorderStroke(1.5.dp, Color.Black),
+        enabled = enabled,
         modifier = Modifier
             .width(width)
             .height(height)

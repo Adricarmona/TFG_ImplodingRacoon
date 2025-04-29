@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,6 +14,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\websocketservice\\websocketnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\websocketservice\\websocketnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> desarrollo
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +26,13 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
+<<<<<<< HEAD
           "DockedWidth": 901,
           "SelectedChildIndex": 1,
+=======
+          "DockedWidth": 1353,
+          "SelectedChildIndex": 2,
+>>>>>>> desarrollo
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,6 +53,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "Settings.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Settings.cs",
@@ -63,8 +74,17 @@
               "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
               "RelativeToolTip": "implodingRacoon\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAcwIoAAAAAAAAAAAAAAA==",
+=======
+              "DocumentIndex": 0,
+              "Title": "WebSocketNetwork.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+>>>>>>> desarrollo
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T13:10:53.059Z",
+              "WhenOpened": "2025-04-27T20:05:16.722Z",
               "EditorCaption": ""
             },
             {
@@ -74,7 +94,7 @@
           ]
         },
         {
-          "DockedWidth": 1010,
+          "DockedWidth": 1481,
           "SelectedChildIndex": -1,
           "Children": [
             {

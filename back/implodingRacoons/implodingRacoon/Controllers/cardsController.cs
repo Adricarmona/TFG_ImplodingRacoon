@@ -53,5 +53,18 @@ namespace implodingRacoon.Controllers
 
             return Ok(card);
         }
+
+        [HttpGet("GetCardByIdImage/type={type}")]
+        public async Task<ActionResult<CardWithDisenio>> GetCardsImage(TypeCards type)
+        {
+            var card = await _cardsService.GetAllCardAndDisenioTypeImageAsync(type);
+
+            if (card == null)
+            {
+                return NotFound("No se encontró la cartas");
+            }
+
+            return Ok(card);
+        }
     }
 }

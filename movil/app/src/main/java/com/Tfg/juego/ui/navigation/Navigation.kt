@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.Tfg.juego.ui.menu.ajustes
+import com.Tfg.juego.ui.menu.cartas.verCartas
 import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
 import com.Tfg.juego.ui.menu.perfil
@@ -71,6 +72,12 @@ fun Navigation() {
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
+                onVerCartas = { navController.navigate("verCartas") }
+            )
+        }
+        composable("verCartas") {
+            verCartas(
+                onAjustes = { navController.navigate("ajustes") },
             )
         }
     }

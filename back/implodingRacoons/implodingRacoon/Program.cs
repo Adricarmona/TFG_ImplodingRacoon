@@ -18,7 +18,7 @@ namespace implodingRacoon
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddScoped<ImplodingRacoonsContext>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -54,6 +54,15 @@ namespace implodingRacoon
             // el singleton del websocket
             builder.Services.AddSingleton<WebSocketNetwork>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
             ///
             ///     APP
@@ -61,11 +70,12 @@ namespace implodingRacoon
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            /*
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            }*/
 
             app.UseSwagger();
             app.UseSwaggerUI();
@@ -82,11 +92,13 @@ namespace implodingRacoon
             // Lo de https que si esta comentado se puede por http
             app.UseHttpsRedirection();
 
+            /*
             // Configuramos Cors para que acepte cualquier petición de cualquier origen (no es seguro)
             app.UseCors(options =>
                 options.AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowAnyOrigin()); 
+            */
 
             // Habilitamos la autenticacion y la autorizacion
             app.UseAuthentication();

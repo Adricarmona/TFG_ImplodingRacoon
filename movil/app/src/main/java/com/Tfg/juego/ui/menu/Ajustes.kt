@@ -43,5 +43,12 @@ fun ajustes(
             onClick = { onVerCartas() }
         )
 
+        BotonCustom(
+            text = "Volver al menu",
+            width = 200.dp,
+            height = 100.dp,
+            onClick = { onMenuClick() }
+        )
+
     }
 }

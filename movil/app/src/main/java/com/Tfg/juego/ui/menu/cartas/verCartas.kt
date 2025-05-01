@@ -1,8 +1,15 @@
 package com.Tfg.juego.ui.menu.cartas
 
 import android.content.res.Configuration
+import android.widget.Button
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -12,13 +19,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.cardAndStyle
 import com.Tfg.juego.model.servicios.getCartasTipo
 import com.Tfg.juego.ui.theme.JuegoTheme
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CardCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
+import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import kotlinx.coroutines.launch
 
 @Composable
@@ -31,8 +42,12 @@ fun verCartas(
 
     val errorMessage = remember { mutableStateOf<String?>(null) }
 
+    // el dialogo
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
+
+    // la logica de la busqueda
+    val opcion = remember { mutableStateOf(0) } // si es 0 es original si es 1 es otro
 
     Column(
         modifier = Modifier
@@ -42,8 +57,51 @@ fun verCartas(
     ) {
         BotonCustom(
             text = "Volver al menu",
+            width = 200.dp,
+            height = 60.dp,
             onClick = onAjustes
         )
+
+        Spacer(modifier = Modifier.height(25.dp))
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            BotonCustom(
+                text = "<",
+                width = 50.dp,
+                height = 50.dp,
+                onClick = {
+                    if (opcion.value <= 0)
+                        opcion.value = 1
+                    else
+                        opcion.value--
+                }
+            )
+
+            Spacer(modifier = Modifier.width(5.dp))
+
+            textoLoginYRegistro(
+                text = if (opcion.value == 0) "Original" else "Otro",
+                fontSize = 20,
+            )
+
+            Spacer(modifier = Modifier.width(5.dp))
+
+            BotonCustom(
+                text = ">",
+                width = 50.dp,
+                height = 50.dp,
+                onClick = {
+                    if (opcion.value >= 1)
+                        opcion.value = 0
+                    else
+                        opcion.value++
+                }
+            )
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
 
         BotonCustom(
             text = "Ver Cartas",
@@ -53,7 +111,7 @@ fun verCartas(
 
                     errorMessage.value = null
                     try {
-                        val cartas = getCartasTipo(0)
+                        val cartas = getCartasTipo(opcion.value)
                         cartasState.value = cartas ?: emptyList()
 
                         if (cartas.isNullOrEmpty())
@@ -62,7 +120,7 @@ fun verCartas(
                         showDialog.value = false
                     } catch (e: Exception) {
 
-                        e.printStackTrace() // Imprime el error completo para depuración
+                        e.printStackTrace()
                         errorMessage.value = "Error fetching cartas: ${e.message}"
 
                     } finally {
@@ -72,16 +130,21 @@ fun verCartas(
             }
         )
 
-        // Display error message if any
+        // cuando el error no sea nulo, muestra el mensaje de error
         errorMessage.value?.let { error ->
-            Text(text = error)
+            Image(
+                painter =  painterResource(id = R.drawable.ic_launcher_foreground),
+                contentDescription = error,
+                modifier = Modifier
+                    .size(300.dp)
+            )
+            //Text(text = error)
         }
-        
-        // Display the list of cardAndStyle objects if available
+
+        // si no esta vacio itera el array de cartas
         if (cartasState.value.isNotEmpty()) {
             cartasState.value.forEach { carta ->
                 CardCustom(carta.titulo, carta.tipo, carta.descripcion, carta.urlImage)
-                Text(text = carta.urlImage)
             }
         }
 

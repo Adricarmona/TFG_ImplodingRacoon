@@ -11,7 +11,8 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object RetrofitClient {
-    private const val BASE_URL = "https://10.0.2.2:7089/"
+    private const val BASE_URL = "http://10.0.2.2:5097/" // con http
+    //private const val BASE_URL = "https://10.0.2.2:7089/" // con https
     //private const val BASE_URL = "https://implodingracoons.tryasp.net/"
 
     fun getClient(): Retrofit {

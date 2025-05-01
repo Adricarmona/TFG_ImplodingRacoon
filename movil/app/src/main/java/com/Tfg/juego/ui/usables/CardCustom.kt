@@ -52,19 +52,29 @@ fun CardCustom(Titulo: String, Subtitulo: String, Descripcion: String, ImageUrl:
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
             )
+
             Spacer(modifier = Modifier.height(8.dp))
+
             // Imagen
             AsyncImage(
                 model = ImageUrl,
                 contentDescription = "Imagen de la tarjeta",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(150.dp),
+                    .height(300.dp),
                 alignment = Alignment.Center,
                 placeholder = painterResource(R.drawable.ic_launcher_foreground),
-                error = painterResource(R.drawable.ic_launcher_foreground)
+                error = painterResource(R.drawable.img_no_imagenes_mapache),
+                onError = { error ->
+                    println("Error cargando imagen: ${error.result.throwable}")
+                },
+                onSuccess = { success ->
+                    println("Imagen cargada con éxito")
+                }
             )
+
             Spacer(modifier = Modifier.height(8.dp))
+
             // Título inferior
             Text(
                 text = Subtitulo,
@@ -72,7 +82,9 @@ fun CardCustom(Titulo: String, Subtitulo: String, Descripcion: String, ImageUrl:
                 fontWeight = FontWeight.Medium,
                 color = Color.Black
             )
+
             Spacer(modifier = Modifier.height(4.dp))
+
             // Descripción
             Text(
                 text = Descripcion,

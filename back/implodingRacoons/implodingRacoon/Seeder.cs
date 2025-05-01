@@ -120,77 +120,77 @@ namespace implodingRacoon
                 new Diseno()
                 {
                     Nombre = "Ataca_Original",
-                    Imagen = "ataca.png"
+                    Imagen = "cards/ataca.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Baraja_Original",
-                    Imagen = "baraja.png"
+                    Imagen = "cards/baraja.png"
                 },
                 new Diseno()
                 {
                     Nombre = "C4_Original",
-                    Imagen = "c4.png"
+                    Imagen = "cards/c4.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Defuser_Original",
-                    Imagen = "defuser.png"
+                    Imagen = "cards/defuser.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Favor_Original",
-                    Imagen = "favor.png"
+                    Imagen = "cards/favor.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoBarba_Original",
-                    Imagen = "gatoBarba.png"
+                    Imagen = "cards/gatoBarba.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoMelon_Original",
-                    Imagen = "gatoMelon.png"
+                    Imagen = "cards/gatoMelon.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoPeludo_Original",
-                    Imagen = "gatoPeludo.png"
+                    Imagen = "cards/gatoPeludo.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Nop_Original",
-                    Imagen = "nop.png"
+                    Imagen = "cards/nop.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Salta_Original",
-                    Imagen = "salta.png"
+                    Imagen = "cards/salta.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Nop_Original",
-                    Imagen = "nop.png"
+                    Imagen = "cards/nop.png"
                 },
                 new Diseno()
                 {
                     Nombre = "TacoCat_Original",
-                    Imagen = "tacoCat.png"
+                    Imagen = "cards/tacoCat.png"
                 },
                 new Diseno()
                 {
                     Nombre = "VerFuturo_Original",
-                    Imagen = "verFuturo.png"
+                    Imagen = "cards/verFuturo.png"
                 },
                 new Diseno()
                 {
                     Nombre = "VomitoArcoiris_Original",
-                    Imagen = "vomitoArcoiris.png"
+                    Imagen = "cards/vomitoArcoiris.png"
                 },
                 new Diseno()
                 {
                     Nombre = "ParteAtras_Original",
-                    Imagen = "parteAtras.png"
+                    Imagen = "cards/parteAtras.png"
                 }
             ];
 

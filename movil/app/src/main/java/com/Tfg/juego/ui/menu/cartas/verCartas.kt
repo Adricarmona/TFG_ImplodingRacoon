@@ -3,6 +3,8 @@ package com.Tfg.juego.ui.menu.cartas
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -15,6 +17,7 @@ import com.Tfg.juego.model.retrofit.dto.cardAndStyle
 import com.Tfg.juego.model.servicios.getCartasTipo
 import com.Tfg.juego.ui.theme.JuegoTheme
 import com.Tfg.juego.ui.usables.BotonCustom
+import com.Tfg.juego.ui.usables.CardCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
 import kotlinx.coroutines.launch
 
@@ -32,7 +35,9 @@ fun verCartas(
     dialogoCargando(showDialog)
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         BotonCustom(
@@ -48,15 +53,18 @@ fun verCartas(
 
                     errorMessage.value = null
                     try {
-                        val cartas = getCartasTipo(0) // Esto devuelve List<cardAndStyle>
-                        cartasState.value = cartas ?: emptyList() // Si es null, asigna una lista vacía
-                        if (cartas.isNullOrEmpty()) {
+                        val cartas = getCartasTipo(0)
+                        cartasState.value = cartas ?: emptyList()
+
+                        if (cartas.isNullOrEmpty())
                             errorMessage.value = "No data returned from API"
-                        }
+
                         showDialog.value = false
                     } catch (e: Exception) {
+
                         e.printStackTrace() // Imprime el error completo para depuración
                         errorMessage.value = "Error fetching cartas: ${e.message}"
+
                     } finally {
                         showDialog.value = false
                     }
@@ -68,29 +76,14 @@ fun verCartas(
         errorMessage.value?.let { error ->
             Text(text = error)
         }
-
+        
         // Display the list of cardAndStyle objects if available
         if (cartasState.value.isNotEmpty()) {
             cartasState.value.forEach { carta ->
-                Text(text = "Título: ${carta.titulo}")
-                Text(text = "Descripción: ${carta.descripcion}")
-                Text(text = "Tipo: ${carta.tipo}")
-                // Si quieres mostrar la imagen (urlImage), necesitarás una librería como Coil o Glide
-                // Ejemplo con Coil (asegúrate de agregar la dependencia):
-                // AsyncImage(model = carta.urlImage, contentDescription = "Imagen de la carta")
+                CardCustom(carta.titulo, carta.tipo, carta.descripcion, carta.urlImage)
+                Text(text = carta.urlImage)
             }
         }
-    }
-}
 
-/**
- * EL PREVIEW PARA VER LAS COSAS
- */
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "es")
-@Composable
-fun previewAyuda() {
-    JuegoTheme {
-        verCartas { }
     }
 }

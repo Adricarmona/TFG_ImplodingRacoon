@@ -2,6 +2,7 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using implodingRacoon.Controllers;
+using implodingRacoon.Models;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Services;
 using implodingRacoon.Services.GamesService;
@@ -48,6 +49,7 @@ namespace implodingRacoon
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<CardsService>();
             builder.Services.AddScoped<WSHelper>();
+            builder.Services.AddScoped<ImageMapper>();
 
             // el singleton del websocket
             builder.Services.AddSingleton<WebSocketNetwork>();

@@ -1,4 +1,5 @@
-﻿using implodingRacoon.Models.Database.Dto;
+﻿using implodingRacoon.Models;
+using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
 using implodingRacoon.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace implodingRacoon.Controllers
     public class CardsController : Controller
     {
         private CardsService _cardsService;
-        public CardsController(CardsService cardsService)
+        private ImageMapper _imagenMapper;
+        public CardsController(CardsService cardsService, ImageMapper imageMapper)
         {
             _cardsService = cardsService;
+            _imagenMapper = imageMapper;
         }
 
         [HttpGet("GetAllCards")]
@@ -63,6 +66,8 @@ namespace implodingRacoon.Controllers
             {
                 return NotFound("No se encontró la cartas");
             }
+
+            card = _imagenMapper.AddCorrectPathCards(card, Request).ToList();
 
             return Ok(card);
         }

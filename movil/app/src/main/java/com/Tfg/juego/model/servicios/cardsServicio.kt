@@ -11,8 +11,6 @@ suspend fun getCartasTipo(tipo: Int): List<cardAndStyle>? {
         return apiService.getAllCartas(tipo)
     } catch (e: Exception) {
         e.printStackTrace()
-        println("Error en getCartasTipo: ${e.message}")
-        println("Causa: ${e.cause}")
         return null
     }
 }

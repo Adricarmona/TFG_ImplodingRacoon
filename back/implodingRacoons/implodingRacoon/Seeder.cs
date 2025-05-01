@@ -120,77 +120,77 @@ namespace implodingRacoon
                 new Diseno()
                 {
                     Nombre = "Ataca_Original",
-                    Imagen = "https://localhost:7089/cards/ataca.png"
+                    Imagen = "ataca.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Baraja_Original",
-                    Imagen = "https://localhost:7089/cards/baraja.png"
+                    Imagen = "baraja.png"
                 },
                 new Diseno()
                 {
                     Nombre = "C4_Original",
-                    Imagen = "https://localhost:7089/cards/c4.png"
+                    Imagen = "c4.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Defuser_Original",
-                    Imagen = "https://localhost:7089/cards/defuser.png"
+                    Imagen = "defuser.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Favor_Original",
-                    Imagen = "https://localhost:7089/cards/favor.png"
+                    Imagen = "favor.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoBarba_Original",
-                    Imagen = "https://localhost:7089/cards/gatoBarba.png"
+                    Imagen = "gatoBarba.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoMelon_Original",
-                    Imagen = "https://localhost:7089/cards/gatoMelon.png"
+                    Imagen = "gatoMelon.png"
                 },
                 new Diseno()
                 {
                     Nombre = "GatoPeludo_Original",
-                    Imagen = "https://localhost:7089/cards/gatoPeludo.png"
+                    Imagen = "gatoPeludo.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Nop_Original",
-                    Imagen = "https://localhost:7089/cards/nop.png"
+                    Imagen = "nop.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Salta_Original",
-                    Imagen = "https://localhost:7089/cards/salta.png"
+                    Imagen = "salta.png"
                 },
                 new Diseno()
                 {
                     Nombre = "Nop_Original",
-                    Imagen = "https://localhost:7089/cards/nop.png"
+                    Imagen = "nop.png"
                 },
                 new Diseno()
                 {
                     Nombre = "TacoCat_Original",
-                    Imagen = "https://localhost:7089/cards/tacoCat.png"
+                    Imagen = "tacoCat.png"
                 },
                 new Diseno()
                 {
                     Nombre = "VerFuturo_Original",
-                    Imagen = "https://localhost:7089/cards/verFuturo.png"
+                    Imagen = "verFuturo.png"
                 },
                 new Diseno()
                 {
                     Nombre = "VomitoArcoiris_Original",
-                    Imagen = "https://localhost:7089/cards/vomitoArcoiris.png"
+                    Imagen = "vomitoArcoiris.png"
                 },
                 new Diseno()
                 {
                     Nombre = "ParteAtras_Original",
-                    Imagen = "https://localhost:7089/cards/parteAtras.png"
+                    Imagen = "parteAtras.png"
                 }
             ];
 

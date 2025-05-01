@@ -55,6 +55,9 @@ fun verCartas(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+
+        Spacer(modifier = Modifier.height(40.dp))
+
         BotonCustom(
             text = "Volver al menu",
             width = 200.dp,
@@ -133,10 +136,9 @@ fun verCartas(
         // cuando el error no sea nulo, muestra el mensaje de error
         errorMessage.value?.let { error ->
             Image(
-                painter =  painterResource(id = R.drawable.ic_launcher_foreground),
+                painter =  painterResource(id = R.drawable.img_no_info),
                 contentDescription = error,
-                modifier = Modifier
-                    .size(300.dp)
+                modifier = Modifier.size(300.dp)
             )
             //Text(text = error)
         }

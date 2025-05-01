@@ -1,15 +1,23 @@
 package com.Tfg.juego.ui.navigation
 
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.Tfg.juego.R
+import com.Tfg.juego.ui.menu.ajustes
+import com.Tfg.juego.ui.menu.cartas.verCartas
 import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
 import com.Tfg.juego.ui.menu.perfil
@@ -31,7 +39,8 @@ fun Navigation() {
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
-                onUnirseClick = { navController.navigate("unirseMesa") }
+                onUnirseClick = { navController.navigate("unirseMesa") },
+                onAjustesClick = { navController.navigate("ajustes") }
             )
         }
         composable("login") {
@@ -63,16 +72,41 @@ fun Navigation() {
                 onPerfilClick = { navController.navigate("perfil") },
                 )
         }
+        composable("ajustes") {
+            ajustes(
+                onMenuClick = { navController.navigate("menu") },
+                onLoginClick = { navController.navigate("login") },
+                onRegisterClick = { navController.navigate("registro") },
+                onPerfilClick = { navController.navigate("perfil") },
+                onVerCartas = { navController.navigate("verCartas") }
+            )
+        }
+        composable("verCartas") {
+            verCartas(
+                onAjustes = { navController.navigate("ajustes") },
+            )
+        }
     }
 }
 
 @Composable
 fun menu() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Navigation()
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.img_fondo), // Reemplaza con tu imagen
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Navigation()
+        }
     }
 }
 

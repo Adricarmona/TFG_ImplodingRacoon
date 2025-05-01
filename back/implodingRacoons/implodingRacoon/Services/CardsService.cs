@@ -69,5 +69,50 @@ namespace implodingRacoon.Services
 
             return cardWithDisenio;
         }
+
+        public async Task<List<CardWithDisenio>> GetAllCardAndDisenioTypeImageAsync(TypeCards type)
+        {
+            var cards = await _unitOfWork.CartaRepository.GetCartaWhithDisenio();
+
+            String urlimagen = "other";
+            List<CardWithDisenio> listCards = new();
+
+            foreach (Carta card in cards)
+            {
+                if (type == TypeCards.Original)
+                {
+                    foreach (Diseno diseno in card.Disenos)
+                    {
+                        if (diseno.Nombre.Contains("Original"))
+                        {
+                            urlimagen = diseno.Imagen;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    urlimagen = "https://images.steamusercontent.com/ugc/1242379645142561979/40C6DB79932467F7B2E540CD75FC6033E5BF8B57/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"; // aqui no deveria entrar nunca por ahora
+                }
+
+                CardWithDisenio cardWithDisenio = new CardWithDisenio
+                {
+                    Id = card.Id,
+                    Titulo = card.Titulo,
+                    Descripcion = card.Descripcion,
+                    Tipo = card.Tipo,
+                    urlImage = urlimagen
+                };
+
+                listCards.Add(cardWithDisenio);
+
+            }
+
+
+
+
+
+            return listCards;
+        }
     }
 }

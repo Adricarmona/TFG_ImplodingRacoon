@@ -32,9 +32,9 @@ fun menuInicial(
     onRegisterClick: () -> Unit,
     onPerfilClick: () -> Unit,
     onMenuClick: () -> Unit,
-    onUnirseClick: () -> Unit
+    onUnirseClick: () -> Unit,
+    onAjustesClick: () -> Unit,
 ) {
-    val image: Painter = painterResource(id = R.drawable.img_iconochatgpt)
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
 
     loguinRegistroArriba(
@@ -52,13 +52,13 @@ fun menuInicial(
         Spacer(modifier = Modifier.height(140.dp))
 
         Image(
-            painter = image,
+            painter =  painterResource(id = R.drawable.img_imploding_racoons_logo),
             contentDescription = "",
             modifier = Modifier
-                .size(200.dp)
+                .size(300.dp)
         )
 
-        Spacer(modifier = Modifier.height(45.dp))
+        Spacer(modifier = Modifier.height(5.dp))
 
         BotonCustom(
             text = "Unirse a una mesa",
@@ -87,7 +87,7 @@ fun menuInicial(
                 height = 60.dp,
                 width = 142.dp
             )
-            { /* Acción */ }
+            { onAjustesClick() }
 
             Spacer(modifier = Modifier.width(15.dp))
 

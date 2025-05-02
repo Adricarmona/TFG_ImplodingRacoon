@@ -31,4 +31,6 @@
     <string name="contrasenas_no_coinciden">Passwords do not match</string>
     <string name="usuario_existente">Existing user</string>
     <string name="error_registrarse">Error registering</string>
+    <string name="seleccionar_carta">Select card</string>
+    <string name="modo_oscuro">Dark mode</string>
 </resources>

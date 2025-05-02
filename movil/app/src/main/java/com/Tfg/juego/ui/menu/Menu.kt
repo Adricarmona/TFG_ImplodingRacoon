@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -35,6 +34,7 @@ fun menuInicial(
     onMenuClick: () -> Unit,
     onUnirseClick: () -> Unit,
     onAjustesClick: () -> Unit,
+    onSobreNosotrosClick: () -> Unit,
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
 
@@ -97,7 +97,7 @@ fun menuInicial(
                 height = 60.dp,
                 width = 142.dp
             )
-            { }
+            { onSobreNosotrosClick() }
         }
     }
 }

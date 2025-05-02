@@ -1,6 +1,8 @@
 package com.Tfg.juego.ui.menu
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,44 +40,66 @@ fun ajustes(
 
     var idioma by remember { mutableStateOf(sharedPref.getString("idioma", "System") ?: "System") }
 
-
+/*      En verdad no me gusta esto aqui
     loguinRegistroArriba(
         onLoginClick = onLoginClick,
         onRegisterClick = onRegisterClick,
         onPerfilClick = onPerfilClick,
         onMenuClick = onMenuClick
     )
-
+*/
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom
     ) {
 
         Spacer(modifier = Modifier.height(140.dp))
 
-        BotonCustom(
-            text = stringResource(R.string.ver_tipos_cartas),
-            width = 190.dp,
-            height = 40.dp,
-            onClick = { onVerCartas() }
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
 
-        Spacer(modifier = Modifier.height(10.dp))
+            BotonCustom(
+                text = stringResource(R.string.ver_tipos_cartas),
+                width = 190.dp,
+                height = 40.dp,
+                onClick = { onVerCartas() }
+            )
 
-        Text(stringResource(R.string.idioma))
+            Spacer(modifier = Modifier.height(50.dp))
 
-        BotonCustom(
-            text = idioma.toString(),
-            width = 130.dp,
-            height = 60.dp,
-            enabled = false,
-            onClick = {
-                val nuevoIdioma = cambiarIdioma(context)
-                idioma = nuevoIdioma
-            }
-        )
+            Text(stringResource(R.string.idioma))
 
-        Spacer(modifier = Modifier.height(10.dp))
+            BotonCustom(
+                text = idioma.toString(),
+                width = 130.dp,
+                height = 60.dp,
+                enabled = false,
+                onClick = {
+                    val nuevoIdioma = cambiarIdioma(context)
+                    idioma = nuevoIdioma
+                }
+            )
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            Text(stringResource(R.string.modo_oscuro))
+
+            BotonCustom(
+                text = "System",
+                width = 130.dp,
+                height = 60.dp,
+                enabled = false,
+                onClick = {
+                    cambiarModoOscuro(context)
+                }
+            )
+
+        }
+
+        Spacer(modifier = Modifier.weight(1F))
 
         BotonCustom(
             text = stringResource(R.string.volver_menu),
@@ -83,6 +107,8 @@ fun ajustes(
             height = 80.dp,
             onClick = { onMenuClick() }
         )
+
+        Spacer(modifier = Modifier.height(100.dp))
 
     }
 }
@@ -105,4 +131,10 @@ fun cambiarIdioma(context: Context): String {
     }
 
     return ""
+}
+
+fun cambiarModoOscuro(context: Context) {
+
+    /// hay que trabajar en esto quiza
+
 }

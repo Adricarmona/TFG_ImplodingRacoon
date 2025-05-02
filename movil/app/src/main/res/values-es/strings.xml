@@ -29,4 +29,6 @@
     <string name="contrasenas_no_coinciden">Las contraseñas no coinciden</string>
     <string name="usuario_existente">Usuario ya existente</string>
     <string name="error_registrarse">Error al registrarse</string>
+    <string name="seleccionar_carta">Seleccionar carta</string>
+    <string name="modo_oscuro">Modo oscuro</string>
 </resources>

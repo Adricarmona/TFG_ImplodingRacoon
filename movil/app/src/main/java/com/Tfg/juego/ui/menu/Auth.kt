@@ -14,7 +14,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.Tfg.juego.R
 import com.Tfg.juego.model.servicios.login
 import com.Tfg.juego.model.servicios.registrer
 import com.Tfg.juego.model.webSockets.MyWebSocketListener
@@ -64,22 +66,25 @@ fun login(
 
         Spacer(modifier = Modifier.height(150.dp))
 
-        textoLoginYRegistro("Login")
+        textoLoginYRegistro(stringResource(R.string.login))
 
         Spacer(modifier = Modifier.height(100.dp))
 
-        textoOscuroLoginRegistro("Usuario o Correo")
-        outlinedTextFieldLoginRegistro(usuario_correo, "usuario/correo", "")
+        textoOscuroLoginRegistro(stringResource(R.string.usuario_correo))
+        outlinedTextFieldLoginRegistro(usuario_correo, stringResource(R.string.usuario_barra_correo), "")
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        textoOscuroLoginRegistro("Contraseña")
+        textoOscuroLoginRegistro(stringResource(R.string.contrasena))
         outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        var rellenarCampos = stringResource(R.string.rellena_todos_campos)
+        var incorrectoUsuarioContrasenia = stringResource(R.string.usuario_contrasena_incorrectos)
+        var errrorServidor = stringResource(R.string.error_servidor)
         BotonCustom(
-            text = "Iniciar sesion",
+            text = stringResource(R.string.iniciar_sesion),
             width = 160.dp,
             height = 50.dp,
             onClick = {
@@ -89,7 +94,7 @@ fun login(
 
                         Toast.makeText(
                             context,
-                            "Rellena todos los campos",
+                            rellenarCampos,
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -103,7 +108,7 @@ fun login(
                             showDialog.value = false
                             Toast.makeText(
                                 context,
-                                "Usuario o contraseña incorrectos",
+                                incorrectoUsuarioContrasenia,
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -112,14 +117,14 @@ fun login(
                             showDialog.value = false
                             Toast.makeText(
                                 context,
-                                "Error en el servidor",
+                                errrorServidor,
                                 Toast.LENGTH_SHORT
                             ).show()
 
                         } else {
                             showDialog.value = false
                             webSocketManager.connect("wss://10.0.2.2:7089/WebSocket", listener)
-                            webSocketManager.send("{\"TypeMessage\": \"join\",\"Identifier\": \"1\",\"Identifier2\": \"1\"}")
+                            //webSocketManager.send("{\"TypeMessage\": \"join\",\"Identifier\": \"1\",\"Identifier2\": \"1\"}")
                             onMenuClick()
                         }
 
@@ -167,32 +172,37 @@ fun registro(
 
         Spacer(modifier = Modifier.height(150.dp))
 
-        textoLoginYRegistro("Registro")
+        textoLoginYRegistro(stringResource(R.string.registrar))
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        textoOscuroLoginRegistro("Usuario")
-        outlinedTextFieldLoginRegistro(usuario, "usuario", "")
+        textoOscuroLoginRegistro(stringResource(R.string.usuario))
+        outlinedTextFieldLoginRegistro(usuario, stringResource(R.string.usuario), "")
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        textoOscuroLoginRegistro("Correo")
-        outlinedTextFieldLoginRegistro(correo, "correo", "")
+        textoOscuroLoginRegistro(stringResource(R.string.correo))
+        outlinedTextFieldLoginRegistro(correo, stringResource(R.string.correo), "")
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        textoOscuroLoginRegistro("Contraseña")
+        textoOscuroLoginRegistro(stringResource(R.string.contrasena))
         outlinedTextFieldLoginRegistro(contrasenia, "••••••••••", "password")
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        textoOscuroLoginRegistro("Repetir contraseña")
+        textoOscuroLoginRegistro(stringResource(R.string.repetir_contrasena))
         outlinedTextFieldLoginRegistro(contraseniaRepetida, "••••••••••", "password")
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        var rellenarCampos = stringResource(R.string.rellena_todos_campos)
+        var correoNoValido = stringResource(R.string.correo_no_valido)
+        var contrasniasNoValidas = stringResource(R.string.contrasenas_no_coinciden)
+        var usuario_existente = stringResource(R.string.usuario_existente)
+        var error_registrarse = stringResource(R.string.error_registrarse)
         BotonCustom(
-            text = "Registrar sesion",
+            text = stringResource(R.string.registrar),
             width = 170.dp,
             height = 50.dp,
             onClick = {
@@ -203,16 +213,16 @@ fun registro(
 
                     if (usuario.value.isEmpty() || correo.value.isEmpty() || contrasenia.value.isEmpty() || contraseniaRepetida.value.isEmpty()) {
                         showDialog.value = false
-                        Toast.makeText(context, "Rellena todos los campos", Toast.LENGTH_SHORT)
+                        Toast.makeText(context, rellenarCampos, Toast.LENGTH_SHORT)
                             .show()
 
                     } else if (validarEmail(correo.value) == false) {
                         showDialog.value = false
-                        Toast.makeText(context, "El correo no es valido", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, correoNoValido, Toast.LENGTH_SHORT).show()
 
                     } else if (contrasenia.value != contraseniaRepetida.value) {
                         showDialog.value = false
-                        Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                        Toast.makeText(context, contrasniasNoValidas, Toast.LENGTH_SHORT)
                             .show()
 
                     } else {
@@ -225,12 +235,12 @@ fun registro(
 
                         } else if(token.equals("Error generating user")) {
                             showDialog.value = false
-                            Toast.makeText(context, "Usuario ya existente", Toast.LENGTH_SHORT)
+                            Toast.makeText(context, usuario_existente, Toast.LENGTH_SHORT)
                                 .show()
 
                         } else {
                             showDialog.value = false
-                            Toast.makeText(context, "Error al registrarse", Toast.LENGTH_SHORT)
+                            Toast.makeText(context, error_registrarse, Toast.LENGTH_SHORT)
                                 .show()
 
                         }
@@ -241,7 +251,7 @@ fun registro(
         Spacer(modifier = Modifier.height(20.dp))
 
         BotonCustom(
-            text = "Volver al menu",
+            text = stringResource(R.string.volver_menu),
             width = 160.dp,
             height = 40.dp,
             onClick = { onMenuClick() }

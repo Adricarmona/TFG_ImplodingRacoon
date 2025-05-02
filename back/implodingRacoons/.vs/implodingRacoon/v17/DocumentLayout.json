@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Program.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Program.cs",
               "RelativeToolTip": "implodingRacoon\\Program.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAiwFoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAiwFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T12:30:25.368Z",
               "EditorCaption": ""
@@ -71,8 +71,7 @@
               "RelativeToolTip": "implodingRacoon\\Seeder.cs",
               "ViewState": "AgIAAI0AAAAAAAAAAAAiwMYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T12:26:13.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T12:26:13.61Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "implodingRacoon\\Services\\Extensions\\HttpExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T12:23:14.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T12:23:14.6Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "implodingRacoon\\Models\\ImageMapper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T12:11:43.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T12:11:43.008Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "implodingRacoon\\Services\\CardsService.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAiwEgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T20:36:26.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T20:36:26.973Z"
             },
             {
               "$type": "Document",
@@ -123,8 +119,7 @@
               "RelativeToolTip": "implodingRacoon\\Controllers\\cardsController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowEMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T20:36:05.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T20:36:05.844Z"
             },
             {
               "$type": "Document",

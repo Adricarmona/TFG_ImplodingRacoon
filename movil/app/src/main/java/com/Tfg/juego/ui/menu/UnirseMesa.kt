@@ -10,8 +10,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.Tfg.juego.R
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CheckBoxLoginRegistro
 import com.Tfg.juego.ui.usables.loguinRegistroArriba
@@ -43,7 +45,7 @@ fun unirMesa(
         Spacer(modifier = Modifier.height(110.dp))
 
         textoLoginYRegistro(
-            text = "Entrar en una mesa",
+            text = stringResource(R.string.entrar_mesa),
             fontSize = 32,
             textAlign = TextAlign.Center,
         )
@@ -52,28 +54,28 @@ fun unirMesa(
 
         outlinedTextFieldLoginRegistro(
             text = codigoMesa,
-            placeholderTexto = "Codigo Mesa"
+            placeholderTexto = stringResource(R.string.codigo_mesa),
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
         CheckBoxLoginRegistro(
             recuerdaCuenta = passwordMesa,
-            string = "Sala con contraseña"
+            string = stringResource(R.string.sala_contrasena)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
         outlinedTextFieldLoginRegistro(
             text = passwordMesaText,
-            placeholderTexto = "Contraseña",
+            placeholderTexto = stringResource(R.string.contrasena),
             enabled = passwordMesa.value
         )
 
         Spacer(modifier = Modifier.height(40.dp))
 
         BotonCustom(
-            text = "Unirse",
+            text = stringResource(R.string.unirse),
             width = 160.dp,
             height = 50.dp,
         ) { }

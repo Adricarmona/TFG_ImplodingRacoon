@@ -5,7 +5,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +21,7 @@ import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
 import com.Tfg.juego.ui.menu.perfil
 import com.Tfg.juego.ui.menu.registro
+import com.Tfg.juego.ui.menu.sobreNosotros
 import com.Tfg.juego.ui.menu.unirMesa
 import com.Tfg.juego.ui.theme.JuegoTheme
 
@@ -40,7 +40,8 @@ fun Navigation() {
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
                 onUnirseClick = { navController.navigate("unirseMesa") },
-                onAjustesClick = { navController.navigate("ajustes") }
+                onAjustesClick = { navController.navigate("ajustes") },
+                onSobreNosotrosClick = { navController.navigate("sobreNosotros") }
             )
         }
         composable("login") {
@@ -84,6 +85,11 @@ fun Navigation() {
         composable("verCartas") {
             verCartas(
                 onAjustes = { navController.navigate("ajustes") },
+            )
+        }
+        composable("sobreNosotros") {
+            sobreNosotros(
+                onMenuClick = { navController.navigate("menu") },
             )
         }
     }

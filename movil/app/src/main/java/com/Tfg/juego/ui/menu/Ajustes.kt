@@ -1,11 +1,11 @@
 package com.Tfg.juego.ui.menu
 
-import android.R
 import android.content.Context
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,7 +14,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.Tfg.juego.R
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.loguinRegistroArriba
 
@@ -32,9 +34,9 @@ fun ajustes(
     val editorSharedPreferences = sharedPref.edit();
 
     if (sharedPref.getString("idioma", null) == null)
-        editorSharedPreferences.putString("idioma", "system").apply()
+        editorSharedPreferences.putString("idioma", "System").apply()
 
-    var idioma by remember { mutableStateOf(sharedPref.getString("idioma", "system") ?: "system") }
+    var idioma by remember { mutableStateOf(sharedPref.getString("idioma", "System") ?: "System") }
 
 
     loguinRegistroArriba(
@@ -52,18 +54,21 @@ fun ajustes(
         Spacer(modifier = Modifier.height(140.dp))
 
         BotonCustom(
-            text = "Ver tipos de cartas",
+            text = stringResource(R.string.ver_tipos_cartas),
             width = 190.dp,
-            height = 50.dp,
+            height = 40.dp,
             onClick = { onVerCartas() }
         )
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        Text(stringResource(R.string.idioma))
+
         BotonCustom(
             text = idioma.toString(),
             width = 130.dp,
-            height = 80.dp,
+            height = 60.dp,
+            enabled = false,
             onClick = {
                 val nuevoIdioma = cambiarIdioma(context)
                 idioma = nuevoIdioma
@@ -73,7 +78,7 @@ fun ajustes(
         Spacer(modifier = Modifier.height(10.dp))
 
         BotonCustom(
-            text = "Volver al menu",
+            text = stringResource(R.string.volver_menu),
             width = 130.dp,
             height = 80.dp,
             onClick = { onMenuClick() }
@@ -86,17 +91,17 @@ fun cambiarIdioma(context: Context): String {
     val sharedPref = context.getSharedPreferences("AjustesIplodingRacoon", Context.MODE_PRIVATE)
     val editorSharedPreferences = sharedPref.edit()
 
-    val idioma = sharedPref.getString("idioma", "system")
+    val idioma = sharedPref.getString("idioma", "System")
 
-    if (idioma == "system") {
-        editorSharedPreferences.putString("idioma", "ingles").apply()
-        return "ingles"
-    } else if (idioma == "ingles") {
+    if (idioma == "System") {
+        editorSharedPreferences.putString("idioma", "English").apply()
+        return "English"
+    } else if (idioma == "English") {
         editorSharedPreferences.putString("idioma", "español").apply()
         return "español"
     } else if (idioma == "español") {
         editorSharedPreferences.putString("idioma", "system").apply()
-        return "system"
+        return "System"
     }
 
     return ""

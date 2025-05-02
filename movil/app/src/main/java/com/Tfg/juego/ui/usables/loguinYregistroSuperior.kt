@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.auth0.android.jwt.JWT
@@ -73,7 +74,7 @@ fun usuarioSinIniciar(
     ){
 
         BotonCustom(
-            text = "Registrar",
+            text = stringResource(R.string.registrar),
             width = 170.dp,
             onClick = { onRegisterClick() }
         )
@@ -81,7 +82,7 @@ fun usuarioSinIniciar(
         Spacer(modifier = Modifier.width(10.dp))
 
         BotonCustom(
-            text = "Iniciar sesion",
+            text = stringResource(R.string.iniciar_sesion),
             width = 170.dp,
             onClick = { onLoginClick() }
         )
@@ -111,7 +112,7 @@ fun usuarioIniciado(
         verticalAlignment = Alignment.CenterVertically,
     ){
         BotonCustom(
-            text = "Amigos",
+            text = stringResource(R.string.amigos),
             onClick = {  }
         )
 

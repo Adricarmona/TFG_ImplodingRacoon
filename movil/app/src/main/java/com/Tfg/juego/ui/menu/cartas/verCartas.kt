@@ -1,6 +1,7 @@
 package com.Tfg.juego.ui.menu.cartas
 
 import android.content.res.Configuration
+import android.util.Log
 import android.widget.Button
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
@@ -59,7 +61,7 @@ fun verCartas(
         Spacer(modifier = Modifier.height(40.dp))
 
         BotonCustom(
-            text = "Volver al menu",
+            text = stringResource(R.string.volver_menu),
             width = 200.dp,
             height = 60.dp,
             onClick = onAjustes
@@ -85,7 +87,7 @@ fun verCartas(
             Spacer(modifier = Modifier.width(5.dp))
 
             textoLoginYRegistro(
-                text = if (opcion.value == 0) "Original" else "Otro",
+                text = if (opcion.value == 0) "Original" else stringResource(R.string.otro),
                 fontSize = 20,
             )
 
@@ -107,7 +109,7 @@ fun verCartas(
         Spacer(modifier = Modifier.height(10.dp))
 
         BotonCustom(
-            text = "Ver Cartas",
+            text = stringResource(R.string.ver_cartas),
             onClick = {
                 coroutineScope.launch {
                     showDialog.value = true
@@ -137,10 +139,10 @@ fun verCartas(
         errorMessage.value?.let { error ->
             Image(
                 painter =  painterResource(id = R.drawable.img_no_info),
-                contentDescription = error,
+                contentDescription = stringResource(R.string.no_devolvieron_datos_api),
                 modifier = Modifier.size(300.dp)
             )
-            //Text(text = error)
+            Log.e("apiCards", "error al obtener cartas: "+ error, )
         }
 
         // si no esta vacio itera el array de cartas

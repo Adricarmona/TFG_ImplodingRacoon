@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">juego</string>
+    <string name="app_name" translatable="false">Implding Raccoons</string>
+    <string name="unirseMesa">Join table</string>
+    <string name="wiki" translatable="false">Wiki</string>
+    <string name="ajustes">Settings</string>
+    <string name="sobre_nosotros">About us</string>
+    <string name="registrar">Register</string>
+    <string name="iniciar_sesion">Login</string>
+    <string name="amigos">Friends</string>
+    <string name="ver_tipos_cartas">See card types</string>
+    <string name="volver_menu">Return to menu</string>
+    <string name="otro">Other</string>
+    <string name="ver_cartas">See cards</string>
+    <string name="no_devolvieron_datos_api">No data returned from API</string>
+    <string name="entrar_mesa">Join table</string>
+    <string name="codigo_mesa">Table Code</string>
+    <string name="sala_contrasena">Password room</string>
+    <string name="contrasena">Password</string>
+    <string name="unirse">Join</string>
+    <string name="idioma">Language</string>
+    <string name="usuario_correo">User or Email</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="usuario_barra_correo">user/email</string>
+    <string name="rellena_todos_campos">Fill in all fields</string>
+    <string name="usuario_contrasena_incorrectos">Incorrect username or password</string>
+    <string name="error_servidor">Server error</string>
+    <string name="usuario">User</string>
+    <string name="correo">Mail</string>
+    <string name="repetir_contrasena">Repeat password</string>
+    <string name="correo_no_valido">The email is not valid</string>
+    <string name="contrasenas_no_coinciden">Passwords do not match</string>
+    <string name="usuario_existente">Existing user</string>
+    <string name="error_registrarse">Error registering</string>
 </resources>

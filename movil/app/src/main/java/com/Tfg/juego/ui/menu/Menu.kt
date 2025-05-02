@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.ui.usables.loguinRegistroArriba
@@ -52,8 +53,8 @@ fun menuInicial(
         Spacer(modifier = Modifier.height(140.dp))
 
         Image(
-            painter =  painterResource(id = R.drawable.img_imploding_racoons_logo),
-            contentDescription = "",
+            painter =  painterResource(R.drawable.img_imploding_racoons_logo),
+            contentDescription = stringResource(R.string.app_name),
             modifier = Modifier
                 .size(300.dp)
         )
@@ -61,7 +62,7 @@ fun menuInicial(
         Spacer(modifier = Modifier.height(5.dp))
 
         BotonCustom(
-            text = "Unirse a una mesa",
+            text = stringResource(R.string.unirseMesa),
             height = 200.dp,
             width = 300.dp,
             enabled = !sharedPreferences.getString("token", "").isNullOrEmpty()
@@ -71,7 +72,7 @@ fun menuInicial(
         Spacer(modifier = Modifier.height(20.dp))
 
         BotonCustom(
-            text = "Wiki",
+            text = stringResource(R.string.wiki),
             height = 60.dp,
             width = 300.dp
         )
@@ -83,7 +84,7 @@ fun menuInicial(
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             BotonCustom(
-                text = "Ajustes",
+                text = stringResource(R.string.ajustes),
                 height = 60.dp,
                 width = 142.dp
             )
@@ -92,7 +93,7 @@ fun menuInicial(
             Spacer(modifier = Modifier.width(15.dp))
 
             BotonCustom(
-                text = "Sobre nosotros",
+                text = stringResource(R.string.sobre_nosotros),
                 height = 60.dp,
                 width = 142.dp
             )

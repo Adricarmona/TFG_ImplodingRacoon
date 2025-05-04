@@ -33,4 +33,7 @@
     <string name="error_registrarse">Error registering</string>
     <string name="seleccionar_carta">Select card</string>
     <string name="modo_oscuro">Dark mode</string>
+    <string name="desloguear">Log out</string>
+    <string name="cargando">Loading</string>
+    <string name="seleccionar_tipo_cartas">Select type of cards</string>
 </resources>

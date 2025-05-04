@@ -37,7 +37,7 @@ fun loguinRegistroArriba(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
     onPerfilClick: () -> Unit,
-    onMenuClick: () -> Unit
+    onAmigosClick: () -> Unit
 )
 {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
@@ -50,7 +50,7 @@ fun loguinRegistroArriba(
         Spacer(modifier = Modifier.height(25.dp))
 
         if (!sharedPreferences.getString("token", "").isNullOrEmpty()) {
-            usuarioIniciado(onPerfilClick, onMenuClick)
+            usuarioIniciado(onPerfilClick, onAmigosClick)
         } else {
             usuarioSinIniciar(onLoginClick, onRegisterClick)
         }
@@ -97,7 +97,7 @@ fun usuarioSinIniciar(
 @Composable
 fun usuarioIniciado(
     onPerfilClick: () -> Unit,
-    onMenuClick: () -> Unit
+    onAmigosClick: () -> Unit
 )
 {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
@@ -113,7 +113,7 @@ fun usuarioIniciado(
     ){
         BotonCustom(
             text = stringResource(R.string.amigos),
-            onClick = {  }
+            onClick = { onAmigosClick() }
         )
 
         Spacer(modifier = Modifier.width(120.dp))

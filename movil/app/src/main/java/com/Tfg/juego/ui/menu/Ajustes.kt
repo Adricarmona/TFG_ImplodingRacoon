@@ -24,9 +24,6 @@ import com.Tfg.juego.ui.usables.loguinRegistroArriba
 
 @Composable
 fun ajustes(
-    onLoginClick: () -> Unit,
-    onRegisterClick: () -> Unit,
-    onPerfilClick: () -> Unit,
     onMenuClick: () -> Unit,
     onVerCartas: () -> Unit,
 ){
@@ -40,14 +37,6 @@ fun ajustes(
 
     var idioma by remember { mutableStateOf(sharedPref.getString("idioma", "System") ?: "System") }
 
-/*      En verdad no me gusta esto aqui
-    loguinRegistroArriba(
-        onLoginClick = onLoginClick,
-        onRegisterClick = onRegisterClick,
-        onPerfilClick = onPerfilClick,
-        onMenuClick = onMenuClick
-    )
-*/
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -61,6 +50,7 @@ fun ajustes(
             verticalArrangement = Arrangement.Center
         ) {
 
+            Text(stringResource(R.string.seleccionar_carta))
             BotonCustom(
                 text = stringResource(R.string.ver_tipos_cartas),
                 width = 190.dp,
@@ -71,7 +61,6 @@ fun ajustes(
             Spacer(modifier = Modifier.height(50.dp))
 
             Text(stringResource(R.string.idioma))
-
             BotonCustom(
                 text = idioma.toString(),
                 width = 130.dp,
@@ -86,7 +75,6 @@ fun ajustes(
             Spacer(modifier = Modifier.height(50.dp))
 
             Text(stringResource(R.string.modo_oscuro))
-
             BotonCustom(
                 text = "System",
                 width = 130.dp,

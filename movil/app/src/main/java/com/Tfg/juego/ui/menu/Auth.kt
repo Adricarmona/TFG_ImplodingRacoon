@@ -35,7 +35,9 @@ import kotlinx.coroutines.launch
 fun login(
     onLoginClick: () -> Unit,
     onMenuClick: () -> Unit,
-    onRegisterClick: () -> Unit) {
+    onRegisterClick: () -> Unit,
+    onAmigosClick: () -> Unit
+) {
     // Estado para guardar lo que el usuario escribe
     val usuario_correo = remember { mutableStateOf("") }
     val contrasenia = remember { mutableStateOf("") }
@@ -57,7 +59,7 @@ fun login(
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
 
-    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onMenuClick)
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onAmigosClick)
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -150,7 +152,9 @@ fun login(
 fun registro(
     onMenuClick: () -> Unit,
     onLoginClick: () -> Unit,
-    onRegisterClick: () -> Unit) {
+    onRegisterClick: () -> Unit,
+    onAmigosClick: () -> Unit
+) {
     // Estado para guardar lo que el usuario escribe
     val usuario = remember { mutableStateOf("") }
     val correo = remember { mutableStateOf("") }
@@ -163,7 +167,7 @@ fun registro(
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
 
-    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onMenuClick)
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onRegisterClick, onAmigosClick)
 
     Column(
         modifier = Modifier.fillMaxSize(),

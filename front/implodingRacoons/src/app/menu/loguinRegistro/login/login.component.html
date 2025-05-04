@@ -1,4 +1,4 @@
-<form>
+<form (submit)="submit()" [formGroup]="form">
 
     <h2 id="tituloLogin">Login</h2>
 
@@ -6,16 +6,16 @@
 
         <label for="email" class="negrita">Email</label>
         <br>
-        <input type="text" name="correo" id="texto" class="rectangulos">
+        <input type="text" name="correo" id="texto" class="rectangulos" formControlName="email" required>
         <br>
 
         <label for="contraseña" class="negrita">Contraseña</label>
         <br>
-        <input type="text" name="contraseña" id="texto" class="rectangulos">
+        <input type="text" name="contraseña" id="texto" class="rectangulos" formControlName="password" required>
         <br>
 
         <div id="texto">
-            <input type="checkbox" name="">
+            <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{standalone: true}"/>
             <label for="recordar" class="negrita">Recordar</label>
         </div>
 

@@ -50,7 +50,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Seeder.cs",
               "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Seeder.cs",
               "RelativeToolTip": "implodingRacoon\\Seeder.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T11:13:25.663Z",
               "EditorCaption": ""
@@ -65,8 +65,7 @@
               "RelativeToolTip": "implodingRacoon\\Models\\Database\\Dto\\LoginRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T11:12:41.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T11:12:41.613Z"
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "RelativeToolTip": "implodingRacoon\\Controllers\\AuthController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAwwC0AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T11:12:23.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T11:12:23.055Z"
             },
             {
               "$type": "Document",
@@ -91,8 +89,7 @@
               "RelativeToolTip": "implodingRacoon\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-29T21:29:12.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T21:29:12.417Z"
             },
             {
               "$type": "Document",

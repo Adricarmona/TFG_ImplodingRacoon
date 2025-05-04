@@ -31,10 +31,10 @@ fun menuInicial(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
     onPerfilClick: () -> Unit,
-    onMenuClick: () -> Unit,
     onUnirseClick: () -> Unit,
     onAjustesClick: () -> Unit,
     onSobreNosotrosClick: () -> Unit,
+    onAmigosClick: () -> Unit,
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
 
@@ -42,7 +42,7 @@ fun menuInicial(
         onLoginClick = onLoginClick,
         onRegisterClick = onRegisterClick,
         onPerfilClick = onPerfilClick,
-        onMenuClick = onMenuClick
+        onAmigosClick = onAmigosClick
         )
 
     Column(

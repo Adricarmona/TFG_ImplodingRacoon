@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.Tfg.juego.R
 import com.Tfg.juego.ui.menu.ajustes
+import com.Tfg.juego.ui.menu.amigos.amigos
 import com.Tfg.juego.ui.menu.cartas.verCartas
 import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
@@ -35,50 +36,48 @@ fun Navigation() {
     ) {
         composable("menu") {
             menuInicial(
-                onMenuClick = { navController.navigate("menu") },
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
                 onUnirseClick = { navController.navigate("unirseMesa") },
                 onAjustesClick = { navController.navigate("ajustes") },
-                onSobreNosotrosClick = { navController.navigate("sobreNosotros") }
+                onSobreNosotrosClick = { navController.navigate("sobreNosotros") },
+                onAmigosClick = { navController.navigate("amigos") }
             )
         }
         composable("login") {
             login(
                 onMenuClick = { navController.navigate("menu") },
                 onLoginClick = { navController.navigate("login") },
-                onRegisterClick = { navController.navigate("registro") }
+                onRegisterClick = { navController.navigate("registro") },
+                onAmigosClick = { navController.navigate("amigos") }
             )
         }
         composable("registro") {
             registro(
                 onMenuClick = { navController.navigate("menu") },
                 onLoginClick = { navController.navigate("login") },
-                onRegisterClick = { navController.navigate("registro") }
+                onRegisterClick = { navController.navigate("registro") },
+                onAmigosClick = { navController.navigate("amigos") }
             )
         }
         composable("perfil") {
             perfil(
                 onMenuClick = { navController.navigate("menu") },
-                onLoginClick = { navController.navigate("login") },
-                onRegisterClick = { navController.navigate("registro") }
+                onAmigosClick = { navController.navigate("amigos") }
             )
         }
         composable("unirseMesa") {
             unirMesa(
-                onMenuClick = { navController.navigate("menu") },
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
-                )
+                onAmigosClick = { navController.navigate("amigos") }
+            )
         }
         composable("ajustes") {
             ajustes(
                 onMenuClick = { navController.navigate("menu") },
-                onLoginClick = { navController.navigate("login") },
-                onRegisterClick = { navController.navigate("registro") },
-                onPerfilClick = { navController.navigate("perfil") },
                 onVerCartas = { navController.navigate("verCartas") }
             )
         }
@@ -91,6 +90,9 @@ fun Navigation() {
             sobreNosotros(
                 onMenuClick = { navController.navigate("menu") },
             )
+        }
+        composable("amigos") {
+            amigos()
         }
     }
 }
@@ -116,14 +118,3 @@ fun menu() {
     }
 }
 
-/**
- * EL PREVIEW PARA VER LAS COSAS
- */
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "es")
-@Composable
-fun previewAyuda() {
-    JuegoTheme {
-        menu()
-    }
-}

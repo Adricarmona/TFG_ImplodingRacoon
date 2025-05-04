@@ -31,4 +31,7 @@
     <string name="error_registrarse">Error al registrarse</string>
     <string name="seleccionar_carta">Seleccionar carta</string>
     <string name="modo_oscuro">Modo oscuro</string>
+    <string name="desloguear">Cerrar sesion</string>
+    <string name="cargando">Cargando</string>
+    <string name="seleccionar_tipo_cartas">Seleccionar tipo de cartas</string>
 </resources>

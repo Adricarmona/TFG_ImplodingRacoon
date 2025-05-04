@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,17 +21,17 @@ import com.Tfg.juego.ui.usables.textoLoginYRegistro
 
 @Composable
 fun unirMesa(
-    onMenuClick: () -> Unit,
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
-    onPerfilClick: () -> Unit
+    onPerfilClick: () -> Unit,
+    onAmigosClick: () -> Unit
 )
 {
     val codigoMesa = remember { mutableStateOf("") }
     val passwordMesa = remember { mutableStateOf(false) }
     val passwordMesaText = remember { mutableStateOf("") }
 
-    loguinRegistroArriba(onMenuClick, onLoginClick, onRegisterClick, onPerfilClick)
+    loguinRegistroArriba(onLoginClick, onRegisterClick, onPerfilClick, onAmigosClick)
 
     Column(
         modifier = Modifier.fillMaxSize(),

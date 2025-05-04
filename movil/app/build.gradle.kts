@@ -83,4 +83,7 @@ dependencies {
 
     // la imagen asicrona
     implementation ("io.coil-kt:coil-compose:2.6.0")
+
+    // cosas del compose para el link de los textos
+    implementation ("androidx.compose.ui:ui:1.7.0")
 }

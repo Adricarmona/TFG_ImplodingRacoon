@@ -34,4 +34,6 @@
     <string name="desloguear">Cerrar sesion</string>
     <string name="cargando">Cargando</string>
     <string name="seleccionar_tipo_cartas">Seleccionar tipo de cartas</string>
+    <string name="suImagenPerfil">Su imagen de perfil</string>
+    <string name="modificarPerfilWeb">Modificar perfil en la web</string>
 </resources>

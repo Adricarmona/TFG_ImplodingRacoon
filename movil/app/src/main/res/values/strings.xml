@@ -36,4 +36,6 @@
     <string name="desloguear">Log out</string>
     <string name="cargando">Loading</string>
     <string name="seleccionar_tipo_cartas">Select type of cards</string>
+    <string name="suImagenPerfil">Your profile picture</string>
+    <string name="modificarPerfilWeb">Modify profile on the website</string>
 </resources>

@@ -4,6 +4,7 @@ import com.Tfg.juego.model.retrofit.dto.cardAndStyle
 import com.Tfg.juego.model.retrofit.dto.loginDto
 import com.Tfg.juego.model.retrofit.dto.registerDto
 import com.Tfg.juego.model.retrofit.dto.responseToken
+import com.Tfg.juego.model.retrofit.dto.userPerfil
 import okhttp3.ResponseBody
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -21,4 +22,7 @@ interface ApiService {
 
     @GET("Cards/GetCardByIdImage/type={type}")
     suspend fun getAllCartas(@Path("type") type: Int): List<cardAndStyle>
+
+    @GET("User/GetUserById/id={id}")
+    suspend fun getUserPerfil(@Path("id") id: Int): userPerfil
 }

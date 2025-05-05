@@ -11,6 +11,7 @@ namespace implodingRacoon.Models.Database.Entities
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public string Foto { get; set; }
+        public List<int> idAmigos { get; set; } = new List<int>();
         public bool Conectado { get; set; }
         public bool Admin { get; set; }
 

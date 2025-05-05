@@ -48,6 +48,7 @@ namespace implodingRacoon
             // servicios
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<CardsService>();
+            builder.Services.AddScoped<UserService>();
             builder.Services.AddScoped<WSHelper>();
             builder.Services.AddScoped<ImageMapper>();
 

@@ -1,5 +1,6 @@
 ﻿using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
+using implodingRacoon.Models.Database.Entities;
 
 namespace implodingRacoon.Services
 {
@@ -28,5 +29,90 @@ namespace implodingRacoon.Services
             };
         }
 
+        public async Task<List<UserAmigos>> GetFriendsByUserIdAsync(int id)
+        {
+            var user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
+
+            if (user == null)
+                return null;
+
+            var friends = new List<UserAmigos>();
+            foreach (var friendId in user.idAmigos)
+            {
+                var friend = await _unitOfWork.UsuarioRepository.GetByIdAsync(friendId.Id);
+                if (friend != null)
+                {
+                    friends.Add(new UserAmigos
+                    {
+                        Id = friend.Id,
+                        NombreUsuario = friend.NombreUsuario,
+                        Foto = friend.Foto,
+                    });
+                }
+            }
+
+            return friends;
+        }
+
+        public async Task<bool> SetFriendRequest(int id, int friendId)
+        {
+            var user = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(id);
+            var friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(friendId);
+
+            if (user == null || friend == null)
+                return false;
+            
+            if (!user.idAmigos.Contains(friend))
+            {
+                var solicitud = new SolicitudAmistad
+                {
+                    UsuarioRecibeId = friend.Id,
+                    UsuarioEnviaId = user.Id,
+                    UsuarioRecibe = friend,
+                    UsuarioEnvia = user
+                };
+
+                user.SolicitudesEnviadas.Add(solicitud);
+                friend.SolicitudesRecibidas.Add(solicitud);
+
+                await _unitOfWork.SaveAsync();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public async Task<bool> AcceptFriendRequest(int id, int friendId)
+        {
+            var user = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(id);
+            var friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(friendId);
+
+            if (user == null || friend == null)
+                return false;
+            
+            var request = user.SolicitudesRecibidas.FirstOrDefault(r => r.UsuarioEnviaId == friendId);
+            if (request != null)
+            {
+                user.SolicitudesRecibidas.Remove(request);
+                user.idAmigos.Add(friend);
+
+                friend.SolicitudesEnviadas.Remove(request);
+                friend.idAmigos.Add(user);
+                
+                await _unitOfWork.SaveAsync();
+
+                return true;
+            }
+            else
+            { 
+                return false;
+            }
+
+
+        }
     }
 }

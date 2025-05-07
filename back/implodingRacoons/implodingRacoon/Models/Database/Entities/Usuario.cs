@@ -11,20 +11,20 @@ namespace implodingRacoon.Models.Database.Entities
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public string Foto { get; set; }
-        public List<int> idAmigos { get; set; } = new List<int>();
+        public ICollection<Usuario> idAmigos { get; set; } = new List<Usuario>();
         public bool Conectado { get; set; }
         public bool Admin { get; set; }
 
         // Relaciones de amistad
-        public ICollection<SolicitudAmistad> SolicitudesEnviadas { get; set; }
-        public ICollection<SolicitudAmistad> SolicitudesRecibidas { get; set; }
+        public ICollection<SolicitudAmistad> SolicitudesEnviadas { get; set; } = new List<SolicitudAmistad>();
+        public ICollection<SolicitudAmistad> SolicitudesRecibidas { get; set; } = new List<SolicitudAmistad>();
 
 
         // Wiki
-        public ICollection<Publicacion> Publicaciones { get; set; }
-        public ICollection<Comentario> Comentarios { get; set; }
+        public ICollection<Publicacion> Publicaciones { get; set; } = new List<Publicacion>();
+        public ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
 
         // Historial partidas
-        public ICollection<UsuarioHistorial> HistorialPartidas { get; set; }
+        public ICollection<UsuarioHistorial> HistorialPartidas { get; set; } = new List<UsuarioHistorial>();
     }
 }

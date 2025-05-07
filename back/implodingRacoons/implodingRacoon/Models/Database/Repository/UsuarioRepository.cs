@@ -35,7 +35,7 @@ namespace implodingRacoon.Models.Database.Repository
                 NombreUsuario = user.NombreUsuario,
                 Correo = user.Correo,
                 Contrasena = user.Password,
-                Foto = "fotoGenerica.png", 
+                Foto = "fotoGenerica.png",
                 Conectado = true,
                 Admin = false
             };
@@ -50,6 +50,46 @@ namespace implodingRacoon.Models.Database.Repository
                 Foto = usuarioIngresado.Foto,
                 Conectado = usuarioIngresado.Conectado,
                 Admin = usuarioIngresado.Admin,
+            };
+        }
+
+        public async Task<Usuario> GetUserByIdAndSolicitudes(int id)
+        {
+            Usuario usuario = await GetQueryable()
+                .Include(user => user.SolicitudesRecibidas)
+                .Include(user => user.SolicitudesEnviadas)
+                .Include(user => user.idAmigos)
+                .AsTracking()
+                .FirstOrDefaultAsync(user => user.Id == id);
+            if (usuario == null) return null;
+            return new Usuario
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                idAmigos = usuario.idAmigos,
+                SolicitudesRecibidas = usuario.SolicitudesRecibidas,
+                SolicitudesEnviadas = usuario.SolicitudesEnviadas,
+            };
+        }
+
+        public async Task<Usuario> GetUserByIdAndFriends(int id)
+        {
+            Usuario usuario = await GetQueryable()
+                .Include(user => user.idAmigos)
+                .FirstOrDefaultAsync(user => user.Id == id);
+            if (usuario == null) return null;
+            return new Usuario
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                idAmigos = usuario.idAmigos,
+                SolicitudesRecibidas = usuario.SolicitudesRecibidas
             };
         }
     }

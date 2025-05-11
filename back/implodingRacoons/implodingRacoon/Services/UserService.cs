@@ -1,4 +1,5 @@
-﻿using implodingRacoon.Models.Database;
+﻿using System.Collections;
+using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
 
@@ -25,7 +26,7 @@ namespace implodingRacoon.Services
                 Id = user.Id,
                 NombreUsuario = user.NombreUsuario,
                 urlFoto = user.Foto,
-                cantidadAmigos = user.idAmigos.Count(),
+                cantidadAmigos = user.Amigos.Count(),
             };
         }
 
@@ -37,9 +38,9 @@ namespace implodingRacoon.Services
                 return null;
 
             var friends = new List<UserAmigos>();
-            foreach (var friendId in user.idAmigos)
+            foreach (var friendId in user.Amigos)
             {
-                var friend = await _unitOfWork.UsuarioRepository.GetByIdAsync(friendId.Id);
+                var friend = await _unitOfWork.UsuarioRepository.GetByIdAsync(friendId.AmigoId);
                 if (friend != null)
                 {
                     friends.Add(new UserAmigos
@@ -61,15 +62,15 @@ namespace implodingRacoon.Services
 
             if (user == null || friend == null)
                 return false;
-            
-            if (!user.idAmigos.Contains(friend))
+
+            var amigosUsuario = user.Amigos.Select(a => a.Amigo).ToList();
+
+            if (!amigosUsuario.Contains(friend))
             {
                 var solicitud = new SolicitudAmistad
                 {
                     UsuarioRecibeId = friend.Id,
                     UsuarioEnviaId = user.Id,
-                    UsuarioRecibe = friend,
-                    UsuarioEnvia = user
                 };
 
                 user.SolicitudesEnviadas.Add(solicitud);
@@ -83,7 +84,6 @@ namespace implodingRacoon.Services
             {
                 return false;
             }
-
         }
 
         public async Task<bool> AcceptFriendRequest(int id, int friendId)
@@ -94,24 +94,87 @@ namespace implodingRacoon.Services
             if (user == null || friend == null)
                 return false;
             
-            var request = user.SolicitudesRecibidas.FirstOrDefault(r => r.UsuarioEnviaId == friendId);
-            if (request != null)
-            {
-                user.SolicitudesRecibidas.Remove(request);
-                user.idAmigos.Add(friend);
+            /*
 
-                friend.SolicitudesEnviadas.Remove(request);
-                friend.idAmigos.Add(user);
-                
+            // las enviadas
+            IList<SolicitudAmistad> solicitudesEnviadas = user.SolicitudesEnviadas.ToList();
+            foreach (SolicitudAmistad solicitud in solicitudesEnviadas)
+            {
+                if (solicitud.UsuarioEnvia.Equals(friend) && solicitud.UsuarioRecibe.Equals(user) ||
+                    solicitud.UsuarioRecibe.Equals(friend) && solicitud.UsuarioEnvia.Equals(user))
+                {
+                    solicitudesEnviadas.Remove(solicitud);
+                    await _unitOfWork.SaveAsync();
+
+                    // del usuarioq que lo solicita
+                    var amigoUsuario = new Amistad
+                    {
+                        UsuarioId = user.Id,
+                        AmigoId = friend.Id,
+                        Amigo = friend
+                    };
+
+                    user.Amigos.Add(amigoUsuario);
+
+                    var amigoUsuario2 = new Amistad
+                    {
+                        UsuarioId = friend.Id,
+                        AmigoId = user.Id,
+                        Amigo = user
+                    };
+
+                    friend.Amigos.Add(amigoUsuario2);
+
+                    await _unitOfWork.SaveAsync();
+
+                    return true;
+                }
+            }
+            */
+
+            // las recibidas
+            IList<SolicitudAmistad> solicitudesRecibidas = user.SolicitudesRecibidas.ToList();
+            SolicitudAmistad solicitudEscogida = null;
+            
+            foreach (SolicitudAmistad solicitud in solicitudesRecibidas)
+            {
+                if (solicitud.UsuarioEnvia.Id == friend.Id && solicitud.UsuarioRecibe.Id == user.Id ||
+                    solicitud.UsuarioRecibe.Id == friend.Id && solicitud.UsuarioEnvia.Id == user.Id)
+                {
+                    solicitudEscogida = solicitud;
+                }
+            }
+
+            if (solicitudEscogida != null)
+            {
+                user.SolicitudesRecibidas.Remove(solicitudEscogida);
+                friend.SolicitudesEnviadas.Remove(solicitudEscogida);
+
+                // del usuarioq que lo solicita
+                var amigoUsuario = new Amistad
+                {
+                    UsuarioId = user.Id,
+                    AmigoId = friend.Id,
+                    Amigo = friend
+                };
+
+                user.Amigos.Add(amigoUsuario);
+
+                var amigoUsuario2 = new Amistad
+                {
+                    UsuarioId = friend.Id,
+                    AmigoId = user.Id,
+                    Amigo = user
+                };
+
+                friend.Amigos.Add(amigoUsuario2);
+
                 await _unitOfWork.SaveAsync();
 
                 return true;
             }
-            else
-            { 
-                return false;
-            }
 
+            return false;
 
         }
     }

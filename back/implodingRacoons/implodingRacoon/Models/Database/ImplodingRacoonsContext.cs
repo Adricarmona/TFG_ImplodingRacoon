@@ -16,7 +16,9 @@ namespace implodingRacoon.Models.Database
         public DbSet<HistorialPartidas> HistorialPartidas { get; set; }
         public DbSet<Publicacion> Publicacion { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<UsuarioHistorial> UsuarioHistorial { get; set; } 
+        public DbSet<Amistad> Amistad { get; set; }
+        public DbSet<UsuarioHistorial> UsuarioHistorial { get; set; }
+        public DbSet<SolicitudAmistad> SolicitudAmistad { get; set; }
 
 
         public ImplodingRacoonsContext(IOptions<Settings> options)
@@ -39,27 +41,23 @@ namespace implodingRacoon.Models.Database
             #endif
         }
 
-        // Sin esto no funciona al crear la base de datos
-        // genera las relaciones de la tabla solicitud de amistad
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configurar la entidad Amistad
+            modelBuilder.Entity<Amistad>().HasKey(a => new { a.UsuarioId, a.AmigoId });
 
-            // De cuando envias las las solicitudes
+            // Configurar las relaciones de SolicitudAmistad
             modelBuilder.Entity<SolicitudAmistad>()
-                .HasOne(s => s.UsuarioEnvia) 
+                .HasOne(s => s.UsuarioEnvia)
                 .WithMany(u => u.SolicitudesEnviadas)
                 .HasForeignKey(s => s.UsuarioEnviaId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade); // Allow cascade deletion
 
-
-            // De cuando recibes las solicitudes
             modelBuilder.Entity<SolicitudAmistad>()
                 .HasOne(s => s.UsuarioRecibe)
                 .WithMany(u => u.SolicitudesRecibidas)
                 .HasForeignKey(s => s.UsuarioRecibeId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            base.OnModelCreating(modelBuilder);
+                .OnDelete(DeleteBehavior.Cascade); // Allow cascade deletion
         }
 
     }

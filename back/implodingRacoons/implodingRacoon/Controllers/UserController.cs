@@ -1,6 +1,8 @@
-﻿using implodingRacoon.Models.Database.Dto;
+﻿using implodingRacoon.Models;
+using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace implodingRacoon.Controllers
@@ -10,9 +12,12 @@ namespace implodingRacoon.Controllers
     public class UserController : Controller
     {
         private readonly UserService _userService;
-        public UserController(UserService userService)
+        private ImageMapper _imagenMapper;
+
+        public UserController(UserService userService, ImageMapper imageMapper)
         {
             _userService = userService;
+            _imagenMapper = imageMapper;
         }
 
         [HttpGet("GetUserById/{id}")]
@@ -33,6 +38,9 @@ namespace implodingRacoon.Controllers
 
             if (friends == null)
                 return NotFound("No se encontraron amigos");
+
+
+            friends = _imagenMapper.AddCorrectPathUserAmigo(friends, Request).ToList();
 
             return Ok(friends);
         }

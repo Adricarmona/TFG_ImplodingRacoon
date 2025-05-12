@@ -11,11 +11,11 @@ namespace implodingRacoon.Models.Database.Entities
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public string Foto { get; set; }
-        public ICollection<Usuario> idAmigos { get; set; } = new List<Usuario>();
         public bool Conectado { get; set; }
         public bool Admin { get; set; }
 
         // Relaciones de amistad
+        public List<int> idAmigos { get; set; } = new List<int>();
         public ICollection<SolicitudAmistad> SolicitudesEnviadas { get; set; } = new List<SolicitudAmistad>();
         public ICollection<SolicitudAmistad> SolicitudesRecibidas { get; set; } = new List<SolicitudAmistad>();
 

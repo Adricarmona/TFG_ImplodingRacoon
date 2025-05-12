@@ -58,10 +58,11 @@ namespace implodingRacoon.Models.Database.Repository
             Usuario usuario = await GetQueryable()
                 .Include(user => user.SolicitudesRecibidas)
                 .Include(user => user.SolicitudesEnviadas)
-                .Include(user => user.idAmigos)
                 .AsTracking()
                 .FirstOrDefaultAsync(user => user.Id == id);
+
             if (usuario == null) return null;
+
             return new Usuario
             {
                 Id = usuario.Id,
@@ -78,9 +79,10 @@ namespace implodingRacoon.Models.Database.Repository
         public async Task<Usuario> GetUserByIdAndFriends(int id)
         {
             Usuario usuario = await GetQueryable()
-                .Include(user => user.idAmigos)
                 .FirstOrDefaultAsync(user => user.Id == id);
+
             if (usuario == null) return null;
+
             return new Usuario
             {
                 Id = usuario.Id,

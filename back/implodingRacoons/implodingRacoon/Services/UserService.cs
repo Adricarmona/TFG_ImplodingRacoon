@@ -37,9 +37,10 @@ namespace implodingRacoon.Services
                 return null;
 
             var friends = new List<UserAmigos>();
-            foreach (var friendId in user.idAmigos)
+            foreach (int friendId in user.idAmigos)
             {
-                var friend = await _unitOfWork.UsuarioRepository.GetByIdAsync(friendId.Id);
+
+                var friend = await _unitOfWork.UsuarioRepository.GetByIdAsync(friendId);
                 if (friend != null)
                 {
                     friends.Add(new UserAmigos
@@ -62,14 +63,12 @@ namespace implodingRacoon.Services
             if (user == null || friend == null)
                 return false;
             
-            if (!user.idAmigos.Contains(friend))
+            if (!user.idAmigos.Contains(friend.Id))
             {
                 var solicitud = new SolicitudAmistad
                 {
                     UsuarioRecibeId = friend.Id,
                     UsuarioEnviaId = user.Id,
-                    UsuarioRecibe = friend,
-                    UsuarioEnvia = user
                 };
 
                 user.SolicitudesEnviadas.Add(solicitud);
@@ -98,10 +97,10 @@ namespace implodingRacoon.Services
             if (request != null)
             {
                 user.SolicitudesRecibidas.Remove(request);
-                user.idAmigos.Add(friend);
+                user.idAmigos.Add(friend.Id);
 
                 friend.SolicitudesEnviadas.Remove(request);
-                friend.idAmigos.Add(user);
+                friend.idAmigos.Add(user.Id);
                 
                 await _unitOfWork.SaveAsync();
 

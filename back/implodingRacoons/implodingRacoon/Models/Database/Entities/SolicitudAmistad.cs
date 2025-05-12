@@ -8,8 +8,8 @@ namespace implodingRacoon.Models.Database.Entities
         [Key]
         public int Id { get; set; }
 
-        public int UsuarioEnviaId { get; set; }
-        public int UsuarioRecibeId { get; set; }
+        public int UsuarioEnviaId { get; set; }  // Usuario que envía la solicitud
+        public int UsuarioRecibeId { get; set; }  // Usuario que recibe la solicitud
 
         [ForeignKey("UsuarioEnviaId")]
         public Usuario UsuarioEnvia { get; set; }

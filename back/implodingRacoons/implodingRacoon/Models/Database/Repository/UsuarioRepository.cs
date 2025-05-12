@@ -56,9 +56,9 @@ namespace implodingRacoon.Models.Database.Repository
         public async Task<Usuario> GetUserByIdAndSolicitudes(int id)
         {
             Usuario usuario = await GetQueryable()
-                .Include(user => user.SolicitudesEnviadas)
                 .Include(user => user.SolicitudesRecibidas)
-                .Include(user => user.Amigos)
+                .Include(user => user.SolicitudesEnviadas)
+                .Include(user => user.idAmigos)
                 .AsTracking()
                 .FirstOrDefaultAsync(user => user.Id == id);
             if (usuario == null) return null;
@@ -69,18 +69,16 @@ namespace implodingRacoon.Models.Database.Repository
                 Correo = usuario.Correo,
                 Foto = usuario.Foto,
                 Conectado = usuario.Conectado,
-                Amigos = usuario.Amigos,
+                idAmigos = usuario.idAmigos,
+                SolicitudesRecibidas = usuario.SolicitudesRecibidas,
                 SolicitudesEnviadas = usuario.SolicitudesEnviadas,
-                SolicitudesRecibidas = usuario.SolicitudesRecibidas
             };
         }
 
         public async Task<Usuario> GetUserByIdAndFriends(int id)
         {
             Usuario usuario = await GetQueryable()
-                .Include(user => user.Amigos)
-                .Include(user => user.SolicitudesRecibidas)
-                .Include(user => user.SolicitudesEnviadas)
+                .Include(user => user.idAmigos)
                 .FirstOrDefaultAsync(user => user.Id == id);
             if (usuario == null) return null;
             return new Usuario
@@ -90,9 +88,8 @@ namespace implodingRacoon.Models.Database.Repository
                 Correo = usuario.Correo,
                 Foto = usuario.Foto,
                 Conectado = usuario.Conectado,
-                Amigos = usuario.Amigos,
-                SolicitudesRecibidas = usuario.SolicitudesRecibidas,
-                SolicitudesEnviadas = usuario.SolicitudesEnviadas
+                idAmigos = usuario.idAmigos,
+                SolicitudesRecibidas = usuario.SolicitudesRecibidas
             };
         }
     }

@@ -1,6 +1,8 @@
 ﻿using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace implodingRacoon.Services
 {
@@ -112,6 +114,62 @@ namespace implodingRacoon.Services
             }
 
 
+        }
+
+        public async Task<List<UserAmigos>> GetFriendRequests(int id)
+        {
+
+            Usuario usuarios = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(id);
+            
+            if (usuarios == null)
+                return null;
+
+            List<UserAmigos> friendRequests = new List<UserAmigos>();
+            List<int> idsUsuariosSolicitudes = new List<int>();
+
+            foreach (SolicitudAmistad solicitud in usuarios.SolicitudesRecibidas)
+            {
+
+                idsUsuariosSolicitudes.Add(solicitud.UsuarioRecibeId);
+                
+                Usuario usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(solicitud.UsuarioEnviaId);
+
+                friendRequests.Add(
+                    new UserAmigos{
+                    Id = usuario.Id,
+                    NombreUsuario = usuario.NombreUsuario,
+                    Foto = usuario.Foto,
+                });
+            }
+            
+            return friendRequests;
+
+
+        }
+
+
+        public async Task<string> DeleteFriendRequest(int id, int idFriend)
+        {
+            var user = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(id);
+            var friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndSolicitudes(idFriend);
+
+            if (user == null)
+                return "Usuario no encontrado";
+            
+
+            var request = user.SolicitudesRecibidas.FirstOrDefault(r => r.UsuarioEnviaId == idFriend);
+
+            if (request == null)
+                return "Solicitud de amistad no encontrada";
+            
+
+            user.SolicitudesRecibidas.Remove(request);
+            friend.SolicitudesEnviadas.Remove(request);
+            _unitOfWork.SolicitudAmistadRepository.Delete(request);
+
+            await _unitOfWork.SaveAsync();
+
+            return "Solicitud de amistad eliminada";
         }
     }
 }

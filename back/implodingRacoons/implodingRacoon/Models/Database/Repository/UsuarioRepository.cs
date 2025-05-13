@@ -76,6 +76,19 @@ namespace implodingRacoon.Models.Database.Repository
             };
         }
 
+        public async Task<List<Usuario>> GetUserAndSolicitudes()
+        {
+            List<Usuario> usuarios = await GetQueryable()
+                .Include(user => user.SolicitudesRecibidas)
+                .Include(user => user.SolicitudesEnviadas)
+                .AsTracking()
+                .ToListAsync();
+
+            if (usuarios == null || !usuarios.Any()) return null;
+
+            return usuarios;
+        }
+
         public async Task<Usuario> GetUserByIdAndFriends(int id)
         {
             Usuario usuario = await GetQueryable()

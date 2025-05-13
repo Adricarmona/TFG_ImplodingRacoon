@@ -66,5 +66,32 @@ namespace implodingRacoon.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("GetFriendRequests/{id}")]
+        public async Task<ActionResult<List<UserAmigos>>> GetFriendRequests(int id)
+        {
+            var friendRequests = await _userService.GetFriendRequests(id);
+
+            if (friendRequests == null)
+                return NotFound("No se encontraron solicitudes de amistad");
+
+            friendRequests = _imagenMapper.AddCorrectPathUserAmigo(friendRequests, Request).ToList();
+
+            return Ok(friendRequests);
+        }
+
+        [HttpDelete("DeleteFriendRequest/{id}")]
+        public async Task<ActionResult> DeleteFriendRequest(int id, int idFriend)
+        {
+            string result = await _userService.DeleteFriendRequest(id, idFriend);
+
+            if (result == "Usuario no encontrado")
+                return NotFound("No se encontró el usuario");
+
+            if (result == "Solicitud de amistad no encontrada")
+                return NotFound("Solicitud de amistad no encontrada");
+
+            return Ok(result);
+        }
     }
 }

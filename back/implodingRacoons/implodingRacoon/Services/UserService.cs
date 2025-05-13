@@ -171,5 +171,35 @@ namespace implodingRacoon.Services
 
             return "Solicitud de amistad eliminada";
         }
+
+        public async Task<List<UserAmigos>> GetUsersByUsernameForFriends(int id)
+        {
+            Usuario user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
+            ICollection<Usuario> usuarios = await _unitOfWork.UsuarioRepository.GetAllAsync();
+            
+            List<Usuario> amigosEnseniar = new List<Usuario>();
+            bool amigo = false;
+            foreach (Usuario usuario in usuarios)
+            {
+                amigo = false;
+
+                foreach (int ids in user.idAmigos)
+                {
+                    if (usuario.Id == ids)
+                        amigo = true;
+                }
+
+                if (!amigo)
+                    amigosEnseniar.Add(usuario);
+            }
+
+
+            return amigosEnseniar.Select(usuario => new UserAmigos
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Foto = usuario.Foto,
+            }).ToList();
+        }
     }
 }

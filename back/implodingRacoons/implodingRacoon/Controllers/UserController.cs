@@ -93,5 +93,19 @@ namespace implodingRacoon.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("GetUsersByIdForFriends/{id}")]
+        public async Task<ActionResult<List<UserAmigos>>> GetUsersByUsernameForFriends(int id)
+        {
+
+            var users = await _userService.GetUsersByUsernameForFriends(id);
+
+            if (users == null) return NotFound("No se encontraron usuarios");
+
+            users = _imagenMapper.AddCorrectPathUserAmigo(users, Request).ToList();
+
+            return Ok(users);
+
+        }
     }
 }

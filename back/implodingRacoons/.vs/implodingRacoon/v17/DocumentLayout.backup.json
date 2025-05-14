@@ -26,15 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 901,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -44,7 +40,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\UserController.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\UserController.cs",
               "RelativeToolTip": "implodingRacoon\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAhwF4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAMwIcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T19:26:32.12Z",
               "EditorCaption": ""
@@ -69,7 +65,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
               "RelativeToolTip": "implodingRacoon\\Models\\Database\\Repository\\UsuarioRepository.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAwwFsAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T19:19:55.126Z",
               "EditorCaption": ""
@@ -104,7 +100,7 @@
               "RelativeDocumentMoniker": "implodingRacoon\\Services\\UserService.cs",
               "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\UserService.cs*",
               "RelativeToolTip": "implodingRacoon\\Services\\UserService.cs*",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAgwLoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAwNcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T19:23:08.695Z",
               "EditorCaption": ""

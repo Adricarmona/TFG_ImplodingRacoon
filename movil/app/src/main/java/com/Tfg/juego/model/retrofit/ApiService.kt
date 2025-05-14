@@ -4,9 +4,11 @@ import com.Tfg.juego.model.retrofit.dto.cardAndStyle
 import com.Tfg.juego.model.retrofit.dto.loginDto
 import com.Tfg.juego.model.retrofit.dto.registerDto
 import com.Tfg.juego.model.retrofit.dto.responseToken
+import com.Tfg.juego.model.retrofit.dto.userAmigos
 import com.Tfg.juego.model.retrofit.dto.userPerfil
 import okhttp3.ResponseBody
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -25,4 +27,10 @@ interface ApiService {
 
     @GET("User/GetUserById/id={id}")
     suspend fun getUserPerfil(@Path("id") id: Int): userPerfil
+
+    @GET("User/GetFriendsbyUserId/{id}")
+    suspend fun getAmigos(@Path("id") id: Int): List<userAmigos>
+
+    @DELETE("User/DeleteFriend/{id}")
+    suspend fun deleteAmigo(@Path("id") id: Int, @Query("friendid") idFriend: Int): responseToken
 }

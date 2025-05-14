@@ -201,5 +201,26 @@ namespace implodingRacoon.Services
                 Foto = usuario.Foto,
             }).ToList();
         }
+
+        public async Task<string> DeleteFriend(int id, int friendId)
+        {
+            Usuario user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
+
+            if (user == null)
+                return "usuario no encontrado";
+
+            if (user.idAmigos.Contains(friendId))
+            {
+                user.idAmigos.Remove(friendId);
+
+                await _unitOfWork.SaveAsync();
+
+                return "Amigo eliminado";
+            }
+            else
+            {
+                return "No es amigo";
+            }
+        }
     }
 }

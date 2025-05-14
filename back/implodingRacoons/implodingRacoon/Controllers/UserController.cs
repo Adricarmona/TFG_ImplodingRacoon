@@ -107,5 +107,32 @@ namespace implodingRacoon.Controllers
             return Ok(users);
 
         }
+
+        [HttpDelete("DeleteFriend/{id}")]
+        public async Task<ActionResult> DeleteFriend(int id, int friendId)
+        {
+            var result = await _userService.DeleteFriend(id, friendId);
+
+            if (result == "usuario no encontrado")
+                return NotFound(new ResponseToken
+                {
+                    message = result,
+                    code = 404
+                });
+
+            if (result == "No es amigo")
+                return NotFound(new ResponseToken
+                {
+                    message = result,
+                    code = 404
+                });
+
+
+            return Ok(new ResponseToken
+            {
+                message = result,
+                code = 200
+            });
+        }
     }
 }

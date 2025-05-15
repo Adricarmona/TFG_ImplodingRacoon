@@ -205,6 +205,7 @@ namespace implodingRacoon.Services
         public async Task<string> DeleteFriend(int id, int friendId)
         {
             Usuario user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
+            Usuario friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(friendId);
 
             if (user == null)
                 return "usuario no encontrado";
@@ -212,14 +213,21 @@ namespace implodingRacoon.Services
             if (user.idAmigos.Contains(friendId))
             {
                 user.idAmigos.Remove(friendId);
+                friend.idAmigos.Remove(id);
+
+                _unitOfWork.UsuarioRepository.Update(user);
+                _unitOfWork.UsuarioRepository.Update(friend);
 
                 await _unitOfWork.SaveAsync();
+
+                Console.WriteLine(user.idAmigos.Count);
+                Console.WriteLine(friend.idAmigos.Count);
 
                 return "Amigo eliminado";
             }
             else
             {
-                return "No es amigo";
+                return "No es ampeigo";
             }
         }
     }

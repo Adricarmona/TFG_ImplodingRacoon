@@ -205,10 +205,13 @@ namespace implodingRacoon.Services
         public async Task<string> DeleteFriend(int id, int friendId)
         {
             Usuario user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
-            Usuario friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(friendId);
-
             if (user == null)
-                return "usuario no encontrado";
+                return "Usuario no encontrado";
+
+            Usuario friend = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(friendId);
+            if (friend == null)
+                return "Amigo no encontrado";
+
 
             if (user.idAmigos.Contains(friendId))
             {

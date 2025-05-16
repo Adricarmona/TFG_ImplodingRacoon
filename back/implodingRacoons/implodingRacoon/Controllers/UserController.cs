@@ -113,20 +113,14 @@ namespace implodingRacoon.Controllers
         {
             var result = await _userService.DeleteFriend(id, friendId);
 
-            if (result == "usuario no encontrado")
+            if (result == "Usuario no encontrado" || 
+                result == "Amigo no encontrado" || 
+                result == "No es amigo")
                 return NotFound(new ResponseToken
                 {
                     message = result,
                     code = 404
                 });
-
-            if (result == "No es amigo")
-                return NotFound(new ResponseToken
-                {
-                    message = result,
-                    code = 404
-                });
-
 
             return Ok(new ResponseToken
             {

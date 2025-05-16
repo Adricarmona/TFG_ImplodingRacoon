@@ -101,10 +101,12 @@ namespace implodingRacoon.Models.Database.Repository
                 Id = usuario.Id,
                 NombreUsuario = usuario.NombreUsuario,
                 Correo = usuario.Correo,
+                Contrasena = usuario.Contrasena,
                 Foto = usuario.Foto,
                 Conectado = usuario.Conectado,
                 idAmigos = usuario.idAmigos,
-                SolicitudesRecibidas = usuario.SolicitudesRecibidas
+                SolicitudesRecibidas = usuario.SolicitudesRecibidas,
+                SolicitudesEnviadas = usuario.SolicitudesEnviadas,
             };
         }
     }

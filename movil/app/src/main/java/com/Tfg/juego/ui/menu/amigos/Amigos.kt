@@ -2,26 +2,19 @@ package com.Tfg.juego.ui.menu.amigos
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -34,31 +27,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.LinkAnnotation
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.Tfg.juego.R
-import com.Tfg.juego.model.retrofit.ApiService
 import com.Tfg.juego.model.retrofit.dto.userAmigos
-import com.Tfg.juego.model.retrofit.dto.userPerfil
 import com.Tfg.juego.model.servicios.decodificarJWT
-import com.Tfg.juego.model.servicios.getDatosPerfil
 import com.Tfg.juego.model.servicios.getFriendsService
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CardAmigos
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
 fun amigos(
-    onMenuClick: () -> Unit
+    onMenuClick: () -> Unit,
+    onBuscarAmigos: () -> Unit,
+    onSolicitudesDeAmistad: () -> Unit
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("token", "")
@@ -90,9 +73,8 @@ fun amigos(
     Column(
             horizontalAlignment = Alignment.CenterHorizontally
             ){
-        Spacer(
-            modifier = Modifier.height(40.dp)
-        )
+
+        Spacer(modifier = Modifier.height(60.dp))
 
         BotonCustom(
             text = "Volver al menu",
@@ -106,7 +88,7 @@ fun amigos(
             BotonCustom(
                 text = "Buscar amigos",
                 width = 180.dp,
-                onClick = { }
+                onClick = onBuscarAmigos
             )
 
             Spacer(modifier = Modifier.width(10.dp))
@@ -114,7 +96,7 @@ fun amigos(
             BotonCustom(
                 text = "Solicitudes amistad",
                 width = 200.dp,
-                onClick = { }
+                onClick = onSolicitudesDeAmistad
             )
         }
 
@@ -143,9 +125,7 @@ fun amigos(
             when {
                 isLoading -> {
                     Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .fillMaxSize(),
+                        modifier = Modifier.weight(1f),
                         contentAlignment = Alignment.Center
                     ) {
                         CircularProgressIndicator()
@@ -158,8 +138,9 @@ fun amigos(
 
                     if (amigos.isNullOrEmpty()) {
                         Image(
-                            painter = painterResource(R.drawable.img_no_imagenes_mapache),
+                            painter = painterResource(R.drawable.img_no_info),
                             contentDescription = "No hay amigos",
+                            modifier = Modifier.weight(1f)
                             )
                     } else {
                         amigos?.forEach { amigo ->

@@ -37,8 +37,8 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
             modifier = Modifier
                 .height(40.dp),
             alignment = Alignment.Center,
-            placeholder = painterResource(R.drawable.img_perfil),
-            error = painterResource(R.drawable.img_perfil),
+            placeholder = painterResource(R.drawable.img_mapacheicono),
+            error = painterResource(R.drawable.img_mapacheicono),
             onError = { error ->
                 println("Error cargando imagen: ${error.result.throwable}")
             },
@@ -70,4 +70,55 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
             Text("eliminar amigo")
         }
     }
+}
+
+@Composable
+fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
+    val coroutineScope = rememberCoroutineScope()
+
+    Row(
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
+    ){
+
+        AsyncImage(
+            model = ImageUrl,
+            contentDescription = "Icono Usuario",
+            modifier = Modifier
+                .height(40.dp),
+            alignment = Alignment.Center,
+            placeholder = painterResource(R.drawable.img_mapacheicono),
+            error = painterResource(R.drawable.img_mapacheicono),
+            onError = { error ->
+                println("Error cargando imagen: ${error.result.throwable}")
+            },
+            onSuccess = { success ->
+                println("Imagen cargada con éxito")
+            }
+        )
+
+        Spacer(modifier = Modifier.width(20.dp))
+
+        textoLoginYRegistro(
+            text = Nombre,
+            fontSize = 20
+        )
+
+        Spacer(modifier = Modifier.width(20.dp))
+
+        Button(
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
+            border = BorderStroke(1.5.dp, Color.Black),
+            onClick = {
+                coroutineScope.launch {
+                    //val friends = deleteFriendsService(idUsuario,idAmigo)
+                    //println("$friends")
+                }
+            }
+        ) {
+            Text("solicitar amigo")
+        }
+    }
+
 }

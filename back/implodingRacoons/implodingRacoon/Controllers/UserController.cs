@@ -28,7 +28,12 @@ namespace implodingRacoon.Controllers
             if (user == null)
                 return NotFound("No se encontró el usuario");
 
-            return Ok(user);
+            return Ok(new UserPerfil{
+                Id = user.Id,
+                NombreUsuario = user.NombreUsuario,
+                cantidadAmigos = user.cantidadAmigos,
+                urlFoto = _imagenMapper.AddCorrectPathImage(user.urlFoto, Request)
+            });
         }
 
         [HttpGet("GetFriendsbyUserId/{id}")]

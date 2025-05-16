@@ -181,16 +181,20 @@ namespace implodingRacoon.Services
             bool amigo = false;
             foreach (Usuario usuario in usuarios)
             {
-                amigo = false;
-
-                foreach (int ids in user.idAmigos)
+                if (usuario.Id != user.Id)
                 {
-                    if (usuario.Id == ids)
-                        amigo = true;
-                }
+                    amigo = false;
 
-                if (!amigo)
-                    amigosEnseniar.Add(usuario);
+                    foreach (int ids in user.idAmigos)
+                    {
+                        if (usuario.Id == ids)
+                            amigo = true;
+                    }
+
+                    if (!amigo)
+                        amigosEnseniar.Add(usuario);
+                }
+                
             }
 
 

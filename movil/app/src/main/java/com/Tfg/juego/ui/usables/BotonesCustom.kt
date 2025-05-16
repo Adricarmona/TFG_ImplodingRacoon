@@ -102,8 +102,16 @@ fun outlinedTextFieldLoginRegistro(
         shape = RoundedCornerShape(25.dp),
         placeholder = { Text(text = placeholderTexto) },
         colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = Color.Gray,
+            focusedBorderColor = Color.Black,
             unfocusedBorderColor = Color.Black,
+
+            focusedTextColor = Color.Black,
+            unfocusedTextColor = Color.Black,
+
+            unfocusedContainerColor = Color.White,
+            focusedContainerColor = Color.White,
+
+            cursorColor = Color.Black,
         ),
         enabled = enabled,
         singleLine = true,

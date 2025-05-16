@@ -37,5 +37,15 @@ namespace implodingRacoon.Models
         {
             return images.Select(image => AddCorrectPathUserAmigo(image, httpRequest));
         }
+
+        public string AddCorrectPathImage(string img, HttpRequest httpRequest = null)
+        {
+            return httpRequest is null ? img : httpRequest.GetAbsoluteUrl(img);
+        }
+
+        public IEnumerable<string> AddCorrectPathImage(IEnumerable<string> images, HttpRequest httpRequest = null)
+        {
+            return images.Select(image => AddCorrectPathImage(image, httpRequest));
+        }
     }
 }

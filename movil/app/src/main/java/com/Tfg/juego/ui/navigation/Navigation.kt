@@ -15,6 +15,8 @@ import androidx.navigation.compose.rememberNavController
 import com.Tfg.juego.R
 import com.Tfg.juego.ui.menu.ajustes
 import com.Tfg.juego.ui.menu.amigos.amigos
+import com.Tfg.juego.ui.menu.amigos.buscarAmigos
+import com.Tfg.juego.ui.menu.amigos.solicitudesAmistad
 import com.Tfg.juego.ui.menu.cartas.verCartas
 import com.Tfg.juego.ui.menu.login
 import com.Tfg.juego.ui.menu.menuInicial
@@ -91,6 +93,22 @@ fun Navigation() {
         composable("amigos") {
             amigos(
                 onMenuClick = { navController.navigate("menu") },
+                onBuscarAmigos = { navController.navigate("buscarAmigos") },
+                onSolicitudesDeAmistad = { navController.navigate("solicitudesAmistad") }
+            )
+        }
+        composable("buscarAmigos") {
+            buscarAmigos(
+                onMenuClick = { navController.navigate("menu") },
+                onMisAmigos = { navController.navigate("amigos") },
+                onSolicitudesDeAmistad = { navController.navigate("solicitudesAmistad") }
+            )
+        }
+        composable("solicitudesAmistad") {
+            solicitudesAmistad(
+                onMenuClick = { navController.navigate("menu") },
+                onMisAmigos = { navController.navigate("amigos") },
+                onBuscarAmigos = { navController.navigate("buscarAmigos") }
             )
         }
     }

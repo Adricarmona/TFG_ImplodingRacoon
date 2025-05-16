@@ -1,5 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using implodingRacoon.Models;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
@@ -92,7 +93,6 @@ namespace implodingRacoon.Services
                     { "id", usuario.Id },
                     { "name", usuario.NombreUsuario },
                     { ClaimTypes.Role, usuario.Admin },
-                    { "image", usuario.Foto }
                 },
                 Expires = DateTime.UtcNow.AddYears(3),
                 SigningCredentials = new SigningCredentials(

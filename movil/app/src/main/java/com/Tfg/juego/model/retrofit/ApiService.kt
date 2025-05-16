@@ -25,7 +25,7 @@ interface ApiService {
     @GET("Cards/GetCardByIdImage/type={type}")
     suspend fun getAllCartas(@Path("type") type: Int): List<cardAndStyle>
 
-    @GET("User/GetUserById/id={id}")
+    @GET("User/GetUserById/{id}")
     suspend fun getUserPerfil(@Path("id") id: Int): userPerfil
 
     @GET("User/GetFriendsbyUserId/{id}")
@@ -33,4 +33,7 @@ interface ApiService {
 
     @DELETE("User/DeleteFriend/{id}")
     suspend fun deleteAmigo(@Path("id") id: Int, @Query("friendid") idFriend: Int): responseToken
+
+    @GET("User/GetUsersByIdForFriends/{id}")
+    suspend fun getFriendsUsers(@Path("id") id: Int): List<userAmigos>
 }

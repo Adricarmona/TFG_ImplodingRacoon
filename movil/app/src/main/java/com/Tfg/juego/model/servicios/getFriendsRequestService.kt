@@ -4,11 +4,11 @@ import com.Tfg.juego.model.retrofit.ApiService
 import com.Tfg.juego.model.retrofit.RetrofitClient
 import com.Tfg.juego.model.retrofit.dto.userAmigos
 
-suspend fun getFriendsAddUser(idUsuario: Int): List<userAmigos>? {
+suspend fun getFriendsRequestService(idUsuario: Int): List<userAmigos>? {
     val apiService = RetrofitClient.getClient().create(ApiService::class.java)
 
     try {
-        return apiService.getAmigos(idUsuario)
+        return apiService.getFriendRequests(idUsuario)
     } catch (e: Exception) {
         e.printStackTrace()
         return null

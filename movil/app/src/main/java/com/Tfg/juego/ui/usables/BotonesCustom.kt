@@ -94,9 +94,11 @@ fun outlinedTextFieldLoginRegistro(
     text: MutableState<String>,
     placeholderTexto: String,
     tipo: String = "",
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    width: Dp = 300.dp
 ) {
     OutlinedTextField(
+        modifier = Modifier.width(width),
         value = text.value,
         onValueChange = { newText -> text.value = newText },
         shape = RoundedCornerShape(25.dp),

@@ -11,6 +11,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -36,4 +37,16 @@ interface ApiService {
 
     @GET("User/GetUsersByIdForFriends/{id}")
     suspend fun getFriendsUsers(@Path("id") id: Int): List<userAmigos>
+
+    @GET("User/GetUsersByIdAndNameForFriends/{id}")
+    suspend fun getFriendsUsersByName(@Path("id") id: Int, @Query("name") name: String): List<userAmigos>
+
+    @GET("User/SetFriendRequest/")
+    suspend fun setFriendRequest(@Query("id") id: Int, @Query("friendId") idFriend: Int): Boolean
+
+    @PUT("User/AcceptFriendRequest")
+    suspend fun acceptFriendRequest(@Query("id") id: Int, @Query("friendId") idFriend: Int): Boolean
+
+    @GET("User/GetFriendRequests/{id}")
+    suspend fun getFriendRequests(@Path("id") id: Int): List<userAmigos>
 }

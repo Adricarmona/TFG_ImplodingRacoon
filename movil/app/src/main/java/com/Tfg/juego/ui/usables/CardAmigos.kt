@@ -1,5 +1,6 @@
 package com.Tfg.juego.ui.usables
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.Tfg.juego.R
 import com.Tfg.juego.model.servicios.deleteFriendsService
+import com.Tfg.juego.model.servicios.setFriendRequestService
 import kotlinx.coroutines.launch
 
 @Composable
@@ -62,8 +64,7 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
             border = BorderStroke(1.5.dp, Color.Black),
             onClick = {
                 coroutineScope.launch {
-                    val friends = deleteFriendsService(idUsuario,idAmigo)
-                    println("$friends")
+                    deleteFriendsService(idUsuario,idAmigo)
                 }
             }
         ) {
@@ -73,7 +74,7 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
 }
 
 @Composable
-fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
+fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int, context: android.content.Context) {
     val coroutineScope = rememberCoroutineScope()
 
     Row(
@@ -112,12 +113,97 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
             border = BorderStroke(1.5.dp, Color.Black),
             onClick = {
                 coroutineScope.launch {
-                    //val friends = deleteFriendsService(idUsuario,idAmigo)
-                    //println("$friends")
+                    val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
+
+                    if(haFuncionado){
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
             }
         ) {
             Text("solicitar amigo")
+        }
+    }
+
+}
+
+
+@Composable
+fun CardAceptarAmigosRequest(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int, context: android.content.Context) {
+    val coroutineScope = rememberCoroutineScope()
+
+    Row(
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
+    ){
+
+        AsyncImage(
+            model = ImageUrl,
+            contentDescription = "Icono Usuario",
+            modifier = Modifier
+                .height(40.dp),
+            alignment = Alignment.Center,
+            placeholder = painterResource(R.drawable.img_mapacheicono),
+            error = painterResource(R.drawable.img_mapacheicono),
+            onError = { error ->
+                println("Error cargando imagen: ${error.result.throwable}")
+            },
+            onSuccess = { success ->
+                println("Imagen cargada con éxito")
+            }
+        )
+
+        Spacer(modifier = Modifier.width(20.dp))
+
+        textoLoginYRegistro(
+            text = Nombre,
+            fontSize = 20
+        )
+
+        Spacer(modifier = Modifier.width(20.dp))
+
+        Button(
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
+            border = BorderStroke(1.5.dp, Color.Black),
+            modifier = Modifier.width(95.dp),
+            onClick = {
+                coroutineScope.launch {
+                    val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
+
+                    if(haFuncionado){
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+            }
+        ) {
+            Text("aceptar")
+        }
+        Button(
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
+            border = BorderStroke(1.5.dp, Color.Black),
+            modifier = Modifier.width(100.dp),
+            onClick = {
+                coroutineScope.launch {
+                    val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
+
+                    if(haFuncionado){
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+            }
+        ) {
+            Text("declinar")
         }
     }
 

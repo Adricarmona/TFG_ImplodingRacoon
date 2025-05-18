@@ -113,6 +113,20 @@ namespace implodingRacoon.Controllers
 
         }
 
+        [HttpGet("GetUsersByIdAndNameForFriends/{id}")]
+        public async Task<ActionResult<List<UserAmigos>>> GetUsersByIdAndNameForFriends(int id, string name)
+        {
+
+            var users = await _userService.GetUsersByIdAndNameForFriends(id, name);
+
+            if (users == null) return NotFound("No se encontraron usuarios");
+
+            users = _imagenMapper.AddCorrectPathUserAmigo(users, Request).ToList();
+
+            return Ok(users);
+
+        }
+
         [HttpDelete("DeleteFriend/{id}")]
         public async Task<ActionResult> DeleteFriend(int id, int friendId)
         {

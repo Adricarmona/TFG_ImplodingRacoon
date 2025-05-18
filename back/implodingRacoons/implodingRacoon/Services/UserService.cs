@@ -64,8 +64,25 @@ namespace implodingRacoon.Services
 
             if (user == null || friend == null)
                 return false;
-            
-            if (!user.idAmigos.Contains(friend.Id))
+
+
+            var solicitudesUsuario = user.SolicitudesEnviadas;
+            var solicitudesUsuarioRecibidas = user.SolicitudesRecibidas;
+            var solicitudEnviada = false;
+
+            foreach (var item in solicitudesUsuario)
+            {
+                if (item.UsuarioEnviaId == id && item.UsuarioRecibeId == friendId && solicitudEnviada != true)
+                    solicitudEnviada = true;
+            }
+
+            foreach (var item in solicitudesUsuarioRecibidas)
+            {
+                if (item.UsuarioEnviaId == friendId && item.UsuarioRecibeId == id && solicitudEnviada != true)
+                    solicitudEnviada = true;
+            }
+
+            if (!user.idAmigos.Contains(friend.Id) && solicitudEnviada == false)
             {
                 var solicitud = new SolicitudAmistad
                 {
@@ -236,6 +253,42 @@ namespace implodingRacoon.Services
             {
                 return "No es ampeigo";
             }
+        }
+
+        internal async Task<List<UserAmigos>> GetUsersByIdAndNameForFriends(int id, string name)
+        {
+            Usuario user = await _unitOfWork.UsuarioRepository.GetUserByIdAndFriends(id);
+            ICollection<Usuario> usuarios = await _unitOfWork.UsuarioRepository.GetAllAsync();
+
+            List<Usuario> amigosEnseniar = new List<Usuario>();
+            bool amigo = false;
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.Id != user.Id)
+                {
+                    amigo = false;
+
+                    foreach (int ids in user.idAmigos)
+                    {
+                        if (usuario.Id == ids)
+                            amigo = true;
+                    }
+
+                    if (!amigo)
+                        amigosEnseniar.Add(usuario);
+                }
+
+            }
+
+            List<Usuario> amigosfinal = new List<Usuario>();
+            amigosfinal = amigosEnseniar.Where(usuario => usuario.NombreUsuario.Contains(name)).ToList();
+
+            return amigosfinal.Select(usuario => new UserAmigos
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Foto = usuario.Foto,
+            }).ToList();
         }
     }
 }

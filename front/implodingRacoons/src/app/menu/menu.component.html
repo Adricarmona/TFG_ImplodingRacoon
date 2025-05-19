@@ -1,7 +1,7 @@
 <div class="fondo">
     <div class="centrado">
         <div>
-            <h2>Imploding racoons</h2>
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons">
         </div>
         <div id="cuadradoCentrar">
             
@@ -14,11 +14,18 @@
 
             <hr>
 
-            <ng-container [ngSwitch]="estado">
-                <app-opciones-menu *ngSwitchCase="'menu'"></app-opciones-menu>
-                <app-registro *ngSwitchCase="'registro'"></app-registro>
-                <app-login *ngSwitchCase="'login'"></app-login>
-              </ng-container>
+            @switch (estado) {
+                @case ("menu") {                
+                    <app-opciones-menu></app-opciones-menu>
+                }
+                @case ("registro") {
+                    <app-registro></app-registro>
+                }
+                @case ("login") {
+                    <app-login></app-login> 
+                }
+                @default {}
+            }
 
             <hr>
 

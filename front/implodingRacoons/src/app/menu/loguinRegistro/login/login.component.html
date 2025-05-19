@@ -1,5 +1,4 @@
-<form (submit)="submit()" [formGroup]="form">
-
+<form class="centrado">
     <h2 id="tituloLogin">Login</h2>
 
     <div>
@@ -15,13 +14,14 @@
         <br>
 
         <div id="texto">
-            <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{standalone: true}"/>
+            <input type="checkbox"/>
             <label for="recordar" class="negrita">Recordar</label>
         </div>
 
     </div>
 
-
     <input type="submit" value="Iniciar sesion" class="rectangulos" id="botones">
 
 </form>
+
+

@@ -20,6 +20,10 @@ html, body {
     align-items: center;
 }
 
+#logotipo {
+    height: 25vh;
+}
+
 #cuadradoCentrar {
     border-radius: 30px;
     border: 4px solid black;

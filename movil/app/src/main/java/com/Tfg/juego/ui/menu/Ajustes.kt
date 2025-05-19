@@ -1,7 +1,9 @@
 package com.Tfg.juego.ui.menu
 
+import android.app.LocaleManager
 import android.content.Context
-import androidx.appcompat.app.AppCompatDelegate
+import android.os.Build
+import android.os.LocaleList
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,7 +22,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.ui.usables.BotonCustom
-import com.Tfg.juego.ui.usables.loguinRegistroArriba
 
 @Composable
 fun ajustes(
@@ -62,10 +63,10 @@ fun ajustes(
 
             Text(stringResource(R.string.idioma))
             BotonCustom(
-                text = idioma.toString(),
+                text = idioma,
                 width = 130.dp,
                 height = 60.dp,
-                enabled = false,
+                enabled = true,
                 onClick = {
                     val nuevoIdioma = cambiarIdioma(context)
                     idioma = nuevoIdioma
@@ -107,19 +108,34 @@ fun cambiarIdioma(context: Context): String {
 
     val idioma = sharedPref.getString("idioma", "System")
 
-    if (idioma == "System") {
+    if (idioma.equals("System") || idioma.equals("system")) {
         editorSharedPreferences.putString("idioma", "English").apply()
+        cambiarIdiomaLogica(context, "en")
         return "English"
-    } else if (idioma == "English") {
+    } else if (idioma.equals("English")) {
         editorSharedPreferences.putString("idioma", "español").apply()
+        cambiarIdiomaLogica(context, "es")
         return "español"
-    } else if (idioma == "español") {
+    } else if (idioma.equals("español")) {
         editorSharedPreferences.putString("idioma", "system").apply()
+        cambiarIdiomaLogica(context, "System")
         return "System"
     }
 
     return ""
 }
+
+fun cambiarIdiomaLogica(context: Context, idioma: String) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        val localeManager = context.getSystemService(LocaleManager::class.java)
+        if (idioma.equals("System")){
+            localeManager.applicationLocales = LocaleList.getEmptyLocaleList()
+        } else {
+            localeManager.applicationLocales = LocaleList.forLanguageTags(idioma)
+        }
+    }
+}
+
 
 fun cambiarModoOscuro(context: Context) {
 

@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.Tfg.juego.R
@@ -78,19 +79,19 @@ fun CardAmigos(
 
                     if (jsonResultado != null) {
                         if (jsonResultado.message.equals("Amigo eliminado")) {
-                            Toast.makeText(context, "Amigo eliminado", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.amigoEliminado, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(context, "Error al eliminar amigo", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.errorEliminarAmigo, Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        Toast.makeText(context, "Error al eliminar amigo", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.errorEliminarAmigo, Toast.LENGTH_SHORT).show()
                     }
 
                     function()
                 }
             }
         ) {
-            Text("eliminar amigo")
+            Text(stringResource(R.string.eliminarAmigo))
         }
     }
 }
@@ -135,16 +136,16 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
                     val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
 
                     if(haFuncionado){
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.solicitudEnviada, Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.solicitudEnviada, Toast.LENGTH_SHORT).show()
                     }
 
                 }
             }
         ) {
             Text(
-                text = "solicitar amigo",
+                text = stringResource(R.string.solicitaAmigo),
                 color = MaterialTheme.colorScheme.tertiary
             )
         }
@@ -203,9 +204,9 @@ fun CardAceptarAmigosRequest(
 
                     if (jsonResultado != null) {
                         if (jsonResultado) {
-                            Toast.makeText(context, "Solicitud aceptada", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.solicitudAceptada, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(context, "Error al aceptar solicitud", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.solicitudAceptada, Toast.LENGTH_SHORT).show()
                         }
                     }
 
@@ -226,13 +227,13 @@ fun CardAceptarAmigosRequest(
 
                     if (stringResutlado != null) {
                         if (stringResutlado.equals("Solicitud de amistad eliminada")) {
-                            Toast.makeText(context, "Solicitud eliminada", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.solicitudEliminada, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(context, "Error al eliminar solicitud", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, R.string.alEliminarSolicitud, Toast.LENGTH_SHORT).show()
                         }
                     }
                     else{
-                        Toast.makeText(context, "Error al eliminar solicitud", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.alEliminarSolicitud, Toast.LENGTH_SHORT).show()
                     }
 
                     function()

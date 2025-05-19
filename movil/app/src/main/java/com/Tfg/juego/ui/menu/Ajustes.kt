@@ -87,7 +87,10 @@ fun ajustes(
 
             Text(stringResource(R.string.modo_oscuro))
             BotonCustom(
-                text = tema,
+                text =
+                    if(tema.equals("Modo oscuro")) stringResource(R.string.lightMode)
+                    else if(tema.equals("Modo claro")) stringResource(R.string.modo_oscuro)
+                    else stringResource(R.string.system),
                 width = 130.dp,
                 height = 60.dp,
                 enabled = true,

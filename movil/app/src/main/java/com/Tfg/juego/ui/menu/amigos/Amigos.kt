@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userAmigos
@@ -74,7 +75,7 @@ fun amigos(
         Spacer(modifier = Modifier.height(60.dp))
 
         BotonCustom(
-            text = "Volver al menu",
+            text = stringResource(R.string.volver_menu),
             width = 200.dp,
             onClick = onMenuClick
         )
@@ -83,7 +84,7 @@ fun amigos(
 
         Row {
             BotonCustom(
-                text = "Buscar amigos",
+                text = stringResource(R.string.buscarAmigo),
                 width = 180.dp,
                 onClick = onBuscarAmigos
             )
@@ -91,7 +92,7 @@ fun amigos(
             Spacer(modifier = Modifier.width(10.dp))
 
             BotonCustom(
-                text = "Solicitudes amistad",
+                text = stringResource(R.string.solicitudesAmistad),
                 width = 200.dp,
                 onClick = onSolicitudesDeAmistad
             )
@@ -100,12 +101,12 @@ fun amigos(
         Spacer(modifier = Modifier.height(20.dp))
 
         textoLoginYRegistro(
-            text = "Amigos",
+            text = stringResource(R.string.amigos),
             fontSize = 40
         )
 
         BotonCustom(
-            text = "Actualizar",
+            text = stringResource(R.string.update),
             width = 350.dp,
             height = 40.dp,
         ) {
@@ -149,7 +150,7 @@ fun amigos(
                     if (amigos.isNullOrEmpty()) {
                         Image(
                             painter = painterResource(R.drawable.img_no_info),
-                            contentDescription = "No hay amigos",
+                            contentDescription = stringResource(R.string.noHayAmigos),
                             modifier = Modifier.height(150.dp)
                                 .width(150.dp)
                             )

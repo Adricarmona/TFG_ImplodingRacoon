@@ -36,4 +36,22 @@
     <string name="seleccionar_tipo_cartas">Seleccionar tipo de cartas</string>
     <string name="suImagenPerfil">Su imagen de perfil</string>
     <string name="modificarPerfilWeb">Modificar perfil en la web</string>
+    <string name="lightMode">Modo claro</string>
+    <string name="system">Sistema</string>
+    <string name="buscarAmigo">Buscar amigos</string>
+    <string name="solicitudesAmistad">Solicitudes Amistad</string>
+    <string name="update">Actualizar</string>
+    <string name="noHayAmigos">No hay amigos</string>
+    <string name="eliminarAmigo">Eliminar Amigo</string>
+    <string name="amigoEliminado">Amigo eliminado</string>
+    <string name="errorEliminarAmigo">Error al eliminar amigo</string>
+    <string name="solicitaAmigo">Solicita amigo</string>
+    <string name="solicitudEnviada">Solicitud enviada</string>
+    <string name="solicitudAceptada">Solicitud aceptada</string>
+    <string name="solicitudEliminada">Solicitud eliminada</string>
+    <string name="alEliminarSolicitud">Error al eliminar solicitud</string>
+    <string name="misAmigos">Mis amigos</string>
+    <string name="nombreAmigo">nombre amigo</string>
+    <string name="buscar">Buscar</string>
+    <string name="nohayAmigos">No hay amigos</string>
 </resources>

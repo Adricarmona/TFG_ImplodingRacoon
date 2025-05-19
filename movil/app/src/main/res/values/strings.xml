@@ -38,4 +38,22 @@
     <string name="seleccionar_tipo_cartas">Select type of cards</string>
     <string name="suImagenPerfil">Your profile picture</string>
     <string name="modificarPerfilWeb">Modify profile on the website</string>
+    <string name="lightMode">Light mode</string>
+    <string name="system">System</string>
+    <string name="buscarAmigo">Find friends</string>
+    <string name="solicitudesAmistad">Friend Requests</string>
+    <string name="update">Update</string>
+    <string name="noHayAmigos">There are no friends</string>
+    <string name="eliminarAmigo">Remove Friend</string>
+    <string name="amigoEliminado">Friend removed</string>
+    <string name="errorEliminarAmigo">Error deleting friend</string>
+    <string name="solicitaAmigo">Request a friend</string>
+    <string name="solicitudEnviada">Request sent</string>
+    <string name="solicitudAceptada">Application accepted</string>
+    <string name="solicitudEliminada">Request deleted</string>
+    <string name="alEliminarSolicitud">Error deleting request</string>
+    <string name="misAmigos">My friends</string>
+    <string name="nombreAmigo">friend\'s name</string>
+    <string name="buscar">Search</string>
+    <string name="nohayAmigos">There are no friends</string>
 </resources>

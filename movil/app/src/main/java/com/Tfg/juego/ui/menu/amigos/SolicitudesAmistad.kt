@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userAmigos
@@ -76,7 +77,7 @@ fun solicitudesAmistad(
         )
 
         BotonCustom(
-            text = "Volver al menu",
+            text = stringResource(R.string.volver_menu),
             width = 200.dp,
             onClick = onMenuClick
         )
@@ -85,7 +86,7 @@ fun solicitudesAmistad(
 
         Row {
             BotonCustom(
-                text = "Buscar amigos",
+                text = stringResource(R.string.buscarAmigo),
                 width = 180.dp,
                 onClick = onBuscarAmigos
             )
@@ -93,7 +94,7 @@ fun solicitudesAmistad(
             Spacer(modifier = Modifier.width(10.dp))
 
             BotonCustom(
-                text = "Mis amigos",
+                text = stringResource(R.string.misAmigos),
                 width = 200.dp,
                 onClick = onMisAmigos
             )
@@ -102,7 +103,7 @@ fun solicitudesAmistad(
         Spacer(modifier = Modifier.height(20.dp))
 
         textoLoginYRegistro(
-            text = "Solicitudes amistad",
+            text = stringResource(R.string.solicitudesAmistad),
             fontSize = 40
         )
 
@@ -135,7 +136,7 @@ fun solicitudesAmistad(
                     if (amigos.isNullOrEmpty()) {
                         Image(
                             painter = painterResource(R.drawable.img_no_info),
-                            contentDescription = "No hay amigos",
+                            contentDescription = stringResource(R.string.noHayAmigos),
                             modifier = Modifier.height(150.dp)
                                 .width(150.dp)
                         )

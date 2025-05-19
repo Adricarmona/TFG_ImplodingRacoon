@@ -1,0 +1,15 @@
+package com.Tfg.juego.model.servicios
+
+import com.Tfg.juego.model.retrofit.ApiService
+import com.Tfg.juego.model.retrofit.RetrofitClient
+
+suspend fun acceptFriendsRequestService(idUsuario: Int, idAmigo: Int): Boolean {
+    val apiService = RetrofitClient.getClient().create(ApiService::class.java)
+
+    try {
+        return apiService.acceptFriendRequest(idUsuario,idAmigo)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return false
+    }
+}

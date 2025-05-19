@@ -13,18 +13,28 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.Tfg.juego.R
+import com.Tfg.juego.model.retrofit.dto.userPerfil
+import com.Tfg.juego.model.servicios.getDatosPerfil
 import com.auth0.android.jwt.JWT
 
 /**
@@ -47,7 +57,7 @@ fun loguinRegistroArriba(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
         if (!sharedPreferences.getString("token", "").isNullOrEmpty()) {
             usuarioIniciado(onPerfilClick, onAmigosClick)
@@ -101,11 +111,22 @@ fun usuarioIniciado(
 )
 {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
-    val image: Painter = painterResource(id = R.drawable.img_perfil)
 
     val token = sharedPreferences.getString("token", "")
     val jwt = JWT(token.toString())
     val nombre = jwt.getClaim("name").asString()
+    val id = jwt.getClaim("id").asInt()
+
+    val perfilState = remember { mutableStateOf<userPerfil?>(null) }
+
+    LaunchedEffect(id) {
+        try {
+            val datosPerfil = id?.let { getDatosPerfil(it) } // Llamada a la función suspend
+            perfilState.value = datosPerfil
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
     Row (
         horizontalArrangement = Arrangement.Center,
@@ -119,20 +140,25 @@ fun usuarioIniciado(
         Spacer(modifier = Modifier.width(120.dp))
 
         Text(
-            text=nombre.toString(),
+            text = nombre.toString(),
+            color = MaterialTheme.colorScheme.secondary,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable(onClick = {
                 onPerfilClick()
             })
+
         )
 
         Spacer(modifier = Modifier.width(10.dp))
 
-        Image(
-            painter = image,
+        AsyncImage(
+            model = perfilState.value?.urlFoto,
             contentDescription = "",
+            placeholder = painterResource(R.drawable.img_mapacheicono),
             modifier = Modifier
                 .size(50.dp)
-                .border(1.dp, Color.Black, shape = RoundedCornerShape(44.dp)) // Borde negro
+                .clip(CircleShape)
+                .border(1.dp, Color.Black, shape = CircleShape) // Borde negro
                 .clickable(onClick = { onPerfilClick() })
         )
     }

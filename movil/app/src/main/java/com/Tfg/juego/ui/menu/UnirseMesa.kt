@@ -1,14 +1,21 @@
 package com.Tfg.juego.ui.menu
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -38,15 +45,20 @@ fun unirMesa(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
-        Spacer(modifier = Modifier.height(140.dp))
+        Spacer(modifier = Modifier.height(180.dp))
 
-        /// le pongo otro espacio por dejar la parte de arriba igual a la de las demas
-        Spacer(modifier = Modifier.height(110.dp))
+        Image(
+            painter = painterResource(id = R.drawable.img_work_inprogres),
+            contentDescription = "Logo",
+            modifier = Modifier.height(180.dp)
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
 
         textoLoginYRegistro(
             text = stringResource(R.string.entrar_mesa),
             fontSize = 32,
-            textAlign = TextAlign.Center,
+            textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(90.dp))
@@ -77,6 +89,7 @@ fun unirMesa(
             text = stringResource(R.string.unirse),
             width = 160.dp,
             height = 50.dp,
+            enabled = false
         ) { }
 
     }

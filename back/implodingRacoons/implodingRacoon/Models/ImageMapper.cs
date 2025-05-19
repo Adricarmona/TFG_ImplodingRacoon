@@ -22,5 +22,30 @@ namespace implodingRacoon.Models
         {
             return images.Select(image => AddCorrectPathCards(image, httpRequest));
         }
+
+        public UserAmigos AddCorrectPathUserAmigo(UserAmigos userAmigos, HttpRequest httpRequest = null)
+        {
+            return new UserAmigos()
+            {
+                Id = userAmigos.Id,
+                NombreUsuario = userAmigos.NombreUsuario,
+                Foto = httpRequest is null ? userAmigos.Foto : httpRequest.GetAbsoluteUrl(userAmigos.Foto)
+            };
+        }
+
+        public IEnumerable<UserAmigos> AddCorrectPathUserAmigo(IEnumerable<UserAmigos> images, HttpRequest httpRequest = null)
+        {
+            return images.Select(image => AddCorrectPathUserAmigo(image, httpRequest));
+        }
+
+        public string AddCorrectPathImage(string img, HttpRequest httpRequest = null)
+        {
+            return httpRequest is null ? img : httpRequest.GetAbsoluteUrl(img);
+        }
+
+        public IEnumerable<string> AddCorrectPathImage(IEnumerable<string> images, HttpRequest httpRequest = null)
+        {
+            return images.Select(image => AddCorrectPathImage(image, httpRequest));
+        }
     }
 }

@@ -1,9 +1,7 @@
 package com.Tfg.juego.ui.menu.cartas
 
 import android.content.Context
-import android.content.res.Configuration
 import android.util.Log
-import android.widget.Button
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,12 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.cardAndStyle
 import com.Tfg.juego.model.servicios.getCartasTipo
-import com.Tfg.juego.ui.theme.JuegoTheme
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CardCustom
 import com.Tfg.juego.ui.usables.dialogoCargando
@@ -101,7 +96,7 @@ fun verCartas(
 
                 textoLoginYRegistro(
                     text = if (opcion.value == 0) "Original" else stringResource(R.string.otro),
-                    fontSize = 20,
+                    fontSize = 20
                 )
 
                 Spacer(modifier = Modifier.width(5.dp))

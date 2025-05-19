@@ -16,7 +16,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,16 +31,18 @@ import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userAmigos
 import com.Tfg.juego.model.servicios.decodificarJWT
-import com.Tfg.juego.model.servicios.getFriendsService
+import com.Tfg.juego.model.servicios.getFriendsAddUserAndNAmeService
+import com.Tfg.juego.model.servicios.getFriendsAddUserService
 import com.Tfg.juego.ui.usables.BotonCustom
-import com.Tfg.juego.ui.usables.CardAmigos
+import com.Tfg.juego.ui.usables.CardBuscarAmigos
+import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import kotlinx.coroutines.launch
 
 @Composable
-fun amigos(
+fun buscarAmigos(
     onMenuClick: () -> Unit,
-    onBuscarAmigos: () -> Unit,
+    onMisAmigos: () -> Unit,
     onSolicitudesDeAmistad: () -> Unit
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
@@ -51,28 +52,21 @@ fun amigos(
     val userId = jwt?.getClaim("id")?.asInt() ?: 1
 
     var amigos by remember { mutableStateOf<List<userAmigos>?>(null) }
-    var isLoading by remember { mutableStateOf(true) }
+    var isLoading by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
-        coroutineScope.launch {
-            try {
-                amigos = getFriendsService(userId)
-            } catch (e: Exception) {
-                println("Error al obtener amigos: ${e.message}")
-            } finally {
-                isLoading = false
-            }
-        }
-    }
+    val buscadorAmigos = remember { mutableStateOf("") }
+
+
 
 
     Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-            ){
-
-        Spacer(modifier = Modifier.height(60.dp))
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(
+            modifier = Modifier.height(40.dp)
+        )
 
         BotonCustom(
             text = stringResource(R.string.volver_menu),
@@ -84,9 +78,9 @@ fun amigos(
 
         Row {
             BotonCustom(
-                text = stringResource(R.string.buscarAmigo),
+                text = stringResource(R.string.misAmigos),
                 width = 180.dp,
-                onClick = onBuscarAmigos
+                onClick = onMisAmigos
             )
 
             Spacer(modifier = Modifier.width(10.dp))
@@ -101,22 +95,37 @@ fun amigos(
         Spacer(modifier = Modifier.height(20.dp))
 
         textoLoginYRegistro(
-            text = stringResource(R.string.amigos),
+            text = stringResource(R.string.buscarAmigo),
             fontSize = 40
         )
 
-        BotonCustom(
-            text = stringResource(R.string.update),
-            width = 350.dp,
-            height = 40.dp,
-        ) {
-            coroutineScope.launch {
-                try {
-                    amigos = getFriendsService(userId)
-                } catch (e: Exception) {
-                    println("Error al obtener amigos: ${e.message}")
-                } finally {
-                    isLoading = false
+        Row(
+            Modifier.padding(16.dp)
+        ){
+            outlinedTextFieldLoginRegistro(
+                width = 250.dp,
+                text = buscadorAmigos,
+                placeholderTexto = stringResource(R.string.nombreAmigo),
+            )
+
+            Spacer(modifier = Modifier.width(5.dp))
+
+            BotonCustom(
+                text = stringResource(R.string.buscar),
+                width = 250.dp
+            ) {
+                if (buscadorAmigos.value.isEmpty()) {
+                    coroutineScope.launch {
+                        isLoading = true
+                        amigos = getFriendsAddUserService(userId)
+                        isLoading = false
+                    }
+                } else {
+                    coroutineScope.launch {
+                        isLoading = true
+                        amigos = getFriendsAddUserAndNAmeService(userId,buscadorAmigos.value)
+                        isLoading = false
+                    }
                 }
             }
         }
@@ -135,14 +144,16 @@ fun amigos(
                 )
                 .padding(16.dp)
         ) {
-
             when {
                 isLoading -> {
                     Box(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.height(50.dp)
+                            .width(50.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        CircularProgressIndicator()
+                        CircularProgressIndicator(
+                            color = Color.Black
+                        )
                     }
                 }
                 else -> {
@@ -150,37 +161,24 @@ fun amigos(
                     if (amigos.isNullOrEmpty()) {
                         Image(
                             painter = painterResource(R.drawable.img_no_info),
-                            contentDescription = stringResource(R.string.noHayAmigos),
+                            contentDescription = "No hay amigos",
                             modifier = Modifier.height(150.dp)
                                 .width(150.dp)
-                            )
+                        )
                     } else {
                         amigos?.forEach { amigo ->
-                            CardAmigos(
+                            CardBuscarAmigos(
                                 Nombre = amigo.nombreUsuario,
                                 ImageUrl = amigo.foto,
                                 idAmigo = amigo.id,
                                 idUsuario = userId,
                                 context = LocalContext.current
-                            ) {
-                                coroutineScope.launch {
-                                    try {
-                                        amigos = getFriendsService(userId)
-                                    } catch (e: Exception) {
-                                        println("Error al obtener amigos: ${e.message}")
-                                    } finally {
-                                        isLoading = false
-                                    }
-                                }
-                            }
+                            )
                         }
                     }
 
                 }
             }
-
         }
-
     }
-
 }

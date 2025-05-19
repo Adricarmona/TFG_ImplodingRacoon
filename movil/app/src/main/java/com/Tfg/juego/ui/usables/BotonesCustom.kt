@@ -10,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -39,8 +40,8 @@ fun BotonCustom(
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(16.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-        border = BorderStroke(1.5.dp, Color.Black),
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+        border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.secondary),
         enabled = enabled,
         modifier = Modifier
             .width(width)
@@ -48,7 +49,7 @@ fun BotonCustom(
     ) {
         Text(
             text = text,
-            color = Color.Black,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 16.sp,
             textAlign = TextAlign.Center)
     }
@@ -58,7 +59,7 @@ fun BotonCustom(
 fun textoLoginYRegistro(
     text: String,
     fontSize: Int = 64,
-    textAlign: TextAlign = TextAlign.Start
+    textAlign: TextAlign = TextAlign.Start,
 ){
     Text(
         text = text,
@@ -90,20 +91,44 @@ fun textoOscuroLoginRegistro(
 }
 
 @Composable
+fun nombreUsuarios(
+    text: String,
+    with: Dp = 300.dp
+) {
+    Text(
+        text = text,
+        fontSize = 22.sp,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.secondary,
+        modifier = Modifier.width(with)
+    )
+}
+
+@Composable
 fun outlinedTextFieldLoginRegistro(
     text: MutableState<String>,
     placeholderTexto: String,
     tipo: String = "",
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    width: Dp = 300.dp
 ) {
     OutlinedTextField(
+        modifier = Modifier.width(width),
         value = text.value,
         onValueChange = { newText -> text.value = newText },
         shape = RoundedCornerShape(25.dp),
         placeholder = { Text(text = placeholderTexto) },
         colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = Color.Gray,
-            unfocusedBorderColor = Color.Black,
+            focusedBorderColor = MaterialTheme.colorScheme.secondary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+
+            focusedTextColor = MaterialTheme.colorScheme.secondary,
+            unfocusedTextColor = MaterialTheme.colorScheme.secondary,
+
+            unfocusedContainerColor = MaterialTheme.colorScheme.primary,
+            focusedContainerColor = MaterialTheme.colorScheme.primary,
+
+            cursorColor = MaterialTheme.colorScheme.secondary,
         ),
         enabled = enabled,
         singleLine = true,

@@ -50,7 +50,7 @@ fun menuInicial(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
-        Spacer(modifier = Modifier.height(140.dp))
+        Spacer(modifier = Modifier.height(160.dp))
 
         Image(
             painter =  painterResource(R.drawable.img_imploding_racoons_logo),

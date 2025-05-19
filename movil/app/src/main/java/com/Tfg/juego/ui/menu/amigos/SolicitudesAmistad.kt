@@ -32,17 +32,17 @@ import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userAmigos
 import com.Tfg.juego.model.servicios.decodificarJWT
-import com.Tfg.juego.model.servicios.getFriendsService
+import com.Tfg.juego.model.servicios.getFriendsRequestService
 import com.Tfg.juego.ui.usables.BotonCustom
-import com.Tfg.juego.ui.usables.CardAmigos
+import com.Tfg.juego.ui.usables.CardAceptarAmigosRequest
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import kotlinx.coroutines.launch
 
 @Composable
-fun amigos(
+fun solicitudesAmistad(
     onMenuClick: () -> Unit,
-    onBuscarAmigos: () -> Unit,
-    onSolicitudesDeAmistad: () -> Unit
+    onMisAmigos: () -> Unit,
+    onBuscarAmigos: () -> Unit
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val token = sharedPreferences.getString("token", "")
@@ -51,16 +51,17 @@ fun amigos(
     val userId = jwt?.getClaim("id")?.asInt() ?: 1
 
     var amigos by remember { mutableStateOf<List<userAmigos>?>(null) }
-    var isLoading by remember { mutableStateOf(true) }
+    var isLoading by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
             try {
-                amigos = getFriendsService(userId)
+                amigos = getFriendsRequestService(userId)
+                println("Amigos obtenidos: $amigos")
             } catch (e: Exception) {
-                println("Error al obtener amigos: ${e.message}")
+                println("Error al cargar el perfil: ${e.message}")
             } finally {
                 isLoading = false
             }
@@ -69,10 +70,11 @@ fun amigos(
 
 
     Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-            ){
-
-        Spacer(modifier = Modifier.height(60.dp))
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(
+            modifier = Modifier.height(40.dp)
+        )
 
         BotonCustom(
             text = stringResource(R.string.volver_menu),
@@ -92,34 +94,18 @@ fun amigos(
             Spacer(modifier = Modifier.width(10.dp))
 
             BotonCustom(
-                text = stringResource(R.string.solicitudesAmistad),
+                text = stringResource(R.string.misAmigos),
                 width = 200.dp,
-                onClick = onSolicitudesDeAmistad
+                onClick = onMisAmigos
             )
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
         textoLoginYRegistro(
-            text = stringResource(R.string.amigos),
+            text = stringResource(R.string.solicitudesAmistad),
             fontSize = 40
         )
-
-        BotonCustom(
-            text = stringResource(R.string.update),
-            width = 350.dp,
-            height = 40.dp,
-        ) {
-            coroutineScope.launch {
-                try {
-                    amigos = getFriendsService(userId)
-                } catch (e: Exception) {
-                    println("Error al obtener amigos: ${e.message}")
-                } finally {
-                    isLoading = false
-                }
-            }
-        }
 
         Column(
             modifier = Modifier
@@ -153,10 +139,10 @@ fun amigos(
                             contentDescription = stringResource(R.string.noHayAmigos),
                             modifier = Modifier.height(150.dp)
                                 .width(150.dp)
-                            )
+                        )
                     } else {
                         amigos?.forEach { amigo ->
-                            CardAmigos(
+                            CardAceptarAmigosRequest(
                                 Nombre = amigo.nombreUsuario,
                                 ImageUrl = amigo.foto,
                                 idAmigo = amigo.id,
@@ -165,9 +151,9 @@ fun amigos(
                             ) {
                                 coroutineScope.launch {
                                     try {
-                                        amigos = getFriendsService(userId)
+                                        amigos = getFriendsRequestService(userId)
                                     } catch (e: Exception) {
-                                        println("Error al obtener amigos: ${e.message}")
+                                        println("Error al cargar el perfil: ${e.message}")
                                     } finally {
                                         isLoading = false
                                     }
@@ -182,5 +168,4 @@ fun amigos(
         }
 
     }
-
 }

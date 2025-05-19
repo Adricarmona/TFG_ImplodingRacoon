@@ -3,6 +3,7 @@ package com.Tfg.juego.ui.usables
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -54,9 +56,6 @@ fun CardAmigos(
             error = painterResource(R.drawable.img_mapacheicono),
             onError = { error ->
                 println("Error cargando imagen: ${error.result.throwable}")
-            },
-            onSuccess = { success ->
-                println("Imagen cargada con éxito")
             }
         )
 
@@ -72,7 +71,7 @@ fun CardAmigos(
         Button(
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-            border = BorderStroke(1.5.dp, Color.Black),
+            border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.secondary),
             onClick = {
                 coroutineScope.launch {
                     var jsonResultado = deleteFriendsService(idUsuario,idAmigo)
@@ -102,7 +101,7 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
 
     Row(
         horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ){
 
         AsyncImage(
@@ -130,7 +129,7 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
         Button(
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
-            border = BorderStroke(1.5.dp, Color.Black),
+            border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.secondary),
             onClick = {
                 coroutineScope.launch {
                     val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
@@ -144,7 +143,10 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
                 }
             }
         ) {
-            Text("solicitar amigo")
+            Text(
+                text = "solicitar amigo",
+                color = MaterialTheme.colorScheme.tertiary
+            )
         }
     }
 

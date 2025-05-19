@@ -10,6 +10,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -39,8 +40,8 @@ fun BotonCustom(
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(16.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-        border = BorderStroke(1.5.dp, Color.Black),
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+        border = BorderStroke(1.5.dp, MaterialTheme.colorScheme.secondary),
         enabled = enabled,
         modifier = Modifier
             .width(width)
@@ -48,7 +49,7 @@ fun BotonCustom(
     ) {
         Text(
             text = text,
-            color = Color.Black,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 16.sp,
             textAlign = TextAlign.Center)
     }
@@ -98,7 +99,7 @@ fun nombreUsuarios(
         text = text,
         fontSize = 22.sp,
         fontWeight = FontWeight.Bold,
-        color = Color.Black,
+        color = MaterialTheme.colorScheme.secondary,
         modifier = Modifier.width(with)
     )
 }
@@ -118,16 +119,16 @@ fun outlinedTextFieldLoginRegistro(
         shape = RoundedCornerShape(25.dp),
         placeholder = { Text(text = placeholderTexto) },
         colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = Color.Black,
-            unfocusedBorderColor = Color.Black,
+            focusedBorderColor = MaterialTheme.colorScheme.secondary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
 
-            focusedTextColor = Color.Black,
-            unfocusedTextColor = Color.Black,
+            focusedTextColor = MaterialTheme.colorScheme.secondary,
+            unfocusedTextColor = MaterialTheme.colorScheme.secondary,
 
-            unfocusedContainerColor = Color.White,
-            focusedContainerColor = Color.White,
+            unfocusedContainerColor = MaterialTheme.colorScheme.primary,
+            focusedContainerColor = MaterialTheme.colorScheme.primary,
 
-            cursorColor = Color.Black,
+            cursorColor = MaterialTheme.colorScheme.secondary,
         ),
         enabled = enabled,
         singleLine = true,

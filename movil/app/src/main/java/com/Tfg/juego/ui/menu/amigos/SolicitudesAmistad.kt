@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -110,11 +111,11 @@ fun solicitudesAmistad(
                 .padding(16.dp)
                 .border(
                     width = 1.dp,
-                    color = Color.Black,
+                    color = MaterialTheme.colorScheme.secondary,
                     shape = RoundedCornerShape(16.dp)
                 )
                 .background(
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.primary,
                     shape = RoundedCornerShape(16.dp)
                 )
                 .padding(16.dp)

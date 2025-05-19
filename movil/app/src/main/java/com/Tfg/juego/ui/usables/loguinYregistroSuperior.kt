@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -28,6 +29,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.Tfg.juego.R
@@ -139,9 +141,12 @@ fun usuarioIniciado(
 
         Text(
             text = nombre.toString(),
+            color = MaterialTheme.colorScheme.secondary,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable(onClick = {
                 onPerfilClick()
             })
+
         )
 
         Spacer(modifier = Modifier.width(10.dp))

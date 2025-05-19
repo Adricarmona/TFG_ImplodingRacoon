@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             JuegoTheme(
-                darkTheme = modoOscuro ?: isSystemInDarkTheme()
+                darkTheme = modoOscuro ?: isSystemInDarkTheme(),
+                dynamicColor = false
             ) {
                 menu()
             }

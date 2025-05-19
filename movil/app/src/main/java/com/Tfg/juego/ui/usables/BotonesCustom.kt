@@ -58,7 +58,7 @@ fun BotonCustom(
 fun textoLoginYRegistro(
     text: String,
     fontSize: Int = 64,
-    textAlign: TextAlign = TextAlign.Start
+    textAlign: TextAlign = TextAlign.Start,
 ){
     Text(
         text = text,
@@ -86,6 +86,20 @@ fun textoOscuroLoginRegistro(
         fontSize = 22.sp,
         fontWeight = FontWeight.Bold,
         color = Color.Black
+    )
+}
+
+@Composable
+fun nombreUsuarios(
+    text: String,
+    with: Dp = 300.dp
+) {
+    Text(
+        text = text,
+        fontSize = 22.sp,
+        fontWeight = FontWeight.Bold,
+        color = Color.Black,
+        modifier = Modifier.width(with)
     )
 }
 

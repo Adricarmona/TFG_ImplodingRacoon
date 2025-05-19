@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -51,7 +50,6 @@ fun amigos(
 
     var amigos by remember { mutableStateOf<List<userAmigos>?>(null) }
     var isLoading by remember { mutableStateOf(true) }
-    var error by remember { mutableStateOf<String?>(null) }
 
     val coroutineScope = rememberCoroutineScope()
 
@@ -59,10 +57,8 @@ fun amigos(
         coroutineScope.launch {
             try {
                 amigos = getFriendsService(userId)
-                println("Amigos obtenidos: $amigos")
-                error = null
             } catch (e: Exception) {
-                error = "Error al cargar el perfil: ${e.message}"
+                println("Error al obtener amigos: ${e.message}")
             } finally {
                 isLoading = false
             }
@@ -107,6 +103,22 @@ fun amigos(
             fontSize = 40
         )
 
+        BotonCustom(
+            text = "Actualizar",
+            width = 350.dp,
+            height = 40.dp,
+        ) {
+            coroutineScope.launch {
+                try {
+                    amigos = getFriendsService(userId)
+                } catch (e: Exception) {
+                    println("Error al obtener amigos: ${e.message}")
+                } finally {
+                    isLoading = false
+                }
+            }
+        }
+
         Column(
             modifier = Modifier
                 .padding(16.dp)
@@ -131,16 +143,14 @@ fun amigos(
                         CircularProgressIndicator()
                     }
                 }
-                error != null -> {
-
-                }
                 else -> {
 
                     if (amigos.isNullOrEmpty()) {
                         Image(
                             painter = painterResource(R.drawable.img_no_info),
                             contentDescription = "No hay amigos",
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.height(150.dp)
+                                .width(150.dp)
                             )
                     } else {
                         amigos?.forEach { amigo ->
@@ -148,8 +158,19 @@ fun amigos(
                                 Nombre = amigo.nombreUsuario,
                                 ImageUrl = amigo.foto,
                                 idAmigo = amigo.id,
-                                idUsuario = userId
-                            )
+                                idUsuario = userId,
+                                context = LocalContext.current
+                            ) {
+                                coroutineScope.launch {
+                                    try {
+                                        amigos = getFriendsService(userId)
+                                    } catch (e: Exception) {
+                                        println("Error al obtener amigos: ${e.message}")
+                                    } finally {
+                                        isLoading = false
+                                    }
+                                }
+                            }
                         }
                     }
 

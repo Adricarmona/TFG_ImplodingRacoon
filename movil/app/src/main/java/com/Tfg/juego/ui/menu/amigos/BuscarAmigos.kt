@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,9 +31,7 @@ import com.Tfg.juego.model.retrofit.dto.userAmigos
 import com.Tfg.juego.model.servicios.decodificarJWT
 import com.Tfg.juego.model.servicios.getFriendsAddUserAndNAmeService
 import com.Tfg.juego.model.servicios.getFriendsAddUserService
-import com.Tfg.juego.model.servicios.getFriendsService
 import com.Tfg.juego.ui.usables.BotonCustom
-import com.Tfg.juego.ui.usables.CardAmigos
 import com.Tfg.juego.ui.usables.CardBuscarAmigos
 import com.Tfg.juego.ui.usables.outlinedTextFieldLoginRegistro
 import com.Tfg.juego.ui.usables.textoLoginYRegistro

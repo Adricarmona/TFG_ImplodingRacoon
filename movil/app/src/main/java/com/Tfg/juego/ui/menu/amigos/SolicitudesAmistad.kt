@@ -29,13 +29,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userAmigos
-import com.Tfg.juego.model.servicios.acceptFriendsRequestService
 import com.Tfg.juego.model.servicios.decodificarJWT
 import com.Tfg.juego.model.servicios.getFriendsRequestService
-import com.Tfg.juego.model.servicios.getFriendsService
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.CardAceptarAmigosRequest
-import com.Tfg.juego.ui.usables.CardAmigos
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import kotlinx.coroutines.launch
 
@@ -138,7 +135,8 @@ fun solicitudesAmistad(
                         Image(
                             painter = painterResource(R.drawable.img_no_info),
                             contentDescription = "No hay amigos",
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.height(150.dp)
+                                .width(150.dp)
                         )
                     } else {
                         amigos?.forEach { amigo ->
@@ -148,7 +146,17 @@ fun solicitudesAmistad(
                                 idAmigo = amigo.id,
                                 idUsuario = userId,
                                 context = LocalContext.current
-                            )
+                            ) {
+                                coroutineScope.launch {
+                                    try {
+                                        amigos = getFriendsRequestService(userId)
+                                    } catch (e: Exception) {
+                                        println("Error al cargar el perfil: ${e.message}")
+                                    } finally {
+                                        isLoading = false
+                                    }
+                                }
+                            }
                         }
                     }
 

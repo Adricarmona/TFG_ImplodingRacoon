@@ -46,7 +46,7 @@ fun unirMesa(
         textoLoginYRegistro(
             text = stringResource(R.string.entrar_mesa),
             fontSize = 32,
-            textAlign = TextAlign.Center,
+            textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(90.dp))

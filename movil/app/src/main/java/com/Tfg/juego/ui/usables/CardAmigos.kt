@@ -1,5 +1,6 @@
 package com.Tfg.juego.ui.usables
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -20,12 +21,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.Tfg.juego.R
+import com.Tfg.juego.model.servicios.acceptFriendsRequestService
+import com.Tfg.juego.model.servicios.deleteFriendRequestService
 import com.Tfg.juego.model.servicios.deleteFriendsService
 import com.Tfg.juego.model.servicios.setFriendRequestService
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @Composable
-fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
+fun CardAmigos(
+    Nombre: String,
+    ImageUrl: String,
+    idAmigo: Int,
+    idUsuario: Int,
+    context: Context,
+    function: () -> Job
+) {
     val coroutineScope = rememberCoroutineScope()
 
     Row(
@@ -51,9 +62,9 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
 
         Spacer(modifier = Modifier.width(20.dp))
 
-        textoLoginYRegistro(
+        nombreUsuarios(
             text = Nombre,
-            fontSize = 20
+            with = 100.dp
         )
 
         Spacer(modifier = Modifier.width(20.dp))
@@ -64,7 +75,19 @@ fun CardAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int) {
             border = BorderStroke(1.5.dp, Color.Black),
             onClick = {
                 coroutineScope.launch {
-                    deleteFriendsService(idUsuario,idAmigo)
+                    var jsonResultado = deleteFriendsService(idUsuario,idAmigo)
+
+                    if (jsonResultado != null) {
+                        if (jsonResultado.message.equals("Amigo eliminado")) {
+                            Toast.makeText(context, "Amigo eliminado", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "Error al eliminar amigo", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "Error al eliminar amigo", Toast.LENGTH_SHORT).show()
+                    }
+
+                    function()
                 }
             }
         ) {
@@ -92,17 +115,14 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
             error = painterResource(R.drawable.img_mapacheicono),
             onError = { error ->
                 println("Error cargando imagen: ${error.result.throwable}")
-            },
-            onSuccess = { success ->
-                println("Imagen cargada con éxito")
             }
         )
 
         Spacer(modifier = Modifier.width(20.dp))
 
-        textoLoginYRegistro(
+        nombreUsuarios(
             text = Nombre,
-            fontSize = 20
+            with = 120.dp
         )
 
         Spacer(modifier = Modifier.width(20.dp))
@@ -132,7 +152,14 @@ fun CardBuscarAmigos(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: I
 
 
 @Composable
-fun CardAceptarAmigosRequest(Nombre: String,ImageUrl: String, idAmigo: Int, idUsuario: Int, context: android.content.Context) {
+fun CardAceptarAmigosRequest(
+    Nombre: String,
+    ImageUrl: String,
+    idAmigo: Int,
+    idUsuario: Int,
+    context: Context,
+    function: () -> Job
+) {
     val coroutineScope = rememberCoroutineScope()
 
     Row(
@@ -150,17 +177,14 @@ fun CardAceptarAmigosRequest(Nombre: String,ImageUrl: String, idAmigo: Int, idUs
             error = painterResource(R.drawable.img_mapacheicono),
             onError = { error ->
                 println("Error cargando imagen: ${error.result.throwable}")
-            },
-            onSuccess = { success ->
-                println("Imagen cargada con éxito")
             }
         )
 
         Spacer(modifier = Modifier.width(20.dp))
 
-        textoLoginYRegistro(
+        nombreUsuarios(
             text = Nombre,
-            fontSize = 20
+            with = 130.dp
         )
 
         Spacer(modifier = Modifier.width(20.dp))
@@ -169,41 +193,51 @@ fun CardAceptarAmigosRequest(Nombre: String,ImageUrl: String, idAmigo: Int, idUs
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
             border = BorderStroke(1.5.dp, Color.Black),
-            modifier = Modifier.width(95.dp),
+            modifier = Modifier.width(50.dp),
             onClick = {
                 coroutineScope.launch {
-                    val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
 
-                    if(haFuncionado){
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    var jsonResultado = acceptFriendsRequestService(idUsuario,idAmigo)
+
+                    if (jsonResultado != null) {
+                        if (jsonResultado) {
+                            Toast.makeText(context, "Solicitud aceptada", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "Error al aceptar solicitud", Toast.LENGTH_SHORT).show()
+                        }
                     }
 
+                    function()
                 }
             }
         ) {
-            Text("aceptar")
+            Text("✓")
         }
         Button(
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
             border = BorderStroke(1.5.dp, Color.Black),
-            modifier = Modifier.width(100.dp),
+            modifier = Modifier.width(50.dp),
             onClick = {
                 coroutineScope.launch {
-                    val haFuncionado = setFriendRequestService(idUsuario,idAmigo)
+                    var stringResutlado = deleteFriendRequestService(idUsuario,idAmigo)
 
-                    if(haFuncionado){
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(context, "Solicitud enviada", Toast.LENGTH_SHORT).show()
+                    if (stringResutlado != null) {
+                        if (stringResutlado.equals("Solicitud de amistad eliminada")) {
+                            Toast.makeText(context, "Solicitud eliminada", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(context, "Error al eliminar solicitud", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else{
+                        Toast.makeText(context, "Error al eliminar solicitud", Toast.LENGTH_SHORT).show()
                     }
 
+                    function()
                 }
             }
         ) {
-            Text("declinar")
+            Text("✗")
         }
     }
 

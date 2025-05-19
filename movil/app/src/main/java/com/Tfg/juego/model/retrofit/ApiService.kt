@@ -41,7 +41,7 @@ interface ApiService {
     @GET("User/GetUsersByIdAndNameForFriends/{id}")
     suspend fun getFriendsUsersByName(@Path("id") id: Int, @Query("name") name: String): List<userAmigos>
 
-    @GET("User/SetFriendRequest/")
+    @PUT("User/SetFriendRequest")
     suspend fun setFriendRequest(@Query("id") id: Int, @Query("friendId") idFriend: Int): Boolean
 
     @PUT("User/AcceptFriendRequest")
@@ -49,4 +49,7 @@ interface ApiService {
 
     @GET("User/GetFriendRequests/{id}")
     suspend fun getFriendRequests(@Path("id") id: Int): List<userAmigos>
+
+    @DELETE("User/DeleteFriendRequest/{id}")
+    suspend fun deleteFriendRequest(@Path("id") id: Int, @Query("idFriend") idFriend: Int): String
 }

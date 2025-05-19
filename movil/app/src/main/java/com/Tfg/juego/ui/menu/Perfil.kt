@@ -23,7 +23,6 @@ import com.Tfg.juego.model.retrofit.dto.userPerfil
 import com.Tfg.juego.model.servicios.getDatosPerfil
 import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
-import com.auth0.android.jwt.JWT
 import androidx.core.content.edit
 import com.Tfg.juego.model.servicios.decodificarJWT
 import kotlinx.coroutines.launch

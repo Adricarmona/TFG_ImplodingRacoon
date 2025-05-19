@@ -4,11 +4,16 @@ import android.app.LocaleManager
 import android.content.Context
 import android.os.Build
 import android.os.LocaleList
+import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,6 +42,11 @@ fun ajustes(
         editorSharedPreferences.putString("idioma", "System").apply()
 
     var idioma by remember { mutableStateOf(sharedPref.getString("idioma", "System") ?: "System") }
+
+    if (sharedPref.getString("tema", null) == null)
+        editorSharedPreferences.putString("tema", "System").apply()
+
+    var tema by remember { mutableStateOf(sharedPref.getString("tema", "System") ?: "System") }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -77,12 +87,15 @@ fun ajustes(
 
             Text(stringResource(R.string.modo_oscuro))
             BotonCustom(
-                text = "System",
+                text = tema,
                 width = 130.dp,
                 height = 60.dp,
-                enabled = false,
+                enabled = true,
                 onClick = {
-                    cambiarModoOscuro(context)
+                    val colores = cambiarModoOscuro(context)
+                    tema = colores
+
+                    Toast.makeText(context, "Reinicia la aplciacion para aplicar los cambios", Toast.LENGTH_SHORT).show()
                 }
             )
 
@@ -108,7 +121,7 @@ fun cambiarIdioma(context: Context): String {
 
     val idioma = sharedPref.getString("idioma", "System")
 
-    if (idioma.equals("System") || idioma.equals("system")) {
+    if (idioma.equals("System")) {
         editorSharedPreferences.putString("idioma", "English").apply()
         cambiarIdiomaLogica(context, "en")
         return "English"
@@ -117,12 +130,14 @@ fun cambiarIdioma(context: Context): String {
         cambiarIdiomaLogica(context, "es")
         return "español"
     } else if (idioma.equals("español")) {
-        editorSharedPreferences.putString("idioma", "system").apply()
+        editorSharedPreferences.putString("idioma", "System").apply()
+        cambiarIdiomaLogica(context, "System")
+        return "System"
+    } else {
+        editorSharedPreferences.putString("idioma", "System").apply()
         cambiarIdiomaLogica(context, "System")
         return "System"
     }
-
-    return ""
 }
 
 fun cambiarIdiomaLogica(context: Context, idioma: String) {
@@ -137,8 +152,25 @@ fun cambiarIdiomaLogica(context: Context, idioma: String) {
 }
 
 
-fun cambiarModoOscuro(context: Context) {
+fun cambiarModoOscuro(context: Context): String {
 
-    /// hay que trabajar en esto quiza
+    val sharedPref = context.getSharedPreferences("AjustesIplodingRacoon", Context.MODE_PRIVATE)
+    val editorSharedPreferences = sharedPref.edit()
+
+    val tema = sharedPref.getString("tema", "System")
+
+    if (tema.equals("System") || tema.equals("system")) {
+        editorSharedPreferences.putString("tema", "Modo oscuro").apply()
+        return "Modo oscuro"
+    } else if (tema.equals("Modo oscuro")) {
+        editorSharedPreferences.putString("tema", "Modo claro").apply()
+        return "Modo claro"
+    } else if (tema.equals("Modo claro")) {
+        editorSharedPreferences.putString("tema", "System").apply()
+        cambiarIdiomaLogica(context, "System")
+        return "System"
+    }
+
+    return ""
 
 }

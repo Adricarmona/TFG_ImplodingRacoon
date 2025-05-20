@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StateService } from '../../../service/state.service';
+import { StateService } from '../../../../service/state.service';
 
 @Component({
   selector: 'app-sin-loguear',

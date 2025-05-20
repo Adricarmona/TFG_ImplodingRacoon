@@ -1,0 +1,102 @@
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: aquamarine;
+}
+
+#iconoWiki {
+    height: 20vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+
+    margin-bottom: 1.5em;
+}
+
+.centradoNabar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.centradoNabar:hover {
+    transform: scale(0.9);
+}
+
+.centradoNabar:active {
+    transform: scale(0.8);
+}
+
+#Icono {
+    height: 1.8vh;
+    padding-right: 10px;
+}
+
+hr {
+    margin: 0 1em;
+
+    height: 30px;
+    width: 2px;
+
+    background-color: black;
+    border-style: none;
+}
+
+
+.central {
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+}
+
+.buscador {
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+}
+
+#buscar {
+    height: 2.5em;
+    vertical-align: middle;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    width: 18em;
+
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+    margin: 0;
+}
+
+.centradoTarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

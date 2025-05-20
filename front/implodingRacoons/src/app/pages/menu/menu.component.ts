@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogueadoComponent } from "./navbar/logueado/logueado.component";
-import { SinLoguearComponent } from "./navbar/sin-loguear/sin-loguear.component";
 import { OpcionesMenuComponent } from "./opciones-menu/opciones-menu.component";
 import { FooterComponent } from "./footer/footer.component";
 import { RegistroComponent } from "./loguinRegistro/registro/registro.component";
 import { LoginComponent } from "./loguinRegistro/login/login.component";
-import { StateService } from '../service/state.service';
+import { StateService } from '../../service/state.service';
+import { SinLoguearComponent } from './navbar/sin-loguear/sin-loguear.component';
 
 @Component({
   selector: 'app-menu',

@@ -17,22 +17,28 @@
 
             <hr>
 
-            <div class="centradoNabar">
+            <a class="centradoNabar" routerLink="/wiki/perfil" >
                 <img id="Icono" src="perfil.png" alt="">
                 <span>Perfil</span>
-            </div>
+            </a>
     </div>
 
     <div class="central">
 
-        <div class="buscadores">
+        <div class="centradoBuscador">
             <form action="">
                 <input type="search" name="buscador" class="buscador" placeholder="Buscador" >
                 <input type="image" src="buscar.png" id="buscar" class="buscador">
             </form>
         </div>
 
-        <div class="grid">
+
+        @if (test.length > 0) {
+
+            <div class="grid">
+            @for (item of test; track $index) 
+            {
+
             <div class="tarjeta">
                 <div class="centradoTarjeta">
                     <h4>Titulo post - Titulo post</h4>
@@ -49,8 +55,22 @@
                     <span>Usuario</span>
                 </div>
             </div>
-
+            }
         </div>
+
+        }
+        @else {
+
+            <div class="centradoNoPost">
+                <h3>No hay post segun tu busqueda</h3>
+            </div>
+            
+            <div class="centradoNoPost">
+                <img src="inconoNoPost.png" alt="">
+            </div>
+
+        }   
+        
     </div>
 
 </div>

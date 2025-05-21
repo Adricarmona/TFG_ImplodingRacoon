@@ -13,6 +13,7 @@
     margin-top: 2vh;
 }
 
+/*      NAV BAR     */
 .navbar {
     display: flex;
     flex-direction: row;
@@ -56,6 +57,12 @@ hr {
     border-style: none;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*      MENU ABAJO DE ABAJO   */
 
 .central {
     background-color: white;
@@ -64,12 +71,22 @@ hr {
     padding: 1em;
 }
 
+/*  El buscador     */
+.centradoBuscador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 2ch;
+}
+
 .buscador {
     background-color: white;
     border-radius: 15px;
     border: 2px solid black;
     padding: 0.5em 1em;
     box-sizing: border-box;
+    margin-right: 1ch;
 }
 
 #buscar {
@@ -77,6 +94,8 @@ hr {
     vertical-align: middle;
 }
 
+
+/*      El grid de abajo de el buscador donde estan las tarjetas    */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -88,7 +107,14 @@ hr {
 
     padding: 20px;
     border-radius: 12px;
+}
+
+.tarjeta:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta:active {
+    transform: scale(0.9);
 }
 
 h4 {
@@ -99,4 +125,10 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.centradoNoPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

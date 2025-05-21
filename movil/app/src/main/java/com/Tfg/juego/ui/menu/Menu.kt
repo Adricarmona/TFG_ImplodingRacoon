@@ -1,7 +1,9 @@
 package com.Tfg.juego.ui.menu
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,6 +39,7 @@ fun menuInicial(
     onAmigosClick: () -> Unit,
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
+    val context = LocalContext.current
 
     loguinRegistroArriba(
         onLoginClick = onLoginClick,
@@ -76,7 +79,10 @@ fun menuInicial(
             height = 60.dp,
             width = 300.dp
         )
-        { /* Acción */ }
+        {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://10.0.2.2:4200/wiki"))
+            context.startActivity(intent)
+        }
 
         Spacer(modifier = Modifier.height(20.dp))
 

@@ -244,9 +244,6 @@ namespace implodingRacoon.Services
 
                 await _unitOfWork.SaveAsync();
 
-                Console.WriteLine(user.idAmigos.Count);
-                Console.WriteLine(friend.idAmigos.Count);
-
                 return "Amigo eliminado";
             }
             else

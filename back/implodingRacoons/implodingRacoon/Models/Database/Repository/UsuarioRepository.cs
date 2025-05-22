@@ -109,5 +109,45 @@ namespace implodingRacoon.Models.Database.Repository
                 SolicitudesEnviadas = usuario.SolicitudesEnviadas,
             };
         }
+
+        public async Task<Usuario> GetUserByIdAndPublicaciones(int id)
+        {
+            Usuario usuario = await GetQueryable()
+                .Include(user => user.Publicaciones)
+                .AsTracking()
+                .FirstOrDefaultAsync(user => user.Id == id);
+            if (usuario == null) return null;
+            return new Usuario
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Contrasena = usuario.Contrasena,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                idAmigos = usuario.idAmigos,
+                Publicaciones = usuario.Publicaciones,
+            };
+        }
+
+        public async Task<Usuario> GetUserByIdAndComentarios(int id)
+        {
+            Usuario usuario = await GetQueryable()
+                .Include(user => user.Comentarios)
+                .AsTracking()
+                .FirstOrDefaultAsync(user => user.Id == id);
+            if (usuario == null) return null;
+            return new Usuario
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Contrasena = usuario.Contrasena,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                idAmigos = usuario.idAmigos,
+                Comentarios = usuario.Comentarios,
+            };
+        }
     }
 }

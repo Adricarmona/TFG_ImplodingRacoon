@@ -9,10 +9,12 @@ namespace implodingRacoon.Models.Database
         private UsuarioRepository _usuarioRepository;
         private CartaRepository _cartaRepository;
         private SolicitudAmistadRepository _solicitudAmistadRepository;
+        private PublicacionRepository _publicacionRepository;
 
         public UsuarioRepository UsuarioRepository => _usuarioRepository ??= new UsuarioRepository(_context);
         public CartaRepository CartaRepository => _cartaRepository ??= new CartaRepository(_context);
         public SolicitudAmistadRepository SolicitudAmistadRepository => _solicitudAmistadRepository ??= new SolicitudAmistadRepository(_context);
+        public PublicacionRepository PublicacionRepository => _publicacionRepository ??= new PublicacionRepository(_context);
 
         public UnitOfWork(ImplodingRacoonsContext context)
         {

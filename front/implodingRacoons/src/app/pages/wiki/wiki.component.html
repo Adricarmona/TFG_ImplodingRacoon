@@ -1,27 +1,6 @@
 <div class="centrado">
 
-    <img id="iconoWiki" src="mapacheWiki.png" alt="IconoImplodingRacoonWiki">
-
-    <div class="navbar">
-            <div class="centradoNabar">
-                <img id="Icono" src="casa.png" alt="">
-                <span>Inicio</span>
-            </div>
-
-            <hr>
-
-            <div class="centradoNabar">
-                <img id="Icono" src="mas.png" alt="">
-                <span>Añadir</span>
-            </div>
-
-            <hr>
-
-            <a class="centradoNabar" routerLink="/wiki/perfil" >
-                <img id="Icono" src="perfil.png" alt="">
-                <span>Perfil</span>
-            </a>
-    </div>
+    <app-navbar></app-navbar>
 
     <div class="central">
 
@@ -33,10 +12,10 @@
         </div>
 
 
-        @if (test.length > 0) {
+        @if (PostBuscados.length > 0) {
 
             <div class="grid">
-            @for (item of test; track $index) 
+            @for (item of PostBuscados; track $index) 
             {
 
             <div class="tarjeta">

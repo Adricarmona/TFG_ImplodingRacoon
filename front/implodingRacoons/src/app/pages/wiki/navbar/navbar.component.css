@@ -1,0 +1,63 @@
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: aquamarine;
+}
+
+#iconoWiki {
+    height: 20vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+/*      NAV BAR     */
+.navbar {
+    display: flex;
+    flex-direction: row;
+
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+
+    margin-bottom: 1.5em;
+}
+
+.centradoNabar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.centradoNabar:hover {
+    transform: scale(0.9);
+}
+
+.centradoNabar:active {
+    transform: scale(0.8);
+}
+
+#Icono {
+    height: 1.8vh;
+    padding-right: 10px;
+}
+
+hr {
+    margin: 0 1em;
+
+    height: 30px;
+    width: 2px;
+
+    background-color: black;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

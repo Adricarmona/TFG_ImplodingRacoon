@@ -11,15 +11,12 @@ import { lastValueFrom, Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private BASE_URL = `${environment.apiUrl}`;
-
   constructor(
-    private http: HttpClient, 
     private apiService: ApiService
   ) { }
 
   jwt: string = '';
-
+/*
   async login(data: AuthRequest): Promise<AuthResponse | null> {
     try {
       const request: Observable<AuthResponse> = this.http.post<AuthResponse>(`${this.BASE_URL}Auth/login`, data);
@@ -41,4 +38,5 @@ export class AuthService {
       return null;
     }
   } 
+    */
 }

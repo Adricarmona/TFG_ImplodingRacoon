@@ -1,0 +1,92 @@
+<div class="centrado">
+
+    <app-navbar></app-navbar>
+
+
+    <div class="central">
+
+        <div class="container">
+            <div class="post">
+
+                <div class="arriba">
+                    <div id="titulo">
+                        <h2>{{Post.titulo}}</h2>
+                    </div>
+
+                    <div id="fechaYusuario">
+                        <h5>{{Post.fecha | date:'d/M/yy'}}</h5>
+                        <h5 id="Usuario">{{Post.nombreUsuario}}</h5>
+                    </div>
+                </div>
+
+                <hr id="lineaHorizontal">
+
+                <span>{{Post.descripcion}}</span>
+
+                <hr id="lineaHorizontal">
+
+            </div>
+            
+            <div class="añadircomentario">
+
+                <form action="">
+
+                    <div id="anadirComentario" >
+                        <label for="titulo">Comentario</label>
+                    </div>
+
+                    <div id="anadirComentario" >
+                        <input class="rectanguloBoton"  type="text" name="comentario" id="comentario" placeholder="Pregunta...">
+                    </div>
+
+                    <div id="anadirComentario" >
+                        <input id="button" type="button" class="rectanguloBoton" value="Publicar">
+                    </div>
+
+                </form>
+
+            </div>
+            
+            <div class="comentarios">
+                <h2 id="tituloComentarios">Comentarios</h2>
+
+                @if (Comentarios.length < 0) {
+
+                    <div class="centradoNoPost">
+                        <h3>No hay post segun tu busqueda</h3>
+                    </div>
+                    
+                    <div class="centradoNoPost">
+                        <img src="inconoNoPost.png" alt="">
+                    </div>
+
+                }
+                @else {
+
+                    @for (item of Comentarios; track $index) {
+
+                        <div id="comentarioLateral">
+
+                            <div class="arribaComentarioLateral">
+                                <h4>{{item.nombreUsuario}}</h4>
+                                <h5 id="guion">-</h5>
+                                <h5>{{item.fecha | date:'d/M/yy'}}</h5>
+                            </div>
+
+                            <div>
+                                {{item.comentario}}
+                            </div>
+
+                        </div>
+
+                    }
+
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

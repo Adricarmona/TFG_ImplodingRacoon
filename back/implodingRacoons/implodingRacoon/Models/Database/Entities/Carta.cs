@@ -10,6 +10,6 @@ namespace implodingRacoon.Models.Database.Entities
         public string Descripcion { get; set; }
         public string Tipo { get; set; }
 
-        public ICollection<Diseno> Disenos { get; set; }
+        public ICollection<Diseno> Disenos { get; set; } = new List<Diseno>();
     }
 }

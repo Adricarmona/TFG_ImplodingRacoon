@@ -1,0 +1,27 @@
+<form (submit)="submit()" [formGroup]="form">
+
+    <h2 id="tituloLogin">Login</h2>
+
+    <div>
+
+        <label for="correoOrUser" class="negrita">Email o Usuario</label>
+        <br>
+        <input type="text" name="correo O usuario" id="texto" class="rectangulos" formControlName="email" required>
+        <br>
+
+        <label for="contraseña" class="negrita">Contraseña</label>
+        <br>
+        <input type="text" name="contraseña" id="texto" class="rectangulos" formControlName="password" required>
+        <br>
+
+        <div id="texto">
+            <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{standalone: true}"/>
+            <label for="recordar" class="negrita">Recordar</label>
+        </div>
+
+    </div>
+
+
+    <input type="submit" value="Iniciar sesion" class="rectangulos" id="botones">
+
+</form>

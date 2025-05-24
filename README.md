@@ -22,7 +22,7 @@ Diagrama Entidad Relacion:
 
 ### Revision del proyecto
 [Link del video de la revision del proyecto](https://drive.google.com/file/d/1wlLvvplchkN1s8ChJj8qEuTx1m5q71qR/view?usp=sharing) -
-[Link apk android](https://drive.google.com/file/d/15eNXxm5rMJ-DYa90k89Hx2IW83FckZyU/view?usp=sharing) -
+[Link apk android]([https://drive.google.com/file/d/15eNXxm5rMJ-DYa90k89Hx2IW83FckZyU/view?usp=sharing](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/4b86e76dbd12f325ae806eab96e5ad5c39cf18ef/recursosReadme/implodingRacoon_apk_24-05-25.apk)) -
 [Link web desplegada](https://imploding-racoons-jxcckvokh-gla2s-projects.vercel.app/) 
  
 ## Deployment

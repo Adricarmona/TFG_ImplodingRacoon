@@ -33,6 +33,9 @@ export class WikiComponent implements OnInit {
   async busqueda() {
     try {
       this.PostBuscados = []
+
+      console.log(this.buscador.trim().length)
+
       if (this.buscador.trim().length < 1) {
         this.PostBuscados = await this.wikiService.cogerPosts();
       } else {

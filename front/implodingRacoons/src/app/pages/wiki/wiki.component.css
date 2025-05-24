@@ -1,10 +1,14 @@
+#fondo {    
+    height: 100vh;
+    background-image: url("../../../../public/implodingRacoonWiki_fondo.png");
+}
+
 .centrado {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background-color: aquamarine;
 }
 
 #iconoWiki {

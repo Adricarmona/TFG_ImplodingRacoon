@@ -1,57 +1,59 @@
-<div class="centrado">
+<div id="fondo">
 
-    <app-navbar></app-navbar>
+    <div class="centrado">
 
-    <div class="central">
+        <app-navbar></app-navbar>
 
-        <div class="centradoBuscador">
-            <form action="" (ngSubmit)="busqueda()">
-                <input type="search" name="buscador" class="buscador" placeholder="Buscador" [(ngModel)]="buscador">
-                <input type="image" src="buscar.png" id="buscar" class="buscador">
-            </form>
-        </div>
+        <div class="central">
+
+            <div class="centradoBuscador">
+                <form action="" (ngSubmit)="busqueda()">
+                    <input type="search" name="buscador" class="buscador" placeholder="Buscador" [(ngModel)]="buscador">
+                    <input type="image" src="buscar.png" id="buscar" class="buscador">
+                </form>
+            </div>
 
 
-        @if (PostBuscados.length > 0) {
+            @if (PostBuscados.length > 0) {
 
-            <div class="grid">
-            @for (post of PostBuscados; track $index) 
-            {
+                <div class="grid">
+                @for (post of PostBuscados; track $index) 
+                {
 
-            <a class="tarjeta" routerLink="/wiki/post/{{post.id}}">
-                <div class="centradoTarjeta">
-                    <h4>{{post.titulo}}</h4>
+                <a class="tarjeta" routerLink="/wiki/post/{{post.id}}">
+                    <div class="centradoTarjeta">
+                        <h4>{{post.titulo}}</h4>
 
-                    <span>
-                        {{post.comentarios}}
-                        <img src="bocadillo.png" alt="">
-                    </span>
-                </div>
+                        <span>
+                            {{post.comentarios}}
+                            <img src="bocadillo.png" alt="">
+                        </span>
+                    </div>
 
-                <div class="centradoTarjeta">
-                    <span>{{post.fecha | date:'d/M/yy'}}</span>
+                    <div class="centradoTarjeta">
+                        <span>{{post.fecha | date:'d/M/yy'}}</span>
 
-                    <span>{{post.nombreUsuario}}</span>
-                </div>
-            </a>
+                        <span>{{post.nombreUsuario}}</span>
+                    </div>
+                </a>
+                }
+            </div>
+
             }
+            @else {
+
+                <div class="centradoNoPost">
+                    <h3>No hay post segun tu busqueda</h3>
+                </div>
+                
+                <div class="centradoNoPost">
+                    <img src="inconoNoPost.png" alt="">
+                </div>
+
+            }   
+            
         </div>
 
-        }
-        @else {
-
-            <div class="centradoNoPost">
-                <h3>No hay post segun tu busqueda</h3>
-            </div>
-            
-            <div class="centradoNoPost">
-                <img src="inconoNoPost.png" alt="">
-            </div>
-
-        }   
-        
     </div>
 
 </div>
-
-

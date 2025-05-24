@@ -5,8 +5,8 @@
     <div class="central">
 
         <div class="centradoBuscador">
-            <form action="">
-                <input type="search" name="buscador" class="buscador" placeholder="Buscador" >
+            <form action="" (ngSubmit)="busqueda()">
+                <input type="search" name="buscador" class="buscador" placeholder="Buscador" [(ngModel)]="buscador">
                 <input type="image" src="buscar.png" id="buscar" class="buscador">
             </form>
         </div>

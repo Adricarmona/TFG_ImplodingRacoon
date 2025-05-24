@@ -15,23 +15,23 @@
         @if (PostBuscados.length > 0) {
 
             <div class="grid">
-            @for (item of PostBuscados; track $index) 
+            @for (post of PostBuscados; track $index) 
             {
 
             <div class="tarjeta">
                 <div class="centradoTarjeta">
-                    <h4>Titulo post - Titulo post</h4>
+                    <h4>{{post.titulo}}</h4>
 
                     <span>
-                        xxx
+                        {{post.comentarios}}
                         <img src="bocadillo.png" alt="">
                     </span>
                 </div>
 
                 <div class="centradoTarjeta">
-                    <span>Fecha</span>
+                    <span>{{post.fecha | date:'d/M/yy'}}</span>
 
-                    <span>Usuario</span>
+                    <span>{{post.nombreUsuario}}</span>
                 </div>
             </div>
             }

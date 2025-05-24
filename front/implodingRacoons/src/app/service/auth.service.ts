@@ -5,6 +5,7 @@ import { ApiService } from './api.service';
 import { AuthRequest } from '../models/auth-request';
 import { AuthResponse } from '../models/auth-response';
 import { lastValueFrom, Observable } from 'rxjs';
+import { Result } from '../models/result';
 
 @Injectable({
   providedIn: 'root'
@@ -16,27 +17,28 @@ export class AuthService {
   ) { }
 
   jwt: string = '';
-/*
-  async login(data: AuthRequest): Promise<AuthResponse | null> {
+
+  async login(data: AuthRequest): Promise<AuthResponse> {
     try {
-      const request: Observable<AuthResponse> = this.http.post<AuthResponse>(`${this.BASE_URL}Auth/login`, data);
-      const result: AuthResponse = await lastValueFrom(request);
+      const result: Result<AuthResponse> = await this.apiService.post<AuthResponse>(`Auth/Login`, data);
+      const request: AuthResponse = result.data;
 
-      this.apiService.jwt = result.token;
 
-      this.jwt = result.token;
+      this.apiService.jwt = request.message;
+      this.jwt = this.apiService.jwt;
+
       if (data.remember) {
         localStorage.setItem('token', this.jwt);
       } else {
         sessionStorage.setItem('token', this.jwt)
       }
 
-      return result;
+      return request;
     } catch (error)
     {
       console.error('Error logging in');
       return null;
     }
   } 
-    */
+    
 }

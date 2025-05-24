@@ -1,7 +1,7 @@
 export interface PublicacionTarjeta {
-    Id : number;
-    Titulo : string;
-    Comentarios : number;
-    Fecha : Date;
+    id : number;
+    titulo : string;
+    comentarios : number;
+    fecha : Date;
     nombreUsuario : string;
 }

@@ -1,4 +1,4 @@
-.centrado { /*       Form centrado   */
+form { /*       Form centrado   */
     display: flex;
     flex-direction: column;
     justify-content: center;

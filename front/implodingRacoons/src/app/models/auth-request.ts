@@ -1,5 +1,5 @@
 export interface AuthRequest {
-    email: string;
+    emailOrUser: string;
     password: string;
     remember: boolean;
 }

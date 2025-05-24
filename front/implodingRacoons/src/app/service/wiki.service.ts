@@ -11,8 +11,8 @@ export class WikiService {
   constructor( private apiService: ApiService ) { }
 
   async cogerPostPorNombre(palabra: string): Promise<PublicacionTarjeta[]> {
-    const resultado =  await this.apiService.get<PublicacionTarjeta[]>("Publicacion/GetPostByName/"+palabra,{},'json')
-    
+    const resultado =  await this.apiService.get<PublicacionTarjeta[]>("Publicacion/GetPostByName/"+palabra)
+
     return resultado.data
   }
 }

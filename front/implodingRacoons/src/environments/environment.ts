@@ -1,6 +1,7 @@
 export const environment = {
-    apiUrl: 'http://localhost:5097/',
-    // https://localhost:7089   <---- el https
+    apiUrl: 'https://localhost:7089/',
+    //  https://localhost:7089   <---- el https
+    //  http://localhost:5097   <---- el http
     socketUrl: 'https://localhost:7089/socket',
 
 };

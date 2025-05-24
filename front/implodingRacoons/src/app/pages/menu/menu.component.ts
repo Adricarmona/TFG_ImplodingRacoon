@@ -7,6 +7,7 @@ import { RegistroComponent } from "./loguinRegistro/registro/registro.component"
 import { LoginComponent } from "./loguinRegistro/login/login.component";
 import { StateService } from '../../service/state.service';
 import { SinLoguearComponent } from './navbar/sin-loguear/sin-loguear.component';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -19,9 +20,16 @@ export class MenuComponent {
   estado: 'menu' | 'registro' | 'login' = 'menu';
   logueado: boolean = false;
 
-  constructor(private estadoService: StateService) {}
+  constructor(
+    private estadoService: StateService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.estadoService.estado$.subscribe(e => this.estado = e);
+
+    if(this.authService.jwt != "" && this.authService.jwt != null) {
+      this.logueado = true
+    }
   }
 }

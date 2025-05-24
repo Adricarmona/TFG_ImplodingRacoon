@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'log', component: LoginComponent},
     {path: 'reg', component: RegistroComponent},
     {path: 'wiki', component: WikiComponent},
-    {path: 'wiki/post', component: PostComponent},
+    {path: 'wiki/post/:id', component: PostComponent},
     {path: 'wiki/perfil', component: PerfilComponent},
-    {path: 'wiki/anadir', component: AnadirComponent}
+    {path: 'wiki/anadir', component: AnadirComponent},
 ];

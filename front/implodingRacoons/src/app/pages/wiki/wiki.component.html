@@ -18,7 +18,7 @@
             @for (post of PostBuscados; track $index) 
             {
 
-            <div class="tarjeta">
+            <a class="tarjeta" routerLink="/wiki/post/{{post.id}}">
                 <div class="centradoTarjeta">
                     <h4>{{post.titulo}}</h4>
 
@@ -33,7 +33,7 @@
 
                     <span>{{post.nombreUsuario}}</span>
                 </div>
-            </div>
+            </a>
             }
         </div>
 

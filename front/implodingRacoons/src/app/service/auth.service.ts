@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { AuthRequest } from '../models/auth-request';
 import { AuthResponse } from '../models/auth-response';
-import { lastValueFrom, Observable } from 'rxjs';
 import { Result } from '../models/result';
 
 @Injectable({

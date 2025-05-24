@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../service/auth.service';
 import { AuthRequest } from '../../../../models/auth-request';
+import { StateService } from '../../../../service/state.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService, 
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private estadoService: StateService
   )
   {
     this.form = this.fb.group({
@@ -35,5 +37,7 @@ export class LoginComponent {
     };
 
     this.authService.login(authData);
+
+    this.estadoService.cambiarEstado('menu')
   }
 }

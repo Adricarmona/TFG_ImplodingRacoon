@@ -1,0 +1,139 @@
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: aquamarine;
+}
+
+
+/*      MENU ABAJO DE ABAJO   */
+
+.central {
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+}
+
+
+/*      Grid central  
+
+    grid-auto-flow: row;
+*/
+.container {  
+    display: grid;
+    grid-template-columns: 1.5fr 1fr ;
+    gap: 50px;
+
+    grid-template-areas:
+    "post comentarios ."
+    "añadircomentario comentarios .";
+
+    max-width: 60vw;
+    margin: 30px;
+}
+
+.post { grid-area: post; }
+
+.arriba {
+    display: flex;
+    justify-content: space-between;
+}
+
+#fechaYusuario {
+    display: flex;
+    align-items: end;
+    color: gray;
+}
+
+h2, h4, h5 {
+    margin: 0;
+}
+
+#Usuario {
+    margin-left: 10px;
+}
+
+hr {
+    border-color: rgba(128, 128, 128, 0.30);
+    color: rgba(128, 128, 128, 0.30);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/**     Añadir comentrio    **/
+.añadircomentario { 
+    grid-area: añadircomentario;
+}
+
+#anadirComentario { 
+    text-align: center;
+}
+
+input {
+    margin-top: 10px;
+}
+
+.rectanguloBoton {
+    background-color: white;
+    border-radius: 10px;
+    background-color: white; 
+    border: 1px solid #000000;
+}
+
+
+/**     Comentarios     **/
+#comentario {
+    height: fit-content;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+}
+
+.centradoNoPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button {
+    padding: 5px 15px;
+}
+
+.comentarios { 
+    grid-area: comentarios; 
+    text-align: center;
+
+    padding: 20px;
+    padding-top: 0;
+}
+
+#comentarioLateral {
+    text-align: start;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+
+    margin-bottom: 10px;
+}
+
+.arribaComentarioLateral {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#guion {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#tituloComentarios {
+    margin-bottom: 10px;
+}
+
+h5 {
+    color: gray;
+}

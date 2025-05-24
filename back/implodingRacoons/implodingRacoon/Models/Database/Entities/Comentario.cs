@@ -13,5 +13,8 @@ namespace implodingRacoon.Models.Database.Entities
         public int PublicacionId { get; set; }
         [ForeignKey("PublicacionId")]
         public Publicacion Publicacion { get; set; }
+        public int UsuarioId { get; set; }
+        [ForeignKey("UsuarioId")]
+        public Usuario Usuario { get; set; }
     }
 }

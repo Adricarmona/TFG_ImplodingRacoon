@@ -15,6 +15,6 @@ namespace implodingRacoon.Models.Database.Entities
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public ICollection<Comentario> Comentarios { get; set; }
+        public ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
     }
 }

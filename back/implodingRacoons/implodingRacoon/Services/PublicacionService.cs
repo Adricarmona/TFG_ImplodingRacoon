@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using implodingRacoon.Models.Database;
 using implodingRacoon.Models.Database.Dto;
 using implodingRacoon.Models.Database.Entities;
@@ -93,6 +94,45 @@ namespace implodingRacoon.Services
             }
 
             return listaPublicacionInformacion;
+        }
+
+        internal async Task<ICollection<ComentarioSimple>> GetComentsByPostId(int id)
+        {
+            PublicacionComentarios publicaciones = await _unitOfWork.PublicacionRepository.GetPublicacionAndComents(id);
+
+            ICollection<ComentarioSimple> listComentarios = publicaciones.Comentarios;
+
+            return listComentarios;
+        }
+
+        internal async Task<bool> CreateComment(publicarComentario comentario)
+        {
+
+            var publicacion = await _unitOfWork.PublicacionRepository.GetPublicacionAndComents(comentario.PublicacionId);
+            var usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(comentario.UsuarioId);
+
+            if (publicacion == null || usuario == null)
+                return false; 
+           
+            var nuevoComentario = new Comentario
+            {
+                Descripcion = comentario.Comentario,
+                Fecha = comentario.Fecha,
+                PublicacionId = comentario.PublicacionId,
+                UsuarioId = comentario.UsuarioId,
+            };
+
+            try
+            {
+                _unitOfWork.ComentarioRepository.Add(nuevoComentario);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
         }
     }
 }

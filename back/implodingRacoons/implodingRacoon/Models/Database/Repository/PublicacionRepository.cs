@@ -42,11 +42,32 @@ namespace implodingRacoon.Models.Database.Repository
                 .ToListAsync();
         }
 
-        public async Task<Publicacion> GetPublicacionAndComents(int id)
+        public async Task<PublicacionComentarios> GetPublicacionAndComents(int id)
         {
             return await GetQueryable()
-                .Include(Publicacion => Publicacion.Comentarios)
+                .Include(p => p.Comentarios)
+                .ThenInclude(c => c.Usuario)
                 .Where(p => p.Id == id)
+                .Select(p => new PublicacionComentarios
+                {
+                    Id = p.Id,
+                    Titulo = p.Titulo,
+                    Descripcion = p.Descripcion,
+                    Fecha = p.Fecha,
+                    Usuario = new UserAmigos
+                    {
+                        Id = p.UsuarioId,
+                        NombreUsuario = p.Usuario.NombreUsuario,
+                        Foto = p.Usuario.Foto
+                    },
+                    Comentarios = p.Comentarios.Select(c => new ComentarioSimple
+                    {
+                        Id = c.Id,
+                        Comentario = c.Descripcion,
+                        Fecha = c.Fecha,
+                        nombreUsuario = c.Usuario.NombreUsuario
+                    }).ToList()
+                })
                 .FirstOrDefaultAsync();
         }
 

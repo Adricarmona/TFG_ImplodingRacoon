@@ -28,11 +28,12 @@ namespace implodingRacoon.Controllers
             if (resutlado == false)
             {
                 return BadRequest("Error al crear la publicación.");
-            } else
+            }
+            else
             {
                 return Ok("Publicación creada con éxito.");
             }
-                
+
         }
 
         [HttpGet("GetPostsByUserId/{id}")]
@@ -42,7 +43,7 @@ namespace implodingRacoon.Controllers
 
             if (publicaciones == null || !publicaciones.Any())
                 return NotFound("No se encontraron publicaciones.");
-            
+
             return Ok(publicaciones);
         }
 
@@ -53,7 +54,7 @@ namespace implodingRacoon.Controllers
 
             if (publicaciones == null || !publicaciones.Any())
                 return NotFound("No se encontraron publicaciones.");
-            
+
             return Ok(publicaciones);
         }
 
@@ -64,7 +65,7 @@ namespace implodingRacoon.Controllers
 
             if (publicaciones == null)
                 return NotFound("No se encontraron publicaciones.");
-            
+
             return Ok(publicaciones);
         }
 
@@ -78,8 +79,38 @@ namespace implodingRacoon.Controllers
 
             if (publicaciones == null)
                 return NotFound("No se encontraron publicaciones.");
-            
+
             return Ok(publicaciones);
         }
+
+        [HttpPost("CreateComment")]
+        public async Task<ActionResult> CreateComment(publicarComentario comentario)
+        {
+            if (comentario == null) return BadRequest("Comentario no válido.");
+
+            var resultado = await _publicacionService.CreateComment(comentario);
+
+            if (resultado == false)
+            {
+                return BadRequest("Error al crear el comentario.");
+            }
+            else
+            {
+                return Ok("Comentario creado con éxito.");
+            }
+        }
+
+        [HttpGet("GetComentsByPostId/{id}")]
+        public async Task<ActionResult<ICollection<ComentarioSimple>>> GetComentsByPostId(int id)
+        {
+            var comentarios = await _publicacionService.GetComentsByPostId(id);
+
+            if (comentarios == null)
+                return NotFound("No se encontraron comentarios para esta publicación.");
+
+            return Ok(comentarios);
+        }
+
+
     }
 }

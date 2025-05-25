@@ -31,18 +31,18 @@
                 
                 <div class="añadircomentario">
 
-                    <form action="">
+                    <form action="" (ngSubmit)="subirComentario()">
 
                         <div id="anadirComentario" >
                             <label for="titulo">Comentario</label>
                         </div>
 
                         <div id="anadirComentario" >
-                            <input class="rectanguloBoton"  type="text" name="comentario" id="comentario" placeholder="Pregunta...">
+                            <input class="rectanguloBoton"  type="text" name="comentario" id="comentario" placeholder="Pregunta..." [(ngModel)]="comentarioEscrito">
                         </div>
 
                         <div id="anadirComentario" >
-                            <input id="button" type="button" class="rectanguloBoton" value="Publicar">
+                            <input id="button" type="submit" class="rectanguloBoton" value="Publicar">
                         </div>
 
                     </form>

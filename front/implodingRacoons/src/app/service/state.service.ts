@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StateService {
 
-  private estadoActual = new BehaviorSubject<'menu' | 'registro' | 'login'>('menu');
+  private estadoActual = new BehaviorSubject<'menu' | 'registro' | 'login'>('login');
   estado$ = this.estadoActual.asObservable();
 
   cambiarEstado(nuevoEstado: 'menu' | 'registro' | 'login') {

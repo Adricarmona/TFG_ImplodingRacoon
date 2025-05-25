@@ -1,6 +1,9 @@
 #fondo {    
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("../../../../../public/implodingRacoonWiki_fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -39,7 +42,9 @@
     margin: 30px;
 }
 
-.post { grid-area: post; }
+.post { 
+    grid-area: post;
+}
 
 .arriba {
     display: flex;
@@ -70,6 +75,7 @@ hr {
 /**     Añadir comentrio    **/
 .añadircomentario { 
     grid-area: añadircomentario;
+
 }
 
 #anadirComentario { 
@@ -104,6 +110,15 @@ input {
 
 #button {
     padding: 5px 15px;
+}
+
+#button:hover {
+    background-color: rgba(255, 255, 255, 0.727);
+    transform: scale(0.9);
+}
+
+#button:active {
+    transform: scale(0.8);
 }
 
 .comentarios { 

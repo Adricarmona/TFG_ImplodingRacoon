@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { PublicacionTarjeta } from '../models/publicacion-tarjeta';
 import { ComentarioPublicacion } from '../models/comentario-publicacion';
+import { PublicarComentario } from '../models/publicar-comentario';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,13 @@ export class WikiService {
   }
 
   async cogerComentariosPost(id: string): Promise<ComentarioPublicacion[]> {
-    const resultado = await this.apiService.get<ComentarioPublicacion[]>("Publicacion/GetComentsByPostId/"+1)
+    const resultado = await this.apiService.get<ComentarioPublicacion[]>("Publicacion/GetComentsByPostId/"+id)
+
+    return resultado.data
+  }
+
+  async publicarComentario(publicarComentario : PublicarComentario) {
+    const resultado = await this.apiService.post("Publicacion/CreateComment", publicarComentario)
 
     return resultado.data
   }

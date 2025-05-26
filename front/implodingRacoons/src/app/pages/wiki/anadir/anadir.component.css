@@ -2,3 +2,56 @@
     height: 100vh;
     background-image: url("../../../../../public/implodingRacoonWiki_fondo.png");
 }
+
+/*      MENU ABAJO DE ABAJO   */
+
+#centradoCentral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+.central {
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+    width: 60vw;
+}
+
+/**       Grid        **/
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 10px;
+}
+
+input {
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#descripcion {
+    width: fit-content;
+    height: 80%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.div1 { 
+    grid-area: 1 / 1 / 2 / 3; 
+}
+
+.div2 { 
+    grid-area: 1 / 3 / 2 / 4; 
+}
+
+.div3 {
+    grid-area: 2 / 1 / 4 / 4; 
+}

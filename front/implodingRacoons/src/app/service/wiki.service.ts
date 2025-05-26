@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { PublicacionTarjeta } from '../models/publicacion-tarjeta';
 import { ComentarioPublicacion } from '../models/comentario-publicacion';
 import { PublicarComentario } from '../models/publicar-comentario';
+import { PublicarPublicacion } from '../models/publicar-publicacion';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,18 @@ export class WikiService {
 
   async publicarComentario(publicarComentario : PublicarComentario) {
     const resultado = await this.apiService.post("Publicacion/CreateComment", publicarComentario)
+
+    return resultado.data
+  }
+
+  async puiblicarPost(publicarComentario: PublicarPublicacion) {
+    const resultado = await this.apiService.post("Publicacion/CreatePost", publicarComentario)
+
+    return resultado.data
+  }
+
+    async cogerPostPorUsuarioConcreto(id: string): Promise<PublicacionTarjeta[]> {
+    const resultado = await this.apiService.get<PublicacionTarjeta[]>("Publicacion/GetPostsByUserId/"+id)
 
     return resultado.data
   }

@@ -4,11 +4,11 @@
 
     <div id="centradoCentral">
         <div class="central">
-            <form class="parent">
+            <form class="parent" (ngSubmit)="subirPost()">
                 <div class="div1"> 
                     <label for="Titulo">Titulo</label>
                     <br>
-                    <input type="text" name="titulo" id="titulo" placeholder="Titulo">
+                    <input type="text" name="titulo" id="titulo" placeholder="Titulo" [(ngModel)]="titulo">
                 </div>
 
                 <div class="div2">
@@ -17,12 +17,18 @@
                 </div>
 
                 <div class="div3">
+                    <br>
                     <label for="Descripcion">Descripcion</label>
                     <br>
-                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" [(ngModel)]="descripcion">
                 </div>
 
             </form>
+
+            @if (errorEnviar) {
+                <h3>Error al indicar los datos o al enviar los mismos</h3>
+            }
+            
         </div>
     </div>
 

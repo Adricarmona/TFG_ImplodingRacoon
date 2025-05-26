@@ -31,19 +31,15 @@
 */
 .container {  
     display: grid;
-    grid-template-columns: 1.5fr 1fr ;
+    grid-template-columns: 1.5fr 1fr;
     gap: 50px;
-
-    grid-template-areas:
-    "post comentarios ."
-    "añadircomentario comentarios .";
 
     max-width: 60vw;
     margin: 30px;
 }
 
 .post { 
-    grid-area: post;
+    grid-area: 1 / 1 / 2 / 2;
 }
 
 .arriba {
@@ -73,10 +69,6 @@ hr {
 }
 
 /**     Añadir comentrio    **/
-.añadircomentario { 
-    grid-area: añadircomentario;
-
-}
 
 #anadirComentario { 
     text-align: center;
@@ -122,7 +114,7 @@ input {
 }
 
 .comentarios { 
-    grid-area: comentarios; 
+    grid-area: 1 / 2 / 2 / 3;
     text-align: center;
 
     padding: 20px;

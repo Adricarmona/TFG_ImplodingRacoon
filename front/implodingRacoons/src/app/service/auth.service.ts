@@ -71,13 +71,20 @@ export class AuthService {
 
   existeUsuario() {
     this.jwt = this.cogerSessionStorageYLocalStorage()
-    const decodeadoJwt: any = jwtDecode(this.jwt)
+    if (this.jwt != "" && this.jwt != null) {
 
-    if (decodeadoJwt == "" || decodeadoJwt == null) {
-      return false
+      const decodeadoJwt: any = jwtDecode(this.jwt)
+
+      if (decodeadoJwt == "" || decodeadoJwt == null) {
+        return false
+      } else {
+        return true
+      }
+
     } else {
-      return true
-    }
+      
+      return false
 
+    }
   }
 }

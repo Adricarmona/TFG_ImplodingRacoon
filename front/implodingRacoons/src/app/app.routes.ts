@@ -6,14 +6,15 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { PostComponent } from './pages/wiki/post/post.component';
 import { PerfilComponent } from './pages/wiki/perfil/perfil.component';
 import { AnadirComponent } from './pages/wiki/anadir/anadir.component';
+import { redirectionGuardGuard } from './guard/redirection-guard.guard'
 
 
 export const routes: Routes = [
     {path: '', component: MenuComponent},
     {path: 'log', component: LoginComponent},
     {path: 'reg', component: RegistroComponent},
-    {path: 'wiki', component: WikiComponent},
-    {path: 'wiki/post/:id', component: PostComponent},
-    {path: 'wiki/perfil', component: PerfilComponent},
-    {path: 'wiki/anadir', component: AnadirComponent},
+    {path: 'wiki', component: WikiComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'wiki/post/:id', component: PostComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'wiki/perfil', component: PerfilComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'wiki/anadir', component: AnadirComponent, canActivate:[redirectionGuardGuard]},
 ];

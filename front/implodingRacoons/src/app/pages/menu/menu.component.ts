@@ -17,18 +17,14 @@ import { AuthService } from '../../service/auth.service';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  estado: 'menu' | 'registro' | 'login' = 'menu';
   logueado: boolean = false;
 
   constructor(
-    private estadoService: StateService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.estadoService.estado$.subscribe(e => this.estado = e);
-
-    if(this.authService.jwt != "" && this.authService.jwt != null) {
+    if(this.authService.existeUsuario()) {
       this.logueado = true
     }
   }

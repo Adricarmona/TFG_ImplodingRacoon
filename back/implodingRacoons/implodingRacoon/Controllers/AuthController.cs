@@ -34,11 +34,19 @@ namespace implodingRacoon.Controllers
             if (string.IsNullOrEmpty(user.Password)) return NotFound("Contraseña vacia");
 
 
-            UserSimple usuario = await _authSevice.GetUser(user);
+            Usuario usuario = await _authSevice.GetUser(user);
 
             if (usuario == null) return NotFound("Usuario no encontrado");
 
-            return Ok(usuario);
+            return Ok(new UserSimple
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                Admin = usuario.Admin
+            });
         }
 
 

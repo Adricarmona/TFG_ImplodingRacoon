@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { StateService } from '../../../../service/state.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sin-loguear',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sin-loguear.component.html',
   styleUrl: './sin-loguear.component.css'
 })

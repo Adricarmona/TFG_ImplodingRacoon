@@ -40,7 +40,7 @@ namespace implodingRacoon.Services
             }).ToList();
         }
 
-        public async Task<UserSimple> GetUser(LoginRequest loginRequest)
+        public async Task<Usuario> GetUser(LoginRequest loginRequest)
         {
             return await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser); ;
         }
@@ -49,9 +49,12 @@ namespace implodingRacoon.Services
         {
             loginRequest.Password = PasswordHelper.Hash(loginRequest.Password);
 
-            UserSimple usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser);
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(loginRequest.EmailOrUser);
 
             if (usuario == null) return null;
+
+            if (usuario.Contrasena != loginRequest.Password)
+                return null;
 
             String token = ObtenerJWT(usuario);
 
@@ -65,8 +68,8 @@ namespace implodingRacoon.Services
         {
             // Comprobamos que no haya cuentas con ningun usuario ni cuenta con los datos dados
             // Si existe alguna de los dos devuelve null
-            UserSimple usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.NombreUsuario);
-            UserSimple correo = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.Correo);
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.NombreUsuario);
+            Usuario correo = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.Correo);
 
             if (usuario != null || correo != null) return null;
 
@@ -83,7 +86,7 @@ namespace implodingRacoon.Services
             return token;
         }
 
-        public string ObtenerJWT(UserSimple usuario)
+        public string ObtenerJWT(Usuario usuario)
         {
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -103,6 +106,19 @@ namespace implodingRacoon.Services
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public string ObtenerJWT(UserSimple usuario)
+        {
+            return ObtenerJWT(new Usuario
+            {
+                Id = usuario.Id,
+                NombreUsuario = usuario.NombreUsuario,
+                Correo = usuario.Correo,
+                Foto = usuario.Foto,
+                Conectado = usuario.Conectado,
+                Admin = usuario.Admin
+            });
         }
     }
 }

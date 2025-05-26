@@ -21,6 +21,8 @@ export class AuthService {
       const result: Result<AuthResponse> = await this.apiService.post<AuthResponse>(`Auth/Login`, data);
       const request: AuthResponse = result.data;
 
+      if (request.message == "Incorrect username or password")
+        return null
 
       this.apiService.jwt = request.message;
       this.jwt = this.apiService.jwt;

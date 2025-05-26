@@ -1,37 +1,61 @@
-<form>
-
-    <h2 id="tituloRegistro">Registro</h2>
-
-    <div>
-
-        <label for="usuario" class="negrita">Usuario</label>
-        <br>
-        <input type="text" name="usuario" id="texto" class="rectangulos">
-        <br>
-
-        <label for="email" class="negrita">Email</label>
-        <br>
-        <input type="text" name="correo" id="texto" class="rectangulos">
-        <br>
-
-        <label for="contraseña" class="negrita">Contraseña</label>
-        <br>
-        <input type="text" name="contraseña" id="texto" class="rectangulos">
-        <br>
-
-        <label for="contraseña2" class="negrita">Repetir contraseña</label>
-        <br>
-        <input type="text" name="contraseña2" id="texto" class="rectangulos">
-        <br>
-
-        <div id="texto"> <!--el check box-->
-            <input type="checkbox" name="">
-            <label for="recordar" class="negrita">Recordar</label>
+<div class="fondo">
+    <div class="centrado">
+        <div>
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons">
         </div>
+        <div id="cuadradoCentrar">
+            
+            @if (logueado) {
+                <app-logueado></app-logueado>
+            }
+            @else {
+                <app-sin-loguear></app-sin-loguear>
+            }
 
+            <hr>
+
+            <form>
+
+                <h2 id="tituloRegistro">Registro</h2>
+
+                <div>
+
+                    <label for="usuario" class="negrita">Usuario</label>
+                    <br>
+                    <input type="text" name="usuario" id="texto" class="rectangulos">
+                    <br>
+
+                    <label for="email" class="negrita">Email</label>
+                    <br>
+                    <input type="text" name="correo" id="texto" class="rectangulos">
+                    <br>
+
+                    <label for="contraseña" class="negrita">Contraseña</label>
+                    <br>
+                    <input type="text" name="contraseña" id="texto" class="rectangulos">
+                    <br>
+
+                    <label for="contraseña2" class="negrita">Repetir contraseña</label>
+                    <br>
+                    <input type="text" name="contraseña2" id="texto" class="rectangulos">
+                    <br>
+
+                    <div id="texto"> <!--el check box-->
+                        <input type="checkbox" name="">
+                        <label for="recordar" class="negrita">Recordar</label>
+                    </div>
+
+                </div>
+
+
+                <input type="submit" value="Ingresar" class="rectangulos" id="botones">
+
+            </form>
+
+            <hr>
+
+            <app-footer></app-footer>
+        </div>
     </div>
+</div>
 
-
-    <input type="submit" value="Ingresar" class="rectangulos" id="botones">
-
-</form>

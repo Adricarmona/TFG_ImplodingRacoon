@@ -11,20 +11,13 @@ namespace implodingRacoon.Models.Database.Repository
     {
         public UsuarioRepository(ImplodingRacoonsContext context) : base(context) { }
 
-        public async Task<UserSimple> GetUserByCredential(string emailOrUser)
+        public async Task<Usuario> GetUserByCredential(string emailOrUser)
         {
             Usuario usuario = await GetQueryable().FirstOrDefaultAsync(user => user.Correo == emailOrUser || user.NombreUsuario == emailOrUser);
 
             if (usuario == null) return null;
 
-            return new UserSimple
-            {
-                Id = usuario.Id,
-                NombreUsuario = usuario.NombreUsuario,
-                Correo = usuario.Correo,
-                Foto = usuario.Foto,
-                Conectado = usuario.Conectado
-            };
+            return usuario;
 
         }
 

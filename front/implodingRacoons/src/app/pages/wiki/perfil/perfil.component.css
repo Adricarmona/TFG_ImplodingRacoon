@@ -2,3 +2,113 @@
     height: 100vh;
     background-image: url("../../../../../public/implodingRacoonWiki_fondo.png");
 }
+
+#centradoCentral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+.central {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+    width: 60vw;
+}
+
+#fotoYnombreUsuario {
+    display: flex;
+    align-items: center;  
+}
+
+#imagenPerfil {
+    width: 10vh;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+#editar {
+    width: 2.5vh;
+}
+
+#imagenTexto {
+    margin-left: 20px;
+}
+
+.espaciadoDerecha {
+    margin-left: 8px;
+}
+
+#subtituloAmigos {
+    color: gray;
+}
+
+#Amigos {
+    text-align: center;
+}
+
+#bloqueAmigos {
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+}
+
+#fotoAmigos {
+    width: 4vh;
+    border-radius: 100%;
+    border: 2px solid black;
+
+    margin-right: 10px;
+}
+
+#centradoAmigos {
+    display: flex;
+    justify-content: space-between;
+}
+
+#centradoTexto {
+    display: flex;
+    align-items: center;
+}
+
+#botonEliminar {
+    background-color: red;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.tarjeta {
+    width: 18em;
+
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.tarjeta:active {
+    transform: scale(0.9);
+}
+
+h4 {
+    margin: 0;
+}
+
+.centradoTarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

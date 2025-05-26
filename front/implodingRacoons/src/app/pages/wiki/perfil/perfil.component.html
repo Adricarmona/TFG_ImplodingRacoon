@@ -2,4 +2,81 @@
 
     <app-navbar></app-navbar>
 
+    <div id="centradoCentral">
+        <div class="central">
+            <div class="izquierdo">
+                <div id="fotoYnombreUsuario">
+                    <img [src]="datosUsuario.urlFoto" alt="Foto del usuario" id="imagenPerfil">
+                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                    <h3 id="imagenTexto">{{datosUsuario.nombreUsuario}}</h3>
+                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                </div>
+                <div>
+                    <h4>Estado: conectado 🟢</h4>
+                </div>
+
+                <div>
+                    <span id="subtituloAmigos">Amigos: {{datosUsuario.cantidadAmigos}} - Partidas Jugadas: XXX</span>
+                </div>
+
+                <div id="Amigos">
+                    <h3>Amigos</h3>
+                    <div id="bloqueAmigos">
+                        @if (amigos == null) {
+                            <div id="Amigos">
+                                <span>No tienes amigos todavia</span>
+                            </div>
+                            <div id="Amigos">
+                                <img src="inconoNoPost.png" alt="">
+                            </div>
+
+
+                        }
+                        @else {
+
+                            @for (item of amigos; track $index) {
+                                <div id="centradoAmigos">
+                                    <div id="centradoTexto">
+                                        <img [src]="item.foto" alt="Foto Amigo" id="fotoAmigos">
+                                        <samp>{{item.nombreUsuario}}</samp>
+                                    </div>
+                                    <div id="centradoTexto">
+                                        <button id="botonEliminar" (click)="eliminarAmigo(item.id)">Eliminar</button>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="drecha">
+                <h3>Historial de Post</h3>
+                <div id="bloqueAmigos">
+                    @for (post of postHechos; track $index) {
+
+                        <a class="tarjeta" routerLink="/wiki/post/{{post.id}}">
+                            <div class="centradoTarjeta">
+                                <h4>{{post.titulo}}</h4>
+
+                                <span>
+                                    {{post.comentarios}}
+                                    <img src="bocadillo.png" alt="">
+                                </span>
+                            </div>
+
+                            <div class="centradoTarjeta">
+                                <span>{{post.fecha | date:'d/M/yy'}}</span>
+
+                                <span>{{post.nombreUsuario}}</span>
+                            </div>
+                        </a>
+                        
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -4,7 +4,7 @@ import { WikiService } from '../../../service/wiki.service';
 import { PublicacionTarjeta } from '../../../models/publicacion-tarjeta';
 import { DatePipe } from '@angular/common';
 import { ComentarioPublicacion } from '../../../models/comentario-publicacion';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PublicarComentario } from '../../../models/publicar-comentario';
 import { AuthService } from '../../../service/auth.service';
@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
     constructor(
       private wikiService: WikiService,
       private route: ActivatedRoute, 
-      private authService: AuthService
+      private authService: AuthService,
     ){}
 
   async ngOnInit() {
@@ -53,15 +53,14 @@ export class PostComponent implements OnInit {
       }
 
       try {
-        this.wikiService.publicarComentario(publicarComentario)
+        await this.wikiService.publicarComentario(publicarComentario)
+        await this.cogerComentario()
       } catch (error) {
         console.log(error)
       }
 
     } else {
-      
       console.log("usuario no iniciado")
-
     }
 
   }

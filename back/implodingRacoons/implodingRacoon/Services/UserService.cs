@@ -287,5 +287,38 @@ namespace implodingRacoon.Services
                 Foto = usuario.Foto,
             }).ToList();
         }
+
+        internal async Task<object> ChangeUserPhoto(IFormFile file, int id)
+        {
+
+            string direccionImagen = $"{Guid.NewGuid()}_{file.FileName}";
+
+            var user = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (user == null)
+                return null;
+
+            try
+            {
+                await StoreImageAsync("iconos/" + direccionImagen, file);
+
+                user.Foto = "iconos/" + direccionImagen;
+
+                await _unitOfWork.SaveAsync();
+
+                return "Ha funcionado";
+            } catch (Exception ex)
+            {
+                return "Error al cambiar la foto de perfil: " + ex.Message;
+            }
+
+        }
+
+        private async Task StoreImageAsync(string relativePath, IFormFile file)
+        {
+            using Stream stream = file.OpenReadStream();
+
+            await FileHelper.SaveAsync(stream, relativePath);
+        }
     }
 }

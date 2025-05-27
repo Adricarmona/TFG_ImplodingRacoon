@@ -28,7 +28,8 @@ namespace implodingRacoon.Controllers
             if (user == null)
                 return NotFound("No se encontró el usuario");
 
-            return Ok(new UserPerfil{
+            return Ok(new UserPerfil
+            {
                 Id = user.Id,
                 NombreUsuario = user.NombreUsuario,
                 cantidadAmigos = user.cantidadAmigos,
@@ -132,8 +133,8 @@ namespace implodingRacoon.Controllers
         {
             var result = await _userService.DeleteFriend(id, friendId);
 
-            if (result == "Usuario no encontrado" || 
-                result == "Amigo no encontrado" || 
+            if (result == "Usuario no encontrado" ||
+                result == "Amigo no encontrado" ||
                 result == "No es amigo")
                 return NotFound(new ResponseToken
                 {
@@ -144,6 +145,24 @@ namespace implodingRacoon.Controllers
             return Ok(new ResponseToken
             {
                 message = result,
+                code = 200
+            });
+        }
+
+        [HttpPost("ChangeUserPhoto")]
+        public async Task<ActionResult> ChangeUserPhoto(IFormFile file, int id)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No se ha proporcionado una imagen válida.");
+
+            var result = await _userService.ChangeUserPhoto(file, id);
+            
+            if (result == null)
+                return NotFound("No se encontró el usuario");
+
+            return Ok(new ResponseToken
+            {
+                message = "Foto de perfil actualizada correctamente.",
                 code = 200
             });
         }

@@ -19,6 +19,8 @@ import { DatePipe } from '@angular/common';
 })
 export class PerfilComponent {
 
+  modalModificacion: boolean = false
+
   idUsuario: string = ""
 
   datosUsuario: UsuariosSimple = {
@@ -65,6 +67,10 @@ export class PerfilComponent {
       console.log(error)
     }
 
+  }
+
+  activarModalCambioIcono() {
+    this.modalModificacion == true ? this.modalModificacion = false : this.modalModificacion = true
   }
 
 }

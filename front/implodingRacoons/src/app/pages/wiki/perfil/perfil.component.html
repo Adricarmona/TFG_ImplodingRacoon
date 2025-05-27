@@ -7,7 +7,7 @@
             <div class="izquierdo">
                 <div id="fotoYnombreUsuario">
                     <img [src]="datosUsuario.urlFoto" alt="Foto del usuario" id="imagenPerfil">
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioIcono()">
                     <h3 id="imagenTexto">{{datosUsuario.nombreUsuario}}</h3>
                     <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
                 </div>
@@ -80,3 +80,15 @@
     </div>
 
 </div>
+
+@if (modalModificacion) {
+
+    <div class="modal-overlay">
+        <form class="modal">
+            <h2>Cambiar icono perfil</h2>
+            <input type="image" src="" alt="">
+            <button (click)="activarModalCambioIcono()">Cerrar</button>
+        </form>
+    </div>
+
+}

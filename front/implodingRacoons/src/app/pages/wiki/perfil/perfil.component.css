@@ -30,6 +30,7 @@
 
 #imagenPerfil {
     width: 10vh;
+    height: 10vh;
     border-radius: 100%;
     border: 2px solid black;
 }

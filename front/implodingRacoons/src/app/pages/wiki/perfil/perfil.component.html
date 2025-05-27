@@ -84,9 +84,10 @@
 @if (modalModificacion) {
 
     <div class="modal-overlay">
-        <form class="modal">
+        <form class="modal" (ngSubmit)="actualizarFoto()">
             <h2>Cambiar icono perfil</h2>
-            <input type="image" src="" alt="">
+            <p><input type="file" accept="image/png, image/jpeg, image/jpg" name="Imagen" src="" alt="" (change)="onFileSelected($event)"></p>
+            <p><input type="submit" value="Cambiar" (click)="actualizarFoto()" ></p>
             <button (click)="activarModalCambioIcono()">Cerrar</button>
         </form>
     </div>

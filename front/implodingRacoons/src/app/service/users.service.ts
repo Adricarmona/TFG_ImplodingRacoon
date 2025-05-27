@@ -23,9 +23,23 @@ export class UsersService {
     return resultado.data
   }
 
-    async eliminarAmigo(idUsuario: string, idAmigo: number) {
+  async eliminarAmigo(idUsuario: string, idAmigo: number) {
     const resultado =  await this.apiService.delete<AuthResponse>("User/DeleteFriend/"+idUsuario+"?friendId="+idAmigo)
 
     return resultado.data
   }
+
+  async actualizarFoto(foto: File, idUsuario: string) {
+    const formData = new FormData();
+    formData.append('foto', foto, foto.name);
+
+    try {
+      const resultado = await this.apiService.post("User/ChangeUserPhoto/?id=" + idUsuario, formData)
+      return resultado.data
+    } catch (error) {
+      return error
+    }
+
+  }
+
 }

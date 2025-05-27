@@ -34,6 +34,8 @@ export class PerfilComponent {
 
   postHechos: PublicacionTarjeta[] = null
 
+  foto: File
+
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
@@ -71,6 +73,21 @@ export class PerfilComponent {
 
   activarModalCambioIcono() {
     this.modalModificacion == true ? this.modalModificacion = false : this.modalModificacion = true
+  }
+
+  onFileSelected(event: any) {
+    const image = event.target.files[0] as File; 
+    this.foto = image
+  }
+
+  async actualizarFoto() {
+
+    if (this.foto != null) {
+      const resultado = await this.usersService.actualizarFoto(this.foto, this.idUsuario)
+      console.log(resultado)
+    } else {
+      console.log("lafotoEsNulkl")
+    }
   }
 
 }

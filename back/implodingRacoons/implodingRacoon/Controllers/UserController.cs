@@ -150,12 +150,12 @@ namespace implodingRacoon.Controllers
         }
 
         [HttpPost("ChangeUserPhoto")]
-        public async Task<ActionResult> ChangeUserPhoto(IFormFile file, int id)
+        public async Task<ActionResult> ChangeUserPhoto(IFormFile foto, int id)
         {
-            if (file == null || file.Length == 0)
+            if (foto == null || foto.Length == 0)
                 return BadRequest("No se ha proporcionado una imagen válida.");
 
-            var result = await _userService.ChangeUserPhoto(file, id);
+            var result = await _userService.ChangeUserPhoto(foto, id);
             
             if (result == null)
                 return NotFound("No se encontró el usuario");

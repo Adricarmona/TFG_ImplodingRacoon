@@ -19,7 +19,8 @@ import { DatePipe } from '@angular/common';
 })
 export class PerfilComponent {
 
-  modalModificacion: boolean = false
+  modalModificacionFoto: boolean = false
+  modalMoificacionUsuario: boolean = false
 
   idUsuario: string = ""
 
@@ -72,7 +73,11 @@ export class PerfilComponent {
   }
 
   activarModalCambioIcono() {
-    this.modalModificacion == true ? this.modalModificacion = false : this.modalModificacion = true
+    this.modalModificacionFoto == true ? this.modalModificacionFoto = false : this.modalModificacionFoto = true
+  }
+
+  activarModalCambioDatos() {
+    this.modalMoificacionUsuario == true ? this.modalMoificacionUsuario = false : this.modalMoificacionUsuario = true
   }
 
   onFileSelected(event: any) {

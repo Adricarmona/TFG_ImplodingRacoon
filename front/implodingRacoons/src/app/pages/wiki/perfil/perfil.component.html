@@ -9,7 +9,7 @@
                     <img [src]="datosUsuario.urlFoto" alt="Foto del usuario" id="imagenPerfil">
                     <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioIcono()">
                     <h3 id="imagenTexto">{{datosUsuario.nombreUsuario}}</h3>
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioDatos()">
                 </div>
                 <div>
                     <h4>Estado: conectado 🟢</h4>
@@ -81,7 +81,7 @@
 
 </div>
 
-@if (modalModificacion) {
+@if (modalModificacionFoto) {
 
     <div class="modal-overlay">
         <form class="modal" (ngSubmit)="actualizarFoto()">
@@ -89,6 +89,17 @@
             <p><input type="file" accept="image/png, image/jpeg, image/jpg" name="Imagen" src="" alt="" (change)="onFileSelected($event)"></p>
             <p><input type="submit" value="Cambiar" (click)="actualizarFoto()" ></p>
             <button (click)="activarModalCambioIcono()">Cerrar</button>
+        </form>
+    </div>
+
+}
+
+@if (modalMoificacionUsuario) {
+
+    <div class="modal-overlay">
+        <form class="modal">
+            <h2>Cambiar icono perfil</h2>
+
         </form>
     </div>
 

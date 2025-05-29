@@ -9,11 +9,13 @@ import { PublicacionTarjeta } from '../../../models/publicacion-tarjeta';
 import { WikiService } from '../../../service/wiki.service';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { AuthResponse } from '../../../models/auth-response';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [NavbarComponent, RouterModule, DatePipe],
+  imports: [NavbarComponent, RouterModule, DatePipe, FormsModule],
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css'
 })
@@ -36,6 +38,10 @@ export class PerfilComponent {
   postHechos: PublicacionTarjeta[] = null
 
   foto: File
+  nuevoNombre: string = ""
+  nuevaContrasena: string = ""
+
+  confirmadoUsuarioEliminar: boolean = false
 
   constructor(
     private usersService: UsersService,
@@ -88,11 +94,21 @@ export class PerfilComponent {
   async actualizarFoto() {
 
     if (this.foto != null) {
-      const resultado = await this.usersService.actualizarFoto(this.foto, this.idUsuario)
-      console.log(resultado)
+      const result: AuthResponse = await this.usersService.actualizarFoto(this.foto, this.idUsuario)
+      if (result != null || result.code != 200) {
+        this.datosUsuario = await this.usersService.obtenerUsuarioPorId(this.idUsuario)
+        this.activarModalCambioIcono()
+      } else {
+        console.log("Error")
+      }
+
     } else {
       console.log("lafotoEsNulkl")
     }
+  }
+
+  confirmarEliminar(){
+    this.confirmadoUsuarioEliminar = true
   }
 
 }

@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { UsuariosSimple } from '../models/usuarios-simple';
 import { UsuarioAmigo } from '../models/usuario-amigo';
 import { AuthResponse } from '../models/auth-response';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class UsersService {
     formData.append('foto', foto, foto.name);
 
     try {
-      const resultado = await this.apiService.post("User/ChangeUserPhoto/?id=" + idUsuario, formData)
+      const resultado = await this.apiService.post<AuthResponse>("User/ChangeUserPhoto?id=" + idUsuario, formData)
       return resultado.data
     } catch (error) {
       return error

@@ -4,7 +4,6 @@ import { UsersService } from '../../../service/users.service';
 import { AuthService } from '../../../service/auth.service';
 import { UsuariosSimple } from '../../../models/usuarios-simple';
 import { UsuarioAmigo } from '../../../models/usuario-amigo';
-import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 import { PublicacionTarjeta } from '../../../models/publicacion-tarjeta';
 import { WikiService } from '../../../service/wiki.service';
 import { RouterModule } from '@angular/router';
@@ -39,6 +38,8 @@ export class PerfilComponent {
 
   foto: File
   nuevoNombre: string = ""
+
+  antiguaContrasenia: string = ""
   nuevaContrasena: string = ""
 
   confirmadoUsuarioEliminar: boolean = false
@@ -84,6 +85,7 @@ export class PerfilComponent {
 
   activarModalCambioDatos() {
     this.modalMoificacionUsuario == true ? this.modalMoificacionUsuario = false : this.modalMoificacionUsuario = true
+    this.confirmadoUsuarioEliminar = false
   }
 
   onFileSelected(event: any) {
@@ -107,8 +109,44 @@ export class PerfilComponent {
     }
   }
 
-  confirmarEliminar(){
+  confirmarEliminar() {
     this.confirmadoUsuarioEliminar = true
   }
 
+  async actualizarNombre() {
+    const resultado = await this.usersService.cambiarNombre(this.nuevoNombre , this.idUsuario)
+      if (resultado != null) {
+        this.datosUsuario = await this.usersService.obtenerUsuarioPorId(this.idUsuario)
+        this.activarModalCambioDatos()
+        this.nuevoNombre = ""
+      } else {
+        console.log("Error")
+      }
+  }
+
+  async cambiarContrasenia() {
+    const resultado = await this.usersService.cambiarContrasenia(this.antiguaContrasenia,this.nuevaContrasena,this.idUsuario)
+
+    if (resultado != null &&resultado.code == 200) {
+      alert("Se ha cambiado de contraseña correctamente")
+      this.antiguaContrasenia = ""
+      this.nuevaContrasena = ""
+      this.activarModalCambioDatos()
+    } else {
+      alert("Error al cambiar la contraseña")
+    }
+  }
+
+  async eliminarUsuario() {
+    const resultado = await this.usersService.eliminarUsuario(this.idUsuario)
+
+    if (resultado != null &&resultado.code == 200) {
+      alert("Se ha eliminado su usuario")
+      this.authService.eliminarJwtSessionYLocalStorage()
+      window.location.reload()
+    } else {
+      alert("Error al eliminar el usuario")
+    }
+
+  }
 }

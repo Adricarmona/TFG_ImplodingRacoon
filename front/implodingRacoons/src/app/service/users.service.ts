@@ -43,4 +43,19 @@ export class UsersService {
 
   }
 
+  async cambiarNombre(nombre: string, idUsuario: string) {
+    const resultado = await this.apiService.post("User/ChangeUserName?newName=" + nombre + "&id=" + idUsuario)
+    return resultado.data
+  }
+
+  async cambiarContrasenia(oldPassword: string, newPassword: string ,idUsuario: string) {
+    const resultado = await this.apiService.post<AuthResponse>("User/ChangeUserPassword?oldPassword=" + oldPassword + "&newPassword=" + newPassword + "&id=" + idUsuario)
+    return resultado.data
+  }
+
+  async eliminarUsuario(idUsuario: string) {
+        const resultado = await this.apiService.delete<AuthResponse>("User/DeleteUser/" + idUsuario)
+    return resultado.data
+  }
+
 }

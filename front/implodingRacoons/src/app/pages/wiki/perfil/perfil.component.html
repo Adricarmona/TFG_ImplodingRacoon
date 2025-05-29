@@ -103,13 +103,14 @@
                 <div id="deleccionEditar">
                     <h3>Cambiar Nombre</h3>
                     <p><input type="text" name="Nombre" id="buscador" [(ngModel)]="nuevoNombre"></p>
-                    <p><input type="submit" id="BotonesInput" value="cambiar nombre"></p>
+                    <p><input type="submit" id="BotonesInput" value="cambiar nombre" (click)="actualizarNombre()"></p>
                 </div>
 
                 <div id="deleccionEditar">
                     <h3>Cambiar contraseña</h3>
-                    <p><input type="text" name="contraseña" id="buscador" [(ngModel)]="nuevaContrasena"></p>
-                    <p><input type="submit" id="BotonesInput" value="cambiar contraseña"></p>
+                    <p>Antigua contraseña:<input type="text" name="contraseña" id="buscador" [(ngModel)]="antiguaContrasenia"></p>
+                    <p>Nueva contraseña<input type="text" name="contraseña" id="buscador" [(ngModel)]="nuevaContrasena"></p>
+                    <p><input type="submit" id="BotonesInput" value="cambiar contraseña" (click)="cambiarContrasenia()"></p>
                 </div>
 
                 <div id="deleccionEditar">
@@ -118,7 +119,7 @@
                         <input id="primerEliminar" class="botonEliminarUsuario" type="submit" value="Eliminar usuario" (click)="confirmarEliminar()">
                     }
                     @if (confirmadoUsuarioEliminar == true) {
-                        <input id="segundoEliminar" class="botonEliminarUsuario" type="submit" value="Confirmar eliminar">
+                        <input id="segundoEliminar" class="botonEliminarUsuario" type="submit" value="Confirmar eliminar" (click)="eliminarUsuario()">
                     }
                 </div>
 

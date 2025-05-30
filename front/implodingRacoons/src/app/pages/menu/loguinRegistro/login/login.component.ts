@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthService } from '../../../../service/auth.service';
 import { AuthRequest } from '../../../../models/auth-request';
 import { StateService } from '../../../../service/state.service';
-import { LogueadoComponent } from "../../navbar/logueado/logueado.component";
-import { SinLoguearComponent } from "../../navbar/sin-loguear/sin-loguear.component";
-import { FooterComponent } from "../../footer/footer.component";
+import { FooterComponent } from "../../componentes/footer/footer.component";
 import { Router } from '@angular/router';
+import { LogueadoComponent } from '../../componentes/navbar/logueado/logueado.component';
+import { SinLoguearComponent } from '../../componentes/navbar/sin-loguear/sin-loguear.component';
 
 @Component({
   selector: 'app-login',

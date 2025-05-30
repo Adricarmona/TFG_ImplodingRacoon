@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StateService } from '../../../../service/state.service';
 import { RouterModule } from '@angular/router';
+import { StateService } from '../../../../../service/state.service';
 
 @Component({
   selector: 'app-sin-loguear',

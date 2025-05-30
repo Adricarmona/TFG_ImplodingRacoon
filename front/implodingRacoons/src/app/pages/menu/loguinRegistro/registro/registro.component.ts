@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LogueadoComponent } from "../../navbar/logueado/logueado.component";
-import { SinLoguearComponent } from "../../navbar/sin-loguear/sin-loguear.component";
-import { FooterComponent } from "../../footer/footer.component";
+import { FooterComponent } from "../../componentes/footer/footer.component";
 import { AuthService } from '../../../../service/auth.service';
+import { LogueadoComponent } from '../../componentes/navbar/logueado/logueado.component';
+import { SinLoguearComponent } from '../../componentes/navbar/sin-loguear/sin-loguear.component';
 
 @Component({
   selector: 'app-registro',

@@ -15,6 +15,6 @@ export const routes: Routes = [
     {path: 'reg', component: RegistroComponent},
     {path: 'wiki', component: WikiComponent, canActivate:[redirectionGuardGuard]},
     {path: 'wiki/post/:id', component: PostComponent, canActivate:[redirectionGuardGuard]},
-    {path: 'wiki/perfil', component: PerfilComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'wiki/perfil/:id', component: PerfilComponent, canActivate:[redirectionGuardGuard]},
     {path: 'wiki/anadir', component: AnadirComponent, canActivate:[redirectionGuardGuard]},
 ];

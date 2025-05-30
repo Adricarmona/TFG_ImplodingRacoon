@@ -7,9 +7,13 @@
             <div class="izquierdo">
                 <div id="fotoYnombreUsuario">
                     <img [src]="datosUsuario.urlFoto" alt="Foto del usuario" id="imagenPerfil">
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioIcono()">
+                    @if (perfilPropio) {
+                        <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioIcono()">
+                    }
                     <h3 id="imagenTexto">{{datosUsuario.nombreUsuario}}</h3>
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioDatos()">
+                    @if (perfilPropio) {
+                        <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioDatos()">
+                    }
                 </div>
                 <div>
                     <h4>Estado: conectado 🟢</h4>
@@ -36,12 +40,14 @@
 
                             @for (item of amigos; track $index) {
                                 <div id="centradoAmigos">
-                                    <div id="centradoTexto">
+                                    <a id="centradoTexto" routerLink="/wiki/perfil/{{item.id}}" (click)="recargarPerfil()">
                                         <img [src]="item.foto" alt="Foto Amigo" id="fotoAmigos">
                                         <samp>{{item.nombreUsuario}}</samp>
-                                    </div>
+                                    </a>
                                     <div id="centradoTexto">
-                                        <button id="botonEliminar" (click)="eliminarAmigo(item.id)">Eliminar</button>
+                                        @if (perfilPropio) {
+                                            <button id="botonEliminar" (click)="eliminarAmigo(item.id)">Eliminar</button>
+                                        }
                                     </div>
                                 </div>
                             }

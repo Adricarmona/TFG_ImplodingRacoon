@@ -6,7 +6,7 @@ import { UsuariosSimple } from '../../../models/usuarios-simple';
 import { UsuarioAmigo } from '../../../models/usuario-amigo';
 import { PublicacionTarjeta } from '../../../models/publicacion-tarjeta';
 import { WikiService } from '../../../service/wiki.service';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { AuthResponse } from '../../../models/auth-response';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './perfil.component.css'
 })
 export class PerfilComponent {
+
+  perfilPropio: boolean = false
 
   modalModificacionFoto: boolean = false
   modalMoificacionUsuario: boolean = false
@@ -47,11 +49,16 @@ export class PerfilComponent {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
+    private route: ActivatedRoute, 
     private wikiService: WikiService
   ) {}
 
   async ngOnInit() {
-    this.idUsuario = this.authService.cogerIdJwt()
+    this.route.params.subscribe(params => {
+      this.idUsuario = params['id'];
+    })
+
+    this.perfilPropioONo()
     
     try {
       this.datosUsuario = await this.usersService.obtenerUsuarioPorId(this.idUsuario)
@@ -60,6 +67,19 @@ export class PerfilComponent {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  perfilPropioONo() {
+    const idUsuarioJwt = this.authService.cogerIdJwt()
+
+    if (this.idUsuario == idUsuarioJwt)
+      this.perfilPropio = true
+
+  }
+
+  async recargarPerfil() {
+    await this.ngOnInit()
+    window.location.reload()
   }
 
   async eliminarAmigo(idAmigo: number) {

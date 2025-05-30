@@ -287,5 +287,90 @@ namespace implodingRacoon.Services
                 Foto = usuario.Foto,
             }).ToList();
         }
+
+        internal async Task<object> ChangeUserPhoto(IFormFile file, int id)
+        {
+
+            string direccionImagen = $"{Guid.NewGuid()}_{file.FileName}";
+
+            var user = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (user == null)
+                return null;
+
+            try
+            {
+                await StoreImageAsync("iconos/" + direccionImagen, file);
+
+                user.Foto = "iconos/" + direccionImagen;
+
+                await _unitOfWork.SaveAsync();
+
+                return "Ha funcionado";
+            } catch (Exception ex)
+            {
+                return "Error al cambiar la foto de perfil: " + ex.Message;
+            }
+
+        }
+        private async Task StoreImageAsync(string relativePath, IFormFile file)
+        {
+            using Stream stream = file.OpenReadStream();
+
+            await FileHelper.SaveAsync(stream, relativePath);
+        }
+
+        internal async Task<bool> ChangeUserName(string newName, int id)
+        {
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (usuario == null) return false;
+
+            usuario.NombreUsuario = newName;
+
+            await _unitOfWork.SaveAsync();
+
+            return true;
+        }
+
+        internal async Task<bool> ChangeUserPassword(string newPassword, int id)
+        {
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (usuario == null) return false;
+
+            usuario.Contrasena = PasswordHelper.Hash(newPassword); ;
+
+            await _unitOfWork.SaveAsync();
+
+            return true;
+        }
+
+        internal async Task<string> DeleteUser(int id)
+        {
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (usuario == null)
+                return "Usuario no encontrado";
+            
+            _unitOfWork.UsuarioRepository.Delete(usuario);
+
+            await _unitOfWork.SaveAsync();
+
+            return "Usuario eliminado correctamente";
+        }
+
+        internal async Task<string> ComparePassword(string oldPassword, int id)
+        {
+            Usuario usuario = await _unitOfWork.UsuarioRepository.GetByIdAsync(id);
+
+            if (usuario == null)
+                return "Usuario no encontrado";
+
+            if (usuario.Contrasena != PasswordHelper.Hash(oldPassword))
+                return "Contraseña incorrecta";
+
+            return "Contraseña correcta";
+        }
     }
 }

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogueadoComponent } from "./navbar/logueado/logueado.component";
 import { OpcionesMenuComponent } from "./opciones-menu/opciones-menu.component";
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from "./componentes/footer/footer.component";
 import { RegistroComponent } from "./loguinRegistro/registro/registro.component";
 import { LoginComponent } from "./loguinRegistro/login/login.component";
 import { StateService } from '../../service/state.service';
-import { SinLoguearComponent } from './navbar/sin-loguear/sin-loguear.component';
 import { AuthService } from '../../service/auth.service';
+import { LogueadoComponent } from './componentes/navbar/logueado/logueado.component';
+import { SinLoguearComponent } from './componentes/navbar/sin-loguear/sin-loguear.component';
 
 @Component({
   selector: 'app-menu',

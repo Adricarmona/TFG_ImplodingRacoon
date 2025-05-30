@@ -9,12 +9,16 @@
   <ItemGroup>
     <Compile Remove="Services\NewFolder1\**" />
     <Compile Remove="Services\NewFolder\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
     <Content Remove="Services\NewFolder1\**" />
     <Content Remove="Services\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
     <EmbeddedResource Remove="Services\NewFolder1\**" />
     <EmbeddedResource Remove="Services\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
     <None Remove="Services\NewFolder1\**" />
     <None Remove="Services\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +32,6 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
     <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
 </Project>

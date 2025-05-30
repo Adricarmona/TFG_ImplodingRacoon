@@ -7,9 +7,13 @@
             <div class="izquierdo">
                 <div id="fotoYnombreUsuario">
                     <img [src]="datosUsuario.urlFoto" alt="Foto del usuario" id="imagenPerfil">
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                    @if (perfilPropio) {
+                        <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioIcono()">
+                    }
                     <h3 id="imagenTexto">{{datosUsuario.nombreUsuario}}</h3>
-                    <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha">
+                    @if (perfilPropio) {
+                        <img src="editar.png" alt="editar foto" id="editar" class="espaciadoDerecha" (click)="activarModalCambioDatos()">
+                    }
                 </div>
                 <div>
                     <h4>Estado: conectado 🟢</h4>
@@ -36,12 +40,14 @@
 
                             @for (item of amigos; track $index) {
                                 <div id="centradoAmigos">
-                                    <div id="centradoTexto">
+                                    <a id="centradoTexto" routerLink="/wiki/perfil/{{item.id}}" (click)="recargarPerfil()">
                                         <img [src]="item.foto" alt="Foto Amigo" id="fotoAmigos">
                                         <samp>{{item.nombreUsuario}}</samp>
-                                    </div>
+                                    </a>
                                     <div id="centradoTexto">
-                                        <button id="botonEliminar" (click)="eliminarAmigo(item.id)">Eliminar</button>
+                                        @if (perfilPropio) {
+                                            <button id="botonEliminar" (click)="eliminarAmigo(item.id)">Eliminar</button>
+                                        }
                                     </div>
                                 </div>
                             }
@@ -80,3 +86,52 @@
     </div>
 
 </div>
+
+@if (modalModificacionFoto) {
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <h2>Cambiar icono perfil</h2>
+            <p><input type="file" accept="image/png, image/jpeg, image/jpg" (change)="onFileSelected($event)"></p>
+            <p><button type="button" (click)="actualizarFoto()">Cambiar</button></p>
+            <button type="button" (click)="activarModalCambioIcono()">Cerrar</button>
+        </div>
+    </div>
+
+}
+
+@if (modalMoificacionUsuario) {
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="gridPerfilEditar">
+
+                <div id="deleccionEditar">
+                    <h3>Cambiar Nombre</h3>
+                    <p><input type="text" name="Nombre" id="buscador" [(ngModel)]="nuevoNombre"></p>
+                    <p><input type="submit" id="BotonesInput" value="cambiar nombre" (click)="actualizarNombre()"></p>
+                </div>
+
+                <div id="deleccionEditar">
+                    <h3>Cambiar contraseña</h3>
+                    <p>Antigua contraseña:<input type="text" name="contraseña" id="buscador" [(ngModel)]="antiguaContrasenia"></p>
+                    <p>Nueva contraseña<input type="text" name="contraseña" id="buscador" [(ngModel)]="nuevaContrasena"></p>
+                    <p><input type="submit" id="BotonesInput" value="cambiar contraseña" (click)="cambiarContrasenia()"></p>
+                </div>
+
+                <div id="deleccionEditar">
+                    <h3>Eliminar usuario</h3>
+                    @if (confirmadoUsuarioEliminar == false) {
+                        <input id="primerEliminar" class="botonEliminarUsuario" type="submit" value="Eliminar usuario" (click)="confirmarEliminar()">
+                    }
+                    @if (confirmadoUsuarioEliminar == true) {
+                        <input id="segundoEliminar" class="botonEliminarUsuario" type="submit" value="Confirmar eliminar" (click)="eliminarUsuario()">
+                    }
+                </div>
+
+            </div>
+            <button id="BotonesInput" (click)="activarModalCambioDatos()">Cerrar</button>
+        </div>
+    </div>
+
+}

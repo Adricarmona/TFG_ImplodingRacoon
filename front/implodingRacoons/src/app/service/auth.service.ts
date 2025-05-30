@@ -61,6 +61,12 @@ export class AuthService {
       return ""
     }
   }
+
+  eliminarJwtSessionYLocalStorage() {
+    localStorage.removeItem('token')
+    sessionStorage.removeItem('token')
+    this.jwt = ""
+  }
     
   cogerIdJwt() {
     this.jwt = this.cogerSessionStorageYLocalStorage()

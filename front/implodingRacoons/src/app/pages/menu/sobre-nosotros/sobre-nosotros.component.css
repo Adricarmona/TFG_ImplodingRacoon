@@ -7,7 +7,7 @@ html, body {
 
 .fondo {
     min-height: 100vh;
-    background-image: url(../../../../public/ImplodingRaccoonsFondo.png);
+    background-image: url(../../../../../public/ImplodingRaccoonsFondo.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

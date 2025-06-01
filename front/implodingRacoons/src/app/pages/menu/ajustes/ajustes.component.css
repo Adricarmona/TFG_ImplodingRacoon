@@ -56,18 +56,28 @@ hr {
 .botones {
     display: flex;
     justify-content: center;
+
+    margin-bottom: 20px;
 }
 
 #seleccionarCartas {
-    width: 190px;
-    height: 30px;
+    padding: 5px 20px;
 }
 
-#seleccionarCartas:hover {
+#seleccionarCartas {
+    text-align: center;
+    margin: 0;
+}
+
+#volver {
+    padding: 10px 20px;
+}
+
+#seleccionarCartas:hover, #volver:hover{
     background-color: rgba(255, 255, 255, 0.727);
     transform: scale(0.99);
 }
 
-#seleccionarCartas:active {
+#seleccionarCartas:active, #volver:active {
     transform: scale(0.95);
 }

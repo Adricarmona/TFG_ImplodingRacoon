@@ -40,3 +40,40 @@ hr {
     width: 90%;
     margin: 0 auto;
 }
+
+button, #Contrasenia{
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    margin-right: 1ch;
+}
+
+#totalAncho, #Contrasenia{
+    width: 100%;
+}
+
+h4 , h3 {
+    margin: 0;
+}
+
+#subTitulo {
+    font-size: 0.7em;
+}
+
+#centralVisionado {
+    margin: 4vh 25%;
+}
+
+#separacion{
+    margin-top: 10px;
+}
+
+#totalAncho:hover, #botonQuitar:hover, #botonAnadir:hover {
+    transform: scale(0.995);
+}
+
+#totalAncho:active, #botonQuitar:active, #botonAnadir:active  {
+    transform: scale(0.95);
+}

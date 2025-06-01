@@ -3,17 +3,21 @@ import { AuthService } from '../../../service/auth.service';
 import { LogueadoComponent } from "../componentes/navbar/logueado/logueado.component";
 import { SinLoguearComponent } from "../componentes/navbar/sin-loguear/sin-loguear.component";
 import { FooterComponent } from "../componentes/footer/footer.component";
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-unirse',
   standalone: true,
-  imports: [LogueadoComponent, SinLoguearComponent, FooterComponent],
+  imports: [LogueadoComponent, SinLoguearComponent, FooterComponent, RouterModule, FormsModule],
   templateUrl: './unirse.component.html',
   styleUrl: './unirse.component.css'
 })
 export class UnirseComponent {
 
-  logueado: boolean = false;
+  logueado: boolean = false
+
+  contrasenia: boolean = false
 
   constructor(
     private authService: AuthService

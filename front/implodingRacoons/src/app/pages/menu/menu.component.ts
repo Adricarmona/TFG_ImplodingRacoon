@@ -8,11 +8,12 @@ import { StateService } from '../../service/state.service';
 import { AuthService } from '../../service/auth.service';
 import { LogueadoComponent } from './componentes/navbar/logueado/logueado.component';
 import { SinLoguearComponent } from './componentes/navbar/sin-loguear/sin-loguear.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [LogueadoComponent, SinLoguearComponent, OpcionesMenuComponent, FooterComponent, RegistroComponent, LoginComponent, CommonModule],
+  imports: [LogueadoComponent, SinLoguearComponent, OpcionesMenuComponent, FooterComponent, RegistroComponent, LoginComponent, CommonModule, RouterModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

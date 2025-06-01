@@ -40,3 +40,24 @@ hr {
     width: 90%;
     margin: 0 auto;
 }
+
+/**         Boton           **/
+
+.botonesMedio {
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white; 
+    border: 1px solid #000000;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+#volver {
+    padding: 10px 20px;
+}

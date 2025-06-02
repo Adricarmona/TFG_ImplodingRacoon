@@ -6,7 +6,7 @@
         Usuarios conectados: {{usuariosConectados}}
     </div>
     <div class="perfilUsuario">
-        <p>{{usuarioNombre}}</p>
-        <img id="imagenPerfil" src="usuario.png" alt="Imagen del usuario">
+        <p>{{usuarioSimple.nombreUsuario}}</p>
+        <img id="imagenPerfil" [src]="usuarioSimple.urlFoto" alt="Imagen del usuario">
     </div>
 </div>

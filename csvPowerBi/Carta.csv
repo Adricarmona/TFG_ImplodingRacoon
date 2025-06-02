@@ -1,0 +1,15 @@
+Id,Titulo,Descripcion,Tipo
+1,C4,La carta que te explota,C4
+2,Defuser,Carta que te desactiva la el C4,Defuser
+3,Favor,El jugador que elijas tiene que darte una carta de su eleccion,Favor
+4,GatoBarba,Si consigues 3 de estas cartas puedes robar carta aleatoria del jugador que elijas,GatoBarba
+5,GatoMelon,Si consigues 3 de estas cartas puedes robar carta aleatoria del jugador que elijas,GatoMelon
+6,GatoPeludo,Si consigues 3 de estas cartas puedes robar carta aleatoria del jugador que elijas,GatoPeludo
+7,Nop,La carta que te dice que no a la accion de otro jugador,Nop
+8,Salta,Carta que hace que saltes tu turno sin robar carta,Salta
+9,TacoCat,Si consigues 3 de estas cartas puedes robar carta aleatoria del jugador que elijas,TacoCat
+10,VerFuturo,La carta que te deja ver las 3 siguientes cartas del mazo,VerFuturo
+11,VomitoArcoiris,Si consigues 3 de estas cartas puedes robar carta aleatoria del jugador que elijas,VomitoArcoiris
+12,Ataca,La carta que hace que no robes carta y el siguiente jugador roba 2,Ataca
+13,Baraja,Baraja el mazo central,Baraja
+14,ParteAtras,La parte de atras de la baraja,ParteAtras

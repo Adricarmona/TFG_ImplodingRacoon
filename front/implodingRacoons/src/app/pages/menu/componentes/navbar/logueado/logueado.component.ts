@@ -3,6 +3,8 @@ import { AuthService } from '../../../../../service/auth.service';
 import { UsersService } from '../../../../../service/users.service';
 import { UsuarioAmigo } from '../../../../../models/usuario-amigo';
 import { UsuariosSimple } from '../../../../../models/usuarios-simple';
+import { WebsocketService } from '../../../../../service/websocket.service';
+import { MenuService } from '../../../../../service/menu.service';
 
 @Component({
   selector: 'app-logueado',
@@ -24,12 +26,16 @@ export class LogueadoComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UsersService
+    private userService: UsersService,
+    private websocket: WebsocketService,
+    public menusoket: MenuService
   ) {}
 
   
   async ngOnInit() {
     this.idUsuario = this.authService.cogerIdJwt()
     this.usuarioSimple = await this.userService.obtenerUsuarioPorId(this.idUsuario)
+
+    await this.websocket.connectRxjs()
   }
 }

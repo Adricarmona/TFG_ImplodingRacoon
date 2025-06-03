@@ -32,7 +32,7 @@ namespace implodingRacoon.Services.WebSocketService
             WebSocketHandler handler = await AddWebsocketAsync(webSocket);
 
             // Notificamos a los usuarios que un nuevo usuario se ha conectado
-            //await NotifyUserConnectedAsync(handler);
+            await NotifyUserConnectedAsync(handler);
 
             // Esperamos a que el WebSocketHandler termine de manejar la conexión
             await handler.HandleAsync();

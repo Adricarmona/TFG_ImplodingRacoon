@@ -4,6 +4,9 @@ import { AuthRequest } from '../models/auth-request';
 import { AuthResponse } from '../models/auth-response';
 import { Result } from '../models/result';
 import { jwtDecode } from 'jwt-decode';
+import { AuthRegister } from '../models/auth-register';
+import { lastValueFrom, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +14,7 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
 
   constructor(
+    private http: HttpClient,
     private apiService: ApiService
   ) { }
 
@@ -40,6 +44,27 @@ export class AuthService {
       return null;
     }
   } 
+
+  async register(data: AuthRegister): Promise<AuthResponse> {
+    try {
+      const request: Result<AuthResponse> = await this.apiService.post<AuthResponse>(`Auth/Register`, data);
+      const result: AuthResponse = request.data;
+
+      this.apiService.jwt = result.message;
+      this.jwt = this.apiService.jwt;
+
+      if (data.remember) {
+            localStorage.setItem('token', this.jwt);
+          } else {
+            sessionStorage.setItem('token', this.jwt);
+          }
+
+        return result;
+    } catch (error: any) {
+        console.log("Error en el registro")
+        return null;
+    }
+  }
 
   cogerSessionStorageYLocalStorage() {
     const local = localStorage.getItem('token')

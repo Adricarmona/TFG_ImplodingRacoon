@@ -1,7 +1,7 @@
 <div class="fondo">
     <div class="centrado">
         <div>
-            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons">
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
         </div>
         <div id="cuadradoCentrar">
             
@@ -14,7 +14,44 @@
 
             <hr>
 
-            
+            <div id="centralVisionado">
+
+                <h2>Crear mesa</h2>
+
+                <h4>Tamaño de sala: 
+                    @if (tamanioSala > 2) { <button id="botonQuitar" (click)="restarTamanioSala()">-</button> }
+                    {{tamanioSala}}
+                    @if (tamanioSala < 5) { <button id="botonAnadir" (click)="subirTamanioSala()">+</button> }
+                </h4>
+                <span id="subTitulo">Tamaño de sala maximo de 5 y minimo de 2</span>
+
+                <div id="separacion">
+                    <input type="checkbox"/>
+                    <label for="contrasenia" class="negrita">Sala con contraseña</label>
+                </div>
+
+                <div id="separacion">
+                    <input type="search" name="contrasenia" id="Contrasenia" placeholder="Contraseña">
+                </div>
+
+                <div id="separacion">
+                    <input type="checkbox"/>
+                    <label for="soloAmigos" class="negrita">Solo amigos</label>
+                </div>
+
+                <div id="separacion">
+                    <input type="checkbox"/>
+                    <label for="chatActivo" class="negrita">Chat activo</label>
+                </div>
+                
+                <div id="separacion">
+                    <button id="totalAncho">Crear sala</button>
+                </div>
+
+                <div id="separacion">
+                    <button  routerLink="/" id="totalAncho">Volver</button>
+                </div>
+            </div>
 
             <hr>
 

@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../service/auth.service';
 import { AuthRequest } from '../../../../models/auth-request';
-import { StateService } from '../../../../service/state.service';
 import { FooterComponent } from "../../componentes/footer/footer.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LogueadoComponent } from '../../componentes/navbar/logueado/logueado.component';
 import { SinLoguearComponent } from '../../componentes/navbar/sin-loguear/sin-loguear.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, LogueadoComponent, SinLoguearComponent, FooterComponent],
+  imports: [FormsModule, ReactiveFormsModule, LogueadoComponent, SinLoguearComponent, FooterComponent, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

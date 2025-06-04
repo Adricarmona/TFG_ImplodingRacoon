@@ -1,6 +1,6 @@
 <div class="fondo">
     <div class="centrado">
-        <div>
+        <div routerLink="/">
             <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons">
         </div>
         <div id="cuadradoCentrar">
@@ -14,8 +14,43 @@
 
             <hr>
 
-            <app-opciones-menu></app-opciones-menu>
+            <div class="gridCentral">
+                @if (logueado) {
+                    <div class="botones" id="crearMesa">
+                        <button routerLink="/crearMesa" class="botonesMedio" id="crearMesa">Crear una mesa</button>
+                    </div>
+                
+                    <div class="botones" id="unirse">
+                        <button routerLink="/unirMesa" class="botonesMedio" id="unirse">Unirse</button>
+                    </div>
 
+                    <div class="botones" id="wiki">
+                        <button routerLink="/wiki" class="botonesMedio" id="wiki">Wiki</button>
+                    </div>
+                }
+                @else {
+
+                    <div class="botones" id="crearMesa">
+                        <button routerLink="/crearMesa" class="botonesMedio" id="SinLoguearCrear" (click)="alertaCrearSala()">Crear una mesa</button>
+                    </div>
+                
+                    <div class="botones" id="unirse">
+                        <button routerLink="/unirMesa" class="botonesMedio" id="SinLoguearUnir" (click)="alertaUnir()">Unirse</button>
+                    </div>
+
+                    <div class="botones" id="wiki">
+                        <button routerLink="/wiki" class="botonesMedio" id="SinLoguearWiki" (click)="alertaWiki()">Wiki</button>
+                    </div>
+                }
+
+                <div class="botones" id="ajustes">
+                    <button routerLink="/ajustes" class="botonesMedio" id="botonesAbajoMedio">Ajustes</button>
+                </div>
+                <div class="botones" id="sobreNosotros">
+                    <button routerLink="/sobre_nosotros" class="botonesMedio" id="botonesAbajoMedio">Sobre nosotros</button>
+                </div>
+            </div>
+            
             <hr>
 
             <app-footer></app-footer>

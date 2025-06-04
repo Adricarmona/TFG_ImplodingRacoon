@@ -3,10 +3,10 @@
         <button class="botones" id="amigosBoton">Amigos</button>
     </div>
     <div class="usuariosConectados">
-        Usuarios conectados: {{usuariosConectados}}
+        Usuarios conectados: {{menusoket.usersLogged}}
     </div>
     <div class="perfilUsuario">
-        <p>{{usuarioNombre}}</p>
-        <img id="imagenPerfil" src="usuario.png" alt="Imagen del usuario">
+        <p>{{usuarioSimple.nombreUsuario}}</p>
+        <img id="imagenPerfil" [src]="usuarioSimple.urlFoto" alt="Imagen del usuario">
     </div>
 </div>

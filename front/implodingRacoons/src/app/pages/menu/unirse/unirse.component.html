@@ -1,7 +1,7 @@
 <div class="fondo">
     <div class="centrado">
         <div>
-            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons">
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
         </div>
         <div id="cuadradoCentrar">
             
@@ -14,7 +14,32 @@
 
             <hr>
 
-            
+            <div class="centradoMedio">
+
+                <h3>Unirse Mesa</h3>
+
+                <div id="separacion">
+                    <input type="search" name="contrasenia" id="CodigoMesa" placeholder="Codigo Mesa">
+                </div>
+
+                <div id="separacion">
+                    <input type="checkbox" [(ngModel)]="contrasenia" [ngModelOptions]="{standalone: true}"/>
+                    <label for="contrasenia" class="negrita">Sala con contraseña</label>
+                </div>
+
+                <div id="separacion">
+                    <input type="search" name="contrasenia" id="Contrasenia" placeholder="Contraseña">
+                </div>
+
+                <div id="separacion">
+                    <button id="totalAncho">Entrar</button>
+                </div>
+
+                <div id="separacion">
+                    <button  routerLink="/" id="totalAncho">Volver</button>
+                </div>
+
+            </div>
 
             <hr>
 

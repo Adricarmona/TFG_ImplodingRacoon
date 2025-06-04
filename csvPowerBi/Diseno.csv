@@ -1,0 +1,16 @@
+Id,Nombre,Imagen,CartaId
+1,Ataca_Original,cards/ataca.png,12
+2,Baraja_Original,cards/baraja.png,13
+3,C4_Original,cards/c4.png,1
+4,Defuser_Original,cards/defuser.png,2
+5,Favor_Original,cards/favor.png,3
+6,GatoBarba_Original,cards/gatoBarba.png,4
+7,GatoMelon_Original,cards/gatoMelon.png,5
+8,GatoPeludo_Original,cards/gatoPeludo.png,6
+9,Nop_Original,cards/nop.png,7
+10,Salta_Original,cards/salta.png,8
+11,Nop_Original,cards/nop.png,7
+12,TacoCat_Original,cards/tacoCat.png,9
+13,VerFuturo_Original,cards/verFuturo.png,10
+14,VomitoArcoiris_Original,cards/vomitoArcoiris.png,11
+15,ParteAtras_Original,cards/parteAtras.png,14

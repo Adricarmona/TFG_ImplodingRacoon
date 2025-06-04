@@ -3,11 +3,12 @@ import { SinLoguearComponent } from "../componentes/navbar/sin-loguear/sin-logue
 import { LogueadoComponent } from "../componentes/navbar/logueado/logueado.component";
 import { FooterComponent } from "../componentes/footer/footer.component";
 import { AuthService } from '../../../service/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-ajustes',
   standalone: true,
-  imports: [SinLoguearComponent, LogueadoComponent, FooterComponent],
+  imports: [SinLoguearComponent, LogueadoComponent, FooterComponent, RouterModule],
   templateUrl: './ajustes.component.html',
   styleUrl: './ajustes.component.css'
 })

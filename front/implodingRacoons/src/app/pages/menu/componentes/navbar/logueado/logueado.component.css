@@ -8,6 +8,8 @@
     gap: 20px;
 
     padding: 2vh;
+
+    text-align: start;
 }
 
 .botonAmigos {
@@ -74,4 +76,6 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    border: 1px solid #000000;
+    margin-left: 10px;
 }

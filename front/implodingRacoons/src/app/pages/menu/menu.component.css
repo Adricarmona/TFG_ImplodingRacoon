@@ -83,21 +83,21 @@ hr {
 #ajustes { grid-area: 2 / 3 / 3 / 5; }
 #sobreNosotros { grid-area: 2 / 5 / 3 / 7; }
 
-#crearMesa {
+#crearMesa, #SinLoguearCrear{
     height: 13vh;
     width: 100%;
 }
 
-#unirse {
+#unirse, #SinLoguearUnir {
     height: 13vh;
     width: 100%;
 }
 
-#botonesAbajoMedio, #wiki, #wikiSin {
+#botonesAbajoMedio, #wiki, #SinLoguearWiki {
     height: 7vh;
     width: 100%;
 }
 
-#wikiSin {
+#SinLoguearWiki , #SinLoguearUnir, #SinLoguearCrear {
     background-color: rgba(128, 128, 128, 0.397);
 }

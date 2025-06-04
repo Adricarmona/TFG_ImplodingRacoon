@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'https://localhost:7089/',
-    socketUrl: 'https://localhost:7089/WebSocket',
+    apiUrl: 'http://localhost:5097/',
+    socketUrl: 'http://localhost:5097/WebSocket',
 };

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { WebsocketService } from './websocket.service';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { JsonWebsoket } from '../models/json-websoket';
 
 @Injectable({
   providedIn: 'root'
@@ -40,27 +41,20 @@ export class MenuService {
 
     try {
       // Paso del mensaje a objeto
-      //const parsedMessage = JSON.parse(message);
+      const parsedMessage: JsonWebsoket = JSON.parse(message);
 
 
 
-      this.handleSocketMessage(message);
+      this.handleSocketMessage(parsedMessage);
     } catch (error) {
       console.error('Error al parsear el mensaje recibido:', error);
     }
   }
 
-  private handleSocketMessage(message: string): void {
+  private handleSocketMessage(parsedMessage: JsonWebsoket): void {
 
-    console.log(message)
-
-    /*
-    switch (message.Type) {
-      case SocketCommunicationType.CONNECTION:
-        console.log('Mensaje de conexión recibido:', message.Data);
-        this.usersLogged = message.Data.UsersCounter
-        break;
+    if(parsedMessage.type == 1){
+      this.usersLogged = parseInt(parsedMessage.message)
     }
-        */
   }
 }

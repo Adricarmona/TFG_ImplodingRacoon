@@ -64,7 +64,7 @@ hr {
     padding: 5px 20px;
 }
 
-#seleccionarCartas {
+#seleccionarCartas, h4 {
     text-align: center;
     margin: 0;
 }

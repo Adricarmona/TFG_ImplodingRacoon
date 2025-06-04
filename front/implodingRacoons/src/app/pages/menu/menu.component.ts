@@ -28,6 +28,14 @@ export class MenuComponent {
     }
   }
 
+  alertaCrearSala() {
+    alert("Inicia session para crear una sala")
+  }
+
+  alertaUnir() {
+    alert("Inicia session para unirse a sala")
+  }
+
   alertaWiki() {
     alert("Inicia session para entrar a la wiki")
   }

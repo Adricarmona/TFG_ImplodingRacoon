@@ -27,7 +27,6 @@ export class LogueadoComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UsersService,
-    private websocket: WebsocketService,
     public menusoket: MenuService
   ) {}
 
@@ -35,7 +34,5 @@ export class LogueadoComponent implements OnInit {
   async ngOnInit() {
     this.idUsuario = this.authService.cogerIdJwt()
     this.usuarioSimple = await this.userService.obtenerUsuarioPorId(this.idUsuario)
-
-    await this.websocket.connectRxjs()
   }
 }

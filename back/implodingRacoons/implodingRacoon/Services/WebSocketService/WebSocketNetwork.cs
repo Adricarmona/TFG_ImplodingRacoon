@@ -67,15 +67,20 @@ namespace implodingRacoon.Services.WebSocketService
             WebSocketHandler[] handlers = _handlers.ToArray();
             int totalHandlers = handlers.Length;
 
-            string messageToNew = $"Hay {totalHandlers} usuarios conectados, tu id es {newHandler.Id}";
-            string messageToOthers = $"Se ha conectado usuario con id {newHandler.Id}. En total hay {totalHandlers} usuarios conectados";
+            JsonWebsoket messageToNotify = new JsonWebsoket
+            {
+                type = 1,
+                message = totalHandlers.ToString(),
+            };
+            
+            string mensageToNotify = JsonSerializer.Serialize(messageToNotify);
 
             // Enviamos un mensaje personalizado al nuevo usuario y otro al resto
             foreach (WebSocketHandler handler in handlers)
             {
-                string message = handler.Id == newHandler.Id ? messageToNew : messageToOthers;
+                //string message = handler.Id == newHandler.Id ? messageToNew : messageToOthers;
 
-                tasks.Add(handler.SendAsync(message));
+                tasks.Add(handler.SendAsync(mensageToNotify));
             }
 
             // Devolvemos una tarea que se completará cuando todas las tareas de envío de mensajes se completen
@@ -107,6 +112,29 @@ namespace implodingRacoon.Services.WebSocketService
              *          CUANDO QUERAMOS NOTIFICAR O ALGO A UN USUARIO QUE SE QUIERE DESCONECTAR VA AQUI
              * 
              * 
+             */
+
+            // para ver los usuarios desconectandose en la mesa
+            int totalHandlers = handlers.Length;
+
+            JsonWebsoket messageToNotify = new JsonWebsoket
+            {
+                type = 1,
+                message = totalHandlers.ToString(),
+            };
+            string mensageToNotify = JsonSerializer.Serialize(messageToNotify);
+
+            // Enviamos un mensaje personalizado al nuevo usuario y otro al resto
+            foreach (WebSocketHandler handler in handlers)
+            {
+                //string message = handler.Id == newHandler.Id ? messageToNew : messageToOthers;
+
+                tasks.Add(handler.SendAsync(mensageToNotify));
+            }
+
+
+            /*
+             *  Mesas de partidas
              */
 
             List<Game> mesas = Games.mesas();

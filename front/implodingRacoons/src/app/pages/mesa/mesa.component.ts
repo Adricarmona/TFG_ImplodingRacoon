@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class MesaComponent {
 
+
+  acabarPartida() {
+    alert("Acabas de cerrar la partida")
+
+    const url: string = ""
+    window.location.href = url
+  }
 }

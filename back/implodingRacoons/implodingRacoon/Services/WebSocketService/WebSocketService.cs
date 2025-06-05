@@ -41,7 +41,7 @@ namespace implodingRacoon.Services.WebSocketService
                     else
                     {
 
-                        if (mesa.cogerUsuariosMesa().Count >= 6)
+                        if (mesa.cogerUsuariosMesa().Count >= mesa.usuariosMaximos)
                         {
                             userHandler.SendAsync("mesa llena");
                         }
@@ -169,17 +169,31 @@ namespace implodingRacoon.Services.WebSocketService
         {
             if (receivedUser.Identifier == null || receivedUser.Identifier == "")
             {
-                userHandler.SendAsync("dato ingresado incorrectamente");
+                JsonWebsoket messageToEnviar = new JsonWebsoket
+                {
+                    type = 2,
+                    message = "dato ingresado incorrectamente"
+                };
+                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                userHandler.SendAsync(mensageEnviar);
             }
             else
             {
-                Game partida = Games.anadirMesa();
+                Game partida = Games.anadirMesa(receivedUser.Identifier2);
 
                 UserGame newuser = new UserGame(Int32.Parse(receivedUser.Identifier));
                 userHandler.Usuario = newuser;
-
                 partida.anadirUsuarioMesa(newuser);
-                userHandler.SendAsync("creada sala: " + partida.IdSala + " id host: " + newuser.Id);
+
+                JsonWebsoket messageToEnviar = new JsonWebsoket
+                {
+                    type = 2,
+                    message = partida.IdSala+""
+                };
+                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                userHandler.SendAsync(mensageEnviar);
             }
         }
 

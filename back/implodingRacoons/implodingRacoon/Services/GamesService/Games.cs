@@ -4,7 +4,7 @@
     {
         private static List<Game> games;
 
-        public static Game anadirMesa()
+        public static Game anadirMesa(string identifier2)
         {
             int numeroMasAlto = 1;
 
@@ -15,6 +15,7 @@
 
             Game game = new Game();
             game.IdSala = numeroMasAlto;
+            game.usuariosMaximos = Int32.Parse(identifier2); 
 
             games.Add(game);
 
@@ -55,7 +56,7 @@
             Game mesa = buscarMesa(idMesa);
             if (mesa != null)
             {
-                mesa.anadirUsuarioMesa(UsuarioGame);
+               mesa.anadirUsuarioMesa(UsuarioGame);
             }
         }
     }

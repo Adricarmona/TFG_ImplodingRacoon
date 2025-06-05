@@ -19,33 +19,40 @@
                 <h2>Crear mesa</h2>
 
                 <h4>Tamaño de sala: 
-                    @if (tamanioSala > 2) { <button id="botonQuitar" (click)="restarTamanioSala()">-</button> }
+                    @if (tamanioSala > 2) { <button id="botonQuitar" (click)="restarTamanioSala()">-</button> } 
                     {{tamanioSala}}
                     @if (tamanioSala < 5) { <button id="botonAnadir" (click)="subirTamanioSala()">+</button> }
                 </h4>
                 <span id="subTitulo">Tamaño de sala maximo de 5 y minimo de 2</span>
 
                 <div id="separacion">
-                    <input type="checkbox"/>
+                    <input type="checkbox" [(ngModel)]="salaConContrasenia" [ngModelOptions]="{standalone: true}"/>
                     <label for="contrasenia" class="negrita">Sala con contraseña</label>
                 </div>
 
-                <div id="separacion">
-                    <input type="search" name="contrasenia" id="Contrasenia" placeholder="Contraseña">
-                </div>
+                @if (salaConContrasenia) {
+                    <div id="separacion">
+                        <input type="search" name="contrasenia" id="Contrasenia" placeholder="Contraseña" [(ngModel)]="contrasenia">
+                    </div>
+                }
+                @else {
+                    <div id="separacion">
+                        <input type="search" name="contrasenia" id="ContraseniaDisable" placeholder="Contraseña" disabled>
+                    </div>
+                }
 
                 <div id="separacion">
-                    <input type="checkbox"/>
+                    <input type="checkbox" disabled/>
                     <label for="soloAmigos" class="negrita">Solo amigos</label>
                 </div>
 
                 <div id="separacion">
-                    <input type="checkbox"/>
+                    <input type="checkbox" disabled/>
                     <label for="chatActivo" class="negrita">Chat activo</label>
                 </div>
                 
                 <div id="separacion">
-                    <button id="totalAncho">Crear sala</button>
+                    <button id="totalAncho" (click)="crearSala()">Crear sala</button>
                 </div>
 
                 <div id="separacion">

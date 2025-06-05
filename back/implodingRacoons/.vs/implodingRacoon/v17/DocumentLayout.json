@@ -1,55 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\",
+  "WorkspaceRootPath": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\websocketservice\\websocketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\websocketservice\\websocketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\publicacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\publicacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\websocketservice\\websocketnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\gamesservice\\games.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\gamesservice\\games.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\gamesservice\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\gamesservice\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\websocketservice\\websocketnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\websocketservice\\websocketnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\dto\\jsonwebsoket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\dto\\jsonwebsoket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\dto\\responsetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\dto\\responsetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> desarrollo
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-=======
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\publicacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\publicacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\tfg\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\websocketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|d:\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
->>>>>>> desarrollo
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\models\\database\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\models\\database\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\services\\filehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\services\\filehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,140 +29,44 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-<<<<<<< HEAD
           "DockedWidth": 863,
-          "SelectedChildIndex": 2,
-=======
-          "DockedWidth": 1249,
-          "SelectedChildIndex": 4,
->>>>>>> desarrollo
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "implodingRacoon\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwGQAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T09:25:35.118Z",
-=======
-              "DocumentIndex": 2,
-              "Title": "ResponseToken.cs",
-              "DocumentMoniker": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\ResponseToken.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Dto\\ResponseToken.cs",
-              "ToolTip": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\ResponseToken.cs",
-              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Dto\\ResponseToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T10:25:35.2Z",
->>>>>>> desarrollo
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 4,
-=======
-              "DocumentIndex": 1,
-              "Title": "JsonWebsoket.cs",
-              "DocumentMoniker": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\JsonWebsoket.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Dto\\JsonWebsoket.cs",
-              "ToolTip": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Dto\\JsonWebsoket.cs",
-              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Dto\\JsonWebsoket.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T07:39:24.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WebSocketNetwork.cs",
-              "DocumentMoniker": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
-              "ToolTip": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
-              "RelativeToolTip": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAAwHYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T15:53:32.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WebSocketController.cs",
-              "DocumentMoniker": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\WebSocketController.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\WebSocketController.cs",
-              "ToolTip": "D:\\github\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\WebSocketController.cs",
-              "RelativeToolTip": "implodingRacoon\\Controllers\\WebSocketController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T15:53:23.482Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
->>>>>>> desarrollo
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
-              "RelativeToolTip": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T17:44:19.291Z"
-            },
-            {
-              "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 2,
-=======
               "DocumentIndex": 3,
->>>>>>> desarrollo
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\UserService.cs",
-              "RelativeToolTip": "implodingRacoon\\Services\\UserService.cs",
-              "ViewState": "AgIAAEgBAAAAAAAAAAAiwFsBAAAAAAAAAAAAAA==",
+              "Title": "WebSocketNetwork.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\WebSocketService\\WebSocketNetwork.cs",
+              "ViewState": "AgIAAMgAAAAAAAAAAAASwPEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T18:00:41.292Z",
+              "WhenOpened": "2025-06-05T10:38:03.385Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 1,
-=======
               "DocumentIndex": 4,
->>>>>>> desarrollo
-              "Title": "PublicacionController.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\PublicacionController.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\PublicacionController.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\PublicacionController.cs",
-              "RelativeToolTip": "implodingRacoon\\Controllers\\PublicacionController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAjwCkAAAAMAAAAAAAAAA==",
+              "Title": "WebSocketController.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\WebSocketController.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\WebSocketController.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\WebSocketController.cs",
+              "RelativeToolTip": "implodingRacoon\\Controllers\\WebSocketController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T16:53:22.612Z"
+              "WhenOpened": "2025-06-05T08:27:42.015Z",
+              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 477,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 863,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -211,39 +86,41 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 5,
-=======
-              "DocumentIndex": 8,
->>>>>>> desarrollo
-              "Title": "FileHelper.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\FileHelper.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Services\\FileHelper.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\FileHelper.cs",
-              "RelativeToolTip": "implodingRacoon\\Services\\FileHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Game.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\GamesService\\Game.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Services\\GamesService\\Game.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\GamesService\\Game.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\GamesService\\Game.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T18:36:37.604Z"
+              "WhenOpened": "2025-06-05T10:51:43.99Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 3,
-=======
-              "DocumentIndex": 6,
->>>>>>> desarrollo
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\UserController.cs",
-              "RelativeToolTip": "implodingRacoon\\Controllers\\UserController.cs",
-<<<<<<< HEAD
-              "ViewState": "AgIAABgAAAAAAAAAAAAowJoAAAAMAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAALcAAAAAAAAAAAAUwJoAAAAMAAAAAAAAAA==",
->>>>>>> desarrollo
+              "DocumentIndex": 1,
+              "Title": "Games.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\GamesService\\Games.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Services\\GamesService\\Games.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\GamesService\\Games.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\GamesService\\Games.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T17:57:25.905Z",
+              "WhenOpened": "2025-06-05T10:52:18.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebSocketService.cs",
+              "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketService.cs",
+              "RelativeDocumentMoniker": "implodingRacoon\\Services\\WebSocketService\\WebSocketService.cs",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\WebSocketService\\WebSocketService.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\WebSocketService\\WebSocketService.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAIAwwL8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T10:38:31.755Z",
               "EditorCaption": ""
             }
           ]

@@ -75,11 +75,15 @@ namespace implodingRacoon.Services
 
             userRegister.Password = PasswordHelper.Hash(userRegister.Password);
 
-            UserSimple usuarioSimple = await _unitOfWork.UsuarioRepository.AddUser(userRegister);
+            await _unitOfWork.UsuarioRepository.AddUser(userRegister);
 
-            if (usuarioSimple == null) return null;
+            await _unitOfWork.SaveAsync();
 
-            String token = ObtenerJWT(usuarioSimple);
+            Usuario usuarioDevolver = await _unitOfWork.UsuarioRepository.GetUserByCredential(userRegister.NombreUsuario);
+
+            if (usuarioDevolver == null) return null;
+
+            String token = ObtenerJWT(usuarioDevolver);
 
             await _unitOfWork.SaveAsync();
 

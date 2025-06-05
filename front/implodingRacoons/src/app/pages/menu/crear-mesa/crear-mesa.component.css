@@ -41,7 +41,7 @@ hr {
     margin: 0 auto;
 }
 
-button, #Contrasenia{
+button, #Contrasenia, #ContraseniaDisable{
     background-color: white;
     border-radius: 15px;
     border: 2px solid black;
@@ -50,7 +50,12 @@ button, #Contrasenia{
     margin-right: 1ch;
 }
 
-#totalAncho, #Contrasenia{
+#ContraseniaDisable {
+    background-color: gray;
+    opacity: 0.5;
+}
+
+#totalAncho, #Contrasenia, #ContraseniaDisable{
     width: 100%;
 }
 
@@ -73,6 +78,7 @@ h4 , h3 {
 #totalAncho:hover, #botonQuitar:hover, #botonAnadir:hover {
     transform: scale(0.995);
 }
+
 
 #totalAncho:active, #botonQuitar:active, #botonAnadir:active  {
     transform: scale(0.95);

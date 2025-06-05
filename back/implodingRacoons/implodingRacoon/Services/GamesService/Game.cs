@@ -5,6 +5,7 @@ namespace implodingRacoon.Services.GamesService
     public class Game
     {
         public int IdSala { get; set; }
+        public int usuariosMaximos { get; set; }
         private List<UserGame> UsuariosMesa { get; set; } = new List<UserGame>();
         // estp por que lo hice?
         //private  UserGame HostMesa { get; set; }

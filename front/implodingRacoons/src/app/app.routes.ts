@@ -11,6 +11,7 @@ import { AjustesComponent } from './pages/menu/ajustes/ajustes.component';
 import { SobreNosotrosComponent } from './pages/menu/sobre-nosotros/sobre-nosotros.component';
 import { CrearMesaComponent } from './pages/menu/crear-mesa/crear-mesa.component';
 import { UnirseComponent } from './pages/menu/unirse/unirse.component';
+import { MesaComponent } from './pages/mesa/mesa.component';
 
 
 export const routes: Routes = [
@@ -25,4 +26,5 @@ export const routes: Routes = [
     {path: 'wiki/post/:id', component: PostComponent, canActivate:[redirectionGuardGuard]},
     {path: 'wiki/perfil/:id', component: PerfilComponent, canActivate:[redirectionGuardGuard]},
     {path: 'wiki/anadir', component: AnadirComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'partida/:id', component: MesaComponent, canActivate:[redirectionGuardGuard]},
 ];

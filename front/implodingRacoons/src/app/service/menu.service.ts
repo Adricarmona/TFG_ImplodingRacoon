@@ -14,12 +14,8 @@ export class MenuService {
   disconnected$: Subscription;
 
   usersLogged = 0;
-  gamesInProgress = 0;
 
-  private navigationSubscription: Subscription;
-
-  constructor(public webSocketService: WebsocketService ,
-    private router: Router) 
+  constructor(public webSocketService: WebsocketService) 
   {
 
     this.connected$ = this.webSocketService.connected.subscribe(() => this.isConnected = true);
@@ -29,11 +25,6 @@ export class MenuService {
     );
 
     this.disconnected$ = this.webSocketService.disconnected.subscribe(() => this.isConnected = false);
-
-
-    this.navigationSubscription = this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {}
-    });
   }
 
 
@@ -43,8 +34,6 @@ export class MenuService {
       // Paso del mensaje a objeto
       const parsedMessage: JsonWebsoket = JSON.parse(message);
 
-
-
       this.handleSocketMessage(parsedMessage);
     } catch (error) {
       console.error('Error al parsear el mensaje recibido:', error);
@@ -52,7 +41,6 @@ export class MenuService {
   }
 
   private handleSocketMessage(parsedMessage: JsonWebsoket): void {
-
     if(parsedMessage.type == 1){
       this.usersLogged = parseInt(parsedMessage.message)
     }

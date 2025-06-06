@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class MesaComponent {
 
+  cartasMedio = "http://localhost:5097/cards/parteAtras.png"
 
   acabarPartida() {
     alert("Acabas de cerrar la partida")

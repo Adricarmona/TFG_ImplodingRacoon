@@ -46,6 +46,7 @@ namespace implodingRacoon
             builder.Services.AddScoped<UnitOfWork>();
 
             // servicios
+            builder.Services.AddScoped<MesaService>();
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<CardsService>();
             builder.Services.AddScoped<UserService>();

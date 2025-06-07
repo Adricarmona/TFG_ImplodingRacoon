@@ -6,22 +6,25 @@ import { JsonWebsoket } from '../models/json-websoket';
 @Injectable({
   providedIn: 'root'
 })
-export class CrearMesaService {
+export class MesaService {
+  messageReceived$: Subscription;
+  disconnected$: Subscription;
 
-  messageReceived$: Subscription;  
+  usersLogged = 0;
 
-  constructor( public webSocketService: WebsocketService  ) {
-
+  constructor(public webSocketService: WebsocketService) 
+  {
     this.messageReceived$ = this.webSocketService.messageReceived.subscribe(async message => 
       await this.readMessage(message)
     );
-
   }
 
-  readMessage(mensaje: string) {
+
+  private async readMessage(message: string): Promise<void> {
+
     try {
       // Paso del mensaje a objeto
-      const parsedMessage: JsonWebsoket = JSON.parse(mensaje);
+      const parsedMessage: JsonWebsoket = JSON.parse(message);
 
       this.handleSocketMessage(parsedMessage);
     } catch (error) {

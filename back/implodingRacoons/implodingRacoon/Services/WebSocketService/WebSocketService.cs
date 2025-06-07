@@ -21,7 +21,14 @@ namespace implodingRacoon.Services.WebSocketService
             /// segundo identifier es el id del jugador
             if (receivedUser.Identifier == null || receivedUser.Identifier2 == null)
             {
-                userHandler.SendAsync("error json");
+                JsonWebsoket messageToEnviar = new JsonWebsoket
+                {
+                    type = 3,
+                    message = "error json"
+                };
+                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                userHandler.SendAsync(mensageEnviar);
             }
             else
             {
@@ -29,21 +36,42 @@ namespace implodingRacoon.Services.WebSocketService
 
                 if (mesa == null)
                 {
-                    userHandler.SendAsync("mesa no existe");
+                    JsonWebsoket messageToEnviar = new JsonWebsoket
+                    {
+                        type = 3,
+                        message = "mesa no existe"
+                    };
+                    string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                    userHandler.SendAsync(mensageEnviar);
                 } 
                 else
                 {
 
                     if (mesa.SalaEmpezada == true)
                     {
-                        userHandler.SendAsync("mesa ya empezada");
+                        JsonWebsoket messageToEnviar = new JsonWebsoket
+                        {
+                            type = 3,
+                            message = "mesa ya empezada"
+                        };
+                        string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                        userHandler.SendAsync(mensageEnviar);
                     }
                     else
                     {
 
                         if (mesa.cogerUsuariosMesa().Count >= mesa.usuariosMaximos)
                         {
-                            userHandler.SendAsync("mesa llena");
+                            JsonWebsoket messageToEnviar = new JsonWebsoket
+                            {
+                                type = 3,
+                                message = "mesa llena"
+                            };
+                            string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                            userHandler.SendAsync(mensageEnviar);
                         }
                         else
                         {
@@ -56,7 +84,14 @@ namespace implodingRacoon.Services.WebSocketService
                                 {
                                     if (wsHandler.Usuario == userHandler.Usuario)
                                     {
-                                        userHandler.SendAsync("Usuario ya existente");
+                                        JsonWebsoket messageToEnviar = new JsonWebsoket
+                                        {
+                                            type = 3,
+                                            message = "Usuario ya existente"
+                                        };
+                                        string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                                        userHandler.SendAsync(mensageEnviar);
                                         repetido = true;
                                         break;
                                     }
@@ -73,12 +108,19 @@ namespace implodingRacoon.Services.WebSocketService
                                 userHandler.Usuario = newuser;
 
                                 Games.unirMesa(Int32.Parse(receivedUser.Identifier), newuser);
-                                
-                                userHandler.SendAsync("Unido a la mesa: " + mesa.IdSala);
+
+                                JsonWebsoket messageToEnviar = new JsonWebsoket
+                                {
+                                    type = 3,
+                                    message = true.ToString()
+                                };
+                                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                                userHandler.SendAsync(mensageEnviar);
 
                                 /*
                                  *  Esto no va y creo ahora que no hace falta
-                                 * 
+                                 */
                                 foreach (UserGame usuarios in mesa.cogerUsuariosMesa())
                                 {
                                     foreach (WebSocketHandler handler in handlers)
@@ -89,14 +131,22 @@ namespace implodingRacoon.Services.WebSocketService
 
                                             if (handler.Usuario.Id == usuarios.Id && handler.Usuario != userHandler.Usuario)
                                             {
-                                                handler.SendAsync("Usuario unido: " + usuarios.Id + " handler usuario: " + handler.Usuario.Id + " usuarios: " + usuarios.Id);
+
+                                                JsonWebsoket messageToEnviarOtros = new JsonWebsoket
+                                                {
+                                                    type = 3,
+                                                    message = "new user"
+                                                };
+                                                string mensageEnviarOtros = JsonSerializer.Serialize(messageToEnviar);
+
+                                                handler.SendAsync(mensageEnviarOtros);
+                                                //handler.SendAsync("Usuario unido: " + usuarios.Id + " handler usuario: " + handler.Usuario.Id + " usuarios: " + usuarios.Id);
                                             }
                                         }
 
                                     }
 
                                 }
-                                */
 
                             }
                         }

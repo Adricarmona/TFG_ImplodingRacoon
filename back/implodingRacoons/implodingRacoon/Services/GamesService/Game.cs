@@ -11,8 +11,8 @@ namespace implodingRacoon.Services.GamesService
         //private  UserGame HostMesa { get; set; }
         public int OrdenJugadores { get; set; }
         public bool SalaEmpezada { get; set; }
-        private List<Carta> BarajaMesa { get; set; }
-        private List<Carta> CartasLanzadas { get; set; }
+        public List<Carta> BarajaMesa { get; set; }
+        public List<Carta> CartasLanzadas { get; set; }
         public string Contrasenia { get; set; }
 
 

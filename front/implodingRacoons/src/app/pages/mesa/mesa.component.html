@@ -7,10 +7,104 @@
             <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
         </div>
 
+        <div id="usuarioUno">
+            <div>
+                <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+            </div>
+            <div class="InformacionJugador" id="InformacionJugadorUno">
+                <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                <span id="jugador1Texto">text</span>
+                <img class="iconoCartas" src="cartas.png" alt="">
+                <span id="jugador1Cartas">6</span>
+            </div>
+        </div>
+
+        @if (jugadoresMesa < 5) {
+            <div id="usuariodos">
+                <div>
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorDos">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+        }
+
+        @if (jugadoresMesa > 2) {
+            <div id="usuariotres">
+                <div id="cartas90Grados">
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorTres">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+        }
+
+        @if (jugadoresMesa > 3) {
+            <div id="usuariocuatro">
+                <div id="cartas-90Grados">
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorCuatro">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+        }
+
+        @if (jugadoresMesa == 5) {
+            <div id="usuariocinco">
+                <div>
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorCinco">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+
+            <div id="usuariodos_5jugadores">
+                <div>
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorDos_5jugadores">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+        }
+
     </div>
     <div id="chatYcerrarPartida">
+        
         <h2 id="codigoSala">Codigo sala: XXXXX</h2>
         <hr>
+        
         <div id="cajaChat">
             <h3 id="tituloChat">Chat</h3>
             <hr>

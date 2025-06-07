@@ -63,13 +63,27 @@
     align-items: center;
     gap: 5px;
 }
+.perfilUsuario2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
 
-.perfilUsuario:hover {
+.perfilUsuario2:hover {
     transform: scale(0.995);
 }
 
-.perfilUsuario:active {
+.perfilUsuario2:active {
     transform: scale(0.95);
+}
+
+
+.perfilUsuarioClicado {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
 }
 
 #imagenPerfil {
@@ -78,4 +92,24 @@
     border-radius: 50%;
     border: 1px solid #000000;
     margin-left: 10px;
+}
+
+#opcionesPerfil {
+    background-color: white;
+    border: 1px solid #000000;
+
+    position: absolute;
+    padding: 7px;
+    margin-top: 90px;
+
+}
+
+#irAlPerfil:hover {
+    background-color: rgba(128, 128, 128, 0.138);
+    transform: scale(0.95);
+}
+
+#cerrarSession:hover {
+    background-color: rgba(128, 128, 128, 0.138);
+    transform: scale(0.95);
 }

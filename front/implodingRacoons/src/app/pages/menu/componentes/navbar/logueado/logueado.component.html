@@ -5,8 +5,24 @@
     <div class="usuariosConectados">
         Usuarios conectados: {{menusoket.usersLogged}}
     </div>
-    <div class="perfilUsuario">
-        <p>{{usuarioSimple.nombreUsuario}}</p>
-        <img id="imagenPerfil" [src]="usuarioSimple.urlFoto" alt="Imagená del usuario">
+    <div class="perfilUsuario" >
+        <div class="perfilUsuario2"  (click)="clicadoMenu()">
+            <p>{{usuarioSimple.nombreUsuario}}</p>
+            <img id="imagenPerfil" [src]="usuarioSimple.urlFoto" alt="Imagená del usuario">
+        </div>
+
+            @if (clicado) {
+                <div id="opcionesPerfil">
+                    <div id="irAlPerfil" routerLink="/wiki/perfil/{{idUsuario}}">
+                        <span>Ir al perfil</span>
+                    </div>
+                    <hr>
+                    <div id="cerrarSession" (click)="desLoguearse()">
+                        <span>Cerrar sesion</span>   
+                    </div>
+                </div>
+            }
     </div>
+
+
 </div>

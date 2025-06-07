@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../../service/auth.service';
 import { UsersService } from '../../../../../service/users.service';
-import { UsuarioAmigo } from '../../../../../models/usuario-amigo';
 import { UsuariosSimple } from '../../../../../models/usuarios-simple';
-import { WebsocketService } from '../../../../../service/websocket.service';
 import { MenuService } from '../../../../../service/menu.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-logueado',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './logueado.component.html',
   styleUrl: './logueado.component.css'
 })
 export class LogueadoComponent implements OnInit {
-  private idUsuario: string = ""
+  public idUsuario: string = ""
   public usuariosConectados: number = 0
+
+  public clicado: boolean = false
 
   public usuarioSimple: UsuariosSimple = {
     cantidadAmigos: 0,
@@ -34,5 +35,14 @@ export class LogueadoComponent implements OnInit {
   async ngOnInit() {
     this.idUsuario = this.authService.cogerIdJwt()
     this.usuarioSimple = await this.userService.obtenerUsuarioPorId(this.idUsuario)
+  }
+
+  desLoguearse() {
+    this.authService.eliminarJwtSessionYLocalStorage()
+    window.location.reload()
+  }
+
+  clicadoMenu() {
+    this.clicado = !this.clicado
   }
 }

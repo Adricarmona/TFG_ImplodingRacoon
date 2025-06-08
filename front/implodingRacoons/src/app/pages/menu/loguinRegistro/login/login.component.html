@@ -4,12 +4,13 @@
             <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
         </div>
         <div id="cuadradoCentrar">
-            <ng-container *ngIf="logueado; else sinLogueo">
+            
+            @if (logueado) {
                 <app-logueado></app-logueado>
-            </ng-container>
-            <ng-template #sinLogueo>
+            }
+            @else {
                 <app-sin-loguear></app-sin-loguear>
-            </ng-template>
+            }
 
             <hr/>
 

@@ -4,53 +4,60 @@
             <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
         </div>
         <div id="cuadradoCentrar">
-            
+
             @if (logueado) {
-                <app-logueado></app-logueado>
+            <app-logueado></app-logueado>
             }
             @else {
-                <app-sin-loguear></app-sin-loguear>
+            <app-sin-loguear></app-sin-loguear>
             }
 
             <hr>
 
             <form (submit)="submit()" [formGroup]="form">
-
                 <h2 id="tituloRegistro">Registro</h2>
 
-                <div>
-
-                    <label for="usuario" class="negrita">Usuario</label>
-                    <br>
-                    <input type="text" name="usuario" id="texto" class="rectangulos" formControlName="nombreUsuario" required/>
-                    <br>
-
-                    <label for="email" class="negrita">Email</label>
-                    <br>
-                    <input type="text" name="correo" id="texto" class="rectangulos" formControlName="correo" required>
-                    <br>
-
-                    <label for="contraseña" class="negrita">Contraseña</label>
-                    <br>
-                    <input type="text" name="contraseña" id="texto" class="rectangulos" formControlName="password" required>
-                    <br>
-
-                    <label for="contraseña2" class="negrita">Repetir contraseña</label>
-                    <br>
-                    <input type="text" name="contraseña2" id="texto" class="rectangulos" formControlName="password2" required>
-                    <br>
-
-                    <div id="texto"> <!--el check box-->
-                        <input [(ngModel)]="remember" type="checkbox" name="">
-                        <label for="recordar" class="negrita">Recordar</label>
-                    </div>
-
+                <div class="campo">
+                    <label class="negrita">Usuario</label>
+                    <input type="text" class="rectangulos" formControlName="nombreUsuario" />
+                    <small *ngIf="form.get('nombreUsuario')?.touched && form.get('nombreUsuario')?.invalid">
+                        El nombre de usuario es obligatorio.
+                    </small>
                 </div>
 
+                <div class="campo">
+                    <label class="negrita">Email</label>
+                    <input type="text" class="rectangulos" formControlName="correo" />
+                    <small *ngIf="form.get('correo')?.touched && form.get('correo')?.invalid">
+                        Correo inválido o vacío.
+                    </small>
+                </div>
 
-                <input type="submit" value="Ingresar" class="rectangulos" id="botones">
+                <div class="campo">
+                    <label class="negrita">Contraseña</label>
+                    <input type="password" class="rectangulos" formControlName="password" />
+                    <small *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                        La contraseña es obligatoria.
+                    </small>
+                </div>
 
+                <div class="campo">
+                    <label class="negrita">Repetir contraseña</label>
+                    <input type="password" class="rectangulos" formControlName="password2" />
+                    <small
+                        *ngIf="form.get('password2')?.touched && (form.get('password2')?.invalid || form.errors?.['passwordMismatch'])">
+                        Las contraseñas no coinciden.
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{ standalone: true }" />
+                    <label class="negrita">Recordar</label>
+                </div>
+
+                <input type="submit" value="Ingresar" class="rectangulos" id="botones" [disabled]="form.invalid" />
             </form>
+
 
             <hr>
 
@@ -58,4 +65,3 @@
         </div>
     </div>
 </div>
-

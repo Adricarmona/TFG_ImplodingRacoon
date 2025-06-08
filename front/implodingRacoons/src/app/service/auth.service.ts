@@ -96,7 +96,7 @@ export class AuthService {
   cogerIdJwt() {
     this.jwt = this.cogerSessionStorageYLocalStorage()
     if (this.jwt == "") {
-      return 1
+      return 0
     }
     const decodeadoJwt: any = jwtDecode(this.jwt)
     return decodeadoJwt.id

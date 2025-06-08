@@ -7,21 +7,23 @@
             <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
         </div>
 
-        <div id="usuarioUno">
-            <div>
-                <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
-                <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
-                <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+        @if (jugadoresMesa > 0) {
+            <div id="usuarioUno">
+                <div>
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorUno">
+                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
+                    <span id="jugador1Texto">text</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
             </div>
-            <div class="InformacionJugador" id="InformacionJugadorUno">
-                <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                <span id="jugador1Texto">text</span>
-                <img class="iconoCartas" src="cartas.png" alt="">
-                <span id="jugador1Cartas">6</span>
-            </div>
-        </div>
+        }
 
-        @if (jugadoresMesa < 5) {
+        @if (jugadoresMesa < 5 && jugadoresMesa > 1) {
             <div id="usuariodos">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -102,7 +104,7 @@
     </div>
     <div id="chatYcerrarPartida">
         
-        <h2 id="codigoSala">Codigo sala: XXXXX</h2>
+        <h2 id="codigoSala">Codigo sala: {{idMesa}}</h2>
         <hr>
         
         <div id="cajaChat">
@@ -112,7 +114,6 @@
 
             </div>
         </div>
-
         <button id="botonAcabarPartida" (click)="acabarPartida()">Acabar partida</button>
     </div>
 </div>

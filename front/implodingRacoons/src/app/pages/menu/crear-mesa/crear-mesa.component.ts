@@ -8,6 +8,7 @@ import { CrearMesaService } from '../../../service/crear-mesa.service';
 import { FormsModule } from '@angular/forms';
 import { WebsocketsEnviar } from '../../../models/websockets-enviar';
 import { JsonPipe } from '@angular/common';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-crear-mesa',
@@ -19,6 +20,7 @@ import { JsonPipe } from '@angular/common';
 export class CrearMesaComponent {
 
   logueado: boolean = false;
+  idHost: number = 0;
 
   tamanioSala: number = 2;
   salaConContrasenia: boolean = false;
@@ -32,6 +34,8 @@ export class CrearMesaComponent {
   ngOnInit(): void {
     if(this.authService.existeUsuario()) {
       this.logueado = true
+
+      this.idHost = this.authService.cogerIdJwt()
     }
   }
   
@@ -41,8 +45,8 @@ export class CrearMesaComponent {
   crearSala() {
     const enviarJson: WebsocketsEnviar = {
       TypeMessage: "create",
-      Identifier: "1",
-      Identifier2: "2"
+      Identifier: this.idHost.toString(),
+      Identifier2: this.tamanioSala.toString()
     }
 
     const enviar: string = JSON.stringify(enviarJson)

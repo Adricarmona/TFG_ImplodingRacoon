@@ -6,15 +6,8 @@
 
         public static Game anadirMesa(string identifier2)
         {
-            int numeroMasAlto = 1;
-
-            foreach (Game gameEmpezado in games)
-            {
-                if (gameEmpezado.IdSala >= numeroMasAlto) { numeroMasAlto = gameEmpezado.IdSala++; }
-            }
-
             Game game = new Game();
-            game.IdSala = numeroMasAlto;
+            game.IdSala = games.Count + 1;
             game.usuariosMaximos = Int32.Parse(identifier2); 
 
             games.Add(game);

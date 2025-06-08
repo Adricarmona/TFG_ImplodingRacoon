@@ -62,7 +62,7 @@ namespace implodingRacoon.Services.WebSocketService
                     else
                     {
 
-                        if (mesa.cogerUsuariosMesa().Count >= mesa.usuariosMaximos)
+                        if (mesa.cogerUsuariosMesa().Count > mesa.usuariosMaximos)
                         {
                             JsonWebsoket messageToEnviar = new JsonWebsoket
                             {
@@ -127,7 +127,6 @@ namespace implodingRacoon.Services.WebSocketService
                                     {
                                         if (handler.Usuario != null)
                                         {
-
 
                                             if (handler.Usuario.Id == usuarios.Id && handler.Usuario != userHandler.Usuario)
                                             {
@@ -215,7 +214,7 @@ namespace implodingRacoon.Services.WebSocketService
             }
         }
 
-        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser)
+        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser, List<WebSocketHandler> handlers)
         {
             if (receivedUser.Identifier == null || receivedUser.Identifier == "")
             {
@@ -228,23 +227,38 @@ namespace implodingRacoon.Services.WebSocketService
 
                 userHandler.SendAsync(mensageEnviar);
             }
+            else if(receivedUser.Identifier2 == null || receivedUser.Identifier2 == "")
+            {
+                JsonWebsoket messageToEnviar = new JsonWebsoket
+                {
+                    type = 2,
+                    message = "Jugadores maximos no ingresados"
+                };
+                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                userHandler.SendAsync(mensageEnviar);
+            }
             else
             {
                 Game partida = Games.anadirMesa(receivedUser.Identifier2);
 
                 UserGame newuser = new UserGame(Int32.Parse(receivedUser.Identifier));
                 userHandler.Usuario = newuser;
+
                 partida.anadirUsuarioMesa(newuser);
 
                 JsonWebsoket messageToEnviar = new JsonWebsoket
                 {
                     type = 2,
-                    message = partida.IdSala+""
+                    message = partida.IdSala + ""
                 };
                 string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
 
                 userHandler.SendAsync(mensageEnviar);
+
             }
+
+
         }
 
         public bool buscarUsuario(WebSocketHandler userHandler)

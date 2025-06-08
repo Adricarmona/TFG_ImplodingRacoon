@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { WebsocketService } from './websocket.service';
-import { Subscription } from 'rxjs';
 import { JsonWebsoket } from '../models/json-websoket';
+import { ApiService } from './api.service';
+import { Mesa } from '../models/mesa';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +12,19 @@ export class MesaService {
   messageReceived$: Subscription;
   disconnected$: Subscription;
 
-  usersLogged = 0;
+  numeroMesa: string;
 
-  constructor(public webSocketService: WebsocketService) 
+  mesa: Mesa;
+
+  constructor(
+    public webSocketService: WebsocketService,
+    public apiService: ApiService,
+  ) 
   {
     this.messageReceived$ = this.webSocketService.messageReceived.subscribe(async message => 
       await this.readMessage(message)
     );
+
   }
 
 
@@ -32,19 +40,27 @@ export class MesaService {
     }
   }
 
-  handleSocketMessage(parsedMessage: JsonWebsoket) {
-    if(parsedMessage.type == 2) {
-      if (parsedMessage.message == "dato ingresado incorrectamente") {
-        console.log("error al crear la sala")
+  async handleSocketMessage(parsedMessage: JsonWebsoket) {
+    if(parsedMessage.type == 3) {
+      if (parsedMessage.message == "new user") {
+        this.mesa = await this.cogerDatosMesa(this.numeroMesa)
       } else {
-        console.log("ha funcionado")
-        const url: string = "partida/:"+parsedMessage.message
-        window.location.href = url
+        console.log("error al iniciar sesion")
       }
     }
   }
 
   sendMessage(mensaje: string) {
     this.webSocketService.sendRxjs(mensaje)
+  }
+
+  async cogerDatosMesa(numero: string):Promise<Mesa> {
+    try {
+      const datosMesa = await this.apiService.get<Mesa>("Mesa/GetMesaById/"+numero)
+      return datosMesa.data
+    } catch (error) {
+      console.log(error)
+      return null
+    }
   }
 }

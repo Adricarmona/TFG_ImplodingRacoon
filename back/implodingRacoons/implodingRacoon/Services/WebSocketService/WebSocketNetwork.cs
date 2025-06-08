@@ -137,6 +137,7 @@ namespace implodingRacoon.Services.WebSocketService
              *  Mesas de partidas
              */
 
+            /*
             List<Game> mesas = Games.mesas();
 
             foreach (WebSocketHandler wsHandler in handlers)
@@ -166,6 +167,7 @@ namespace implodingRacoon.Services.WebSocketService
 
 
             }
+            */
 
             // Esperamos a que todas las tareas de envío de mensajes se completen
             await Task.WhenAll(tasks);
@@ -212,7 +214,7 @@ namespace implodingRacoon.Services.WebSocketService
             {
                 case "create":
 
-                    webSocketService.crearSala(userHandler, receivedUser);
+                    webSocketService.crearSala(userHandler, receivedUser, _handlers);
 
                     break;
 

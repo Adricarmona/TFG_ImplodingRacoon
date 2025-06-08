@@ -1,51 +1,55 @@
 <div class="fondo">
     <div class="centrado">
         <div>
+<<<<<<< Updated upstream
             <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
+=======
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" />
+>>>>>>> Stashed changes
         </div>
         <div id="cuadradoCentrar">
-            
-            @if (logueado) {
+            <ng-container *ngIf="logueado; else sinLogueo">
                 <app-logueado></app-logueado>
-            }
-            @else {
+            </ng-container>
+            <ng-template #sinLogueo>
                 <app-sin-loguear></app-sin-loguear>
-            }
+            </ng-template>
 
-            <hr>
+            <hr/>
 
-            <form (submit)="submit()" [formGroup]="form">
-
+            <form (submit)="submit()" [formGroup]="form" novalidate>
                 <h2 id="tituloLogin">Login</h2>
 
-                <div>
-
-                    <label for="correoOrUser" class="negrita">Email o Usuario</label>
-                    <br>
-                    <input type="text" name="correo O usuario" id="texto" class="rectangulos" formControlName="email" required>
-                    <br>
-
-                    <label for="contraseña" class="negrita">Contraseña</label>
-                    <br>
-                    <input type="text" name="contraseña" id="texto" class="rectangulos" formControlName="password" required>
-                    <br>
-
-                    <div id="texto">
-                        <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{standalone: true}"/>
-                        <label for="recordar" class="negrita">Recordar</label>
-                    </div>
-
+                <div class="campo">
+                    <label class="negrita">Email o Usuario</label>
+                    <input type="text" class="rectangulos" formControlName="email" autocomplete="username" />
+                    <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                        Debes ingresar un email o usuario válido.
+                    </small>
                 </div>
 
+                <div class="campo">
+                    <label class="negrita">Contraseña</label>
+                    <input type="password" class="rectangulos" formControlName="password"
+                        autocomplete="current-password" />
+                    <small *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                        La contraseña es obligatoria.
+                    </small>
+                </div>
 
-                <input type="submit" value="Iniciar sesion" class="rectangulos" id="botones">
+                <div class="campo checkbox-campo">
+                    <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{ standalone: true }"
+                        id="recordar" />
+                    <label for="recordar" class="negrita">Recordar</label>
+                </div>
 
+                <input type="submit" value="Iniciar sesión" class="rectangulos" id="botones"
+                    [disabled]="form.invalid" />
             </form>
 
-            <hr>
+            <hr/>
 
             <app-footer></app-footer>
-            
         </div>
     </div>
 </div>

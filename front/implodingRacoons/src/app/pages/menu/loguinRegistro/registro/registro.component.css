@@ -6,6 +6,25 @@
     background-position: center;
 }
 
+/* Contenedor de cada campo */
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+}
+
+input.rectangulos {
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Mantén tus estilos existentes */
+
+
 .centrado {
     display: flex;
     flex-direction: column;
@@ -41,7 +60,8 @@ hr {
 **/
 
 
-form { /*       Form centrado   */
+form {
+    /*       Form centrado   */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,7 +70,7 @@ form { /*       Form centrado   */
     margin: 2vh;
 }
 
-#tituloRegistro  {
+#tituloRegistro {
     font-size: 3em;
 }
 
@@ -59,12 +79,12 @@ form { /*       Form centrado   */
 .rectangulos {
     background-color: white;
     border-radius: 10px;
-    background-color: white; 
+    background-color: white;
     border: 1px solid #000000;
 }
 
 /*     Texto al ingresar       */
-#texto { 
+#texto {
     padding: 0.5vh;
     margin-bottom: 2vh;
 }
@@ -80,7 +100,7 @@ form { /*       Form centrado   */
     background-color: white;
     border-radius: 10px;
     cursor: pointer;
-    background-color: white; 
+    background-color: white;
     border: 1px solid #000000;
 
     padding: 1vh 2.5vh;
@@ -94,4 +114,29 @@ form { /*       Form centrado   */
 
 #botones:active {
     transform: scale(0.8);
+}
+
+/* Inputs inválidos y tocados (error) */
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    background-color: #ffe5e5;
+}
+
+/* Inputs válidos y tocados (opcional) */
+input.ng-valid.ng-touched {
+    border: 2px solid green;
+    background-color: #e6ffe6;
+}
+
+/* Transiciones suaves */
+input {
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Texto pequeño para errores */
+small {
+    color: red;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 3px;
 }

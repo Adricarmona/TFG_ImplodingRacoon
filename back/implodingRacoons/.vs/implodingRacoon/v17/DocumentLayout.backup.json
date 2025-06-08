@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\implodingracoon.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\implodingracoon.csproj.backup.tmp||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|c:\\users\\hecto\\onedrive\\documentos\\github\\tfg_implodingracoon\\back\\implodingracoons\\implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2018A73-F613-4104-BC1D-33C0A953D2C7}|implodingRacoon\\implodingRacoon.csproj|solutionrelative:implodingracoon\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,36 +34,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 863,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "implodingRacoon.csproj.Backup.tmp",
-              "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\implodingRacoon.csproj.Backup.tmp",
-              "RelativeDocumentMoniker": "implodingRacoon\\implodingRacoon.csproj.Backup.tmp",
-              "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\implodingRacoon.csproj.Backup.tmp",
-              "RelativeToolTip": "implodingRacoon\\implodingRacoon.csproj.Backup.tmp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-04T17:53:33.696Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\AuthController.cs",
               "RelativeToolTip": "implodingRacoon\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAIwGQAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwGQAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T09:25:35.118Z"
+              "WhenOpened": "2025-06-02T09:25:35.118Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Models\\Database\\Entities\\Usuario.cs",
@@ -79,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Services\\UserService.cs",
@@ -91,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PublicacionController.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\PublicacionController.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\PublicacionController.cs",
@@ -100,14 +92,6 @@
               "ViewState": "AgIAAA0AAAAAAAAAAAAjwCkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T16:53:22.612Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             }
           ]
         },
@@ -133,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "FileHelper.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\FileHelper.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Services\\FileHelper.cs",
@@ -145,13 +129,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\hecto\\OneDrive\\Documentos\\GitHub\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Controllers\\UserController.cs",
               "RelativeToolTip": "implodingRacoon\\Controllers\\UserController.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAAUwJoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowJoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T17:57:25.905Z",
               "EditorCaption": ""

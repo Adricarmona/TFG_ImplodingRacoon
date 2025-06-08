@@ -8,13 +8,8 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../../../service/auth.service';
 import { AuthRequest } from '../../../../models/auth-request';
-<<<<<<< Updated upstream
 import { FooterComponent } from "../../componentes/footer/footer.component";
 import { Router, RouterModule } from '@angular/router';
-=======
-import { FooterComponent } from '../../componentes/footer/footer.component';
-import { Router } from '@angular/router';
->>>>>>> Stashed changes
 import { LogueadoComponent } from '../../componentes/navbar/logueado/logueado.component';
 import { SinLoguearComponent } from '../../componentes/navbar/sin-loguear/sin-loguear.component';
 import { NgIf } from '@angular/common';
@@ -22,18 +17,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-<<<<<<< Updated upstream
   imports: [FormsModule, ReactiveFormsModule, LogueadoComponent, SinLoguearComponent, FooterComponent, RouterModule],
-=======
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    LogueadoComponent,
-    SinLoguearComponent,
-    FooterComponent,
-    NgIf
-  ],
->>>>>>> Stashed changes
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

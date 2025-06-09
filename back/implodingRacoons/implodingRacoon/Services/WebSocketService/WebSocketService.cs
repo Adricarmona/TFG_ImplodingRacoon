@@ -11,11 +11,12 @@ namespace implodingRacoon.Services.WebSocketService
 {
     public class WebSocketService
     {
+        private static List<WebSocketHandler> userHandlerHost = new List<WebSocketHandler>();
 
         /**
          *  Funcion para unirse a una mesa
          */
-        public void unirseMesa(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, List<WebSocketHandler> handlers)
+        public void unirseMesa(RecivedUserWebSocket receivedUser, WebSocketHandler userHandler, WebSocketHandler[] handlers)
         {
             /// primer identifier es la mesa
             /// segundo identifier es el id del jugador
@@ -119,32 +120,37 @@ namespace implodingRacoon.Services.WebSocketService
                                 userHandler.SendAsync(mensageEnviar);
 
                                 /*
-                                 *  Esto no va y creo ahora que no hace falta
-                                 */
+                                 *  Esto no va 
+
                                 foreach (UserGame usuarios in mesa.cogerUsuariosMesa())
                                 {
-                                    foreach (WebSocketHandler handler in handlers)
+                                    foreach (WebSocketHandler handler in userHandlerHost)
                                     {
-                                        if (handler.Usuario != null)
+
+                                        JsonWebsoket messageToEnviarOtros = new JsonWebsoket
                                         {
+                                            type = 3,
+                                            message = "new user"
+                                        };
+                                        string mensageEnviarOtros = JsonSerializer.Serialize(messageToEnviar);
 
-                                            if (handler.Usuario.Id == usuarios.Id && handler.Usuario != userHandler.Usuario)
-                                            {
-
-                                                JsonWebsoket messageToEnviarOtros = new JsonWebsoket
-                                                {
-                                                    type = 3,
-                                                    message = "new user"
-                                                };
-                                                string mensageEnviarOtros = JsonSerializer.Serialize(messageToEnviar);
-
-                                                handler.SendAsync(mensageEnviarOtros);
-                                                //handler.SendAsync("Usuario unido: " + usuarios.Id + " handler usuario: " + handler.Usuario.Id + " usuarios: " + usuarios.Id);
-                                            }
-                                        }
+                                        handler.SendAsync(mensageEnviarOtros);
 
                                     }
 
+                                }
+                                */
+
+                                foreach (var item in handlers)
+                                {
+                                    JsonWebsoket messageToEnviarOtros = new JsonWebsoket
+                                    {
+                                        type = 3,
+                                        message = "new user"
+                                    };
+                                    string mensageEnviarOtros = JsonSerializer.Serialize(messageToEnviar);
+
+                                    item.SendAsync(mensageEnviarOtros);
                                 }
 
                             }
@@ -214,7 +220,7 @@ namespace implodingRacoon.Services.WebSocketService
             }
         }
 
-        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser, List<WebSocketHandler> handlers)
+        public void crearSala(WebSocketHandler userHandler, RecivedUserWebSocket receivedUser)
         {
             if (receivedUser.Identifier == null || receivedUser.Identifier == "")
             {
@@ -244,6 +250,7 @@ namespace implodingRacoon.Services.WebSocketService
 
                 UserGame newuser = new UserGame(Int32.Parse(receivedUser.Identifier));
                 userHandler.Usuario = newuser;
+                userHandlerHost.Add(userHandler);
 
                 partida.anadirUsuarioMesa(newuser);
 

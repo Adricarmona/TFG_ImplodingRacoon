@@ -7,7 +7,7 @@
             <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
         </div>
 
-        @if (jugadoresMesa > 0) {
+        @if (mesa.jugadores.length > 1) {
             <div id="usuarioUno">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -23,7 +23,7 @@
             </div>
         }
 
-        @if (jugadoresMesa < 5 && jugadoresMesa > 1) {
+        @if (mesa.jugadores.length  < 5 && mesa.jugadores.length  > 1) {
             <div id="usuariodos">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -39,7 +39,7 @@
             </div>
         }
 
-        @if (jugadoresMesa > 2) {
+        @if (mesa.jugadores.length  > 2) {
             <div id="usuariotres">
                 <div id="cartas90Grados">
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -55,7 +55,7 @@
             </div>
         }
 
-        @if (jugadoresMesa > 3) {
+        @if (mesa.jugadores.length  > 3) {
             <div id="usuariocuatro">
                 <div id="cartas-90Grados">
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -71,7 +71,7 @@
             </div>
         }
 
-        @if (jugadoresMesa == 5) {
+        @if (mesa.jugadores.length  == 5) {
             <div id="usuariocinco">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  

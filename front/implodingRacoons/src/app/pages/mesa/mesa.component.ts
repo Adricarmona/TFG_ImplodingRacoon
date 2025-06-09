@@ -20,8 +20,6 @@ export class MesaComponent {
   messageReceived$: Subscription;
   disconnected$: Subscription;
 
-  numeroMesa: string;
-
   mesa: Mesa;
 
   cartasMedio = "http://localhost:5097/cards/parteAtras.png"
@@ -71,8 +69,11 @@ export class MesaComponent {
 
   async handleSocketMessage(parsedMessage: JsonWebsoket) {
     if(parsedMessage.type == 3) {
-      if (parsedMessage.message == "new user") {
-        this.mesa = await this.cogerDatosMesa(this.numeroMesa)
+      if (parsedMessage.message == "True") {
+        this.mesa = await this.cogerDatosMesa(this.idMesa)
+        console.log(this.mesa)
+      } else if (parsedMessage.message == "new user") {
+        this.mesa = await this.cogerDatosMesa(this.idMesa)
         console.log(this.mesa)
       } else {
         console.log("error al iniciar sesion")

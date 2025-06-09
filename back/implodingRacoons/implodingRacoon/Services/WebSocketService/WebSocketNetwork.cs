@@ -214,7 +214,7 @@ namespace implodingRacoon.Services.WebSocketService
             {
                 case "create":
 
-                    webSocketService.crearSala(userHandler, receivedUser, _handlers);
+                    webSocketService.crearSala(userHandler, receivedUser);
 
                     break;
 
@@ -241,7 +241,7 @@ namespace implodingRacoon.Services.WebSocketService
 
                 case "join":
 
-                    webSocketService.unirseMesa(receivedUser, userHandler, _handlers);
+                    webSocketService.unirseMesa(receivedUser, userHandler, handlers);
 
                     break;
 

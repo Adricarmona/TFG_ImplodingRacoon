@@ -107,9 +107,11 @@
 #irAlPerfil:hover {
     background-color: rgba(128, 128, 128, 0.138);
     transform: scale(0.95);
+    cursor: pointer;
 }
 
 #cerrarSession:hover {
     background-color: rgba(128, 128, 128, 0.138);
     transform: scale(0.95);
+    cursor: pointer;
 }

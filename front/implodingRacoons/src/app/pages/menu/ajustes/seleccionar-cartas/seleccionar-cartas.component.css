@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.fondo {
+    min-height: 100vh;
+    background-image: url(../../../../../../public/ImplodingRaccoonsFondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logotipo {
+    height: 25vh;
+}
+
+#cuadradoCentrar {
+    border-radius: 30px;
+    border: 4px solid black;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px;
+
+    text-align: center;
+}
+
+/***
+*       LINEA
+*/
+hr {
+    border: none;
+    border-top: 4px solid #000;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/**         Boton           **/
+
+.botonesMedio {
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white; 
+    border: 1px solid #000000;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+#botonesFlechas {
+    padding: 5px;
+}
+
+#seleccionarTipoCartasBoton {
+    padding: 8px;
+    margin-top: 10px;
+}
+
+#volver {
+    padding: 10px 20px;
+}
+
+#fondoTarjeta {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid black;
+
+    display: flex;
+
+    margin: 20px;
+    padding: 20px;
+}
+
+#carta {
+    height: 20vh;
+    width: 15vw;
+}
+
+#ladoDerechaCarta {
+    margin-left: 2vw;
+    width: 100%;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+span.margin0 {
+    color: gray;
+}
+
+#marginTop {
+    margin-top: 10px;
+}
+
+p.margin0 {
+    width: 20vw;
+}

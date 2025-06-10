@@ -12,6 +12,7 @@ import { SobreNosotrosComponent } from './pages/menu/sobre-nosotros/sobre-nosotr
 import { CrearMesaComponent } from './pages/menu/crear-mesa/crear-mesa.component';
 import { UnirseComponent } from './pages/menu/unirse/unirse.component';
 import { MesaComponent } from './pages/mesa/mesa.component';
+import { SeleccionarCartasComponent } from './pages/menu/ajustes/seleccionar-cartas/seleccionar-cartas.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path: 'log', component: LoginComponent},
     {path: 'reg', component: RegistroComponent},
     {path: 'ajustes', component: AjustesComponent},
+    {path: 'ajustes/seleccionarCartas', component: SeleccionarCartasComponent},
     {path: 'unirMesa', component: UnirseComponent, canActivate:[redirectionGuardGuard]},
     {path: 'crearMesa', component: CrearMesaComponent, canActivate:[redirectionGuardGuard]},
     {path: 'sobre_nosotros', component: SobreNosotrosComponent},

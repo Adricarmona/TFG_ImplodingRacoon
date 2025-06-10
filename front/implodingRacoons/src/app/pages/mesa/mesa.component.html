@@ -15,15 +15,15 @@
                     <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
                 </div>
                 <div class="InformacionJugador" id="InformacionJugadorUno">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
+                    <img id="imagenPerfil" [src]="jugador1.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador1.nombreUsuario}}</span>
                     <img class="iconoCartas" src="cartas.png" alt="">
                     <span id="jugador1Cartas">6</span>
                 </div>
             </div>
         }
 
-        @if (mesa.jugadores.length  < 5 && mesa.jugadores.length  > 1) {
+        @if (mesa.jugadores.length < 6 && mesa.jugadores.length  > 2) {
             <div id="usuariodos">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -31,24 +31,8 @@
                     <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
                 </div>
                 <div class="InformacionJugador" id="InformacionJugadorDos">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
-                    <img class="iconoCartas" src="cartas.png" alt="">
-                    <span id="jugador1Cartas">6</span>
-                </div>
-            </div>
-        }
-
-        @if (mesa.jugadores.length  > 2) {
-            <div id="usuariotres">
-                <div id="cartas90Grados">
-                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
-                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
-                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
-                </div>
-                <div class="InformacionJugador" id="InformacionJugadorTres">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
+                    <img id="imagenPerfil" [src]="jugador2.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador2.nombreUsuario}}</span>
                     <img class="iconoCartas" src="cartas.png" alt="">
                     <span id="jugador1Cartas">6</span>
                 </div>
@@ -56,6 +40,22 @@
         }
 
         @if (mesa.jugadores.length  > 3) {
+            <div id="usuariotres">
+                <div id="cartas90Grados">
+                    <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
+                    <img id="cartaMedio" class="carta" [src]="cartasMedio" alt=""> 
+                    <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
+                </div>
+                <div class="InformacionJugador" id="InformacionJugadorTres">
+                    <img id="imagenPerfil" [src]="jugador3.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador3.nombreUsuario}}</span>
+                    <img class="iconoCartas" src="cartas.png" alt="">
+                    <span id="jugador1Cartas">6</span>
+                </div>
+            </div>
+        }
+
+        @if (mesa.jugadores.length  > 4) {
             <div id="usuariocuatro">
                 <div id="cartas-90Grados">
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -63,15 +63,15 @@
                     <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
                 </div>
                 <div class="InformacionJugador" id="InformacionJugadorCuatro">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
+                    <img id="imagenPerfil" [src]="jugador4.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador4.nombreUsuario}}</span>
                     <img class="iconoCartas" src="cartas.png" alt="">
                     <span id="jugador1Cartas">6</span>
                 </div>
             </div>
         }
 
-        @if (mesa.jugadores.length  == 5) {
+        @if (mesa.jugadores.length  == 6) {
             <div id="usuariocinco">
                 <div>
                     <img id="cartaAbajo" class="carta" [src]="cartasMedio" alt="">  
@@ -79,8 +79,8 @@
                     <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
                 </div>
                 <div class="InformacionJugador" id="InformacionJugadorCinco">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
+                    <img id="imagenPerfil" [src]="jugador5.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador5.nombreUsuario}}</span>
                     <img class="iconoCartas" src="cartas.png" alt="">
                     <span id="jugador1Cartas">6</span>
                 </div>
@@ -93,8 +93,8 @@
                     <img id="cartaArriba" class="carta" [src]="cartasMedio" alt="">       
                 </div>
                 <div class="InformacionJugador" id="InformacionJugadorDos_5jugadores">
-                    <img id="imagenPerfil" [src]="imagenPerfil" alt="Imagen del usuario">
-                    <span id="jugador1Texto">text</span>
+                    <img id="imagenPerfil" [src]="jugador2.urlFoto" alt="Imagen del usuario">
+                    <span id="jugador1Texto">{{jugador2.nombreUsuario}}</span>
                     <img class="iconoCartas" src="cartas.png" alt="">
                     <span id="jugador1Cartas">6</span>
                 </div>

@@ -1,0 +1,48 @@
+<div class="fondo">
+    <div class="centrado">
+        <div>
+            <img id="logotipo" src="img_imploding_racoons_logo.png" alt="iconoImplodingRacoons" routerLink="/">
+        </div>
+        <div id="cuadradoCentrar">
+            
+            @if (logueado) {
+                <app-logueado></app-logueado>
+            }
+            @else {
+                <app-sin-loguear></app-sin-loguear>
+            }
+
+            <hr>
+            
+            <h3>Seleccionar carta</h3>
+
+            <div>
+                <Button class="botonesMedio" id="botonesFlechas" (click)="cambiarTipo('-')">🡰</Button>
+                <Span>{{tipo[posicionTipoCartas]}}</Span>
+                <button class="botonesMedio" id="botonesFlechas" (click)="cambiarTipo('+')">🡲</button>
+            </div>
+
+            <button id="seleccionarTipoCartasBoton" class="botonesMedio" (click)="guardarCartas()">Seleccionar tipo cartas</button>
+
+            @for (item of cartas; track $index) {
+                <div id="fondoTarjeta">
+                    <img id="carta" [src]="item.urlImage" alt="imagen de la carta que toca">
+                    <div id="ladoDerechaCarta">
+                        <h2 class="margin0">{{item.titulo}}</h2>
+                        <span class="margin0">{{item.tipo}}</span>
+                        <p id="marginTop" class="margin0">{{item.descripcion}}</p>
+                    </div>
+                </div>
+            }
+
+
+            <div class="botones">
+                <button class="botonesMedio" id="volver" routerLink="/ajustes">Volver</button>
+            </div>
+
+            <hr>
+
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>

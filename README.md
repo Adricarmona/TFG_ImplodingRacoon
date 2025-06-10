@@ -17,6 +17,8 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 
 [Link Diario](https://docs.google.com/document/d/1ykSWTH5ng5t6gG1ch_GlARGJf0C_IkZsw6Mv_BXGNj8/edit?usp=sharing)
 
+[Link Bibliografía](https://docs.google.com/document/d/1w_xTWf-9QZqmXfvSSTI0e1SMhiPbspHXHI4B-9iy7jE/edit?usp=sharing)
+
 Diagrama Entidad Relacion:  
 ![Diagrama_ER](recursosReadme/image.png) 
 
@@ -25,10 +27,3 @@ Diagrama Entidad Relacion:
 [Link apk android](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/implodingRacoon_apk_24-05-25.apk) -
 [Link web desplegada](https://imploding-racoons.vercel.app/) 
  
-## Deployment
-
-To deploy this project run
-
-```bash
-  aqui ira para ejecutarlo y eso
-```

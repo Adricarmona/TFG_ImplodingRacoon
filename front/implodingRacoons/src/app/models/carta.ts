@@ -1,6 +1,7 @@
 export interface Carta {
-    Id: number,
-    Titulo: string,
-    Descripcion: string,
-    Tipo: string
+    id: number,
+    titulo: string,
+    descripcion: string,
+    tipo: string,
+    urlImage: string
 }

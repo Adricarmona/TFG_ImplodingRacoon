@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { MesaService } from '../../service/mesa.service';
 import { ActivatedRoute } from '@angular/router';
 import { WebsocketService } from '../../service/websocket.service';
 import { ApiService } from '../../service/api.service';
 import { Mesa } from '../../models/mesa';
 import { Subscription } from 'rxjs';
 import { JsonWebsoket } from '../../models/json-websoket';
-import { tick } from '@angular/core/testing';
 import { UsuariosSimple } from '../../models/usuarios-simple';
 import { UserGame } from '../../models/user-game';
 import { UsersService } from '../../service/users.service';
+import { CartasService } from '../../service/cartas.service';
 
 @Component({
   selector: 'app-mesa',
@@ -24,9 +23,9 @@ export class MesaComponent {
   disconnected$: Subscription;
 
   mesa: Mesa;
+  posicionTipoCartas: number;
 
   cartasMedio = "http://localhost:5097/cards/parteAtras.png"
-  imagenPerfil = "http://localhost:5097/iconos/47db4364-eb50-496a-ac7a-4481e5db1b60_cueto.png"
 
   public idMesa: string = ""
 
@@ -40,11 +39,15 @@ export class MesaComponent {
     private route: ActivatedRoute, 
     public webSocketService: WebsocketService,
     public apiService: ApiService,
-    public userService: UsersService
+    public userService: UsersService,
+    private cartaService: CartasService
   ) {
     this.messageReceived$ = this.webSocketService.messageReceived.subscribe(async message => 
       await this.readMessage(message)
     );
+
+    const numero = parseInt(localStorage.getItem('tipoCarta'))
+    this.posicionTipoCartas = (numero == 0 || numero == 1) ? numero : 0
 
   }
 
@@ -55,6 +58,8 @@ export class MesaComponent {
 
     this.mesa = await this.cogerDatosMesa(this.idMesa)
     console.log(this.mesa)
+
+    this.cartasMedio = (await this.cartaService.cogerCartaPorTipoYId(14, this.posicionTipoCartas)).urlImage
   }
 
   acabarPartida() {

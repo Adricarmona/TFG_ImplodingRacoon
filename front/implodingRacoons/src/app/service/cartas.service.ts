@@ -15,4 +15,9 @@ export class CartasService {
     const dato = await this.apiService.get<Carta[]>("Cards/GetCardByIdImage/type="+numero)
     return dato.data
   }
+
+  async cogerCartaPorTipoYId(id: number, tipo: number) {
+    const dato = await this.apiService.get<Carta>("Cards/GetCardByIdImage/id=" + id + "type=" + tipo)
+    return dato.data
+  }
 }

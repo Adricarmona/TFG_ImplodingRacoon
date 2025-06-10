@@ -54,6 +54,8 @@ namespace implodingRacoon.Controllers
                 return NotFound("No se encontró la carta");
             }
 
+            card = _imagenMapper.AddCorrectPathCards(card, Request);
+
             return Ok(card);
         }
 

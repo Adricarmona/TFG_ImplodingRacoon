@@ -55,7 +55,7 @@ namespace implodingRacoon.Services
             } 
             else
             {
-                urlimagen = "https://images.steamusercontent.com/ugc/1242379645142561979/40C6DB79932467F7B2E540CD75FC6033E5BF8B57/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"; // aqui no deveria entrar nunca por ahora
+                urlimagen = "cards/cartaMapache.png";
             }
 
             CardWithDisenio cardWithDisenio = new CardWithDisenio
@@ -92,7 +92,7 @@ namespace implodingRacoon.Services
                 }
                 else
                 {
-                    urlimagen = "https://images.steamusercontent.com/ugc/1242379645142561979/40C6DB79932467F7B2E540CD75FC6033E5BF8B57/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"; // aqui no deveria entrar nunca por ahora
+                    urlimagen = "cards/cartaMapache.png";
                 }
 
                 CardWithDisenio cardWithDisenio = new CardWithDisenio

@@ -71,7 +71,8 @@ fun Navigation() {
                 onLoginClick = { navController.navigate("login") },
                 onRegisterClick = { navController.navigate("registro") },
                 onPerfilClick = { navController.navigate("perfil") },
-                onAmigosClick = { navController.navigate("amigos") }
+                onAmigosClick = { navController.navigate("amigos") },
+                onMenuClick = { navController.navigate("menu")}
             )
         }
         composable("ajustes") {

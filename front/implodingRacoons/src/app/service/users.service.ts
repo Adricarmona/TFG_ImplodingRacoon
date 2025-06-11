@@ -54,7 +54,37 @@ export class UsersService {
   }
 
   async eliminarUsuario(idUsuario: string) {
-        const resultado = await this.apiService.delete<AuthResponse>("User/DeleteUser/" + idUsuario)
+    const resultado = await this.apiService.delete<AuthResponse>("User/DeleteUser/" + idUsuario)
+    return resultado.data
+  }
+
+  async obtenerSolicitudes(idUsuario: string) {
+    const resultado = await this.apiService.get<UsuarioAmigo[]>("User/GetFriendRequests/" + idUsuario)
+    return resultado.data
+  }
+
+  async obtenerUsuariosPorAmigos(idUsuario: string, nombre: string) {
+    const resultado = await this.apiService.get<UsuarioAmigo[]>("User/GetUsersByIdAndNameForFriends/"+idUsuario+"?name="+nombre)
+    return resultado.data
+  }
+
+  async obtenerUsuariosPorAmigosSoloId(idUsuario: string) {
+    const resultado = await this.apiService.get<UsuarioAmigo[]>("User/GetUsersByIdAndNameForFriends/"+idUsuario)
+    return resultado.data
+  }
+
+  async eliminarFriendRequestAmigo(idUsuario: string, idAmigoEliminar: string) {
+    const resultado = await this.apiService.delete("User/DeleteFriendRequest/"+ idUsuario +"?idFriend="+ idAmigoEliminar)
+    return resultado.data
+  }
+
+  async agregarFriendRequest(idUsuario: string, idAmigoEliminar: string) {
+    const resultado = await this.apiService.put("User/AcceptFriendRequest?id="+ idUsuario +"&friendId="+ idAmigoEliminar)
+    return resultado.data
+  }
+
+  async enviarSolcitudAmistad(idUsuario: string, idAmigoEliminar: string) {
+    const resultado = await this.apiService.put("User/SetFriendRequest?id="+ idUsuario +"&friendId="+ idAmigoEliminar)
     return resultado.data
   }
 

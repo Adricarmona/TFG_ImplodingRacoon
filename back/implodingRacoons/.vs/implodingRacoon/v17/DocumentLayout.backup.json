@@ -90,8 +90,8 @@
               "Title": "CardsService.cs",
               "DocumentMoniker": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\CardsService.cs",
               "RelativeDocumentMoniker": "implodingRacoon\\Services\\CardsService.cs",
-              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\CardsService.cs*",
-              "RelativeToolTip": "implodingRacoon\\Services\\CardsService.cs*",
+              "ToolTip": "D:\\TFG\\TFG_ImplodingRacoon\\back\\implodingRacoons\\implodingRacoon\\Services\\CardsService.cs",
+              "RelativeToolTip": "implodingRacoon\\Services\\CardsService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T21:16:37.056Z",
@@ -107,8 +107,7 @@
               "RelativeToolTip": "implodingRacoon\\Seeder.cs",
               "ViewState": "AgIAAGIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T21:16:00.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T21:16:00.413Z"
             },
             {
               "$type": "Document",
@@ -120,8 +119,7 @@
               "RelativeToolTip": "implodingRacoon\\Controllers\\cardsController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowEAAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T20:39:35.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-10T20:39:35.52Z"
             },
             {
               "$type": "Document",

@@ -1,6 +1,6 @@
 <div class="grid-container">
     <div class="botonAmigos">
-        <button class="botones" id="amigosBoton">Amigos</button>
+        <button class="botones" id="amigosBoton" (click)="modal()">Amigos</button>
     </div>
     <div class="usuariosConectados">
         Usuarios conectados: {{menusoket.usersLogged}}
@@ -23,6 +23,61 @@
                 </div>
             }
     </div>
-
-
 </div>
+
+
+@if (modalMoificacionUsuario) {
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="buscador" (click)="modal()">X</button>
+            <div class="grid">
+                <div class="amistades">
+                    <h3>Amistades</h3>
+                    <button class="buscador" (click)="recargarAmigos()">🔁</button>
+                    <div>
+                        @for (item of amigos; track $index) {
+                            <div id="tarjeta">
+                                <img id="tarjetaIconoAmigo" [src]="item.foto" alt="">
+                                <p>{{item.nombreUsuario}}</p>
+                                <Button id="eliminarButton" class="botonesModal" (click)="eliminarAmigo(item.id)">Eliminar Amistad</Button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="solicitudes">
+                    <h3>Solicitudes</h3>
+                    <button class="buscador" (click)="recargarSolicitudesAmigos()">🔁</button>
+                    <div>
+                        @for (item of amigosSolicitudes; track $index) {
+                            <div id="tarjeta">
+                                <img id="tarjetaIconoAmigo" [src]="item.foto" alt="">
+                                <p>{{item.nombreUsuario}}</p>
+                                <Button id="eliminarButton" class="botonesModal" (click)="eliminarFriendRequest(item.id)">Eliminar</Button>
+                                <Button id="aceptarButton" class="botonesModal" (click)="agreagarFirendRequest(item.id)">Aceptar</Button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="enviarSolicitudes">
+                    <h3>Enviar solicitudes</h3>
+                    <div>
+                        <input class="buscador" type="text" name="buscadorUsuario" id="" [(ngModel)]="nombreUsuarioBuscar">
+                        <input class="buscador" id="buscarLupa" type="image" src="buscar.png" alt="" (click)="BuscarUsuario()">
+                    </div>
+                    <div>
+                        @for (item of amigosEnviarSolicitudes; track $index) {
+                            <div id="tarjeta">
+                                <img id="tarjetaIconoAmigo" [src]="item.foto" alt="">
+                                <p>{{item.nombreUsuario}}</p>
+                                <Button id="aceptarButton2" class="botonesModal" (click)="enviarSolicitudAmistad(item.id)">Enviar solicitud</Button>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

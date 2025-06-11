@@ -35,7 +35,7 @@ fun ajustes(
 ){
 
     val context = LocalContext.current
-    val sharedPref = remember { context.getSharedPreferences("AjustesIplodingRacoon", Context.MODE_PRIVATE) }
+    val sharedPref = remember { context.getSharedPreferences("AjustesImplodingRacoon", Context.MODE_PRIVATE) }
     val editorSharedPreferences = sharedPref.edit();
 
     if (sharedPref.getString("idioma", null) == null)
@@ -98,7 +98,7 @@ fun ajustes(
                     val colores = cambiarModoOscuro(context)
                     tema = colores
 
-                    Toast.makeText(context, "Reinicia la aplciacion para aplicar los cambios", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Reinicia la aplicacion para aplicar los cambios", Toast.LENGTH_SHORT).show()
                 }
             )
 

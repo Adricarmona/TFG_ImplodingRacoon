@@ -34,6 +34,10 @@
                     </small>
                 </div>
 
+                <div *ngIf="errorMsg" class="error-msg">
+                    {{ errorMsg }}
+                </div>
+
                 <div class="campo checkbox-campo">
                     <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{ standalone: true }"
                         id="recordar" />

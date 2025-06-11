@@ -20,6 +20,7 @@ export class RegistroComponent {
   form: FormGroup;
   logueado: boolean = false;
   remember: boolean = false;
+  errorMsg: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -56,7 +57,13 @@ export class RegistroComponent {
       remember: this.remember
     };
 
-    await this.authService.register(register);
-    await this.router.navigateByUrl('');
+    try {
+      this.errorMsg = null;
+      await this.authService.register(register);
+      await this.router.navigateByUrl('');
+    } catch (error) {
+      this.errorMsg = 'Error al hacer el registro. Intenta de nuevo'
+    }
+    
   }
 }

@@ -25,6 +25,7 @@ export class LoginComponent {
   form: FormGroup;
   remember: boolean = false;
   logueado: boolean = false;
+  errorMsg: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -56,9 +57,11 @@ export class LoginComponent {
     };
 
     try {
+      this.errorMsg = null
       await this.authService.login(authData);
       await this.router.navigateByUrl('');
     } catch (error) {
+      this.errorMsg = 'Usuario o contraseña incorrecta';
       console.error('Error en login:', error);
     }
   }

@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val sharedPref = this.getSharedPreferences("AjustesIplodingRacoon", Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences("AjustesImplodingRacoon", Context.MODE_PRIVATE)
         val tema = sharedPref.getString("tema", "System")
 
         var modoOscuro: Boolean? = false

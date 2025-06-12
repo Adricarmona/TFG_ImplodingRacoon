@@ -1,9 +1,11 @@
 package com.Tfg.juego.model.webSockets
 
+import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
+import kotlin.math.log
 
 class WebSocketManager {
     private val client = OkHttpClient()

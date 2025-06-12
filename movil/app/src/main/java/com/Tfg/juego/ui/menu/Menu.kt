@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.Tfg.juego.R
 import com.Tfg.juego.ui.usables.loguinRegistroArriba
 import com.Tfg.juego.ui.usables.BotonCustom
+import androidx.core.content.edit
 
 
 /**
@@ -40,6 +41,11 @@ fun menuInicial(
 ) {
     val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val context = LocalContext.current
+    //val BASE_URL = "http://10.0.2.2:5097/" // con http
+    //val BASE_URL = "https://10.0.2.2:7089/" // con https
+    val BASE_URL = "https://implodingracoons.tryasp.net/"
+
+    sharedPreferences.edit { putString("baseUrl", BASE_URL) }
 
     loguinRegistroArriba(
         onLoginClick = onLoginClick,

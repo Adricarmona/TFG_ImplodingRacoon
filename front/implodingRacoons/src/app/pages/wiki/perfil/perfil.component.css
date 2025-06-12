@@ -188,3 +188,9 @@ h4 {
     padding: 0.5em 1em;
     box-sizing: border-box;
 }
+
+@media (max-width: 1053px) {
+    .central {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

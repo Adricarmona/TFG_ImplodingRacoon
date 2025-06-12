@@ -92,3 +92,15 @@ h4 {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 1053px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 710px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

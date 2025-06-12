@@ -58,6 +58,19 @@ hr {
     margin-bottom: 20px;
 }
 
+.botones:hover {
+    transform: scale(0.95);
+}
+
+.botones:active {
+    transform: scale(0.9);
+}
+
 #volver {
     padding: 10px 20px;
+}
+
+#texto {
+    padding: 2vh;
+    max-width: 800px;
 }

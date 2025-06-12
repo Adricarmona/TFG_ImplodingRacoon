@@ -54,5 +54,5 @@
     <string name="nombreAmigo">nombre amigo</string>
     <string name="buscar">Buscar</string>
     <string name="nohayAmigos">No hay amigos</string>
-    <string name="sobre_nosotros_texto">Somos los locos detrás de Imploding Raccoons: un grupo de desarrolladores, artistas y amantes de los mapaches con demasiadas ideas y poco sueño. \n\nNuestro objetivo: crear el juego más absurdo, explosivo y divertido que puedas jugar antes de que un mapache implosione... o peor.  \n\nNo tenemos oficinas lujosas ni trajes caros. Solo una cafetera, muchos memes, y toneladas de entusiasmo por los videojuegos. \n\nGracias por jugar, reír, y apoyar a estos mapaches del caos.</string>
+    <string name="sobre_nosotros_texto">Imploding Raccoons es un proyecto desarrollado como Trabajo de Fin de Grado (TFG) por alumnos del ciclo formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) del CPIFP Alan Turing.\n\nSe trata de una plataforma que combina una wiki informativa y un juego online multijugador, inspirado en la mecánica del conocido juego de cartas Exploding Kittens. Nuestro objetivo ha sido diseñar una experiencia accesible, dinámica y entretenida, que demuestre nuestras competencias técnicas y creativas adquiridas a lo largo del ciclo formativo.</string>
 </resources>

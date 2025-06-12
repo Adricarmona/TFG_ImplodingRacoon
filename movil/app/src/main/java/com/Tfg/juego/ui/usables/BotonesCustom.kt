@@ -93,13 +93,16 @@ fun textoOscuroLoginRegistro(
 @Composable
 fun nombreUsuarios(
     text: String,
-    with: Dp = 300.dp
+    with: Dp = 300.dp,
+    textAlign: TextAlign = TextAlign.Start,
+    fontSize: Int = 22
 ) {
     Text(
         text = text,
-        fontSize = 22.sp,
+        fontSize = fontSize.sp,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.secondary,
+        textAlign = textAlign,
         modifier = Modifier.width(with)
     )
 }

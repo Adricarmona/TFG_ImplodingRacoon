@@ -81,7 +81,6 @@ fun menuInicial(
         )
         {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://imploding-racoons.vercel.app/wiki"))
-            //val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://10.0.2.2:4200/wiki"))
             context.startActivity(intent)
         }
 

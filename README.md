@@ -10,11 +10,11 @@ Juego movil y web inspirado en exploding kittens, de manera que la web sea la me
 [Link Anteproyecto](https://docs.google.com/document/d/1dbNNTdb8QzlD5lRAiDT1_BaWJLE6FMgzKpKCUVFwbn4/edit?usp=sharing)
 
 ## Screenshots
-![menu web](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/menu.png)
-![menu movil](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/movilMenu.jpg)
-![menu mesa](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/mesa.png)
-![wiki](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/wiki.png)
-![post wiki](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/post%20wiki.png) 
+![menu web](https://raw.githubusercontent.com/Adricarmona/TFG_ImplodingRacoon/refs/heads/main/recursosReadme/menu.png)
+![menu movil](https://raw.githubusercontent.com/Adricarmona/TFG_ImplodingRacoon/refs/heads/main/recursosReadme/movilMenu.jpg)
+![menu mesa](https://raw.githubusercontent.com/Adricarmona/TFG_ImplodingRacoon/refs/heads/main/recursosReadme/mesa.png)
+![wiki](https://raw.githubusercontent.com/Adricarmona/TFG_ImplodingRacoon/refs/heads/main/recursosReadme/wiki.png)
+![post wiki](https://raw.githubusercontent.com/Adricarmona/TFG_ImplodingRacoon/refs/heads/main/recursosReadme/post%20wiki.png) 
 
 ## Documentation
 [Link Trello](https://trello.com/b/0hjXPQi0/imploding-raccoons)

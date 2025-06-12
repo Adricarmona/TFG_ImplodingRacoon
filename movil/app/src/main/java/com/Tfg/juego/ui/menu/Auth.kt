@@ -1,5 +1,6 @@
 package com.Tfg.juego.ui.menu
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -51,6 +52,7 @@ fun login(
     val listener = remember {
         MyWebSocketListener { msg ->
             receivedMessages = receivedMessages + msg
+            Log.d("Mensaje", receivedMessages.toString())
         }
     }
 

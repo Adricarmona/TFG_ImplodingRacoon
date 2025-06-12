@@ -2,6 +2,7 @@ package com.Tfg.juego.ui.usables
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,8 +20,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,7 +38,10 @@ import coil.compose.AsyncImage
 import com.Tfg.juego.R
 import com.Tfg.juego.model.retrofit.dto.userPerfil
 import com.Tfg.juego.model.servicios.getDatosPerfil
+import com.Tfg.juego.model.webSockets.MyWebSocketListener
+import com.Tfg.juego.model.webSockets.WebSocketManager
 import com.auth0.android.jwt.JWT
+import kotlinx.coroutines.awaitAll
 
 /**
  *
@@ -117,12 +123,24 @@ fun usuarioIniciado(
     val nombre = jwt.getClaim("name").asString()
     val id = jwt.getClaim("id").asInt()
 
+    val webSocketManager = remember { WebSocketManager() }
+    var receivedMessages by remember { mutableStateOf(listOf<String>()) }
+    val listener = remember {
+        MyWebSocketListener { msg ->
+            receivedMessages = receivedMessages + msg
+            Log.d("Mensaje", receivedMessages.toString())
+        }
+    }
+
     val perfilState = remember { mutableStateOf<userPerfil?>(null) }
 
     LaunchedEffect(id) {
         try {
             val datosPerfil = id?.let { getDatosPerfil(it) } // Llamada a la función suspend
             perfilState.value = datosPerfil
+            if (token != null){
+                webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unirseMesa">Unirse a una mesa</string>
-    <string name="ajustes">Settings</string>
+    <string name="ajustes">Ajustes</string>
     <string name="sobre_nosotros">Sobre nosotros</string>
     <string name="registrar">Registrarse</string>
     <string name="iniciar_sesion">Iniciar sesion</string>

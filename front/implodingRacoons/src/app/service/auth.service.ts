@@ -5,8 +5,6 @@ import { AuthResponse } from '../models/auth-response';
 import { Result } from '../models/result';
 import { jwtDecode } from 'jwt-decode';
 import { AuthRegister } from '../models/auth-register';
-import { lastValueFrom, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

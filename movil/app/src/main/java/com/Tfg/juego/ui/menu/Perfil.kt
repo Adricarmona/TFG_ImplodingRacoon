@@ -134,7 +134,7 @@ fun perfil(
                         onClick = { onAmigosClick() }
                     )
 
-                    val urlPerfil = "https://www.youtube.com/watch?v=Z7VHSR5Kwd0" // Cambia por la URL real
+                    val urlPerfil = "https://imploding-racoons.vercel.app/wiki/perfil/"+perfil?.id // Cambia por la URL real
                     val annotatedString = buildAnnotatedString {
                         withLink(
                             link = LinkAnnotation.Url(urlPerfil),

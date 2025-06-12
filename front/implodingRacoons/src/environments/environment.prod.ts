@@ -1,5 +1,4 @@
 export const environment = {
-    apiUrl: 'https://implodingracoons.tryasp.net/',
-    socketUrl: 'https://implodingracoons.tryasp.net/WebSocket',
-
+    apiUrl: 'http://localhost:5097/',
+    socketUrl: 'http://localhost:5097/WebSocket',
 };

@@ -75,6 +75,8 @@ namespace implodingRacoon.Services.WebSocketService
             
             string mensageToNotify = JsonSerializer.Serialize(messageToNotify);
 
+            newHandler.SendAsync(mensageToNotify);
+
             // Enviamos un mensaje personalizado al nuevo usuario y otro al resto
             foreach (WebSocketHandler handler in handlers)
             {
@@ -137,7 +139,7 @@ namespace implodingRacoon.Services.WebSocketService
              *  Mesas de partidas
              */
 
-            /*
+            
             List<Game> mesas = Games.mesas();
 
             foreach (WebSocketHandler wsHandler in handlers)
@@ -146,28 +148,28 @@ namespace implodingRacoon.Services.WebSocketService
                 foreach (Game mesa in mesas)
                 {
 
-                    foreach (UserGame userGame in mesa.cogerUsuariosMesa())
+                    foreach (UserGame userGame in mesa.cogerUsuariosMesa().ToList())
                     {
                         if (userGame == wsHandler.Usuario)
                         {
-                            if (mesa.quitarUsuarioMesa(userGame) == "funciono")
-                            {
-                                tasks.Add(wsHandler.SendAsync("Usuario desconectado: " + userGame.Id + " Con id del ws:" + disconnectedHandler.Id));
-                            }
-                            else
-                            {
-                                 wsHandler.SendAsync("Usuario no encontrado: " + userGame.Id + " Con id del ws:" + disconnectedHandler.Id);
-                            }
-
+                            mesa.quitarUsuarioMesa(userGame);
 
                         }
                     }
 
                 }
 
+                JsonWebsoket messageToEnviar = new JsonWebsoket
+                {
+                    type = 3,
+                    message = true.ToString()
+                };
+                string mensageEnviar = JsonSerializer.Serialize(messageToEnviar);
+
+                wsHandler.SendAsync(mensageEnviar);
 
             }
-            */
+           
 
             // Esperamos a que todas las tareas de envío de mensajes se completen
             await Task.WhenAll(tasks);

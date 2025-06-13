@@ -25,6 +25,7 @@ import com.Tfg.juego.ui.usables.BotonCustom
 import com.Tfg.juego.ui.usables.textoLoginYRegistro
 import androidx.core.content.edit
 import com.Tfg.juego.model.servicios.decodificarJWT
+import com.Tfg.juego.model.webSockets.WebSocketManager
 import kotlinx.coroutines.launch
 
 @Composable
@@ -38,6 +39,7 @@ fun perfil(
     val jwt = decodificarJWT(token.toString())
     val userId = jwt?.getClaim("id")?.asInt() ?: 1
     val nombre = jwt?.getClaim("name")?.asString() ?: "Usuario"
+    val webSocketManager = remember { WebSocketManager() }
 
     // Estados locales
     var perfil by remember { mutableStateOf<userPerfil?>(null) }
@@ -163,6 +165,7 @@ fun perfil(
                 text = stringResource(R.string.desloguear),
                 onClick = {
                     sharedPreferences.edit { putString("token", "") }
+                    webSocketManager.close()
                     onMenuClick()
                 }
             )

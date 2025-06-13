@@ -43,7 +43,7 @@ fun menuInicial(
     val context = LocalContext.current
     //val BASE_URL = "http://10.0.2.2:5097/" // con http
     //val BASE_URL = "https://10.0.2.2:7089/" // con https
-    val BASE_URL = "https://implodingracoons.tryasp.net/"
+    val BASE_URL = "wss://implodingracoons.tryasp.net/"
 
     sharedPreferences.edit { putString("baseUrl", BASE_URL) }
 

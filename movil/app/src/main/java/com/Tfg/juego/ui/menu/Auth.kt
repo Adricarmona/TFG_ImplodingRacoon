@@ -168,6 +168,18 @@ fun registro(
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
 
+    // WebSockets
+    val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
+    val webSocketManager = remember { WebSocketManager() }
+    var receivedMessages by remember { mutableStateOf(listOf<String>()) }
+    val listener = remember {
+        MyWebSocketListener { msg ->
+            receivedMessages = receivedMessages + msg
+            Log.d("Mensaje", receivedMessages.toString())
+        }
+    }
+
+
     // Dialogo de carga
     var showDialog = remember { mutableStateOf(false) }
     dialogoCargando(showDialog)
@@ -240,6 +252,7 @@ fun registro(
 
                         if ( token != null && !token.equals("Error generating user")) {
                             showDialog.value = false
+                            webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
                             onMenuClick()
 
                         } else if(token.equals("Error generating user")) {

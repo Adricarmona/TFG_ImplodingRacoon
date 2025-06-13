@@ -19,14 +19,19 @@ import com.Tfg.juego.ui.navigation.Navigation
 import com.Tfg.juego.ui.navigation.menu
 import com.Tfg.juego.ui.theme.JuegoTheme
 import java.util.prefs.Preferences
+import androidx.core.content.edit
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val sharedPref = this.getSharedPreferences("AjustesImplodingRacoon", Context.MODE_PRIVATE)
-        val sharedPreferences = this.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("AjustesImplodingRacoon", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("tokenusuario", MODE_PRIVATE)
+
+        if (sharedPreferences.getString("baseUrl", null).isNullOrEmpty()) {
+            sharedPreferences.edit { putString("baseUrl", "wss://implodingracoons.tryasp.net/") }
+        }
 
         val tema = sharedPref.getString("tema", "System")
 
@@ -41,17 +46,21 @@ class MainActivity : ComponentActivity() {
             modoOscuro = null;
 
         setContent {
+            val BASE_URL = sharedPreferences.getString("baseUrl", "") + "WebSocket"
             val webSocketManager = remember { WebSocketManager() }
             var receivedMessages by remember { mutableStateOf(listOf<String>()) }
             val listener = remember {
                 MyWebSocketListener { msg ->
                     receivedMessages = receivedMessages + msg
-                    Log.d("Mensaje", receivedMessages.toString())
+                    Log.d("Mensajessss", receivedMessages.toString())
                 }
             }
 
-            if (token != null){
-                webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
+            Log.d("Token", token + "")
+
+            if (token != ""){
+                Log.d("WebSocketURL", BASE_URL)
+                webSocketManager.connect(BASE_URL, listener)
             }
             JuegoTheme(
                 darkTheme = modoOscuro ?: isSystemInDarkTheme(),

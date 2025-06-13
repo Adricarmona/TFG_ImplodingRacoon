@@ -1,5 +1,7 @@
 package com.Tfg.juego.ui.menu
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -46,6 +48,7 @@ fun login(
     val context = LocalContext.current
 
     // ws
+    val sharedPreferences: SharedPreferences = LocalContext.current.getSharedPreferences("tokenusuario", Context.MODE_PRIVATE)
     val webSocketManager = remember { WebSocketManager() }
     var message by remember { mutableStateOf("") }
     var receivedMessages by remember { mutableStateOf(listOf<String>()) }
@@ -127,7 +130,7 @@ fun login(
 
                         } else {
                             showDialog.value = false
-                            webSocketManager.connect("wss://10.0.2.2:7089/WebSocket", listener)
+                            webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
                             //webSocketManager.send("{\"TypeMessage\": \"join\",\"Identifier\": \"1\",\"Identifier2\": \"1\"}")
                             onMenuClick()
                         }

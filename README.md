@@ -30,4 +30,5 @@ Diagrama Entidad Relacion:
 [Link del video de la revision del proyecto (29/09/25)](https://drive.google.com/file/d/1wlLvvplchkN1s8ChJj8qEuTx1m5q71qR/view?usp=sharing) -
 [Link apk android](https://github.com/Adricarmona/TFG_ImplodingRacoon/blob/511261d4fe836438d188c5890d3ad6c347ff3ded/recursosReadme/app-debug_final.apk) -
 [Link web desplegada](https://imploding-racoons.vercel.app/) 
- 
+
+[Link camba](https://www.canva.com/design/DAGqPh8ml8A/f-I0eIjJ8OnQC5dttjoTUQ/view?utm_content=DAGqPh8ml8A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb1e7c483d1)

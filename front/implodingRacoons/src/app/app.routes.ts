@@ -13,6 +13,7 @@ import { CrearMesaComponent } from './pages/menu/crear-mesa/crear-mesa.component
 import { UnirseComponent } from './pages/menu/unirse/unirse.component';
 import { MesaComponent } from './pages/mesa/mesa.component';
 import { SeleccionarCartasComponent } from './pages/menu/ajustes/seleccionar-cartas/seleccionar-cartas.component';
+import { ManoComponent } from './pages/mesa/mano/mano.component';
 
 
 export const routes: Routes = [
@@ -29,4 +30,5 @@ export const routes: Routes = [
     {path: 'wiki/perfil/:id', component: PerfilComponent, canActivate:[redirectionGuardGuard]},
     {path: 'wiki/anadir', component: AnadirComponent, canActivate:[redirectionGuardGuard]},
     {path: 'partida/:id', component: MesaComponent, canActivate:[redirectionGuardGuard]},
+    {path: 'partida_mano/:id', component: ManoComponent, canActivate:[redirectionGuardGuard]}
 ];

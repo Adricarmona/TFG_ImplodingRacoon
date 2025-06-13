@@ -19,7 +19,7 @@
                 <h3>Unirse Mesa</h3>
 
                 <div id="separacion">
-                    <input type="search" name="contrasenia" id="CodigoMesa" placeholder="Codigo Mesa">
+                    <input type="search" name="contrasenia" id="CodigoMesa" placeholder="Codigo Mesa" [(ngModel)]="codigoMesa" [ngModelOptions]="{standalone: true}">
                 </div>
 
                 <div id="separacion">
@@ -32,7 +32,7 @@
                 </div>
 
                 <div id="separacion">
-                    <button id="totalAncho">Entrar</button>
+                    <button id="totalAncho" (click)="unirseSala()">Entrar</button>
                 </div>
 
                 <div id="separacion">

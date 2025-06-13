@@ -43,6 +43,7 @@ export class CrearMesaComponent {
   restarTamanioSala() { this.tamanioSala-- }
 
   crearSala() {
+    
     const enviarJson: WebsocketsEnviar = {
       TypeMessage: "create",
       Identifier: this.idHost.toString(),

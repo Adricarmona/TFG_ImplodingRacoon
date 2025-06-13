@@ -123,14 +123,14 @@ fun usuarioIniciado(
     val nombre = jwt.getClaim("name").asString()
     val id = jwt.getClaim("id").asInt()
 
-    val webSocketManager = remember { WebSocketManager() }
-    var receivedMessages by remember { mutableStateOf(listOf<String>()) }
-    val listener = remember {
-        MyWebSocketListener { msg ->
-            receivedMessages = receivedMessages + msg
-            Log.d("Mensaje", receivedMessages.toString())
-        }
-    }
+    //val webSocketManager = remember { WebSocketManager() }
+    //var receivedMessages by remember { mutableStateOf(listOf<String>()) }
+    //val listener = remember {
+    //    MyWebSocketListener { msg ->
+    //        receivedMessages = receivedMessages + msg
+    //        Log.d("Mensaje", receivedMessages.toString())
+    //    }
+    //}
 
     val perfilState = remember { mutableStateOf<userPerfil?>(null) }
 
@@ -138,9 +138,9 @@ fun usuarioIniciado(
         try {
             val datosPerfil = id?.let { getDatosPerfil(it) } // Llamada a la función suspend
             perfilState.value = datosPerfil
-            if (token != null){
-                webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
-            }
+            //if (token != null){
+            //    webSocketManager.connect(sharedPreferences.getString("baseUrl", "") + "WebSocket", listener)
+            //}
         } catch (e: Exception) {
             e.printStackTrace()
         }
